@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkel | Mario Doe-Het-Zelf</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --mario-orange: #E36C33; --mario-blue: #1C3B5E; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; }
+        header { background: white; border-bottom: 2px solid var(--mario-blue); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 40px; }
+        nav a { text-decoration: none; color: var(--mario-blue); font-weight: 700; margin-left: 15px; }
+        .content { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .box { padding: 30px; background: #f9f9f9; border-left: 5px solid var(--mario-orange); }
+        .parcel { background: var(--mario-blue); color: white; padding: 20px; margin-top: 30px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+<header>
+    <img src="1765121277157.jpg" class="logo">
+    <nav><a href="index.html">Home</a><a href="winkel.html">Winkel</a><a href="renovatie.html">Renovatie</a><a href="contact.html">Contact</a></nav>
+</header>
+<div class="content">
+    <h1>Onze Winkel in Berchem</h1>
+    <div class="grid">
+        <div class="box"><h3>Verf & Kleur</h3><p>Verdeler van Levis, Trimetal & AkzoNobel. Mengmachine aanwezig.</p></div>
+        <div class="box"><h3>Elektriciteit</h3><p>Niko Verdeelpunt, Twilight verlichting en meer.</p></div>
+        <div class="box"><h3>Sanitair</h3><p>Badkamermeubels en radiatoren op maat.</p></div>
+    </div>
+    <div class="parcel">
+        <h2>📦 Officieel Afhaalpunt</h2>
+        <p>PostNL & Mondial Relay afhaalpunt. Breng of haal uw pakketten bij ons op!</p>
+    </div>
+</div>
+</body>
+</html>
