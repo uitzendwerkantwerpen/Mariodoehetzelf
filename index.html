@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario | Doe-Het-Zelf & Renovatie Berchem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E36C33; /* Oranje uit je logo */
+            --secondary: #1C3B5E; /* Blauw uit je logo */
+            --bg-color: #f8f9fa;
+            --surface: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header & Logo */
+        header {
+            background-color: var(--surface);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--secondary);
+            font-size: 24px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Container voor de content */
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Flutter Style Cards */
+        .card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #f0f4f8;
+            color: var(--secondary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: var(--text-light);
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(227, 108, 51, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="14968.jpg" alt="Mario Doe-Het-Zelf Logo" class="logo">
+    <h1>Welkom bij Mario</h1>
+    <p class="subtitle">Jouw vakman in Berchem</p>
+</header>
+
+<div class="container">
+    
+    <div class="card">
+        <h2 class="card-title">🛒 Doe-Het-Zelf & Huishoud</h2>
+        <p>In onze winkel in Berchem vind je alles voor je woning, van de kleinste schroef tot professioneel materiaal. Wij staan klaar met persoonlijk en vakkundig advies.</p>
+        
+        <ul>
+            <li><strong>Verf & Kleur:</strong> Officieel verdeler van AkzoNobel, Levis en Trimetal. We hebben een professionele verfmengmachine om elke gewenste kleur ter plekke te maken.</li>
+            <li><strong>Elektriciteit & Verlichting:</strong> Erkend Niko verdeelpunt (wij hebben álles van Niko). Daarnaast vind je bij ons een prachtig aanbod Twilight verlichting en lampen.</li>
+            <li><strong>Huishoudelijke spullen:</strong> Een ruim assortiment voor alledaags gebruik.</li>
+        </ul>
+
+        <div class="tag-container">
+            <span class="tag">Levis</span>
+            <span class="tag">Trimetal</span>
+            <span class="tag">Niko</span>
+            <span class="tag">Twilight</span>
+            <span class="tag">Verfmengmachine</span>
+        </div>
+    </div>
+
+    <div class="card" style="border-top-color: var(--secondary);">
+        <h2 class="card-title">🛠️ Renovatiebedrijf</h2>
+        <p>Naast onze winkel zijn wij een volwaardig renovatiebedrijf. Van dat ene kleine klusje dat maar blijft liggen tot een volledige totaalrenovatie: ons team fixeert het vlekkeloos.</p>
+        
+        <ul>
+            <li><strong>Ruwbouw & Buiten:</strong> Dakwerken, gevelrenovaties en structurele ruwbouw.</li>
+            <li><strong>Binnenafwerking:</strong> Strakke binnenafwerking en totale badkamerrenovaties.</li>
+            <li><strong>Gyproc Specialiteit:</strong> Wij zijn absolute specialisten in het plaatsen en afwerken van Gyproc wanden en plafonds.</li>
+        </ul>
+
+        <div class="tag-container">
+            <span class="tag">Totaalrenovatie</span>
+            <span class="tag">Badkamers</span>
+            <span class="tag">Gyproc Specialist</span>
+            <span class="tag">Dak & Gevel</span>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="#" class="contact-btn">Kom langs in de winkel!</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>📍 Gevestigd in Berchem | Website in volle ontwikkeling</p>
+    <p>&copy; 2026 Mario Doe-Het-Zelf. Alle rechten voorbehouden.</p>
+</footer>
+
+</body>
+</html>
