@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
-    
-    <title>Mario | Premium Doe-Het-Zelf & Renovatie Berchem</title>
+    <title>Mario DHZ Specialist & Totaalrenovaties</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,296 +13,297 @@
     <style>
         :root {
             --mario-orange: #E36C33;
-            --mario-navy: #1A202C; 
-            --card-glass: rgba(255, 255, 255, 0.95);
+            --mario-dark: #1A202C;
+            --mario-light: #F7FAFC;
+            --mario-grey: #4A5568;
+            --mario-border: #E2E8F0;
         }
 
+        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #ffffff; color: var(--mario-dark); overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
 
-        body { 
-            background-color: #F7FAFC; 
-            color: var(--mario-navy); 
-            overflow-x: hidden; 
-            -webkit-font-smoothing: antialiased;
+        /* --- AI CHATBOT KNOP --- */
+        .ai-chat-btn {
+            position: fixed; bottom: 25px; right: 25px;
+            background: var(--mario-dark); color: white;
+            padding: 15px 25px; border-radius: 30px;
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 10000; cursor: pointer; text-decoration: none;
+            border: 2px solid var(--mario-orange); transition: all 0.3s;
         }
-
-        /* --- Master Animaties --- */
-        @keyframes floatAnim {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-        @keyframes scaleInGlow {
-            from { opacity: 0; transform: scale(0.9); box-shadow: 0 0 0 rgba(227, 108, 51, 0); }
-            to { opacity: 1; transform: scale(1); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5); }
-        }
-        @keyframes heartbeat {
-            from { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .animate-float { animation: floatAnim 6s ease-in-out infinite; }
-        .animate-scale-glow { animation: scaleInGlow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .animate-heartbeat { animation: heartbeat 2s infinite; }
-
-        /* --- Header & Nav (LOGO LINKS BOVEN) --- */
-        header {
-            position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%;
-            background: rgba(26, 32, 44, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Mario Logo Links Boven */
-        .logo-frame {
-            display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
-            filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5));
-            text-decoration: none;
-        }
-        .logo-frame img { height: 35px; width: auto; display: block; border-radius: 4px; }
-        .logo-text { color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
-
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a {
-            color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px;
-            letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .nav-links a i { font-size: 16px; color: var(--mario-orange); }
-        .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
-
-        .hamburger { display: none; color: white; font-size: 30px; cursor: pointer; }
-
-        /* --- Hero: ZWEVENDE MERKEN-ORB --- */
-        .hero {
-            position: relative; padding: 120px 5% 80px; min-height: 85vh;
-            display: flex; align-items: center; justify-content: center;
-            background-color: var(--mario-navy);
-            overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute; inset: 0;
-            background: radial-gradient(circle at center, rgba(30, 60, 90, 0.5) 0%, var(--mario-navy) 100%);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative; z-index: 3; text-align: center; color: white;
-            max-width: 1000px; padding: 0 20px;
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        .brands-orb-container {
-            position: relative; width: 100%; max-width: 500px; height: 350px;
-            display: flex; justify-content: center; align-items: center; margin-bottom: 40px;
-        }
-        .hero-center-logo {
-            width: 100%; max-width: 320px; height: auto; z-index: 5; position: relative;
-            filter: drop-shadow(0 15px 35px rgba(0,0,0,0.5)); border-radius: 12px;
-        }
-        .brand-satelite {
-            position: absolute; background: white; border-radius: 50%; padding: 10px;
-            width: 75px; height: 75px; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-border); z-index: 10;
-        }
-        .brand-satelite img { width: 85%; height: auto; object-fit: contain; }
+        .ai-chat-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(227,108,51,0.4); }
+        .ai-chat-btn i { color: var(--mario-orange); font-size: 22px; animation: pulse 2s infinite; }
         
-        .bs-1 { top: -20px; left: 0; animation-delay: 0s; }
-        .bs-2 { top: -20px; right: 0; animation-delay: 1.5s; }
-        .bs-3 { bottom: 0; left: -20px; animation-delay: 3s; }
-        .bs-4 { bottom: 0; right: -20px; animation-delay: 4.5s; }
-        .bs-5 { top: 50%; left: -60px; transform: translateY(-50%); animation-delay: 0.75s; }
-        .bs-6 { top: 50%; right: -60px; transform: translateY(-50%); animation-delay: 2.25s; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
 
-        .hero-geometric-separator {
-            width: 100%; max-width: 400px; height: 2px;
-            background: linear-gradient(90deg, rgba(227,108,51,0) 0%, var(--mario-orange) 50%, rgba(227,108,51,0) 100%);
-            margin: 20px 0;
-        }
+        /* --- TOP PROMO BAR --- */
+        .promo-bar { background-color: var(--mario-orange); color: white; text-align: center; padding: 10px 15px; font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; z-index: 100; position: relative; }
 
-        .hero-subtitle {
-            font-size: clamp(16px, 2.5vw, 20px); font-weight: 400; letter-spacing: 1px;
-            color: #E2E8F0; margin-bottom: 40px; max-width: 700px; margin-inline: auto; line-height: 1.6;
-        }
+        /* --- MAIN HEADER MET WINKELWAGEN --- */
+        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: white; border-bottom: 1px solid var(--mario-border); position: sticky; top: 0; z-index: 99; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .logo-box { display: flex; flex-direction: column; text-decoration: none; }
+        .logo-top { font-size: 24px; font-weight: 900; color: var(--mario-dark); letter-spacing: -1px; text-transform: uppercase; }
+        .logo-top span { color: var(--mario-orange); }
+        .logo-sub { font-size: 10px; font-weight: 700; color: var(--mario-grey); letter-spacing: 1.5px; text-transform: uppercase; margin-top: -2px; }
+        
+        .header-actions { display: flex; align-items: center; gap: 15px; }
+        .cart-btn { background-color: #8C4B31; color: white; border: none; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
+        .cart-btn:hover { background-color: var(--mario-dark); }
 
-        .btn {
-            display: inline-block; padding: 18px 40px; font-weight: 800; font-size: 14px;
-            text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
-            border-radius: 8px; transition: all 0.3s;
-        }
-        .btn-primary { background: var(--mario-orange); color: white; box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3); }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5); background: #d15a22; }
+        /* --- NAVIGATIE --- */
+        .cat-nav { display: flex; justify-content: center; gap: 30px; padding: 12px 5%; background: var(--mario-light); border-bottom: 1px solid var(--mario-border); overflow-x: auto; white-space: nowrap; }
+        .cat-nav a { text-decoration: none; color: var(--mario-grey); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+        .cat-nav a:hover { color: var(--mario-orange); }
 
-        /* --- Categorie Kaarten (Masterteksten) --- */
-        .services-section {
-            position: relative; z-index: 10; max-width: 1300px; margin: -60px auto 80px; padding: 0 20px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
-        }
-        .glass-card {
-            background: white; border: 1px solid var(--mario-border); border-radius: 20px;
-            padding: 40px 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); transition: all 0.4s;
-            display: flex; flex-direction: column; align-items: flex-start;
-        }
-        .glass-card:hover { transform: translateY(-10px); border-color: var(--mario-orange); box-shadow: 0 30px 50px rgba(227,108,51,0.1); }
-        .glass-card i { font-size: 40px; color: var(--mario-orange); margin-bottom: 25px; }
-        .glass-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; color: var(--mario-navy); }
-        .glass-card p { font-size: 15px; color: var(--mario-grey); line-height: 1.7; font-weight: 500; margin-bottom: 25px; }
-        .glass-card p strong { color: var(--mario-orange); font-weight: 800; }
-        .btn-card {
-            background: var(--mario-navy); color: white; border-radius: 6px; padding: 12px 20px;
-            font-size: 13px; font-weight: 700; text-transform: uppercase; text-decoration: none;
-            transition: 0.3s; margin-top: auto;
-        }
-        .glass-card:hover .btn-card { background: var(--mario-orange); }
+        /* --- HERO SECTION --- */
+        .hero { background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); padding: 60px 5%; display: flex; justify-content: center; border-bottom: 1px solid var(--mario-border); }
+        .hero-container { display: flex; gap: 50px; max-width: 1300px; width: 100%; align-items: center; }
+        
+        .hero-left { flex: 1; }
+        .hero-card { background: white; padding: 45px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+        .hero-tag { color: var(--mario-orange); font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .hero-card h1 { font-size: 42px; font-weight: 900; color: var(--mario-dark); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero-card h1 span { color: var(--mario-orange); }
+        .hero-card p { font-size: 16px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 30px; }
+        .btn-orange { background: var(--mario-orange); color: white; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 800; font-size: 14px; text-transform: uppercase; display: inline-block; transition: all 0.3s; }
+        .btn-orange:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); background: #cc5a28; }
 
-        /* --- Map & Reviews --- */
-        .info-section { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
-        .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 5px solid white; height: 400px; }
-        .reviews-container { display: flex; flex-direction: column; gap: 20px; }
-        .reviews-header { font-size: 24px; font-weight: 800; text-transform: uppercase; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .reviews-header i { color: #F59E0B; }
-        .review-card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid var(--mario-border); transition: 0.3s; }
-        .review-card:hover { border-color: var(--mario-orange); transform: translateX(5px); }
-        .review-stars { color: #F59E0B; margin-bottom: 10px; font-size: 14px; }
-        .review-text { font-size: 15px; color: var(--mario-grey); line-height: 1.6; font-style: italic; margin-bottom: 15px; }
-        .review-author { font-size: 13px; font-weight: 700; color: var(--mario-navy); text-transform: uppercase; }
+        /* --- HERO RIGHT: LOGO --- */
+        .hero-right { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .hero-big-logo { width: 100%; max-width: 380px; height: auto; mix-blend-mode: multiply; margin-bottom: 30px; }
+        
+        .construction-box { background: white; padding: 25px; border-radius: 12px; border-left: 5px solid var(--mario-orange); box-shadow: 0 10px 25px rgba(0,0,0,0.06); width: 100%; max-width: 450px; border: 1px solid var(--mario-border); }
+        .construction-box h3 { font-size: 18px; color: var(--mario-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-weight: 800; }
+        .construction-box h3 i { color: var(--mario-orange); }
+        .construction-box p { font-size: 14px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 12px; }
 
-        /* --- Footer --- */
-        footer { background-color: var(--mario-navy); color: white; padding: 60px 5%; }
-        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 800; }
-        .footer-col p { color: #CBD5E1; font-size: 14px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .footer-col p i { color: white; width: 20px; font-size: 16px; }
-        .big-hours { font-size: 18px; font-weight: 800; color: white; margin-top: 15px; background: rgba(255,255,255,0.1); padding: 12px 15px; border-radius: 8px; display: inline-block; }
+        /* --- DE LOPENDE BAND --- */
+        .partner-banner { background: white; padding: 30px 0; border-bottom: 1px solid var(--mario-border); overflow: hidden; white-space: nowrap; display: flex; align-items: center; }
+        .partner-track { display: inline-flex; animation: scrollBanner 30s linear infinite; gap: 60px; padding: 0 30px; align-items: center; }
+        .partner-track img { height: 40px; max-width: 120px; object-fit: contain; filter: grayscale(100%) opacity(0.7); transition: all 0.3s; }
+        .partner-track img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+        @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- Chatbot Knop --- */
-        .chat-btn {
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
-            border-radius: 50%; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 10000; text-decoration: none; font-size: 30px;
-        }
+        /* --- CATEGORIE DETAILS --- */
+        .category-section { padding: 60px 5%; background: var(--mario-light); max-width: 1400px; margin: 0 auto; }
+        .section-title { font-size: 32px; font-weight: 900; color: var(--mario-dark); margin-bottom: 40px; text-align: center; letter-spacing: -0.5px; text-transform: uppercase; }
+        .section-title span { color: var(--mario-orange); }
+
+        .cat-card { background: white; border: 1px solid var(--mario-border); border-radius: 16px; padding: 35px; margin-bottom: 30px; display: flex; gap: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: all 0.3s; scroll-margin-top: 100px; }
+        .cat-card:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 15px 35px rgba(227, 108, 51, 0.1); }
+        .cat-icon { font-size: 35px; color: var(--mario-orange); background: #FFF5F0; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 16px; flex-shrink: 0; }
+        .cat-info { flex: 1; }
+        .cat-info h3 { font-size: 22px; font-weight: 800; color: var(--mario-dark); margin-bottom: 12px; text-transform: uppercase; }
+        .cat-info p { color: var(--mario-grey); line-height: 1.6; margin-bottom: 20px; font-size: 15px; }
+        
+        .brand-logo-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 25px; align-items: center; }
+        .brand-logo-grid img { height: 35px; max-width: 90px; object-fit: contain; background: white; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--mario-border); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .brand-tag { background: var(--mario-dark); color: white; padding: 8px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; height: 35px; }
+
+        .wip-badge { background: #FFF5F5; color: #C53030; padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; border-left: 4px solid #E53E3E; width: 100%; }
+
+        /* --- ECHTE GOOGLE REVIEWS --- */
+        .reviews-section { padding: 60px 5%; background: white; border-top: 1px solid var(--mario-border); border-bottom: 1px solid var(--mario-border); }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .review-card { background: var(--mario-light); padding: 30px; border-radius: 16px; border: 1px solid var(--mario-border); display: flex; flex-direction: column; }
+        .review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .reviewer-info { display: flex; align-items: center; gap: 12px; }
+        .reviewer-avatar { width: 40px; height: 40px; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px; text-transform: uppercase; }
+        .reviewer-name { font-weight: 800; color: var(--mario-dark); font-size: 14px; }
+        .review-date { font-size: 12px; color: var(--mario-grey); }
+        /* Het originele Google logo */
+        .google-icon { width: 20px; height: 20px; }
+        .stars { color: #F59E0B; font-size: 15px; margin-bottom: 15px; letter-spacing: 2px; }
+        .review-card p { color: var(--mario-dark); font-size: 14px; line-height: 1.6; font-style: italic; }
+
+        /* --- GOOGLE MAPS SECTIE --- */
+        .map-section { padding: 60px 5%; background: var(--mario-light); text-align: center; }
+        .map-container { max-width: 1200px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 4px solid white; height: 400px; }
+
+        /* --- FOOTER --- */
+        .main-footer { background-color: var(--mario-dark); color: white; padding: 60px 5% 30px; }
+        .footer-content { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; }
+        .footer-col p { color: #A0AEC0; font-size: 14px; line-height: 1.8; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; color: #718096; font-size: 12px; }
 
         @media (max-width: 900px) {
-            header { padding: 15px 5%; }
-            .hamburger { display: block; }
-            .nav-links {
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: rgba(26, 32, 44, 0.98); backdrop-filter: blur(20px);
-                flex-direction: column; padding: 0; height: 0; overflow: hidden; transition: height 0.4s ease;
-            }
-            .nav-links.active { height: 350px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-            .nav-links a { display: block; padding: 15px 5%; text-align: center; }
-            .hero { padding-top: 100px; }
-            .brands-orb-container { height: 280px; }
-            .hero-center-logo { max-width: 200px; }
-            .brand-satelite { width: 55px; height: 55px; padding: 8px; }
-            .bs-5 { left: -30px; } .bs-6 { right: -30px; }
-            .info-section { grid-template-columns: 1fr; }
-            .map-frame { height: 300px; }
-            .chat-btn { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
+            .hero-container { flex-direction: column; }
+            .hero-right { width: 100%; margin-top: 20px; }
+            .hero-card h1 { font-size: 34px; }
+            .cat-card { flex-direction: column; padding: 25px; gap: 20px; }
+            .footer-content { flex-direction: column; gap: 40px; }
+            .map-container { height: 300px; }
+            .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo-frame">
-            <img src="mario-logo.jpg" alt="Mario">
-            <div class="logo-text">Doe-Het-Zelf & Renovatie</div>
-        </a>
+    <a href="#" class="ai-chat-btn" onclick="alert('AI Chatbot integratie wordt hier geladen.')">
+        <i class="fas fa-robot"></i> Chat met AI
+    </a>
 
-        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-            <i class="fas fa-bars"></i>
+    <div class="promo-bar">Gratis levering vanaf €50 | Vóór 22:00 besteld, morgen klussen</div>
+
+    <header class="main-header">
+        <a href="index.html" class="logo-box">
+            <div class="logo-top">MARIO <span>DHZ</span></div>
+            <div class="logo-sub">Specialist</div>
+        </a>
+        <div class="header-actions">
+            <button class="cart-btn"><i class="fas fa-shopping-cart"></i> €0.00</button>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a></li>
-            <li><a href="renovatie.html"><i class="fas fa-drafting-compass"></i>Renovaties</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
     </header>
 
+    <nav class="cat-nav">
+        <a href="#elektriciteit">Elektriciteit</a>
+        <a href="#sanitair">Sanitair</a>
+        <a href="#badkamermeubels">Badkamermeubels</a>
+        <a href="#verf">Verf & Wand</a>
+        <a href="#gereedschap">Gereedschap</a>
+    </nav>
+
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="brands-orb-container animate-scale-glow">
-                <img src="mario-logo.jpg" alt="Mario Logo" class="hero-center-logo">
-                <div class="brand-satelite bs-1 animate-float"><img src="final/niko.jpg" alt="Niko"></div>
-                <div class="brand-satelite bs-2 animate-float"><img src="final/levis.jpg" alt="Levis"></div>
-                <div class="brand-satelite bs-3 animate-float"><img src="final/bticino.jpg" alt="Bticino"></div>
-                <div class="brand-satelite bs-4 animate-float"><img src="final/stanley.jpg" alt="Stanley"></div>
-                <div class="brand-satelite bs-5 animate-float"><img src="final/versa.jpg" alt="Versa"></div>
-                <div class="brand-satelite bs-6 animate-float"><img src="final/knauf.jpg" alt="Knauf"></div>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-card">
+                    <span class="hero-tag"><i class="fas fa-star"></i> Dé Doe-Het-Zelf Specialist</span>
+                    <h1>Van fundering tot de <span>laatste</span> schroef.</h1>
+                    <p>Kwaliteitsmateriaal voor elektriciteit, sanitair en interieur. Direct uit voorraad leverbaar voor de professional en veeleisende doe-het-zelver.</p>
+                    <a href="winkel.html" class="btn-orange">Shop Nu Het Assortiment</a>
+                </div>
             </div>
-            
-            <div class="hero-geometric-separator"></div>
-            <p class="hero-subtitle">Premium totaalrenovaties en de meest complete doe-het-zelf speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service in Berchem.</p>
-            <a href="winkel.html" class="btn btn-primary">Ontdek de zaak</a>
+
+            <div class="hero-right">
+                <img src="mario-logo.jpg" alt="Mario Berchem" class="hero-big-logo">
+                <div class="construction-box">
+                    <h3><i class="fas fa-tools"></i> Digitale deuren openen snel</h3>
+                    <p>Achter de schermen bouwen wij aan onze webshop. Binnenkort bestelt u hier ons complete assortiment online.</p>
+                    <div style="color:#48BB78; font-weight: 800; font-size: 13px;"><i class="fas fa-check-circle"></i> Onze fysieke winkel is geopend!</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="services-section">
-        <div class="glass-card">
-            <i class="fas fa-bolt"></i>
-            <h3>Elektriciteit</h3>
-            <p>Ontdek ons uitgebreide assortiment elektriciteitsmaterialen. Als <strong>officieel Niko-verdeler</strong> bieden wij absolute topkwaliteit voor de vakman. A-merken direct uit voorraad leverbaar.</p>
-            <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
-        </div>
-        <div class="glass-card">
-            <i class="fas fa-drafting-compass"></i>
-            <h3>Totaalrenovaties</h3>
-            <p>Volledige ontzorging van uw project. Onze vakmensen leveren strakke afwerking voor <strong>gevels, daken, Gyproc</strong> en complete badkamers. Wij maken uw woondromen werkelijkheid.</p>
-            <a href="renovatie.html" class="btn-card">Onze Projecten</a>
-        </div>
-        <div class="glass-card">
-            <i class="fas fa-paint-roller"></i>
-            <h3>Speciaalzaak</h3>
-            <p>Alles voor de klusser. Van <strong>officieel AkzoNobel & Levis verfmengcenter</strong> (klaar in 5 min) tot high-end sanitair en gereedschap. Ervaar onze ongeëvenaarde productkennis.</p>
-            <a href="winkel.html" class="btn-card">De Winkel</a>
-        </div>
-    </div>
-
-    <div class="info-section">
-        <div class="map-frame">
-            <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073,%20Berchem&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div class="reviews-container">
-            <h4 class="reviews-header"><i class="fas fa-star"></i> 5-Star Reviews</h4>
-            <div class="review-card">
-                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Vakmanschap tot in het kleinste detail! Onze badkamer renovatie is prachtig geworden. Absolute aanrader!"</p>
-                <p class="review-author">- Sarah V., Berchem</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Geweldige service. De verf werd ter plekke gemengd en het kleuradvies was spot-on. De mengmachine is fantastisch!"</p>
-                <p class="review-author">- Peter D., Antwerpen</p>
-            </div>
+    <div class="partner-banner">
+        <div class="partner-track">
+            <img src="final/niko.jpg" alt="Niko">
+            <img src="final/bticino.jpg" alt="Bticino">
+            <img src="final/levis.jpg" alt="Levis">
+            <img src="final/stanley.jpg" alt="Stanley">
+            <img src="final/knauf.jpg" alt="Knauf">
+            <img src="final/pardaen.jpg" alt="Pardaen">
+            <img src="final/polyfilla.jpg" alt="Polyfilla">
+            <img src="final/trimetal.jpg" alt="Trimetal">
+            <img src="final/versa.jpg" alt="Versa">
+            <img src="final/niko.jpg" alt="Niko">
+            <img src="final/bticino.jpg" alt="Bticino">
+            <img src="final/levis.jpg" alt="Levis">
+            <img src="final/stanley.jpg" alt="Stanley">
+            <img src="final/knauf.jpg" alt="Knauf">
+            <img src="final/pardaen.jpg" alt="Pardaen">
+            <img src="final/polyfilla.jpg" alt="Polyfilla">
+            <img src="final/trimetal.jpg" alt="Trimetal">
+            <img src="final/versa.jpg" alt="Versa">
         </div>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Over Mario</h4>
-                <p>Dé premium speciaalzaak en totaalrenovatie partner in Berchem. Wij leveren vakmanschap, topmaterialen en ongeëvenaarde service.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Informatie</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73</p>
-                <p><i class="fas fa-city"></i> 2600 Berchem</p>
-                <p><i class="fas fa-envelope"></i> info@mariodhz.be</p>
-            </div>
-            <div class="footer-col">
-                <h4>Openingstijden</h4>
-                <p>Wij staan elke dag van de week voor u klaar, óók in het weekend.</p>
-                <div class="big-hours"><i class="fas fa-clock"></i> 7/7 OPEN 08:30-19:00</div>
+    <section id="assortiment" class="category-section">
+        <h2 class="section-title">Ontdek ons <span>Assortiment</span></h2>
+
+        <div id="elektriciteit" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-plug"></i></div>
+            <div class="cat-info">
+                <h3>Elektriciteit</h3>
+                <p>Ontdek ons uitgebreide assortiment elektriciteitsmaterialen. Als officieel Niko-verdeler bieden wij absolute topkwaliteit voor de vakman.</p>
+                <div class="brand-logo-grid">
+                    <img src="final/niko.jpg" alt="Niko">
+                    <img src="final/bticino.jpg" alt="Bticino">
+                    <span class="brand-tag">ABB</span>
+                    <span class="brand-tag">Legrand</span>
+                </div>
+                <div class="wip-badge"><i class="fas fa-exclamation-triangle"></i> Webshop in aanbouw. Ruim op voorraad in de winkel.</div>
             </div>
         </div>
-    </footer>
 
-    <a href="https://wa.me/32488334455" class="chat-btn animate-heartbeat"><i class="fab fa-whatsapp"></i></a>
+        <div id="verf" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-paint-roller"></i></div>
+            <div class="cat-info">
+                <h3>Verf & Wand</h3>
+                <p>Geef uw project de perfecte kleur met ons officieel AkzoNobel verkooppunt. Met onze <strong>2026 AkzoNobel Mengmachine</strong> is uw kleur binnen 5 min klaar!</p>
+                <div class="brand-logo-grid">
+                    <img src="final/levis.jpg" alt="Levis">
+                    <img src="final/trimetal.jpg" alt="Trimetal">
+                    <img src="final/polyfilla.jpg" alt="Polyfilla">
+                    <img src="final/knauf.jpg" alt="Knauf">
+                </div>
+                <div class="wip-badge"><i class="fas fa-exclamation-triangle"></i> Webshop in aanbouw. Kleur mengen? Klaar in 5 minuten.</div>
+            </div>
+        </div>
 
-</body>
-</html>
+        <div id="sanitair" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-bath"></i></div>
+            <div class="cat-info">
+                <h3>Sanitair & Badkamers</h3>
+                <p>Creëer uw droombadkamer met premium meubels en leidingen uit de Versa Group. Voor elke sanitaire klus of complete renovatie.</p>
+                <div class="brand-logo-grid">
+                    <img src="final/versa.jpg" alt="Versa">
+                    <span class="brand-tag">Aloni</span>
+                    <span class="brand-tag">Belrad</span>
+                </div>
+                <div class="wip-badge"><i class="fas fa-exclamation-triangle"></i> Webshop in aanbouw. Bekijk de stalen in onze showroom.</div>
+            </div>
+        </div>
+
+        <div id="gereedschap" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-hammer"></i></div>
+            <div class="cat-info">
+                <h3>Gereedschap</h3>
+                <p>Wij leveren high-end tools en bevestigingsmaterialen voor de echte vakman en veeleisende doe-het-zelver. Vertrouw op absolute topmerken.</p>
+                <div class="brand-logo-grid">
+                    <img src="final/stanley.jpg" alt="Stanley">
+                    <img src="final/pardaen.jpg" alt="Pardaen">
+                    <span class="brand-tag">Abus</span>
+                    <span class="brand-tag">Litto</span>
+                </div>
+                <div class="wip-badge"><i class="fas fa-exclamation-triangle"></i> Webshop in aanbouw. Test de kwaliteit in de winkel.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <h2 class="section-title">Uitstekend beoordeeld op <span>Google</span></h2>
+        <div class="review-grid">
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar" style="background:#8b5cf6;">M</div>
+                        <div>
+                            <div class="reviewer-name">Merel Van Den Burg</div>
+                            <div class="review-date">4 dagen geleden</div>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="google-icon">
+                </div>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Fijne winkel, liep toevallig binnen maar had geen geld bij me. Mocht de spullen achter de toonbank leggen en rustig naar huis. Morgen terugkomen was ook goed. Prijzen zijn voordeliger dan ergens anders. Aanraders!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar" style="background:#000000;">V</div>
+                        <div>
+                            <div class="reviewer-name">Veronique Vereyken</div>
+                            <div class="review-date">8 weken geleden</div>
+                        </div>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="google-icon">
+                </div>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
