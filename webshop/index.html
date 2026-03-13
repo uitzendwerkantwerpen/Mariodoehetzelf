@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webshop | Mario DHZ Specialist</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --mario-orange: #E36C33;
+            --mario-orange-glow: rgba(227, 108, 51, 0.5);
+            --mario-dark: #1A202C;
+            --mario-grey: #4A5568;
+            --mario-border: #E2E8F0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #F7FAFC; color: var(--mario-dark); display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* --- HEADER (Zelfde als home) --- */
+        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: white; border-bottom: 1px solid var(--mario-border); box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
+        .logo-box { display: flex; flex-direction: column; text-decoration: none; }
+        .logo-top { font-size: 24px; font-weight: 800; color: var(--mario-dark); letter-spacing: -0.5px; }
+        .logo-top span { color: var(--mario-orange); text-shadow: 0 0 10px rgba(227, 108, 51, 0.3); }
+        .logo-sub { font-size: 10px; font-weight: 600; color: var(--mario-grey); letter-spacing: 1px; text-transform: uppercase; margin-top: -2px; }
+        .btn-terug { background: transparent; border: 2px solid var(--mario-dark); color: var(--mario-dark); padding: 10px 20px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+        .btn-terug:hover { background: var(--mario-dark); color: white; }
+
+        /* --- WEBSHOP CONSTRUCTIE CONTAINER --- */
+        .shop-wip-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 20px; background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); position: relative; overflow: hidden; }
+        
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.5); padding: 60px 50px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 40px rgba(227, 108, 51, 0.1); max-width: 800px; width: 100%; text-align: center; position: relative; z-index: 2; border-top: 5px solid var(--mario-orange); }
+        
+        .wip-icon { font-size: 70px; color: var(--mario-orange); margin-bottom: 20px; filter: drop-shadow(0 10px 15px var(--mario-orange-glow)); animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+
+        .glass-card h1 { font-size: 40px; font-weight: 800; color: var(--mario-dark); margin-bottom: 20px; letter-spacing: -1px; }
+        .glass-card h1 span { color: var(--mario-orange); }
+        .glass-card p { font-size: 18px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 40px; }
+
+        /* Store info blok in de kaart */
+        .store-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; background: var(--mario-light); padding: 25px; border-radius: 12px; border: 1px solid var(--mario-border); margin-bottom: 40px; }
+        .info-item h4 { color: var(--mario-orange); font-size: 14px; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+        .info-item p { font-size: 15px; color: var(--mario-dark); font-weight: 600; margin-bottom: 0; display: flex; align-items: center; gap: 10px; }
+        
+        .btn-orange { background: var(--mario-orange); color: white; text-decoration: none; padding: 18px 40px; border-radius: 10px; font-weight: 800; font-size: 15px; text-transform: uppercase; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px var(--mario-orange-glow); }
+        .btn-orange:hover { background: #CC5A2B; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(227, 108, 51, 0.6); }
+
+        @media (max-width: 768px) {
+            .store-info-grid { grid-template-columns: 1fr; }
+            .glass-card { padding: 40px 20px; }
+            .glass-card h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="logo-box">
+            <div class="logo-top">MARIO <span>DHZ</span></div>
+            <div class="logo-sub">Specialist</div>
+        </a>
+        <a href="../index.html" class="btn-terug"><i class="fas fa-arrow-left"></i> Terug naar Home</a>
+    </header>
+
+    <div class="shop-wip-container">
+        <div class="glass-card">
+            <i class="fas fa-laptop-code wip-icon"></i>
+            <h1>Webshop in <span>Aanbouw</span></h1>
+            <p>Achter de schermen werken wij keihard aan een gloednieuwe, professionele webshop. Binnenkort bestelt u hier ons complete assortiment (Elektriciteit, Sanitair, Verf & Gereedschap) met één druk op de knop.</p>
+            
+            <div class="store-info-grid">
+                <div class="info-item">
+                    <h4><i class="fas fa-map-marker-alt"></i> Onze Winkel is OPEN!</h4>
+                    <p>Driekoningenstraat 73, Berchem</p>
+                </div>
+                <div class="info-item">
+                    <h4><i class="fas fa-clock"></i> 7 Dagen Per Week</h4>
+                    <p>7/7 OPEN: 08:30 - 19:00</p>
+                </div>
+            </div>
+
+            <a href="../index.html#assortiment" class="btn-orange">Bekijk alvast de merken</a>
+        </div>
+    </div>
+
+</body>
+</html>
