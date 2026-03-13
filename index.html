@@ -11,8 +11,8 @@
     
     <style>
         :root {
-            --mario-orange: #F5A623; /* Een zachtere webshop-oranje/geel zoals op je voorbeeld */
-            --mario-blue: #1A233A; /* Diep donkerblauw voor de menubalk */
+            --mario-orange: #F5A623; 
+            --mario-blue: #1A233A; 
             --text-dark: #333333;
             --bg-light: #F9FAFB;
         }
@@ -20,74 +20,74 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
         body { background-color: white; color: var(--text-dark); }
 
-        /* --- 1. USP BALK BOVENAAN (De zekerheden) --- */
+        /* --- 1. USP BALK --- */
         .usp-bar { background: #F3F4F6; display: flex; justify-content: center; gap: 40px; padding: 10px 20px; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap; }
         .usp-item { font-size: 12px; font-weight: 600; color: #6B7280; display: flex; align-items: center; gap: 8px; }
         .usp-item i { color: var(--mario-blue); }
 
-        /* --- 2. HEADER (Logo, Zoekbalk, Icoontjes) --- */
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 25px 5%; max-width: 1600px; margin: 0 auto; }
+        /* --- 2. HEADER --- */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; max-width: 1600px; margin: 0 auto; }
         
-        .logo-container img { max-width: 220px; height: auto; object-fit: contain; }
+        /* LOGO AANGEPAST - Veel strakker en niet meer schermvullend */
+        .logo-container img { max-width: 250px; height: auto; object-fit: contain; }
         
         .search-bar { flex: 1; max-width: 600px; margin: 0 40px; position: relative; }
-        .search-bar input { width: 100%; padding: 15px 25px; border: 1px solid #D1D5DB; border-radius: 50px; font-size: 15px; outline: none; transition: 0.3s; }
-        .search-bar input:focus { border-color: var(--mario-blue); box-shadow: 0 0 10px rgba(26,35,58,0.1); }
-        .search-bar button { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 18px; color: #6B7280; cursor: pointer; }
+        .search-bar input { width: 100%; padding: 12px 20px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 14px; outline: none; transition: 0.3s; }
+        .search-bar input:focus { border-color: var(--mario-blue); }
+        .search-bar button { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 16px; color: var(--mario-blue); cursor: pointer; }
 
-        .header-icons { display: flex; gap: 20px; align-items: center; font-size: 22px; color: var(--text-dark); }
+        .header-icons { display: flex; gap: 20px; align-items: center; font-size: 20px; color: var(--mario-blue); }
         .icon-btn { position: relative; cursor: pointer; transition: 0.2s; }
         .icon-btn:hover { color: var(--mario-orange); }
         .cart-badge { position: absolute; top: -8px; right: -8px; background: #EF4444; color: white; font-size: 10px; font-weight: bold; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
 
-        /* --- 3. DONKERBLAUWE MENU BALK --- */
-        .nav-bar { background: var(--mario-blue); padding: 15px 5%; display: flex; justify-content: center; gap: 30px; overflow-x: auto; white-space: nowrap; }
+        /* --- 3. NAVIGATIE BALK --- */
+        .nav-bar { background: var(--mario-blue); padding: 12px 5%; display: flex; justify-content: center; gap: 30px; overflow-x: auto; white-space: nowrap; }
         .nav-bar a { color: white; text-decoration: none; font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif; transition: 0.2s; }
         .nav-bar a:hover { color: var(--mario-orange); }
 
-        /* --- 4. HERO GRID SECTIE --- */
+        /* --- 4. PARTNER LOGO BALK (NIEUW!) --- */
+        .partner-bar { background: white; padding: 15px 0; border-bottom: 1px solid #E5E7EB; overflow: hidden; white-space: nowrap; display: flex; align-items: center; }
+        .partner-track { display: flex; gap: 50px; padding: 0 5%; align-items: center; justify-content: center; width: 100%; flex-wrap: wrap; }
+        .partner-track img { height: 35px; max-width: 100px; object-fit: contain; filter: grayscale(100%); transition: 0.3s; opacity: 0.7; }
+        .partner-track img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+
+        /* --- 5. HERO GRID SECTIE --- */
         .hero-section { max-width: 1600px; margin: 30px auto; padding: 0 5%; display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
         
-        /* Linker kolom (Banners) */
         .banners-col { display: flex; flex-direction: column; gap: 25px; }
         
         .banner { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; background-color: #E5E7EB; display: flex; align-items: center; padding: 40px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .banner img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 100%); transition: 0.3s; }
-        .banner:hover img { transform: scale(1.05); } /* Dit is dat 'vloeiende' effect! */
+        .banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%); transition: 0.3s; }
+        .banner:hover img { transform: scale(1.05); } 
         .banner:hover::after { background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%); }
         
         .banner-content { position: relative; z-index: 10; max-width: 350px; }
         .banner-content h2 { background: white; color: var(--text-dark); display: inline-block; padding: 10px 20px; font-size: 24px; font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 20px; }
-        .btn-yellow { background: var(--mario-orange); color: var(--text-dark); padding: 10px 30px; border-radius: 4px; font-weight: 700; display: inline-block; border: none; cursor: pointer; transition: 0.2s; font-size: 14px; }
+        .btn-yellow { background: var(--mario-orange); color: white; padding: 10px 30px; border-radius: 4px; font-weight: 700; display: inline-block; border: none; cursor: pointer; transition: 0.2s; font-size: 14px; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
         .btn-yellow:hover { background: #E59819; transform: translateY(-2px); }
 
         .banner-large { height: 350px; }
-        
         .banner-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; height: 200px; }
         .banner-small { height: 100%; padding: 30px; }
         .banner-small .banner-content h2 { font-size: 18px; padding: 8px 15px; margin-bottom: 15px; }
 
-        /* Rechter kolom (Afhaal info) */
-        .pickup-box { background: #FAFAFA; border: 1px solid #E5E7EB; border-radius: 8px; padding: 40px 30px; text-align: center; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .pickup-box h3 { color: var(--mario-blue); font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; margin-bottom: 30px; line-height: 1.3; }
+        .pickup-box { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 40px 30px; text-align: center; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .pickup-box h3 { color: var(--mario-blue); font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 30px; line-height: 1.3; }
         
-        .address-block { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 15px; border-left: 4px solid var(--mario-orange); }
-        .address-block strong { display: block; font-size: 18px; color: var(--text-dark); margin-bottom: 5px; }
-        .address-block p { color: #6B7280; font-size: 15px; line-height: 1.5; }
-        .hours { margin-top: 10px; color: #10B981; font-weight: 700; font-size: 14px; }
-
-        /* --- CATEGORIE SECTIE ONDERAAN --- */
-        .category-title { max-width: 1600px; margin: 50px auto 20px; padding: 0 5%; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-dark); }
+        .address-block { background: #F9FAFB; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--mario-orange); text-align: left; }
+        .address-block strong { display: block; font-size: 16px; color: var(--text-dark); margin-bottom: 5px; }
+        .address-block p { color: #6B7280; font-size: 14px; line-height: 1.5; }
+        .hours { margin-top: 10px; color: #10B981; font-weight: 700; font-size: 13px; }
 
         @media (max-width: 1024px) {
             .hero-section { grid-template-columns: 1fr; }
-            .search-bar { display: none; /* Verberg zoekbalk op kleine schermen voor netheid */ }
         }
         @media (max-width: 768px) {
             .banner-grid-small { grid-template-columns: 1fr; height: auto; }
             .banner-small { height: 200px; }
-            .usp-bar { display: none; }
+            .partner-track { gap: 20px; }
         }
     </style>
 </head>
@@ -95,7 +95,7 @@
 
     <div class="usp-bar">
         <div class="usp-item"><i class="fas fa-star"></i> Klantbeoordeling 9.8</div>
-        <div class="usp-item"><i class="fas fa-undo"></i> Gemakkelijk retourneren</div>
+        <div class="usp-item"><i class="fas fa-undo"></i> 14 dagen recht op retour</div>
         <div class="usp-item"><i class="fas fa-store"></i> 15 jaar actief in Driekoningenstraat</div>
         <div class="usp-item"><i class="fas fa-boxes"></i> Ruime keuze & Grote voorraad</div>
     </div>
@@ -130,12 +130,25 @@
         <a href="#PROMO" style="color: var(--mario-orange);">PROMO</a>
     </nav>
 
+    <div class="partner-bar">
+        <div class="partner-track">
+            <img src="final/niko.jpg" alt="Niko">
+            <img src="final/bticino.jpg" alt="Bticino">
+            <img src="final/levis.jpg" alt="Levis">
+            <img src="final/stanley.jpg" alt="Stanley">
+            <img src="final/knauf.jpg" alt="Knauf">
+            <img src="final/pardaen.jpg" alt="Pardaen">
+            <img src="final/polyfilla.jpg" alt="Polyfilla">
+            <img src="final/trimetal.jpg" alt="Trimetal">
+        </div>
+    </div>
+
     <section class="hero-section">
         
         <div class="banners-col">
             
             <a href="#" class="banner banner-large">
-                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1600&auto=format&fit=crop" alt="Schilderen">
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=1600&auto=format&fit=crop" alt="Schilderen">
                 <div class="banner-content">
                     <h2>ontdek ons verf assortiment</h2>
                     <button class="btn-yellow">Bekijken</button>
@@ -145,7 +158,7 @@
             <div class="banner-grid-small">
                 
                 <a href="#" class="banner banner-small">
-                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop" alt="Elektriciteit">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop" alt="Elektriciteit">
                     <div class="banner-content">
                         <h2>Installatie & Elektra</h2>
                         <button class="btn-yellow">Bekijken</button>
@@ -153,7 +166,7 @@
                 </a>
 
                 <a href="#" class="banner banner-small">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop" alt="Gereedschap">
+                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?q=80&w=800&auto=format&fit=crop" alt="Gereedschap">
                     <div class="banner-content">
                         <h2>ontdek top gereedschap</h2>
                         <button class="btn-yellow">Bekijken</button>
@@ -168,18 +181,16 @@
             
             <div class="address-block">
                 <strong>Hoofdvestiging Berchem</strong>
-                <p>Driekoningenstraat 73<br>2600 Berchem (Antwerpen)</p>
+                <p>Driekoningenstraat 73<br>2600 Berchem</p>
                 <div class="hours"><i class="fas fa-clock"></i> 7/7 OPEN: 08:30 - 19:00</div>
             </div>
             
-            <div style="margin-top: 20px; color: #6B7280; font-size: 14px;">
-                <i class="fas fa-info-circle"></i> Onze webshop is momenteel in aanbouw. Kom voor uw materialen direct langs in de winkel.
+            <div style="margin-top: 20px; color: #6B7280; font-size: 13px; text-align: left;">
+                <i class="fas fa-info-circle"></i> Webshop in aanbouw. Kom voor uw materialen direct langs in de winkel.
             </div>
         </div>
 
     </section>
-
-    <h2 class="category-title">Waar ben je naar op zoek?</h2>
 
 </body>
 </html>
