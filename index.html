@@ -2,6 +2,7 @@
 <html lang="nl">
 <head>
     <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario | Premium Doe-Het-Zelf & Renovatie</title>
@@ -12,7 +13,7 @@
     <style>
         :root {
             --mario-orange: #E36C33;
-            --mario-navy: #060B11; /* Nog dieper, luxer zwart-blauw */
+            --mario-navy: #060B11; 
             --card-glass: rgba(255, 255, 255, 0.9);
         }
 
@@ -39,10 +40,10 @@
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
 
-        /* --- CLEAN HEADER (GEEN LOGO MEER HIER) --- */
+        /* --- CLEAN HEADER --- */
         header {
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
-            display: flex; justify-content: flex-end; /* Zet het menu netjes rechts */
+            display: flex; justify-content: flex-end; 
             padding: 20px 5%;
             background: rgba(6, 11, 17, 0.6);
             backdrop-filter: blur(15px);
@@ -67,7 +68,6 @@
             overflow: hidden;
         }
 
-        /* Subtiele luxe achtergrond straling */
         .hero-bg {
             position: absolute; inset: 0;
             background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%);
@@ -80,14 +80,13 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* HET GIGANTISCHE LOGO */
         .hero-center-logo {
             width: 100%;
-            max-width: 450px; /* Groot en massief */
+            max-width: 450px; 
             height: auto;
             margin-bottom: 40px;
             filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-            border-radius: 8px; /* Maakt de randjes iets zachter */
+            border-radius: 8px; 
         }
 
         .hero-subtitle {
@@ -99,4 +98,117 @@
         .btn {
             display: inline-block; padding: 18px 45px; font-weight: 700; font-size: 15px;
             text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
-            border-radius: 4px
+            border-radius: 4px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary {
+            background: var(--mario-orange); color: white;
+            box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5);
+            background: #d15a22;
+        }
+
+        /* --- FLUTTER GLASS CARDS --- */
+        .services-section {
+            position: relative; z-index: 10;
+            max-width: 1300px; margin: -100px auto 100px; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+        }
+
+        .glass-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--mario-orange); transform: scaleX(0); transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .glass-card:hover::before { transform: scaleX(1); }
+
+        .glass-card i { font-size: 45px; color: var(--mario-orange); margin-bottom: 25px; display: block; }
+        .glass-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; color: var(--mario-navy); }
+        .glass-card p { font-size: 16px; color: #475569; line-height: 1.7; font-weight: 400; }
+
+        @media (max-width: 900px) {
+            header { padding: 15px 5%; justify-content: flex-end; }
+            .hamburger { display: block; }
+            .nav-links {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: rgba(6, 11, 17, 0.98); backdrop-filter: blur(20px);
+                flex-direction: column; padding: 0; height: 0; overflow: hidden;
+                transition: height 0.4s ease;
+            }
+            .nav-links.active { height: 260px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .nav-links a { display: block; padding: 15px 5%; text-align: center; }
+            
+            .hero-center-logo { max-width: 80%; } 
+            .services-section { margin-top: -50px; gap: 20px; }
+            .glass-card { padding: 40px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="winkel.html">De Winkel</a></li>
+            <li><a href="renovatie.html">Renovaties</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        
+        <div class="hero-content">
+            <img src="1765121277157%20.jpg" alt="Mario Logo" class="hero-center-logo animate-scale">
+            
+            <p class="hero-subtitle animate-up delay-1">Premium totaalrenovaties en de meest complete doe-het-zelf speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service.</p>
+            
+            <div class="animate-up delay-2">
+                <a href="winkel.html" class="btn btn-primary">Ontdek de zaak</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="services-section">
+        <div class="glass-card animate-up delay-1">
+            <i class="fas fa-layer-group"></i>
+            <h3>Speciaalzaak</h3>
+            <p>Van Niko schakelmateriaal tot ons officieel AkzoNobel en Levis verfmengcenter. Hoogwaardige materialen voor elke professional en particulier.</p>
+        </div>
+        <div class="glass-card animate-up delay-2">
+            <i class="fas fa-drafting-compass"></i>
+            <h3>Renovaties</h3>
+            <p>Volledige ontzorging van uw project. Onze vakmensen leveren strakke afwerking voor gevels, daken, Gyproc en complete badkamers.</p>
+        </div>
+        <div class="glass-card animate-up delay-2">
+            <i class="fas fa-cube"></i>
+            <h3>Logistiek</h3>
+            <p>Uw vaste, betrouwbare afhaalpunt in Berchem voor zowel PostNL als Mondial Relay. Gemakkelijk en efficiënt uw pakketten beheren.</p>
+        </div>
+    </div>
+
+</body>
+</html>
