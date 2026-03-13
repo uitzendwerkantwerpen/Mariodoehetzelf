@@ -1,27 +1,32 @@
-<!DOCTYPE html>
+m<!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renovatie | Mario</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --mario-blue: #1C3B5E; --mario-orange: #E36C33; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 20px; }
-        .section { max-width: 800px; margin: 0 auto; }
-        h1 { color: var(--mario-blue); border-bottom: 3px solid var(--mario-orange); padding-bottom: 10px; }
-    </style>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovatiebedrijf | Mario Berchem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav><a href="index.html">Terug naar Home</a></nav>
-    <div class="section">
-        <h1>Renovatiebedrijf</h1>
-        <p>Wij zijn gespecialiseerd in totale renovaties voor de buurt.</p>
-        <ul>
-            <li>Gevelrenovatie & Dakwerken</li>
-            <li>Badkamerrenovatie van A tot Z</li>
-            <li><strong>Gyproc Specialist:</strong> Wand en plafond afwerking.</li>
+<div class="bg-overlay" style="background-image: url('34979.jpg');"></div>
+<header>
+    <div class="logo-container"><img src="1765121277157.jpg" alt="Mario Logo"></div>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="winkel.html">Winkel</a></li><li><a href="renovatie.html" class="active">Renovatie</a></li><li><a href="contact.html">Contact</a></li></ul>
+</header>
+<main>
+    <div class="card">
+        <h1>Renovatiebedrijf Mario</h1>
+        <p>Onze gediplomeerde vakmensen staan klaar voor al uw projecten, groot of klein.</p>
+        <ul class="service-list">
+            <li>Gevelrenovaties & Dakwerken.</li>
+            <li>Totaalrenovaties van Badkamers.</li>
+            <li><strong>Gyproc Specialist:</strong> Professionele plaatsing van wanden en plafonds.</li>
+            <li>Algemene elektriciteitswerken en binnenafwerking.</li>
         </ul>
     </div>
+</main>
+<footer><p>Driekoningenstraat 73, Berchem | 7/7 Open vanaf 08:30</p></footer>
+<script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
 </body>
 </html>
