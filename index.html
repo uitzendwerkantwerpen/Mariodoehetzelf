@@ -14,7 +14,8 @@
         :root {
             --mario-orange: #E36C33;
             --mario-navy: #060B11; 
-            --card-glass: rgba(255, 255, 255, 0.9);
+            --glass-bg: rgba(6, 11, 17, 0.75);
+            --card-glass: rgba(255, 255, 255, 0.95);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -26,126 +27,165 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- ANIMATIES --- */
+        /* --- PREMIUM ANIMATIES & EFFECTEN --- */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        @keyframes scaleInWithGlow {
+            from { opacity: 0; transform: scale(0.8); filter: drop-shadow(0 0 0 rgba(227, 108, 51, 0)); }
+            to { opacity: 1; transform: scale(1); filter: drop-shadow(0 20px 40px rgba(227, 108, 51, 0.4)); }
         }
-        .animate-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .animate-scale { animation: scaleIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
+        .animate-up { animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-scale-glow { animation: scaleInWithGlow 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
 
-        /* --- NAVIGATIE --- */
+        /* --- NAVIGATIE (MEER DESIGN) --- */
         header {
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
-            display: flex; justify-content: flex-end; 
-            padding: 20px 5%;
-            background: rgba(6, 11, 17, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-logo { height: 35px; border-radius: 4px; } /* Een heel klein logo in de hoek */
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a {
-            color: #ffffff; text-decoration: none; font-weight: 500; font-size: 14px;
-            letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;
+            color: #ffffff; text-decoration: none; font-weight: 500; font-size: 13px;
+            letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s;
+            display: flex; align-items: center; gap: 10px;
         }
-        .nav-links a:hover { color: var(--mario-orange); }
+        .nav-links a i { font-size: 16px; color: var(--mario-orange); opacity: 0.8; }
+        .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
 
-        .hamburger { display: none; color: white; font-size: 32px; cursor: pointer; }
+        .hamburger { display: none; color: white; font-size: 30px; cursor: pointer; }
 
-        /* --- HERO: LOGO GROOT IN HET MIDDEN --- */
+        /* --- HERO: HET LOGO ALS CASSANT FOCUSPUNT ( image_bcaa3b.jpg ) --- */
         .hero {
-            position: relative; height: 100vh; min-height: 750px;
+            position: relative; height: 100vh; min-height: 800px;
             display: flex; align-items: center; justify-content: center;
             background-color: var(--mario-navy);
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero-bg-deep {
             position: absolute; inset: 0;
-            background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%);
+            background-image: url('hero.jpg'); /* Achtergrond texture */
+            background-size: cover; background-position: center;
+            filter: blur(50px) brightness(0.2);
             z-index: 1;
         }
 
         .hero-content {
             position: relative; z-index: 3; text-align: center; color: white;
-            max-width: 1000px; padding: 0 20px;
+            max-width: 1100px; padding: 0 20px;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* DIT IS DE FIX VOOR JE FOTO */
+        /* HET LOGO ( image_bcaa3b.jpg ) - GROOT, VERLICHT, HAAI SCHERP */
         .hero-center-logo {
             width: 100%;
-            max-width: 450px; 
+            max-width: 500px; /* Nog groter en massiever */
             height: auto;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-            border-radius: 8px; 
+            margin-bottom: 50px;
+            border-radius: 12px;
+            /* De gloed en schaduw zijn nu onderdeel van de animatie */
+        }
+
+        .hero-geometric-separator {
+            width: 100%; max-width: 400px; height: 2px;
+            background: linear-gradient(90deg, rgba(227,108,51,0) 0%, var(--mario-orange) 50%, rgba(227,108,51,0) 100%);
+            margin: 20px 0;
         }
 
         .hero-subtitle {
-            font-size: clamp(16px, 2.5vw, 24px); font-weight: 300; letter-spacing: 1px;
-            color: #CBD5E1; margin-bottom: 50px; max-width: 700px; margin-inline: auto;
-            line-height: 1.6;
+            font-size: clamp(18px, 3vw, 26px); font-weight: 300; letter-spacing: 1.5px;
+            color: #E2E8F0; margin-bottom: 60px; max-width: 800px; margin-inline: auto;
+            line-height: 1.7;
         }
 
         .btn {
-            display: inline-block; padding: 18px 45px; font-weight: 700; font-size: 15px;
-            text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
-            border-radius: 4px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-block; padding: 20px 50px; font-weight: 700; font-size: 16px;
+            text-transform: uppercase; letter-spacing: 3px; text-decoration: none;
+            border-radius: 4px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
         }
+        .btn::after {
+            content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15);
+            transform: translateY(100%); transition: transform 0.4s;
+        }
+        .btn:hover::after { transform: translateY(0); }
+
         .btn-primary {
             background: var(--mario-orange); color: white;
-            box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3);
+            box-shadow: 0 15px 35px rgba(227, 108, 51, 0.35);
         }
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 55px rgba(227, 108, 51, 0.6);
             background: #d15a22;
         }
 
-        /* --- GLASS CARDS --- */
-        .services-section {
+        /* --- VISUELE SERVICE SPOTLIGHTS (image spots) --- */
+        .services-gallery {
             position: relative; z-index: 10;
-            max-width: 1300px; margin: -100px auto 100px; padding: 0 20px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+            max-width: 1400px; margin: -120px auto 120px; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
         }
 
-        .glass-card {
+        .service-spotlight {
             background: var(--card-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             border: 1px solid white;
-            border-radius: 24px;
-            padding: 50px 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 30px;
+            padding: 60px 45px;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.06);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; align-items: flex-start;
         }
 
-        .glass-card i { font-size: 45px; color: var(--mario-orange); margin-bottom: 25px; display: block; }
-        .glass-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; color: var(--mario-navy); }
-        .glass-card p { font-size: 16px; color: #475569; line-height: 1.7; }
+        .service-spotlight:hover {
+            transform: translateY(-18px) scale(1.02);
+            box-shadow: 0 35px 75px rgba(0,0,0,0.12);
+        }
+
+        .spotlight-icon-frame {
+            position: absolute; top: 0; right: 0; width: 150px; height: 150px;
+            background: radial-gradient(circle at center, rgba(227,108,51,0.1) 0%, rgba(227,108,51,0) 80%);
+            border-radius: 0 0 0 150px; opacity: 0.6; transition: all 0.5s;
+        }
+        .service-spotlight:hover .spotlight-icon-frame { opacity: 1; transform: scale(1.1); }
+
+        .service-spotlight i { font-size: 50px; color: var(--mario-orange); margin-bottom: 30px; display: block; position: relative; z-index: 2; }
+        .service-spotlight h3 { font-size: 26px; font-weight: 800; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px; color: var(--mario-navy); }
+        .service-spotlight p { font-size: 16px; color: #475569; line-height: 1.8; margin-bottom: 30px; }
+
+        .service-spotlight img { width: 100%; border-radius: 12px; margin-top: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); }
 
         @media (max-width: 900px) {
             header { padding: 15px 5%; justify-content: flex-end; }
+            .nav-logo { display: none; }
             .hamburger { display: block; }
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
-                background: rgba(6, 11, 17, 0.98); backdrop-filter: blur(20px);
+                background: rgba(6, 11, 17, 0.98); backdrop-filter: blur(25px);
                 flex-direction: column; padding: 0; height: 0; overflow: hidden;
-                transition: height 0.4s ease;
+                transition: height 0.5s ease;
             }
-            .nav-links.active { height: 260px; padding: 20px 0; }
-            .nav-links a { display: block; padding: 15px 5%; text-align: center; }
-            .hero-center-logo { max-width: 80%; } 
-            .services-section { margin-top: -50px; gap: 20px; }
+            .nav-links.active { height: 280px; padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .nav-links a { display: block; padding: 18px 5%; text-align: center; justify-content: center; }
+            
+            .hero-center-logo { max-width: 85%; } 
+            .services-gallery { margin-top: -60px; gap: 20px; }
+            .service-spotlight { padding: 50px 35px; }
         }
     </style>
 </head>
@@ -157,39 +197,49 @@
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="winkel.html">De Winkel</a></li>
-            <li><a href="renovatie.html">Renovaties</a></li>
+            <li><a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a></li>
+            <li><a href="renovatie.html"><i class="fas fa-crane"></i>Renovatie</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </header>
 
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg-deep"></div>
         <div class="hero-content">
-            <img src="logo.jpg" alt="Mario Logo" class="hero-center-logo animate-scale">
-            <p class="hero-subtitle animate-up delay-1">Premium totaalrenovaties en de meest complete doe-het-zelf speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service.</p>
+            <img src="image_bcaa3b.jpg" alt="Mario Totaalrenovaties & Doe-Het-Zelf" class="hero-center-logo animate-scale-glow">
+            
+            <div class="hero-geometric-separator animate-up delay-1"></div>
+            <p class="hero-subtitle animate-up delay-1">MARIO BERCHEM | Premium Totaalrenovaties & Doe-Het-Zelf Speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service.</p>
+            
             <div class="animate-up delay-2">
                 <a href="winkel.html" class="btn btn-primary">Ontdek de zaak</a>
             </div>
         </div>
     </section>
 
-    <div class="services-section">
-        <div class="glass-card animate-up delay-1">
+    <div class="services-gallery animate-up delay-3">
+        
+        <div class="service-spotlight">
+            <div class="spotlight-icon-frame"></div>
             <i class="fas fa-layer-group"></i>
             <h3>Speciaalzaak</h3>
-            <p>Van Niko schakelmateriaal tot ons officieel AkzoNobel en Levis verfmengcenter. Hoogwaardige materialen voor elke professional en particulier.</p>
-        </div>
-        <div class="glass-card animate-up delay-2">
+            <p>Uw partner voor elk project. Niko schakelmateriaal, professionele tools, en ons officieel AkzoNobel en Levis verfmengcenter.</p>
+            </div>
+
+        <div class="service-spotlight">
+            <div class="spotlight-icon-frame"></div>
             <i class="fas fa-drafting-compass"></i>
             <h3>Renovaties</h3>
-            <p>Onze vakmensen leveren strakke afwerking voor gevels, daken, Gyproc en complete badkamers.</p>
-        </div>
-        <div class="glass-card animate-up delay-2">
+            <p>Volledige ontzorging van uw project. Onze vakmensen leveren strakke afwerking voor gevels, daken, Gyproc en complete badkamers.</p>
+            </div>
+
+        <div class="service-spotlight">
+            <div class="spotlight-icon-frame"></div>
             <i class="fas fa-cube"></i>
             <h3>Logistiek</h3>
-            <p>Uw vaste afhaalpunt in Berchem voor zowel PostNL als Mondial Relay.</p>
-        </div>
+            <p>Uw betrouwbare afhaalpunt in Berchem. Gemakkelijk en efficiënt pakketten beheren met PostNL en Mondial Relay.</p>
+            </div>
+        
     </div>
 
 </body>
