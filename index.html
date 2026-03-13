@@ -11,163 +11,136 @@
     
     <style>
         :root {
-            --mario-copper: #E36C33; 
-            --bg-dark: #0F131A; 
-            --bg-nav: #161B22;
-            --panel-bg: rgba(30, 35, 45, 0.7);
+            --mario-copper: #D97736; /* Luxe koper/goud kleur */
+            --bg-dark: #121418; /* Diep, rijk zwart/grijs */
+            --bg-nav: #0B0C0F;
+            --panel-bg: #1A1D24;
+            --text-light: #E2E8F0;
+            --text-muted: #94A3B8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         
         body { 
             background-color: var(--bg-dark); 
-            color: #E2E8F0; 
+            color: var(--text-light); 
             overflow-x: hidden; 
-            background-image: radial-gradient(circle at 50% 40%, rgba(227, 108, 51, 0.05) 0%, transparent 60%);
+            background-image: radial-gradient(circle at 50% 20%, rgba(217, 119, 54, 0.08) 0%, transparent 60%);
         }
 
-        /* --- 1. TOP INFO BAR --- */
-        .top-bar { background: #080A0E; color: #94A3B8; text-align: center; padding: 10px 15px; font-size: 11px; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .top-bar span { color: var(--mario-copper); }
-
-        /* --- 2. LUXE NAVIGATIE --- */
+        /* --- 1. LUXE NAVIGATIE --- */
         .luxury-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--bg-nav); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
         
-        .nav-logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .nav-logo img { height: 40px; border-radius: 4px; } /* Klein logo linksboven */
-        .nav-logo span { color: white; font-weight: 800; font-size: 20px; letter-spacing: 1px; }
-
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: #CBD5E1; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a i { color: var(--mario-copper); }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--mario-copper); }
         
-        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
         .search-box { position: relative; }
-        .search-box input { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px 40px 10px 20px; border-radius: 30px; outline: none; transition: 0.3s; font-size: 13px;}
-        .search-box input:focus { border-color: var(--mario-copper); box-shadow: 0 0 10px rgba(227, 108, 51, 0.2); }
-        .search-box i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #94A3B8; }
+        .search-box input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px 40px 10px 20px; border-radius: 4px; outline: none; transition: 0.3s; font-size: 13px; width: 250px; }
+        .search-box input:focus { border-color: var(--mario-copper); }
+        .search-box i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
         
-        .account-cart { display: flex; gap: 25px; color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; }
-        .account-cart div { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.3s; }
+        .account-cart { display: flex; gap: 20px; color: var(--text-light); font-size: 13px; font-weight: 400; }
+        .account-cart div { display: flex; align-items: center; gap: 8px; cursor: pointer; transition: 0.3s; }
         .account-cart div:hover { color: var(--mario-copper); }
-        .account-cart i { font-size: 18px; margin-bottom: 4px; }
+        .account-cart i { font-size: 16px; }
 
-        /* --- 3. INFINITE PARTNER LOGOS (DIRECT ONDER HET MENU) --- */
-        .partner-slider { background: #0A0D12; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; position: relative; }
-        .partner-slider::before, .partner-slider::after { content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
-        .partner-slider::before { left: 0; background: linear-gradient(to right, #0A0D12 0%, rgba(10,13,18,0) 100%); }
-        .partner-slider::after { right: 0; background: linear-gradient(to left, #0A0D12 0%, rgba(10,13,18,0) 100%); }
+        /* --- 2. CENTRALE HERO (KLEINER LOGO & WELKOMSTTEKST) --- */
+        .hero-centered { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px 5% 40px; text-align: center; max-width: 1000px; margin: 0 auto; }
         
+        .logo-altar { position: relative; margin-bottom: 30px; }
+        /* LOGO IS NU KLEINER GEMAAKT */
+        .logo-altar img { max-width: 220px; width: 100%; border-radius: 8px; position: relative; z-index: 2; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+        
+        .hero-title { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: 1px; color: #FFFFFF; margin-bottom: 15px; }
+        
+        /* PROFESSIONELE WELKOMSTTEKST OM DE LEEGTE TE VULLEN */
+        .hero-intro { font-size: 16px; color: var(--text-muted); line-height: 1.8; font-weight: 300; max-width: 800px; margin: 0 auto 40px; }
+        .hero-intro span { color: var(--mario-copper); font-weight: 600; }
+
+        /* --- 3. INFINITE PARTNER LOGOS --- */
+        .partner-slider { background: transparent; padding: 10px 0 40px; overflow: hidden; position: relative; }
         .partner-track { display: flex; width: max-content; animation: scrollLogos 40s linear infinite; align-items: center; }
         .partner-track:hover { animation-play-state: paused; }
         
-        /* Zwarte logo's krijgen een witte achtergrond zodat ze knallen op dark mode */
-        .partner-track img { height: 35px; margin: 0 35px; object-fit: contain; background: white; padding: 5px 15px; border-radius: 6px; transition: 0.3s; cursor: pointer; }
-        .partner-track img:hover { transform: scale(1.1); box-shadow: 0 0 15px var(--mario-copper); border: 1px solid var(--mario-copper); }
+        /* Witte doosjes voor de zwarte logo's */
+        .partner-track img { height: 35px; margin: 0 20px; object-fit: contain; background: white; padding: 5px 15px; border-radius: 4px; transition: 0.3s; cursor: pointer; opacity: 0.8; }
+        .partner-track img:hover { transform: scale(1.05); opacity: 1; box-shadow: 0 0 15px rgba(217, 119, 54, 0.4); border: 1px solid var(--mario-copper); }
 
         @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- 4. CENTRALE HERO (HET GIGANTISCHE LOGO) --- */
-        .hero-centered { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 5% 40px; text-align: center; }
+        /* --- 4. DE 4 LUXE CATEGORIE KAARTEN --- */
+        .departments-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 1400px; margin: 0 auto 80px; padding: 0 5%; }
         
-        .logo-altar { position: relative; padding: 20px; margin-bottom: 30px; animation: float 6s ease-in-out infinite; }
-        .logo-altar img { max-width: 450px; width: 100%; border-radius: 12px; position: relative; z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-        .logo-altar::before { content: ''; position: absolute; inset: 0; background: var(--mario-copper); filter: blur(40px); opacity: 0.3; z-index: 1; border-radius: 20px; }
+        .dept-card { background: var(--panel-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; position: relative; transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; text-align: center; padding-bottom: 25px; }
+        .dept-card:hover { border-color: var(--mario-copper); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
 
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
-        .hero-title { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 400; letter-spacing: 2px; color: #F8FAFC; margin-bottom: 10px; text-transform: uppercase; }
-        .hero-subtitle { font-size: 13px; font-weight: 700; color: var(--mario-copper); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; }
-
-        /* --- 5. DE 4 GLAZEN AFDELINGSKAARTEN --- */
-        .departments-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1600px; margin: 0 auto 80px; padding: 0 2%; }
+        .dept-img { height: 220px; width: 100%; position: relative; overflow: hidden; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dept-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s ease; opacity: 0.85; }
+        .dept-card:hover .dept-img img { transform: scale(1.08); opacity: 1; }
         
-        .dept-card { background: var(--panel-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; position: relative; transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .dept-card::after { content: ''; position: absolute; inset: 0; border-radius: 16px; border: 2px solid transparent; transition: 0.4s; z-index: 10; pointer-events: none; }
-        .dept-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
-        .dept-card:hover::after { border-color: var(--mario-copper); box-shadow: inset 0 0 20px rgba(227, 108, 51, 0.3); }
+        .dept-info { padding: 0 20px; }
+        .dept-info h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: white; margin-bottom: 8px; }
+        .dept-info h4 { font-size: 13px; color: var(--mario-copper); font-weight: 400; margin-bottom: 12px; letter-spacing: 1px; }
+        .dept-info p { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
 
-        .dept-img { height: 200px; width: 100%; position: relative; overflow: hidden; }
-        .dept-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
-        .dept-card:hover .dept-img img { transform: scale(1.1); opacity: 1; }
+        /* --- 5. LUXE FOOTER --- */
+        .footer-section { background: var(--bg-nav); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 5% 30px; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-bottom: 40px; }
+        .footer-col h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 20px; color: white; }
+        .footer-col p { color: var(--text-muted); font-size: 13px; line-height: 2; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.2s; }
+        .footer-col p:hover { color: var(--mario-copper); }
+        .footer-col p i { color: var(--mario-copper); width: 15px; }
         
-        .dept-img::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 80%; background: linear-gradient(to top, var(--panel-bg) 0%, transparent 100%); z-index: 2; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; color: #4A5568; font-size: 12px; }
 
-        .dept-info { padding: 25px; position: relative; z-index: 3; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; margin-top: -60px; }
-        .dept-info h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: white; margin-bottom: 5px; }
-        .dept-info p { font-size: 13px; color: #94A3B8; font-weight: 300; }
-
-        /* --- 6. DARK MODE REVIEWS --- */
-        .reviews-section { max-width: 1600px; margin: 0 auto 60px; padding: 0 5%; }
-        .reviews-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
-        .reviews-header h2 { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: white; }
-        
-        .google-rating { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); }
-        .google-rating i.fa-google { color: #4285F4; font-size: 20px; }
-        .google-rating .score { font-weight: 800; font-size: 20px; color: white; }
-        .google-rating .stars { color: #FBBC04; font-size: 16px; letter-spacing: 2px; }
-
-        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .review-card { background: var(--panel-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: 0.3s; }
-        .review-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
-        
-        .reviewer { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .reviewer-avatar { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; }
-        .reviewer-info h4 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 4px; }
-        .reviewer-info p { font-size: 12px; color: #94A3B8; }
-        .review-text { font-size: 14px; color: #CBD5E1; line-height: 1.6; font-style: italic; }
-
-        /* --- 7. LUXE FOOTER MET MAPS --- */
-        .footer-section { background: #0A0D12; border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 5% 20px; }
-        .footer-grid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 40px; }
-        .footer-col h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col p { color: #94A3B8; font-size: 14px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
-        .footer-col p i { color: var(--mario-copper); font-size: 16px; width: 20px; text-align: center; }
-        
-        .map-container { width: 100%; height: 200px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); filter: grayscale(30%); transition: 0.4s; }
-        .map-container:hover { filter: grayscale(0%); border-color: var(--mario-copper); }
-        .map-container iframe { width: 100%; height: 100%; border: none; }
-        
-        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; color: #4A5568; font-size: 12px; letter-spacing: 1px; }
-
-        @media (max-width: 1200px) { .departments-grid { grid-template-columns: repeat(2, 1fr); } .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1200px) { .departments-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
-            .departments-grid, .reviews-grid, .footer-grid { grid-template-columns: 1fr; }
+            .departments-grid, .footer-grid { grid-template-columns: 1fr; }
             .nav-links, .search-box { display: none; }
-            .hero-title { font-size: 16px; }
-            .logo-altar img { max-width: 300px; }
+            .hero-title { font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        GEOPEND: MA-ZO 08:30 - 19:00 &nbsp;|&nbsp; TEL: <span>0470 93 58 48</span> &nbsp;|&nbsp; Driekoningenstraat 73, Berchem
-    </div>
-
     <nav class="luxury-nav">
-        <a href="index.html" class="nav-logo">
-            <img src="mario-logo.jpg" alt="Mario">
-        </a>
-
         <div class="nav-links">
-            <a href="#winkel"><i class="fas fa-store"></i> De Winkel</a>
-            <a href="#renovatie"><i class="fas fa-hammer"></i> Renovatie</a>
-            <a href="#showroom"><i class="fas fa-compass"></i> Showroom</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#winkel">De Winkel <i class="fas fa-chevron-down" style="font-size: 10px; margin-left:4px;"></i></a>
+            <a href="#renovatie">Renovatie <i class="fas fa-chevron-down" style="font-size: 10px; margin-left:4px;"></i></a>
+            <a href="#showroom">Onze Showroom</a>
+            <a href="#nieuws">Nieuws</a>
+            <a href="#blog">Blog</a>
+            <a href="#klantenservice">Klantenservice</a>
+            <a href="#contact">Contact</a>
         </div>
         
         <div class="nav-right">
             <div class="search-box">
-                <input type="text" placeholder="Zoeken...">
+                <input type="text" placeholder="Zoek producten of merken...">
                 <i class="fas fa-search"></i>
             </div>
             <div class="account-cart">
-                <div><i class="far fa-user"></i>Mijn Account</div>
-                <div><i class="fas fa-shopping-cart"></i>Winkelwagen</div>
+                <div><i class="far fa-user"></i> Mijn Account</div>
+                <div><i class="fas fa-shopping-cart"></i> Winkelwagen</div>
             </div>
         </div>
     </nav>
+
+    <section class="hero-centered">
+        
+        <div class="logo-altar">
+            <img src="mario-logo.jpg" alt="Mario Doe-Het-Zelf">
+        </div>
+
+        <h1 class="hero-title">MARIO BERCHEM | Premium Totaalrenovaties & Speciaalzaak</h1>
+        
+        <p class="hero-intro">
+            Welkom bij Mario. Al meer dan 15 jaar uw vertrouwde partner in Berchem voor hoogwaardige bouwmaterialen, professioneel gereedschap en vakkundige totaalrenovaties. <span>Ontdek ons ruime assortiment online</span> of laat u adviseren in onze fysieke speciaalzaak. Kwaliteit en vakmanschap staan bij ons centraal.
+        </p>
+
+    </section>
 
     <div class="partner-slider">
         <div class="partner-track">
@@ -190,16 +163,6 @@
         </div>
     </div>
 
-    <section class="hero-centered">
-        
-        <div class="logo-altar">
-            <img src="mario-logo.jpg" alt="Mario Doe-Het-Zelf">
-        </div>
-
-        <h1 class="hero-title">MARIO BERCHEM | Premium Totaalrenovaties & Speciaalzaak.</h1>
-        <p class="hero-subtitle">Ontdek onze specialisten afdelingen</p>
-    </section>
-
     <section class="departments-grid">
         
         <div class="dept-card">
@@ -207,18 +170,20 @@
                 <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=800&auto=format&fit=crop" alt="Verf">
             </div>
             <div class="dept-info">
-                <h3>De Verfspecialist</h3>
-                <p>Kleur mengen in 5 minuten. AkzoNobel & Levis.</p>
+                <h3>Verf & Wand</h3>
+                <h4>AkzoNobel & Levis Mengcenter</h4>
+                <p>Laat uw favoriete kleur professioneel mengen in slechts 5 minuten. Ruim assortiment aan kitten, plamuur en lakken.</p>
             </div>
         </div>
 
         <div class="dept-card">
             <div class="dept-img">
-                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop" alt="Elektra">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop" alt="Elektra">
             </div>
             <div class="dept-info">
-                <h3>Elektra & Installatie</h3>
-                <p>Officieel Niko verdeler. Topkwaliteit voor de vakman.</p>
+                <h3>Elektriciteit</h3>
+                <h4>Officieel Niko Verdeler</h4>
+                <p>Alles voor uw elektrische installatie. Van bedrading en zekeringkasten tot luxe schakelaars en slimme systemen.</p>
             </div>
         </div>
 
@@ -228,93 +193,54 @@
             </div>
             <div class="dept-info">
                 <h3>Totaalrenovaties</h3>
-                <p>Badkamers, Gyproc en strakke afwerking.</p>
+                <p style="color: var(--mario-copper); font-weight: 400; margin-bottom: 12px; font-size: 13px;">Badkamers & Interieur</p>
+                <p>Wij realiseren uw droomproject. Van professionele Gyproc wanden tot de complete afwerking van uw droombadkamer.</p>
             </div>
         </div>
 
         <div class="dept-card">
             <div class="dept-img">
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop" alt="BBQ en Grill">
+                <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?q=80&w=800&auto=format&fit=crop" alt="BBQ en Grill">
             </div>
             <div class="dept-info">
                 <h3>Tuin & BBQ</h3>
-                <p>Outdoor living en topklasse grills.</p>
+                <h4>Outdoor Living Specialist</h4>
+                <p>Keramische grills, professioneel tuingereedschap en complete buitenkeukens. Binnenkort beschikbaar in ons assortiment.</p>
             </div>
         </div>
 
-    </section>
-
-    <section class="reviews-section">
-        <div class="reviews-header">
-            <h2>Klantervaringen</h2>
-            <div class="google-rating">
-                <i class="fab fa-google"></i>
-                <div class="score">5.0</div>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <div style="font-size: 14px; color: #94A3B8;">(150 reviews)</div>
-            </div>
-        </div>
-        
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="reviewer">
-                    <div class="reviewer-avatar" style="background: #E53E3E;">E</div>
-                    <div class="reviewer-info">
-                        <h4>Elisabeth Roggeman</h4><p>1 week geleden</p>
-                    </div>
-                </div>
-                <div class="stars" style="color: #FBBC04; margin-bottom: 10px; font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Heel persoonlijke service! Ze denken mee na en hebben eerlijke prijzen"</p>
-            </div>
-
-            <div class="review-card">
-                <div class="reviewer">
-                    <div class="reviewer-avatar" style="background: #38A169;">L</div>
-                    <div class="reviewer-info">
-                        <h4>Lauren Langenus</h4><p>3 weken geleden</p>
-                    </div>
-                </div>
-                <div class="stars" style="color: #FBBC04; margin-bottom: 10px; font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"SUPER behulpzaam en vriendelijk!!! Hartelijk dank voor de top service!"</p>
-            </div>
-
-            <div class="review-card">
-                <div class="reviewer">
-                    <div class="reviewer-avatar" style="background: #3182CE;">A</div>
-                    <div class="reviewer-info">
-                        <h4>ANNICK Vanfleteren</h4><p>1 maand geleden</p>
-                    </div>
-                </div>
-                <div class="stars" style="color: #FBBC04; margin-bottom: 10px; font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Nieuw leven in deze top doe het zelf zaak. Hier vind je zo goed als alles . Goede service en aan interessante prijzen."</p>
-            </div>
-        </div>
     </section>
 
     <footer class="footer-section">
         <div class="footer-grid">
             
             <div class="footer-col">
+                <h3>De Winkel</h3>
+                <p>Gereedschap</p>
+                <p>Elektriciteit</p>
+                <p>Verf & Wand</p>
+                <p>Tuin & BBQ</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Onze Showroom</h3>
+                <p>Totaalrenovatie</p>
+                <p>Badkamers</p>
+                <p>Gyproc Werken</p>
+            </div>
+
+            <div class="footer-col">
                 <h3>Klantenservice</h3>
-                <p><i class="fas fa-check"></i> 14 Dagen recht op retour</p>
-                <p><i class="fas fa-check"></i> Veelgestelde Vragen</p>
-                <p><i class="fas fa-check"></i> Algemene Voorwaarden</p>
-                <p><i class="fas fa-check"></i> Privacybeleid</p>
+                <p>Veelgestelde Vragen</p>
+                <p>Ruilen & Retourneren</p>
+                <p>Algemene Voorwaarden</p>
             </div>
 
             <div class="footer-col">
-                <h3>Winkel Berchem</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73</p>
+                <h3>Contact</h3>
                 <p><i class="fas fa-phone-alt"></i> 0470 93 58 48</p>
-                <p><i class="fas fa-clock"></i> 7/7 OPEN: 08:30 - 19:00</p>
-                <p><i class="fas fa-truck"></i> Afhaalpunt PostNL & Mondial Relay</p>
-            </div>
-
-            <div class="footer-col">
-                <h3>Navigeer naar ons</h3>
-                <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073%20Berchem&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+                <p><i class="fas fa-envelope"></i> info@mariodoehetzelf.be</p>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, Berchem</p>
             </div>
 
         </div>
