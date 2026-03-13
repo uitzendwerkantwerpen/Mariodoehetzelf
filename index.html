@@ -5,9 +5,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario | Premium Doe-Het-Zelf & Renovatie</title>
     
-    <link rel="stylesheet" href="style.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- PREMIUM TECH DESIGN (Zit nu veilig in de HTML) --- */
+        :root {
+            --mario-orange: #E36C33;
+            --mario-navy: #0A1118;
+            --card-glass: rgba(255, 255, 255, 0.85);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body { 
+            background-color: #F8FAFC; 
+            color: var(--mario-navy); 
+            overflow-x: hidden; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- ANIMATIES --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+
+        /* --- MENU BALK (GLASS EFFECT) --- */
+        header {
+            position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%;
+            background: rgba(10, 17, 24, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* PROMINENT LOGO */
+        .logo { height: 90px; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5)); transition: 0.3s; }
+
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a {
+            color: #ffffff; text-decoration: none; font-weight: 600; font-size: 14px;
+            letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--mario-orange); }
+
+        .hamburger { display: none; color: white; font-size: 30px; cursor: pointer; }
+
+        /* --- HERO SECTION MET ACHTERGROND FOTO --- */
+        .hero {
+            position: relative; height: 100vh; min-height: 700px;
+            display: flex; align-items: center; justify-content: center;
+            background-image: url('34978.jpg'); /* Jouw winkel/bouw foto! */
+            background-size: cover; background-position: center;
+        }
+
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10, 17, 24, 0.9) 0%, rgba(10, 17, 24, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative; z-index: 2; text-align: center; color: white;
+            max-width: 1000px; padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 8vw, 80px); font-weight: 900; line-height: 1.1;
+            letter-spacing: -1px; margin-bottom: 20px; text-transform: uppercase;
+        }
+        .hero-title span { color: var(--mario-orange); }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 22px); font-weight: 300; letter-spacing: 0.5px;
+            color: #E2E8F0; margin-bottom: 40px; max-width: 700px; margin-inline: auto;
+            line-height: 1.6;
+        }
+
+        /* --- PREMIUM BUTTONS --- */
+        .btn {
+            display: inline-block; padding: 18px 40px; font-weight: 700; font-size: 14px;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
+            border-radius: 4px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-primary {
+            background: var(--mario-orange); color: white;
+            box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5);
+            background: #d15a22;
+        }
+
+        /* --- ZWEVENDE CARDS --- */
+        .services-section {
+            position: relative; z-index: 10;
+            max-width: 1300px; margin: -100px auto 100px; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;
+        }
+
+        .glass-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+            background: var(--mario-orange); transform: scaleX(0); transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            background: #ffffff;
+        }
+
+        .glass-card:hover::before { transform: scaleX(1); }
+
+        .glass-card i { font-size: 45px; color: var(--mario-orange); margin-bottom: 30px; display: block; }
+        .glass-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+        .glass-card p { font-size: 16px; color: #475569; line-height: 1.7; font-weight: 400; }
+
+        /* --- MOBIEL --- */
+        @media (max-width: 900px) {
+            header { padding: 15px 5%; }
+            .logo { height: 65px; }
+            .hamburger { display: block; }
+            .nav-links {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: rgba(10, 17, 24, 0.98); backdrop-filter: blur(20px);
+                flex-direction: column; padding: 0; height: 0; overflow: hidden;
+                transition: height 0.4s ease;
+            }
+            .nav-links.active { height: 260px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .nav-links a { display: block; padding: 15px 5%; text-align: center; }
+            
+            .services-section { margin-top: -50px; gap: 20px; }
+            .glass-card { padding: 40px 30px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -27,30 +178,4 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title animate-up">Mario <span>Berchem</span></h1>
-            <p class="hero-subtitle animate-up delay-1">Premium totaalrenovaties en de meest complete doe-het-zelf speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service.</p>
-            <div class="animate-up delay-2">
-                <a href="winkel.html" class="btn btn-primary">Ontdek de zaak</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="services-section">
-        <div class="glass-card animate-up delay-1">
-            <i class="fas fa-layer-group"></i>
-            <h3>Speciaalzaak</h3>
-            <p>Van Niko schakelmateriaal tot ons officieel AkzoNobel en Levis verfmengcenter. Hoogwaardige materialen voor elke professional en particulier.</p>
-        </div>
-        <div class="glass-card animate-up delay-2">
-            <i class="fas fa-drafting-compass"></i>
-            <h3>Renovaties</h3>
-            <p>Volledige ontzorging van uw project. Onze vakmensen leveren strakke afwerking voor gevels, daken, Gyproc en complete badkamers.</p>
-        </div>
-        <div class="glass-card animate-up delay-2">
-            <i class="fas fa-cube"></i>
-            <h3>Logistiek</h3>
-            <p>Uw vaste, betrouwbare afhaalpunt in Berchem voor zowel PostNL als Mondial Relay. Gemakkelijk en efficiënt uw pakketten beheren.</p>
-        </div>
-    </div>
-
-</body>
-</html>
+            <p class="hero-subtitle animate-up delay-1">Premium totaalrenovaties en de meest complete doe-het-zelf speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeë
