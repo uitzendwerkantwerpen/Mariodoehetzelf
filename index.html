@@ -4,167 +4,169 @@
     <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario | Premium Doe-Het-Zelf & Renovatie</title>
+    <title>MARIO | Premium Totaalrenovaties & Speciaalzaak</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --mario-orange: #F5A623; 
-            --mario-blue: #1A233A; 
-            --text-dark: #2D3748;
-            --text-gray: #718096;
-            --bg-light: #F7FAFC;
+            --mario-copper: #E36C33; 
+            --bg-dark: #0F131A; 
+            --bg-nav: #161B22;
+            --panel-bg: rgba(30, 35, 45, 0.7);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-        body { background-color: white; color: var(--text-dark); overflow-x: hidden; }
-
-        /* --- HEADER --- */
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 25px 5% 15px; max-width: 1600px; margin: 0 auto; }
-        .logo-container img { max-width: 220px; height: auto; object-fit: contain; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         
-        .search-bar { flex: 1; max-width: 650px; margin: 0 40px; position: relative; }
-        .search-bar input { width: 100%; padding: 14px 20px; border: 2px solid #E2E8F0; border-radius: 6px; font-size: 14px; outline: none; transition: 0.3s; color: var(--text-dark); font-weight: 600; }
-        .search-bar input:focus { border-color: var(--mario-blue); }
-        .search-bar button { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 16px; color: var(--mario-blue); cursor: pointer; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: #E2E8F0; 
+            overflow-x: hidden; 
+            background-image: radial-gradient(circle at 50% 40%, rgba(227, 108, 51, 0.05) 0%, transparent 60%);
+        }
 
-        .header-icons { display: flex; gap: 25px; align-items: center; font-size: 22px; color: var(--mario-blue); }
-        .icon-btn { position: relative; cursor: pointer; transition: 0.2s; }
-        .icon-btn:hover { color: var(--mario-orange); }
-        .cart-badge { position: absolute; top: -8px; right: -10px; background: #E53E3E; color: white; font-size: 11px; font-weight: bold; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        /* --- 1. TOP INFO BAR --- */
+        .top-bar { background: #080A0E; color: #94A3B8; text-align: center; padding: 10px 15px; font-size: 11px; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .top-bar span { color: var(--mario-copper); }
 
-        /* --- USP BALK --- */
-        .usp-bar { max-width: 1600px; margin: 0 auto; padding: 10px 5% 20px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-        .usp-item { font-size: 13px; font-weight: 600; color: var(--text-gray); display: flex; align-items: center; gap: 10px; }
-        .usp-item i { color: var(--mario-blue); font-size: 16px; }
-
-        /* --- NAVIGATIE BALK --- */
-        .nav-bar { background: var(--mario-blue); padding: 15px 5%; display: flex; justify-content: center; gap: 35px; overflow-x: auto; white-space: nowrap; }
-        .nav-bar a { color: white; text-decoration: none; font-size: 14px; font-weight: 700; font-family: 'Montserrat', sans-serif; transition: 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-bar a:hover { color: var(--mario-orange); }
-
-        /* --- INFINITE LOGO CAROUSEL --- */
-        .partner-slider { background: white; padding: 25px 0; border-bottom: 1px solid #E2E8F0; overflow: hidden; position: relative; width: 100%; }
-        .partner-slider::before, .partner-slider::after { content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; }
-        .partner-slider::before { left: 0; background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%); }
-        .partner-slider::after { right: 0; background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%); }
+        /* --- 2. LUXE NAVIGATIE --- */
+        .luxury-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--bg-nav); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
         
-        .partner-track { display: flex; width: max-content; animation: scrollLogos 40s linear infinite; }
+        .nav-logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .nav-logo img { height: 40px; border-radius: 4px; } /* Klein logo linksboven */
+        .nav-logo span { color: white; font-weight: 800; font-size: 20px; letter-spacing: 1px; }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: #CBD5E1; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a i { color: var(--mario-copper); }
+        
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .search-box { position: relative; }
+        .search-box input { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px 40px 10px 20px; border-radius: 30px; outline: none; transition: 0.3s; font-size: 13px;}
+        .search-box input:focus { border-color: var(--mario-copper); box-shadow: 0 0 10px rgba(227, 108, 51, 0.2); }
+        .search-box i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #94A3B8; }
+        
+        .account-cart { display: flex; gap: 25px; color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .account-cart div { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.3s; }
+        .account-cart div:hover { color: var(--mario-copper); }
+        .account-cart i { font-size: 18px; margin-bottom: 4px; }
+
+        /* --- 3. INFINITE PARTNER LOGOS (DIRECT ONDER HET MENU) --- */
+        .partner-slider { background: #0A0D12; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); overflow: hidden; position: relative; }
+        .partner-slider::before, .partner-slider::after { content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
+        .partner-slider::before { left: 0; background: linear-gradient(to right, #0A0D12 0%, rgba(10,13,18,0) 100%); }
+        .partner-slider::after { right: 0; background: linear-gradient(to left, #0A0D12 0%, rgba(10,13,18,0) 100%); }
+        
+        .partner-track { display: flex; width: max-content; animation: scrollLogos 40s linear infinite; align-items: center; }
         .partner-track:hover { animation-play-state: paused; }
-        .partner-track img { height: 40px; margin: 0 45px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; cursor: pointer; }
-        .partner-track img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+        
+        /* Zwarte logo's krijgen een witte achtergrond zodat ze knallen op dark mode */
+        .partner-track img { height: 35px; margin: 0 35px; object-fit: contain; background: white; padding: 5px 15px; border-radius: 6px; transition: 0.3s; cursor: pointer; }
+        .partner-track img:hover { transform: scale(1.1); box-shadow: 0 0 15px var(--mario-copper); border: 1px solid var(--mario-copper); }
 
         @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- HERO GRID SECTIE --- */
-        .hero-section { max-width: 1600px; margin: 40px auto; padding: 0 5%; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
-        .banners-col { display: flex; flex-direction: column; gap: 30px; }
+        /* --- 4. CENTRALE HERO (HET GIGANTISCHE LOGO) --- */
+        .hero-centered { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 5% 40px; text-align: center; }
         
-        .banner { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; background-color: var(--bg-light); display: flex; align-items: center; padding: 40px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .banner img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(26,35,58,0.8) 0%, rgba(26,35,58,0.1) 100%); transition: 0.3s; }
-        .banner:hover img { transform: scale(1.06); } 
-        .banner:hover::after { background: linear-gradient(to right, rgba(26,35,58,0.9) 0%, rgba(26,35,58,0.2) 100%); }
+        .logo-altar { position: relative; padding: 20px; margin-bottom: 30px; animation: float 6s ease-in-out infinite; }
+        .logo-altar img { max-width: 450px; width: 100%; border-radius: 12px; position: relative; z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .logo-altar::before { content: ''; position: absolute; inset: 0; background: var(--mario-copper); filter: blur(40px); opacity: 0.3; z-index: 1; border-radius: 20px; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        .hero-title { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 400; letter-spacing: 2px; color: #F8FAFC; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-subtitle { font-size: 13px; font-weight: 700; color: var(--mario-copper); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; }
+
+        /* --- 5. DE 4 GLAZEN AFDELINGSKAARTEN --- */
+        .departments-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1600px; margin: 0 auto 80px; padding: 0 2%; }
         
-        .banner-content { position: relative; z-index: 10; max-width: 400px; }
-        .banner-content h2 { background: white; color: var(--text-dark); display: inline-block; padding: 12px 25px; font-size: 26px; font-family: 'Montserrat', sans-serif; font-weight: 800; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-transform: uppercase; }
-        .btn-yellow { background: var(--mario-orange); color: white; padding: 12px 35px; border-radius: 4px; font-weight: 800; display: inline-block; border: none; cursor: pointer; transition: 0.2s; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-yellow:hover { background: #E59819; transform: translateY(-3px); box-shadow: 0 4px 10px rgba(245, 166, 35, 0.4); }
+        .dept-card { background: var(--panel-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; overflow: hidden; position: relative; transition: 0.4s; cursor: pointer; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .dept-card::after { content: ''; position: absolute; inset: 0; border-radius: 16px; border: 2px solid transparent; transition: 0.4s; z-index: 10; pointer-events: none; }
+        .dept-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+        .dept-card:hover::after { border-color: var(--mario-copper); box-shadow: inset 0 0 20px rgba(227, 108, 51, 0.3); }
 
-        .banner-large { height: 380px; }
-        .banner-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 220px; }
-        .banner-small { height: 100%; padding: 30px; }
-        .banner-small .banner-content h2 { font-size: 18px; padding: 10px 20px; margin-bottom: 15px; }
-
-        .pickup-box { background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .pickup-box h3 { color: var(--mario-blue); font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; margin-bottom: 30px; line-height: 1.3; text-align: center; }
+        .dept-img { height: 200px; width: 100%; position: relative; overflow: hidden; }
+        .dept-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; opacity: 0.8; }
+        .dept-card:hover .dept-img img { transform: scale(1.1); opacity: 1; }
         
-        .address-block { background: var(--bg-light); padding: 25px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid var(--mario-orange); text-align: left; }
-        .address-block strong { display: block; font-size: 18px; color: var(--text-dark); margin-bottom: 8px; font-weight: 700; }
-        .address-block p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
-        .hours { margin-top: 15px; color: #38A169; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+        .dept-img::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 80%; background: linear-gradient(to top, var(--panel-bg) 0%, transparent 100%); z-index: 2; }
 
-        .info-alert { background: #EBF4FF; border: 1px solid #BEE3F8; color: #3182CE; padding: 15px; border-radius: 8px; font-size: 14px; font-weight: 600; line-height: 1.5; display: flex; gap: 12px; align-items: flex-start; }
+        .dept-info { padding: 25px; position: relative; z-index: 3; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; margin-top: -60px; }
+        .dept-info h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: white; margin-bottom: 5px; }
+        .dept-info p { font-size: 13px; color: #94A3B8; font-weight: 300; }
 
-        /* --- GOOGLE REVIEWS SECTIE --- */
-        .reviews-section { max-width: 1600px; margin: 60px auto 40px; padding: 0 5%; }
-        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
-        .section-header h2 { font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--text-dark); }
+        /* --- 6. DARK MODE REVIEWS --- */
+        .reviews-section { max-width: 1600px; margin: 0 auto 60px; padding: 0 5%; }
+        .reviews-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+        .reviews-header h2 { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: white; }
         
-        .google-rating-box { display: flex; align-items: center; gap: 15px; background: white; padding: 15px 25px; border-radius: 50px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .google-rating-box .score { font-size: 24px; font-weight: 800; color: var(--text-dark); }
-        .google-rating-box .stars { color: #FBBC04; font-size: 20px; letter-spacing: 2px; }
-        .google-rating-box .count { font-size: 14px; color: var(--text-gray); font-weight: 600; margin-left: 5px; }
+        .google-rating { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); }
+        .google-rating i.fa-google { color: #4285F4; font-size: 20px; }
+        .google-rating .score { font-weight: 800; font-size: 20px; color: white; }
+        .google-rating .stars { color: #FBBC04; font-size: 16px; letter-spacing: 2px; }
 
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .review-card { background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: 0.3s; display: flex; flex-direction: column; }
-        .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); border-color: #CBD5E0; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .review-card { background: var(--panel-bg); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: 0.3s; }
+        .review-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
         
         .reviewer { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .reviewer-avatar { width: 45px; height: 45px; background: var(--mario-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
-        .reviewer-info h4 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
-        .reviewer-info p { font-size: 12px; color: var(--text-gray); }
-        .review-text { font-size: 14px; color: #4A5568; line-height: 1.6; font-style: italic; }
-        .g-logo { color: #4285F4; font-size: 20px; margin-left: auto; }
+        .reviewer-avatar { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; }
+        .reviewer-info h4 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 4px; }
+        .reviewer-info p { font-size: 12px; color: #94A3B8; }
+        .review-text { font-size: 14px; color: #CBD5E1; line-height: 1.6; font-style: italic; }
 
-        /* --- FOOTER MET GOOGLE MAPS --- */
-        .footer-section { background: var(--mario-blue); color: white; padding: 60px 5% 20px; margin-top: 60px; }
+        /* --- 7. LUXE FOOTER MET MAPS --- */
+        .footer-section { background: #0A0D12; border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 5% 20px; }
         .footer-grid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 40px; }
-        .footer-col h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 25px; color: white; }
-        .footer-col p { color: #A0AEC0; font-size: 14px; line-height: 1.8; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
-        .footer-col p i { margin-top: 4px; color: var(--mario-orange); font-size: 16px; width: 20px; text-align: center; }
+        .footer-col h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 25px; color: white; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #94A3B8; font-size: 14px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+        .footer-col p i { color: var(--mario-copper); font-size: 16px; width: 20px; text-align: center; }
         
-        .map-container { width: 100%; height: 250px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); background: #E2E8F0; }
+        .map-container { width: 100%; height: 200px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); filter: grayscale(30%); transition: 0.4s; }
+        .map-container:hover { filter: grayscale(0%); border-color: var(--mario-copper); }
         .map-container iframe { width: 100%; height: 100%; border: none; }
         
-        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; color: #718096; font-size: 13px; max-width: 1600px; margin: 0 auto; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; color: #4A5568; font-size: 12px; letter-spacing: 1px; }
 
-        @media (max-width: 1024px) {
-            .hero-section { grid-template-columns: 1fr; }
-            .usp-bar { justify-content: center; }
-            .footer-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 1200px) { .departments-grid { grid-template-columns: repeat(2, 1fr); } .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
-            .banner-grid-small { grid-template-columns: 1fr; height: auto; }
-            .banner-small { height: 220px; }
-            .usp-item { width: 100%; justify-content: center; }
+            .departments-grid, .reviews-grid, .footer-grid { grid-template-columns: 1fr; }
+            .nav-links, .search-box { display: none; }
+            .hero-title { font-size: 16px; }
+            .logo-altar img { max-width: 300px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <a href="index.html" class="logo-container">
-            <img src="mario-logo.jpg" alt="Mario DHZ">
-        </a>
-        <div class="search-bar">
-            <input type="text" placeholder="Zoeken naar producten, merken of categorieën...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-        <div class="header-icons">
-            <div class="icon-btn"><i class="far fa-user"></i></div>
-            <div class="icon-btn"><i class="far fa-heart"></i></div>
-            <div class="icon-btn"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></div>
-        </div>
-    </header>
-
-    <div class="usp-bar">
-        <div class="usp-item"><i class="fas fa-star"></i> Klantbeoordeling 5.0/5.0</div>
-        <div class="usp-item"><i class="fas fa-box-open"></i> 14 Dagen recht op retour</div>
-        <div class="usp-item"><i class="fas fa-store-alt"></i> 15 Jaar actief in Driekoningenstraat</div>
-        <div class="usp-item"><i class="fas fa-warehouse"></i> Ruime keuze & Grote voorraad</div>
+    <div class="top-bar">
+        GEOPEND: MA-ZO 08:30 - 19:00 &nbsp;|&nbsp; TEL: <span>0470 93 58 48</span> &nbsp;|&nbsp; Driekoningenstraat 73, Berchem
     </div>
 
-    <nav class="nav-bar">
-        <a href="#gereedschap">Gereedschap</a>
-        <a href="#elektriciteit">Elektriciteit</a>
-        <a href="#schilderen">Schilderen</a>
-        <a href="#ijzerwaren">Ijzerwaren</a>
-        <a href="#sanitair">Sanitair</a>
-        <a href="#tuin">Tuin & BBQ</a>
-        <a href="#PROMO" style="color: var(--mario-orange);">PROMO</a>
+    <nav class="luxury-nav">
+        <a href="index.html" class="nav-logo">
+            <img src="mario-logo.jpg" alt="Mario">
+        </a>
+
+        <div class="nav-links">
+            <a href="#winkel"><i class="fas fa-store"></i> De Winkel</a>
+            <a href="#renovatie"><i class="fas fa-hammer"></i> Renovatie</a>
+            <a href="#showroom"><i class="fas fa-compass"></i> Showroom</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        
+        <div class="nav-right">
+            <div class="search-box">
+                <input type="text" placeholder="Zoeken...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="account-cart">
+                <div><i class="far fa-user"></i>Mijn Account</div>
+                <div><i class="fas fa-shopping-cart"></i>Winkelwagen</div>
+            </div>
+        </div>
     </nav>
 
     <div class="partner-slider">
@@ -188,72 +190,80 @@
         </div>
     </div>
 
-    <section class="hero-section">
-        <div class="banners-col">
-            <a href="#" class="banner banner-large">
-                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=1600&auto=format&fit=crop" alt="Schilderen">
-                <div class="banner-content">
-                    <h2>Ontdek ons verf assortiment</h2>
-                    <button class="btn-yellow">Bekijken</button>
-                </div>
-            </a>
-            <div class="banner-grid-small">
-                <a href="#" class="banner banner-small">
-                    <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?q=80&w=800&auto=format&fit=crop" alt="Gereedschap">
-                    <div class="banner-content">
-                        <h2>Top Gereedschap</h2>
-                        <button class="btn-yellow">Bekijken</button>
-                    </div>
-                </a>
-                <a href="#" class="banner banner-small">
-                    <img src="https://images.unsplash.com/photo-1525328437458-0c4d4a0bca00?q=80&w=800&auto=format&fit=crop" alt="Tuin en BBQ">
-                    <div class="banner-content">
-                        <h2>Binnenkort: Tuin & BBQ</h2>
-                        <button class="btn-yellow">Ontdek meer</button>
-                    </div>
-                </a>
+    <section class="hero-centered">
+        
+        <div class="logo-altar">
+            <img src="mario-logo.jpg" alt="Mario Doe-Het-Zelf">
+        </div>
+
+        <h1 class="hero-title">MARIO BERCHEM | Premium Totaalrenovaties & Speciaalzaak.</h1>
+        <p class="hero-subtitle">Ontdek onze specialisten afdelingen</p>
+    </section>
+
+    <section class="departments-grid">
+        
+        <div class="dept-card">
+            <div class="dept-img">
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=800&auto=format&fit=crop" alt="Verf">
+            </div>
+            <div class="dept-info">
+                <h3>De Verfspecialist</h3>
+                <p>Kleur mengen in 5 minuten. AkzoNobel & Levis.</p>
             </div>
         </div>
 
-        <div class="pickup-box">
-            <h3>Bestelde producten<br>direct af te halen:</h3>
-            <div class="address-block">
-                <strong>Hoofdvestiging Berchem</strong>
-                <p>Driekoningenstraat 73<br>2600 Berchem (Antwerpen)</p>
-                <div class="hours"><i class="fas fa-check-circle"></i> 7/7 OPEN: 08:30 - 19:00</div>
+        <div class="dept-card">
+            <div class="dept-img">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop" alt="Elektra">
             </div>
-            <div class="info-alert">
-                <i class="fas fa-info-circle"></i>
-                <div>Webshop in aanbouw. Voor al uw materialen en direct afhalen bent u welkom in onze winkel.</div>
+            <div class="dept-info">
+                <h3>Elektra & Installatie</h3>
+                <p>Officieel Niko verdeler. Topkwaliteit voor de vakman.</p>
             </div>
         </div>
+
+        <div class="dept-card">
+            <div class="dept-img">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop" alt="Renovatie">
+            </div>
+            <div class="dept-info">
+                <h3>Totaalrenovaties</h3>
+                <p>Badkamers, Gyproc en strakke afwerking.</p>
+            </div>
+        </div>
+
+        <div class="dept-card">
+            <div class="dept-img">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop" alt="BBQ en Grill">
+            </div>
+            <div class="dept-info">
+                <h3>Tuin & BBQ</h3>
+                <p>Outdoor living en topklasse grills.</p>
+            </div>
+        </div>
+
     </section>
 
     <section class="reviews-section">
-        <div class="section-header">
+        <div class="reviews-header">
             <h2>Klantervaringen</h2>
-            <div class="google-rating-box">
-                <i class="fab fa-google" style="color: #4285F4; font-size: 24px;"></i>
+            <div class="google-rating">
+                <i class="fab fa-google"></i>
                 <div class="score">5.0</div>
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="count">(150 reviews)</div>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div style="font-size: 14px; color: #94A3B8;">(150 reviews)</div>
             </div>
         </div>
         
         <div class="reviews-grid">
-            
             <div class="review-card">
                 <div class="reviewer">
                     <div class="reviewer-avatar" style="background: #E53E3E;">E</div>
                     <div class="reviewer-info">
-                        <h4>Elisabeth Roggeman</h4>
-                        <p>1 week geleden</p>
+                        <h4>Elisabeth Roggeman</h4><p>1 week geleden</p>
                     </div>
-                    <i class="fab fa-google g-logo"></i>
                 </div>
-                <div class="stars" style="margin-bottom: 10px; font-size: 14px; color: #FBBC04;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="stars" style="color: #FBBC04; margin-bottom: 10px; font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p class="review-text">"Heel persoonlijke service! Ze denken mee na en hebben eerlijke prijzen"</p>
             </div>
 
@@ -261,12 +271,10 @@
                 <div class="reviewer">
                     <div class="reviewer-avatar" style="background: #38A169;">L</div>
                     <div class="reviewer-info">
-                        <h4>Lauren Langenus</h4>
-                        <p>3 weken geleden</p>
+                        <h4>Lauren Langenus</h4><p>3 weken geleden</p>
                     </div>
-                    <i class="fab fa-google g-logo"></i>
                 </div>
-                <div class="stars" style="margin-bottom: 10px; font-size: 14px; color: #FBBC04;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="stars" style="color: #FBBC04; margin-bottom: 10px; font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p class="review-text">"SUPER behulpzaam en vriendelijk!!! Hartelijk dank voor de top service!"</p>
             </div>
 
@@ -274,15 +282,12 @@
                 <div class="reviewer">
                     <div class="reviewer-avatar" style="background: #3182CE;">A</div>
                     <div class="reviewer-info">
-                        <h4>ANNICK Vanfleteren</h4>
-                        <p>1 maand geleden</p>
+                        <h4>ANNICK Vanfleteren</h4><p>1 maand geleden</p>
                     </div>
-                    <i class="fab fa-google g-logo"></i>
                 </div>
-                <div class="stars" style="margin-bottom: 10px; font-size: 14px; color: #FBBC04;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="stars" style="color: #FBBC04; margin-bottom: 10px; font-size: 12px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p class="review-text">"Nieuw leven in deze top doe het zelf zaak. Hier vind je zo goed als alles . Goede service en aan interessante prijzen."</p>
             </div>
-
         </div>
     </section>
 
@@ -291,30 +296,30 @@
             
             <div class="footer-col">
                 <h3>Klantenservice</h3>
-                <p><i class="fas fa-angle-right"></i> Veelgestelde Vragen</p>
-                <p><i class="fas fa-angle-right"></i> Ruilen & Retourneren</p>
-                <p><i class="fas fa-angle-right"></i> Algemene Voorwaarden</p>
-                <p><i class="fas fa-angle-right"></i> Privacybeleid</p>
+                <p><i class="fas fa-check"></i> 14 Dagen recht op retour</p>
+                <p><i class="fas fa-check"></i> Veelgestelde Vragen</p>
+                <p><i class="fas fa-check"></i> Algemene Voorwaarden</p>
+                <p><i class="fas fa-check"></i> Privacybeleid</p>
             </div>
 
             <div class="footer-col">
-                <h3>Contact & Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <h3>Winkel Berchem</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73</p>
                 <p><i class="fas fa-phone-alt"></i> 0470 93 58 48</p>
-                <p><i class="fas fa-envelope"></i> info@mariodoehetzelf.be</p>
                 <p><i class="fas fa-clock"></i> 7/7 OPEN: 08:30 - 19:00</p>
+                <p><i class="fas fa-truck"></i> Afhaalpunt PostNL & Mondial Relay</p>
             </div>
 
             <div class="footer-col">
-                <h3>Onze Locatie</h3>
+                <h3>Navigeer naar ons</h3>
                 <div class="map-container">
-                    <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073,%202600%20Berchem,%20Antwerpen&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073%20Berchem&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
         </div>
         <div class="footer-bottom">
-            © 2026 Mario DHZ Specialist & Totaalrenovaties. Alle rechten voorbehouden.
+            © 2026 MARIO DHZ & RENOVATIE. Alle rechten voorbehouden.
         </div>
     </footer>
 
