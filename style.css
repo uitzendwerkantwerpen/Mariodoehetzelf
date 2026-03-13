@@ -1,148 +1,124 @@
-/* style.css - High-End Flutter/Glassmorphism Design */
-:root {
-    --mario-orange: #E36C33; /* Exact uit logo */
-    --mario-blue: #1C3B5E; /* Navy uit logo */
-    --text-dark: #1F2937;
-    --text-light: #6B7280;
-    --glass: rgba(255, 255, 255, 0.9);
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
-* { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
-
-body {
-    font-family: 'Inter', 'Montserrat', sans-serif;
-    background-color: #F3F4F6;
-    color: var(--text-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
+body{
+background:#f4f6f8;
+color:#1a1a1a;
+line-height:1.6;
 }
 
-/* --- DE MAGISCHE ACHTERGROND INTEGRATIE --- */
-.bg-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(8px) brightness(0.9); /* Het professionele wazige effect */
-    transform: scale(1.1); /* Voorkomt witte randen door blur */
-    z-index: -1;
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
 }
 
-/* --- HEADER & HAMBURGER (Mobiel Eerst) --- */
-header {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+header{
+background:white;
+box-shadow:0 4px 20px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:100;
 }
 
-.logo-container img { height: 50px; width: auto; }
-
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a {
-    text-decoration: none;
-    color: var(--mario-blue);
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: var(--transition);
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    background: var(--mario-orange);
-    color: white;
+.logo{
+height:45px;
 }
 
-.hamburger { display: none; font-size: 28px; color: var(--mario-blue); cursor: pointer; }
-
-/* --- HOOFDCONTENT --- */
-main {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    padding-bottom: 100px; /* Ruimte voor footer */
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:0.3s;
 }
 
-/* --- HIGH-END ZWEVENDE KAARTEN (Glassmorphism) --- */
-.card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(5px);
-    padding: 50px 40px;
-    border-radius: 24px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-    border: 1px solid rgba(255,255,255,0.4);
-    transition: var(--transition);
-    border-top: 6px solid var(--mario-orange);
-    margin-bottom: 30px;
+nav a:hover{
+color:#f05a28;
 }
 
-.card:hover {
-    transform: translateY(-10px) scale(1.01);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+.hero{
+height:70vh;
+background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+url("hero.jpg") center/cover;
+display:flex;
+align-items:center;
+color:white;
 }
 
-.card h1 { color: var(--mario-blue); font-size: 36px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-.card h1 span { color: var(--mario-orange); }
-.card h2 { color: var(--mario-blue); font-size: 24px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-.card p { color: var(--text-light); font-size: 17px; margin-bottom: 25px; }
-
-/* --- LISTS & GRID --- */
-.service-list { list-style: none; color: var(--text-light); }
-.service-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
-.service-list li::before {
-    content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900;
-    position: absolute; left: 0; color: var(--mario-orange);
+.hero-content{
+max-width:600px;
 }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-/* --- FOOTER (Zwevend onderaan) --- */
-footer {
-    position: fixed;
-    bottom: 0; left: 0; width: 100%;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    text-align: center;
-    z-index: 999;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.03);
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+font-weight:700;
 }
 
-.social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; }
-.social-links a { font-size: 24px; color: var(--mario-blue); transition: 0.3s; }
-.social-links a:hover { color: var(--mario-orange); transform: scale(1.1); }
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
 
-/* --- RESPONSIVENESS VOOR PIXEL --- */
-@media (max-width: 900px) {
-    header { padding: 10px 20px; }
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 76px; left: 0; width: 100%;
-        background: white;
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-    .nav-links.active { display: flex; }
-    .nav-links a { width: 100%; text-align: center; margin: 5px 0; }
-    .hamburger { display: block; }
-    main { margin: 20px auto; }
-    .card { padding: 30px 20px; border-radius: 16px; }
-    .card h1 { font-size: 28px; }
+.btn{
+display:inline-block;
+padding:12px 28px;
+background:#f05a28;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#d94c1f;
+}
+
+.section{
+padding:80px 0;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+footer{
+background:#1f2c3a;
+color:white;
+text-align:center;
+padding:25px 0;
+margin-top:40px;
+font-size:14px;
 }
