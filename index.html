@@ -12,87 +12,129 @@
     <style>
         :root {
             --mario-orange: #E36C33;
+            --mario-orange-glow: rgba(227, 108, 51, 0.5);
             --mario-dark: #1A202C;
             --mario-light: #F7FAFC;
             --mario-grey: #4A5568;
             --mario-border: #E2E8F0;
         }
 
+        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: white; color: var(--mario-dark); overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
 
+        /* --- NEXT LEVEL ANIMATIES --- */
+        @keyframes pulseNeon {
+            0% { box-shadow: 0 0 10px var(--mario-orange-glow); }
+            50% { box-shadow: 0 0 25px var(--mario-orange-glow), 0 0 10px var(--mario-orange); }
+            100% { box-shadow: 0 0 10px var(--mario-orange-glow); }
+        }
+        
+        @keyframes floatGlow {
+            0% { transform: translateY(0px); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); }
+            50% { transform: translateY(-12px); filter: drop-shadow(0 25px 35px rgba(0,0,0,0.2)) drop-shadow(0 0 25px var(--mario-orange-glow)); }
+            100% { transform: translateY(0px); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); }
+        }
+
         /* --- TOP PROMO BAR --- */
-        .promo-bar { background-color: var(--mario-orange); color: white; text-align: center; padding: 10px 15px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+        .promo-bar { background-color: var(--mario-orange); color: white; text-align: center; padding: 10px 15px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; position: relative; z-index: 100; box-shadow: 0 2px 10px var(--mario-orange-glow); }
 
         /* --- MAIN HEADER --- */
-        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: white; border-bottom: 1px solid var(--mario-border); }
+        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--mario-border); position: sticky; top: 0; z-index: 99; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
         .logo-box { display: flex; flex-direction: column; text-decoration: none; }
         .logo-top { font-size: 24px; font-weight: 800; color: var(--mario-dark); letter-spacing: -0.5px; }
-        .logo-top span { color: var(--mario-orange); }
+        .logo-top span { color: var(--mario-orange); text-shadow: 0 0 10px rgba(227, 108, 51, 0.3); }
         .logo-sub { font-size: 10px; font-weight: 600; color: var(--mario-grey); letter-spacing: 1px; text-transform: uppercase; margin-top: -2px; }
 
         .header-actions { display: flex; align-items: center; gap: 15px; }
         .cart-btn { background-color: #8C4B31; color: white; border: none; padding: 10px 20px; border-radius: 30px; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
-        .cart-btn:hover { background-color: var(--mario-dark); }
+        .cart-btn:hover { background-color: var(--mario-dark); transform: scale(1.05); }
 
         /* --- CATEGORIE NAVIGATIE --- */
         .cat-nav { display: flex; justify-content: center; gap: 40px; padding: 15px 5%; background: white; border-bottom: 1px solid var(--mario-border); overflow-x: auto; white-space: nowrap; }
-        .cat-nav a { text-decoration: none; color: var(--mario-grey); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
+        .cat-nav a { text-decoration: none; color: var(--mario-grey); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; position: relative; }
+        .cat-nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px; background: var(--mario-orange); transition: width 0.3s; box-shadow: 0 0 8px var(--mario-orange); }
         .cat-nav a:hover { color: var(--mario-orange); }
+        .cat-nav a:hover::after { width: 100%; }
 
-        /* --- HERO SECTION MET 2 KOLOMMEN --- */
-        .hero { background-color: #EDF2F7; padding: 60px 5%; display: flex; justify-content: center; }
-        .hero-container { display: flex; gap: 50px; max-width: 1400px; width: 100%; align-items: center; }
+        /* --- HERO SECTION --- */
+        .hero { background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%); padding: 60px 5%; display: flex; justify-content: center; position: relative; overflow: hidden; }
         
-        /* Links: De Witte Kaart */
+        /* Achtergrond gloed */
+        .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(227, 108, 51, 0.1) 0%, rgba(227, 108, 51, 0) 70%); border-radius: 50%; z-index: 0; }
+
+        .hero-container { display: flex; gap: 50px; max-width: 1400px; width: 100%; align-items: center; position: relative; z-index: 1; }
+        
         .hero-left { flex: 1; }
-        .hero-card { background: white; padding: 50px 40px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
-        .hero-tag { color: var(--mario-orange); font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .hero-card h1 { font-size: 42px; font-weight: 800; color: var(--mario-dark); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero-card h1 span { color: var(--mario-orange); }
-        .hero-card p { font-size: 16px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 35px; }
+        /* Flutter Glass Effect op de kaart */
+        .hero-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.5); padding: 50px 40px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+        .hero-tag { color: var(--mario-orange); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px; display: block; text-shadow: 0 0 10px rgba(227, 108, 51, 0.2); }
+        .hero-card h1 { font-size: 46px; font-weight: 800; color: var(--mario-dark); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero-card h1 span { color: var(--mario-orange); position: relative; }
+        .hero-card p { font-size: 16px; color: var(--mario-grey); line-height: 1.7; margin-bottom: 35px; }
         
-        .btn-orange { background: var(--mario-orange); color: white; text-decoration: none; padding: 15px 30px; border-radius: 8px; font-weight: 700; font-size: 14px; text-transform: uppercase; display: inline-block; transition: 0.3s; }
-        .btn-orange:hover { background: #CC5A2B; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
+        /* Neon Button */
+        .btn-orange { background: var(--mario-orange); color: white; text-decoration: none; padding: 16px 35px; border-radius: 10px; font-weight: 800; font-size: 14px; text-transform: uppercase; display: inline-block; transition: 0.3s; animation: pulseNeon 3s infinite; }
+        .btn-orange:hover { background: #CC5A2B; transform: translateY(-3px); }
 
-        /* Rechts: Logo & Constructie Info */
         .hero-right { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        /* Zwevend Logo met Neon Gloed */
+        .hero-big-logo { width: 100%; max-width: 380px; height: auto; border-radius: 16px; margin-bottom: 30px; animation: floatGlow 5s ease-in-out infinite; }
         
-        /* HET LOGO - GEKOPPELD AAN mario-logo.jpg */
-        .hero-big-logo { width: 100%; max-width: 380px; height: auto; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        
-        .construction-box { background: white; padding: 30px; border-radius: 12px; border-left: 5px solid var(--mario-orange); box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 450px; }
+        /* Neon randje aan de info box */
+        .construction-box { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 30px; border-radius: 16px; border-left: 6px solid var(--mario-orange); box-shadow: -5px 10px 30px rgba(227, 108, 51, 0.15), 0 20px 40px rgba(0,0,0,0.05); width: 100%; max-width: 450px; }
         .construction-box h3 { font-size: 20px; color: var(--mario-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .construction-box h3 i { color: var(--mario-orange); }
+        .construction-box h3 i { color: var(--mario-orange); text-shadow: 0 0 10px var(--mario-orange-glow); }
         .construction-box p { font-size: 14px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 20px; }
         
-        .store-status { background: var(--mario-light); border: 1px solid var(--mario-border); padding: 15px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--mario-dark); }
-        .store-status i { color: #48BB78; margin-right: 8px; font-size: 16px; }
+        .store-status { background: var(--mario-light); border: 1px solid var(--mario-border); padding: 15px; border-radius: 10px; font-size: 14px; font-weight: 700; color: var(--mario-dark); display: flex; align-items: center; }
+        .store-status i { color: #48BB78; margin-right: 10px; font-size: 18px; filter: drop-shadow(0 0 5px rgba(72, 187, 120, 0.4)); }
 
-        /* --- SPECIALISATIES SECTIE --- */
-        .specialties { padding: 60px 5%; background: white; flex-grow: 1; }
-        .spec-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 2px solid var(--mario-border); padding-bottom: 15px; max-width: 1400px; margin-inline: auto; }
-        .spec-header h2 { font-size: 24px; font-weight: 800; color: var(--mario-dark); }
-        .spec-header p { font-size: 14px; color: var(--mario-grey); margin-top: 5px; }
+        /* --- CATEGORIE DETAILS (NEON HOVER EFFECTS) --- */
+        .category-section { padding: 80px 5%; background: white; max-width: 1200px; margin: 0 auto; position: relative; }
+        .section-title { font-size: 36px; font-weight: 800; color: var(--mario-dark); margin-bottom: 50px; text-align: center; }
+        .section-title span { color: var(--mario-orange); }
+
+        .cat-card { background: white; border: 1px solid var(--mario-border); border-radius: 20px; padding: 40px; margin-bottom: 35px; display: flex; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); scroll-margin-top: 100px; position: relative; overflow: hidden; }
         
-        .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .spec-item { background: var(--mario-dark); border-radius: 12px; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; border-bottom: 4px solid var(--mario-orange); }
-        .spec-item:hover { transform: translateY(-5px); background: #2D3748; }
+        /* Neon Hover Effect op de kaarten */
+        .cat-card:hover { transform: translateY(-8px) scale(1.01); border-color: var(--mario-orange); box-shadow: 0 25px 50px rgba(0,0,0,0.1), 0 0 30px rgba(227, 108, 51, 0.15); }
+        
+        /* Subtiele lijn bovenin de kaart die oplicht */
+        .cat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--mario-orange); transform: scaleX(0); transition: 0.4s; }
+        .cat-card:hover::before { transform: scaleX(1); box-shadow: 0 0 15px var(--mario-orange); }
+        
+        .cat-icon { font-size: 40px; color: var(--mario-orange); background: var(--mario-light); width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 20px; flex-shrink: 0; transition: 0.3s; }
+        .cat-card:hover .cat-icon { background: var(--mario-orange); color: white; box-shadow: 0 10px 20px var(--mario-orange-glow); }
+        
+        .cat-info { flex: 1; }
+        .cat-info h3 { font-size: 26px; font-weight: 800; color: var(--mario-dark); margin-bottom: 15px; text-transform: uppercase; letter-spacing: -0.5px; }
+        .cat-info p { color: var(--mario-grey); line-height: 1.8; margin-bottom: 25px; font-size: 15px; }
+        
+        .brand-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
+        .brand-tag { background: var(--mario-dark); color: white; padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; transition: 0.3s; }
+        .brand-tag:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .brand-tag.akzo { background: #004B87; }
+        
+        .wip-badge { background: #FFF5F5; color: #C53030; padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; border-left: 5px solid #E53E3E; box-shadow: 0 4px 15px rgba(229, 62, 62, 0.1); }
+        .wip-badge i { font-size: 18px; }
 
         /* --- MAIN FOOTER --- */
-        .main-footer { background-color: var(--mario-dark); color: white; padding: 50px 5% 30px; margin-top: auto; }
+        .main-footer { background-color: var(--mario-dark); color: white; padding: 60px 5% 30px; margin-top: auto; position: relative; overflow: hidden; }
+        .main-footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--mario-orange); box-shadow: 0 0 20px var(--mario-orange); }
+        
         .footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
         .footer-col { flex: 1; min-width: 250px; }
-        .footer-col h4 { color: var(--mario-orange); font-size: 18px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col p { color: #A0AEC0; font-size: 14px; line-height: 1.8; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .footer-col p i { color: white; width: 20px; }
-        .footer-col .big-hours { font-size: 18px; font-weight: 700; color: white; margin-top: 15px; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 6px; display: inline-block; }
-        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; color: #718096; font-size: 12px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #A0AEC0; font-size: 14px; line-height: 1.8; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+        .footer-col .big-hours { font-size: 18px; font-weight: 800; color: white; margin-top: 15px; background: rgba(255,255,255,0.05); padding: 12px 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); display: inline-block; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; padding-top: 25px; color: #718096; font-size: 13px; font-weight: 500; }
 
         @media (max-width: 900px) {
             .hero-container { flex-direction: column; }
-            .hero-right { width: 100%; margin-top: 20px; }
+            .hero-right { width: 100%; margin-top: 30px; }
             .cat-nav { justify-content: flex-start; padding: 15px 20px; }
+            .cat-card { flex-direction: column; padding: 30px 20px; gap: 20px; }
             .footer-content { flex-direction: column; }
         }
     </style>
@@ -115,22 +157,21 @@
     </header>
 
     <nav class="cat-nav">
-        <a href="#">Elektriciteit</a>
-        <a href="#">Sanitair</a>
-        <a href="#">Badkamermeubels</a>
-        <a href="#">Verf & Wand</a>
-        <a href="#">Gereedschap</a>
+        <a href="#elektriciteit">Elektriciteit</a>
+        <a href="#sanitair">Sanitair</a>
+        <a href="#badkamermeubels">Badkamermeubels</a>
+        <a href="#verf">Verf & Wand</a>
+        <a href="#gereedschap">Gereedschap</a>
     </nav>
 
     <section class="hero">
         <div class="hero-container">
-            
             <div class="hero-left">
                 <div class="hero-card">
                     <span class="hero-tag">DÉ DOE-HET-ZELF SPECIALIST</span>
                     <h1>Van fundering tot de <span>laatste</span> schroef.</h1>
                     <p>Kwaliteitsmateriaal voor elektriciteit, sanitair en interieur. Direct uit voorraad leverbaar voor de professional en doe-het-zelver.</p>
-                    <a href="winkel.html" class="btn-orange">Bekijk Assortiment</a>
+                    <a href="#assortiment" class="btn-orange">Bekijk Assortiment</a>
                 </div>
             </div>
 
@@ -145,23 +186,102 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <section class="specialties">
-        <div class="spec-header">
-            <div>
-                <h2>Onze Specialisaties</h2>
-                <p>Alles voor de professionele klusser en renovatieprojecten</p>
+    <section id="assortiment" class="category-section">
+        <h2 class="section-title">Ontdek ons <span>Assortiment</span></h2>
+
+        <div id="elektriciteit" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-plug"></i></div>
+            <div class="cat-info">
+                <h3>Elektriciteit</h3>
+                <p>Ontdek ons uitgebreide assortiment elektriciteitsmaterialen. Als officieel Niko-verdeler bieden wij absolute topkwaliteit voor zowel de vakman als de doe-het-zelver. Daarnaast vindt u bij ons een ruime voorraad van gerenommeerde A-merken voor elke installatie.</p>
+                <div class="brand-tags">
+                    <span class="brand-tag">Niko (Officieel)</span>
+                    <span class="brand-tag">ABB</span>
+                    <span class="brand-tag">Legrand</span>
+                    <span class="brand-tag">Bticino</span>
+                    <span class="brand-tag">Twilight</span>
+                    <span class="brand-tag">Philips</span>
+                </div>
+                <div class="wip-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Webshop in aanbouw. Alle producten zijn momenteel ruim op voorraad in onze winkel in Berchem.
+                </div>
             </div>
         </div>
-        
-        <div class="spec-grid">
-            <div class="spec-item">Elektriciteit</div>
-            <div class="spec-item">Sanitair</div>
-            <div class="spec-item">Verf & Wand</div>
-            <div class="spec-item" style="border-bottom-color: #48BB78;">Totaalrenovaties</div>
+
+        <div id="sanitair" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-faucet"></i></div>
+            <div class="cat-info">
+                <h3>Sanitair</h3>
+                <p>Voor elke sanitaire klus, renovatie of herstelling hebben wij de juiste materialen en leidingen in huis. Wij zijn trots partner van Group Versa voor hoogwaardige sanitairartikelen die garant staan voor duurzaamheid, waterdichtheid en installatiegemak.</p>
+                <div class="brand-tags">
+                    <span class="brand-tag">Group Versa</span>
+                    <span class="brand-tag">Professioneel Sanitair</span>
+                </div>
+                <div class="wip-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Webshop in aanbouw. Kom langs voor advies en direct afhalen in onze fysieke speciaalzaak.
+                </div>
+            </div>
+        </div>
+
+        <div id="badkamermeubels" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-bath"></i></div>
+            <div class="cat-info">
+                <h3>Badkamermeubels</h3>
+                <p>Creëer uw absolute droombadkamer met onze premium selectie meubels en keramiek. Wij bieden de allerbeste topmerken uit de Versa Group. Stijlvol design, strakke afwerking en duurzame materialen gecombineerd met absolute topkwaliteit voor uw renovatieproject.</p>
+                <div class="brand-tags">
+                    <span class="brand-tag">Aloni</span>
+                    <span class="brand-tag">Belrad</span>
+                    <span class="brand-tag">Stelrad</span>
+                    <span class="brand-tag">Creavit</span>
+                    <span class="brand-tag">Versa Group</span>
+                </div>
+                <div class="wip-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Webshop in aanbouw. Bekijk de catalogus en stalen nu al in onze showroom te Berchem.
+                </div>
+            </div>
+        </div>
+
+        <div id="verf" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-paint-roller"></i></div>
+            <div class="cat-info">
+                <h3>Verf & Wand</h3>
+                <p>Geef uw project de perfecte kleur met ons officieel AkzoNobel verkooppunt. Uniek in de regio: met onze state-of-the-art <strong>2026 AkzoNobel Mengmachine</strong> maken wij elke gewenste kleur binnen 5 minuten voor u klaar! Ook voor siliconen, acrylaat, sanitaire kitten en plamuur bent u aan het juiste adres.</p>
+                <div class="brand-tags">
+                    <span class="brand-tag akzo">AkzoNobel</span>
+                    <span class="brand-tag">Levis</span>
+                    <span class="brand-tag">Trimetal</span>
+                    <span class="brand-tag">Hammerite</span>
+                    <span class="brand-tag">Polyfilla</span>
+                </div>
+                <div class="wip-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Webshop in aanbouw. Uw kleur laten mengen? Kom langs, klaar terwijl u wacht (5 min).
+                </div>
+            </div>
+        </div>
+
+        <div id="gereedschap" class="cat-card">
+            <div class="cat-icon"><i class="fas fa-hammer"></i></div>
+            <div class="cat-info">
+                <h3>Gereedschap & IJzerwaren</h3>
+                <p>Goed gereedschap is het halve werk. Wij leveren high-end tools, veiligheidssloten en bevestigingsmaterialen voor de echte vakman en veeleisende doe-het-zelver. Vertrouw op absolute topmerken voor de beste en veiligste resultaten, ongeacht de klus.</p>
+                <div class="brand-tags">
+                    <span class="brand-tag">Stanley</span>
+                    <span class="brand-tag">Abus</span>
+                    <span class="brand-tag">Litto</span>
+                    <span class="brand-tag">Pardaen</span>
+                </div>
+                <div class="wip-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Webshop in aanbouw. Test en ervaar de kwaliteit van ons gereedschap direct in de winkel.
+                </div>
+            </div>
         </div>
     </section>
 
@@ -174,9 +294,9 @@
             
             <div class="footer-col">
                 <h4>Winkel & Showroom</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73</p>
-                <p><i class="fas fa-city"></i> 2600 Berchem (Antwerpen)</p>
-                <p><i class="fas fa-truck"></i> Afhaalpunt PostNL & Mondial Relay</p>
+                <p><i class="fas fa-map-marker-alt" style="color: white; width: 20px;"></i> Driekoningenstraat 73</p>
+                <p><i class="fas fa-city" style="color: white; width: 20px;"></i> 2600 Berchem (Antwerpen)</p>
+                <p><i class="fas fa-truck" style="color: white; width: 20px;"></i> Afhaalpunt PostNL & Mondial Relay</p>
             </div>
 
             <div class="footer-col">
