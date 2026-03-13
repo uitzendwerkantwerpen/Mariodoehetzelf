@@ -2,25 +2,26 @@
 <html lang="nl">
 <head>
     <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    
     <title>Mario | Premium Doe-Het-Zelf & Renovatie Berchem</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --mario-orange: #E36C33;
-            --mario-navy: #060B11; 
-            --card-glass: rgba(255, 255, 255, 0.9);
+            --mario-navy: #1A202C; 
+            --card-glass: rgba(255, 255, 255, 0.95);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body { 
-            background-color: #F1F5F9; 
+            background-color: #F7FAFC; 
             color: var(--mario-navy); 
             overflow-x: hidden; 
             -webkit-font-smoothing: antialiased;
@@ -49,36 +50,24 @@
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%;
-            background: rgba(6, 11, 17, 0.7);
+            background: rgba(26, 32, 44, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Het Mario Logo (image_1.png) - Messcherp, links boven */
+        /* Mario Logo Links Boven */
         .logo-frame {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
-            filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.8));
+            display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+            filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5));
+            text-decoration: none;
         }
-        .logo-frame img {
-            height: 35px;
-            width: auto;
-            display: block;
-        }
-        .logo-text {
-            color: white;
-            font-size: 10px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+        .logo-frame img { height: 35px; width: auto; display: block; border-radius: 4px; }
+        .logo-text { color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
 
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a {
-            color: #ffffff; text-decoration: none; font-weight: 500; font-size: 13px;
+            color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px;
             letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s;
             display: flex; align-items: center; gap: 8px;
         }
@@ -87,66 +76,45 @@
 
         .hamburger { display: none; color: white; font-size: 30px; cursor: pointer; }
 
-        /* --- Hero: ZWEVENDE MERKEN-ORB (Next Level) --- */
+        /* --- Hero: ZWEVENDE MERKEN-ORB --- */
         .hero {
-            position: relative; height: 100vh; min-height: 750px;
+            position: relative; padding: 120px 5% 80px; min-height: 85vh;
             display: flex; align-items: center; justify-content: center;
             background-color: var(--mario-navy);
             overflow: hidden;
         }
-
         .hero-bg {
             position: absolute; inset: 0;
             background: radial-gradient(circle at center, rgba(30, 60, 90, 0.5) 0%, var(--mario-navy) 100%);
             z-index: 1;
         }
-
         .hero-content {
             position: relative; z-index: 3; text-align: center; color: white;
             max-width: 1000px; padding: 0 20px;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* De Zwevende Merken-Orb */
         .brands-orb-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 50px;
+            position: relative; width: 100%; max-width: 500px; height: 350px;
+            display: flex; justify-content: center; align-items: center; margin-bottom: 40px;
         }
         .hero-center-logo {
-            width: 100%; max-width: 300px; height: auto;
-            margin: 0; padding: 0; border: none;
+            width: 100%; max-width: 320px; height: auto; z-index: 5; position: relative;
+            filter: drop-shadow(0 15px 35px rgba(0,0,0,0.5)); border-radius: 12px;
         }
         .brand-satelite {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            padding: 10px;
-            width: 70px; height: 70px;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            mix-blend-mode: multiply;
+            position: absolute; background: white; border-radius: 50%; padding: 10px;
+            width: 75px; height: 75px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-border); z-index: 10;
         }
-        .brand-satelite img {
-            width: 80%; height: auto;
-        }
-        /* Sateliet posities */
-        .bs-1 { top: 0; left: 0; animation-delay: 0s; }
-        .bs-2 { top: 0; right: 0; animation-delay: 1.5s; }
-        .bs-3 { bottom: 0; left: 0; animation-delay: 3s; }
-        .bs-4 { bottom: 0; right: 0; animation-delay: 4.5s; }
-        .bs-5 { top: 50%; left: -80px; transform: translateY(-50%); animation-delay: 0.75s; }
-        .bs-6 { top: 50%; right: -80px; transform: translateY(-50%); animation-delay: 2.25s; }
-        .bs-7 { top: -80px; left: 50%; transform: translateX(-50%); animation-delay: 3.75s; }
-        .bs-8 { bottom: -80px; left: 50%; transform: translateX(-50%); animation-delay: 5.25s; }
+        .brand-satelite img { width: 85%; height: auto; object-fit: contain; }
+        
+        .bs-1 { top: -20px; left: 0; animation-delay: 0s; }
+        .bs-2 { top: -20px; right: 0; animation-delay: 1.5s; }
+        .bs-3 { bottom: 0; left: -20px; animation-delay: 3s; }
+        .bs-4 { bottom: 0; right: -20px; animation-delay: 4.5s; }
+        .bs-5 { top: 50%; left: -60px; transform: translateY(-50%); animation-delay: 0.75s; }
+        .bs-6 { top: 50%; right: -60px; transform: translateY(-50%); animation-delay: 2.25s; }
 
         .hero-geometric-separator {
             width: 100%; max-width: 400px; height: 2px;
@@ -155,148 +123,95 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(16px, 2.5vw, 22px); font-weight: 300; letter-spacing: 1px;
-            color: #CBD5E1; margin-bottom: 50px; max-width: 700px; margin-inline: auto;
-            line-height: 1.6;
+            font-size: clamp(16px, 2.5vw, 20px); font-weight: 400; letter-spacing: 1px;
+            color: #E2E8F0; margin-bottom: 40px; max-width: 700px; margin-inline: auto; line-height: 1.6;
         }
 
         .btn {
-            display: inline-block; padding: 18px 45px; font-weight: 700; font-size: 14px;
+            display: inline-block; padding: 18px 40px; font-weight: 800; font-size: 14px;
             text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
-            border-radius: 4px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 8px; transition: all 0.3s;
         }
-        .btn-primary {
-            background: var(--mario-orange); color: white;
-            box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5);
-            background: #d15a22;
-        }
+        .btn-primary { background: var(--mario-orange); color: white; box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5); background: #d15a22; }
 
-        /* --- FLUTTER GLASS CARDS (Masterteksten) --- */
+        /* --- Categorie Kaarten (Masterteksten) --- */
         .services-section {
-            position: relative; z-index: 10;
-            max-width: 1300px; margin: -100px auto 100px; padding: 0 20px;
+            position: relative; z-index: 10; max-width: 1300px; margin: -60px auto 80px; padding: 0 20px;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
         }
-
         .glass-card {
-            background: var(--card-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 24px;
-            padding: 50px 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; overflow: hidden;
+            background: white; border: 1px solid var(--mario-border); border-radius: 20px;
+            padding: 40px 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); transition: all 0.4s;
             display: flex; flex-direction: column; align-items: flex-start;
         }
-
-        .glass-card i { font-size: 45px; color: var(--mario-orange); margin-bottom: 25px; display: block; position: relative; z-index: 2; }
-        .glass-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; color: var(--mario-navy); }
-        .glass-card p { font-size: 16px; color: #475569; line-height: 1.7; font-weight: 400; margin-bottom: 25px; }
-        .glass-card p strong { color: var(--mario-orange); font-weight: 700; }
-
+        .glass-card:hover { transform: translateY(-10px); border-color: var(--mario-orange); box-shadow: 0 30px 50px rgba(227,108,51,0.1); }
+        .glass-card i { font-size: 40px; color: var(--mario-orange); margin-bottom: 25px; }
+        .glass-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; color: var(--mario-navy); }
+        .glass-card p { font-size: 15px; color: var(--mario-grey); line-height: 1.7; font-weight: 500; margin-bottom: 25px; }
+        .glass-card p strong { color: var(--mario-orange); font-weight: 800; }
         .btn-card {
-            background: var(--mario-navy); color: white;
-            border-radius: 4px; padding: 10px 20px;
-            font-size: 12px; font-weight: 600; text-transform: uppercase; text-decoration: none;
-            transition: all 0.3s ease;
-            margin-top: auto;
+            background: var(--mario-navy); color: white; border-radius: 6px; padding: 12px 20px;
+            font-size: 13px; font-weight: 700; text-transform: uppercase; text-decoration: none;
+            transition: 0.3s; margin-top: auto;
         }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
-        /* --- MAP & REVIEWS SECTIE (Nieuw) --- */
-        .info-section {
-            max-width: 1300px; margin: 0 auto 100px; padding: 0 20px;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
-        }
-        .map-frame {
-            border-radius: 24px; overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border: 4px solid white; height: 100%; min-height: 350px;
-        }
-        .reviews-container {
-            display: grid; grid-template-rows: auto 1fr; gap: 20px;
-        }
-        .reviews-header { font-size: 20px; font-weight: 700; text-transform: uppercase; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; }
+        /* --- Map & Reviews --- */
+        .info-section { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+        .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 5px solid white; height: 400px; }
+        .reviews-container { display: flex; flex-direction: column; gap: 20px; }
+        .reviews-header { font-size: 24px; font-weight: 800; text-transform: uppercase; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .reviews-header i { color: #F59E0B; }
-        
-        .review-card {
-            background: white; border-radius: 16px; padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: 0.3s ease;
-        }
-        .review-card:hover { transform: translateY(-5px); border-color: var(--mario-orange); }
-        .review-stars { color: #F59E0B; margin-bottom: 10px; }
-        .review-text { font-size: 14px; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
-        .review-author { font-size: 12px; font-weight: 600; color: var(--mario-navy); text-transform: uppercase; }
+        .review-card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid var(--mario-border); transition: 0.3s; }
+        .review-card:hover { border-color: var(--mario-orange); transform: translateX(5px); }
+        .review-stars { color: #F59E0B; margin-bottom: 10px; font-size: 14px; }
+        .review-text { font-size: 15px; color: var(--mario-grey); line-height: 1.6; font-style: italic; margin-bottom: 15px; }
+        .review-author { font-size: 13px; font-weight: 700; color: var(--mario-navy); text-transform: uppercase; }
 
-        /* --- FOOTER (Informatie) --- */
-        footer {
-            background-color: var(--mario-navy); color: white;
-            padding: 60px 5%;
-        }
-        .footer-grid {
-            max-width: 1300px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
-        }
-        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; }
-        .footer-col p { color: #CBD5E1; font-size: 14px; line-height: 1.7; display: flex; align-items: center; gap: 10px; }
-        .footer-col p i { color: white; width: 20px; }
-        .footer-col .big-hours { font-size: 20px; font-weight: 700; color: white; margin-top: 15px; }
+        /* --- Footer --- */
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5%; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 800; }
+        .footer-col p { color: #CBD5E1; font-size: 14px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .footer-col p i { color: white; width: 20px; font-size: 16px; }
+        .big-hours { font-size: 18px; font-weight: 800; color: white; margin-top: 15px; background: rgba(255,255,255,0.1); padding: 12px 15px; border-radius: 8px; display: inline-block; }
 
-        /* --- CHATBOT KNOP (Nieuw) --- */
+        /* --- Chatbot Knop --- */
         .chat-btn {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--mario-orange); color: white;
-            border-radius: 50%; width: 60px; height: 60px;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px rgba(227, 108, 51, 0.5);
-            z-index: 10000; cursor: pointer; text-decoration: none;
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
+            border-radius: 50%; width: 65px; height: 65px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 10000; text-decoration: none; font-size: 30px;
         }
-        .chat-btn i { font-size: 24px; }
 
         @media (max-width: 900px) {
             header { padding: 15px 5%; }
             .hamburger { display: block; }
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
-                background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(20px);
-                flex-direction: column; padding: 0; height: 0; overflow: hidden;
-                transition: height 0.4s ease;
+                background: rgba(26, 32, 44, 0.98); backdrop-filter: blur(20px);
+                flex-direction: column; padding: 0; height: 0; overflow: hidden; transition: height 0.4s ease;
             }
             .nav-links.active { height: 350px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
             .nav-links a { display: block; padding: 15px 5%; text-align: center; }
-            
-            .brands-orb-container { height: 300px; margin-bottom: 30px; }
-            .hero-center-logo { max-width: 220px; }
-            .brand-satelite { width: 50px; height: 50px; padding: 5px; }
-            .bs-5 { left: -50px; }
-            .bs-6 { right: -50px; }
-            .bs-7 { top: -60px; }
-            .bs-8 { bottom: -60px; }
-
-            .services-section { margin-top: -50px; gap: 20px; }
-            .glass-card { padding: 40px 30px; }
-
+            .hero { padding-top: 100px; }
+            .brands-orb-container { height: 280px; }
+            .hero-center-logo { max-width: 200px; }
+            .brand-satelite { width: 55px; height: 55px; padding: 8px; }
+            .bs-5 { left: -30px; } .bs-6 { right: -30px; }
             .info-section { grid-template-columns: 1fr; }
-            .map-frame { min-height: 250px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .map-frame { height: 300px; }
+            .chat-btn { width: 55px; height: 55px; font-size: 26px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-frame">
+        <a href="index.html" class="logo-frame">
             <img src="mario-logo.jpg" alt="Mario">
             <div class="logo-text">Doe-Het-Zelf & Renovatie</div>
-        </div>
+        </a>
 
         <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
             <i class="fas fa-bars"></i>
@@ -304,7 +219,6 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a></li>
-            <li><a href="elektriciteit.html"><i class="fas fa-bolt"></i>Elektriciteit</a></li>
             <li><a href="renovatie.html"><i class="fas fa-drafting-compass"></i>Renovaties</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -315,20 +229,16 @@
         <div class="hero-content">
             <div class="brands-orb-container animate-scale-glow">
                 <img src="mario-logo.jpg" alt="Mario Logo" class="hero-center-logo">
-                
                 <div class="brand-satelite bs-1 animate-float"><img src="final/niko.jpg" alt="Niko"></div>
-                <div class="brand-satelite bs-2 animate-float"><img src="final/akzonobel.jpg" alt="AkzoNobel"></div>
-                <div class="brand-satelite bs-3 animate-float"><img src="final/levis.jpg" alt="Levis"></div>
-                <div class="brand-satelite bs-4 animate-float"><img src="final/bticino.jpg" alt="Bticino"></div>
+                <div class="brand-satelite bs-2 animate-float"><img src="final/levis.jpg" alt="Levis"></div>
+                <div class="brand-satelite bs-3 animate-float"><img src="final/bticino.jpg" alt="Bticino"></div>
+                <div class="brand-satelite bs-4 animate-float"><img src="final/stanley.jpg" alt="Stanley"></div>
                 <div class="brand-satelite bs-5 animate-float"><img src="final/versa.jpg" alt="Versa"></div>
-                <div class="brand-satelite bs-6 animate-float"><img src="final/stanley.jpg" alt="Stanley"></div>
-                <div class="brand-satelite bs-7 animate-float"><img src="final/abus.jpg" alt="Abus"></div>
-                <div class="brand-satelite bs-8 animate-float"><img src="final/litto.jpg" alt="Litto"></div>
+                <div class="brand-satelite bs-6 animate-float"><img src="final/knauf.jpg" alt="Knauf"></div>
             </div>
             
             <div class="hero-geometric-separator"></div>
             <p class="hero-subtitle">Premium totaalrenovaties en de meest complete doe-het-zelf speciaalzaak. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service in Berchem.</p>
-            
             <a href="winkel.html" class="btn btn-primary">Ontdek de zaak</a>
         </div>
     </section>
@@ -337,8 +247,8 @@
         <div class="glass-card">
             <i class="fas fa-bolt"></i>
             <h3>Elektriciteit</h3>
-            <p>Ontdek ons uitgebreide assortiment elektriciteitsmaterialen. Als <strong>officieel Niko-verdeler</strong> bieden wij absolute topkwaliteit voor de vakman. Daarnaast vindt u bij ons een ruime voorraad van gerenommeerde A-merken voor elke installatie.</p>
-            <a href="elektriciteit.html" class="btn-card">Bekijk Assortiment</a>
+            <p>Ontdek ons uitgebreide assortiment elektriciteitsmaterialen. Als <strong>officieel Niko-verdeler</strong> bieden wij absolute topkwaliteit voor de vakman. A-merken direct uit voorraad leverbaar.</p>
+            <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
         </div>
         <div class="glass-card">
             <i class="fas fa-drafting-compass"></i>
@@ -347,27 +257,27 @@
             <a href="renovatie.html" class="btn-card">Onze Projecten</a>
         </div>
         <div class="glass-card">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-paint-roller"></i>
             <h3>Speciaalzaak</h3>
-            <p>Alles voor de professionele klusser. Van <strong>officieel AkzoNobel & Levis verfmengcenter</strong> (klaar in 5 min) tot high-end sanitair en gereedschap. Ervaar onze ongeëvenaarde productkennis.</p>
+            <p>Alles voor de klusser. Van <strong>officieel AkzoNobel & Levis verfmengcenter</strong> (klaar in 5 min) tot high-end sanitair en gereedschap. Ervaar onze ongeëvenaarde productkennis.</p>
             <a href="winkel.html" class="btn-card">De Winkel</a>
         </div>
     </div>
 
     <div class="info-section">
         <div class="map-frame">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2500.0886617066847!2d4.4288636!3d51.200366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f71c4b123456%3A0x123456789abcdef!2sDriekoningenstraat%2073%2C%202600%20Antwerpen!5e0!3m2!1snl!2sbe!4v1700000000000!5m2!1snl!2sbe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073,%20Berchem&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="reviews-container">
-            <h4 class="reviews-header"><i class="fas fa-star"></i> 5-Star Google Reviews</h4>
+            <h4 class="reviews-header"><i class="fas fa-star"></i> 5-Star Reviews</h4>
             <div class="review-card">
                 <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p class="review-text">"Vakmanschap tot in het kleinste detail! Onze badkamer renovatie is prachtig geworden. Absolute aanrader!"</p>
                 <p class="review-author">- Sarah V., Berchem</p>
             </div>
             <div class="review-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Geweldige service. De verf werd ter plekke gemengd en het kleuradvies was spot-on. De mengmachine is een uitvinding!"</p>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"Geweldige service. De verf werd ter plekke gemengd en het kleuradvies was spot-on. De mengmachine is fantastisch!"</p>
                 <p class="review-author">- Peter D., Antwerpen</p>
             </div>
         </div>
@@ -382,20 +292,18 @@
             <div class="footer-col">
                 <h4>Informatie</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73</p>
-                <p><i class="fas fa-city"></i> 2600 Berchem (Antwerpen)</p>
+                <p><i class="fas fa-city"></i> 2600 Berchem</p>
                 <p><i class="fas fa-envelope"></i> info@mariodhz.be</p>
             </div>
             <div class="footer-col">
                 <h4>Openingstijden</h4>
                 <p>Wij staan elke dag van de week voor u klaar, óók in het weekend.</p>
-                <p class="big-hours"><i class="fas fa-clock"></i> 7/7 OPEN 08:30-19:00</p>
+                <div class="big-hours"><i class="fas fa-clock"></i> 7/7 OPEN 08:30-19:00</div>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/32488334455" class="chat-btn animate-heartbeat">
-        <i class="fas fa-comment"></i>
-    </a>
+    <a href="https://wa.me/32488334455" class="chat-btn animate-heartbeat"><i class="fab fa-whatsapp"></i></a>
 
 </body>
 </html>
