@@ -15,133 +15,133 @@
             --mario-orange: #E36C33;
             --mario-navy: #060B11; 
             --card-glass: rgba(255, 255, 255, 0.95);
+            --mario-light: #F1F5F9;
+            --mario-border: #E2E8F0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-        body { background-color: #F1F5F9; color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-        /* --- Animaties --- */
-        @keyframes heartbeat { from { transform: scale(1); } 50% { transform: scale(1.1); } to { transform: scale(1); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* --- Header & Nav --- */
+        /* --- HEADER & NAVIGATIE --- */
         header {
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: rgba(6, 11, 17, 0.85);
-            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 15px 5%; background: rgba(6, 11, 17, 0.9);
+            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Mario Logo Links Boven (GROTER EN DUIDELIJKER) */
-        .logo-frame { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-decoration: none; }
-        .logo-frame img { height: 45px; width: auto; display: block; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.8)); border-radius: 4px; }
-        .logo-text { color: white; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
+        .logo-frame { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
+        .logo-frame img { height: 45px; width: auto; display: block; border-radius: 4px; }
+        .logo-text { color: white; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
         .hamburger { display: none; color: white; font-size: 30px; cursor: pointer; }
 
-        /* --- Hero Section --- */
-        .hero { position: relative; height: 100vh; min-height: 800px; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.5) 0%, var(--mario-navy) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; padding: 0 5%; display: flex; gap: 40px; align-items: center; justify-content: center; }
+        /* --- HERO SECTION --- */
+        .hero { position: relative; padding: 140px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; justify-content: center; }
 
-        /* Linker Kaart (Met werkend logo en opgeruimd) */
         .hero-card {
-            background: var(--card-glass); border-radius: 20px;
-            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);
-            padding: 50px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            background: white; border-radius: 20px;
+            padding: 50px 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             display: flex; flex-direction: column; align-items: flex-start; flex: 1.2;
         }
-        .card-inner { display: flex; gap: 25px; align-items: center; margin-bottom: 25px; }
-        .card-logo { width: 80px; height: 80px; border-radius: 12px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .hero-card-title { font-size: clamp(22px, 3.5vw, 32px); font-weight: 900; color: var(--mario-navy); line-height: 1.2; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .hero-card p { font-size: 16px; color: #475569; line-height: 1.6; font-weight: 400; margin-bottom: 30px; max-width: 500px; }
-        .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; box-shadow: 0 10px 30px rgba(227, 108, 51, 0.3); transition: 0.3s; }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.5); background: #d15a22; }
+        .card-inner { display: flex; gap: 25px; align-items: center; margin-bottom: 20px; }
+        .card-logo { width: 80px; height: 80px; border-radius: 12px; object-fit: contain; background: var(--mario-light); padding: 5px; }
+        .hero-card-title { font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; color: var(--mario-navy); line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
+        .hero-card p { font-size: 16px; color: #475569; line-height: 1.6; margin-bottom: 30px; }
+        .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(227, 108, 51, 0.4); background: #cc5a28; }
 
-        /* Rechter Slider Kaart (Opgeruimde tekst) */
-        .hero-slider-card { flex: 1; position: relative; background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); height: 100%; min-height: 400px; }
-        .slider-wrapper { display: flex; height: 100%; transition: transform 0.8s ease-in-out; }
-        .slide { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .hero-slider-card { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.1); height: 350px; position: relative; }
+        .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
+        .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slider-geometric-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(0deg, rgba(6,11,17,0.9) 0%, rgba(6,11,17,0) 60%); }
-        .hero-slider-info { position: absolute; bottom: 30px; left: 30px; z-index: 4; color: white; padding: 20px; }
-        .hero-slider-info i { color: var(--mario-orange); font-size: 24px; margin-bottom: 10px; display: block; }
-        .hero-slider-info h3 { font-size: clamp(18px, 2.5vw, 26px); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
 
-        /* --- LOPENDE BAND (FOUTLOZE LOGO'S) --- */
-        .partner-banner { background: white; padding: 30px 0; border-bottom: 1px solid var(--mario-border); overflow: hidden; white-space: nowrap; display: flex; align-items: center; }
-        .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 60px; padding: 0 30px; align-items: center; }
-        .partner-track img { height: 40px; max-width: 120px; object-fit: contain; filter: grayscale(100%) opacity(0.7); transition: all 0.3s; }
+        /* --- LOPENDE BAND (DUIDELIJK EN APART GEPLAATST) --- */
+        .partner-wrapper { position: relative; z-index: 10; background: white; border-bottom: 2px solid var(--mario-border); padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .partner-track { display: inline-flex; animation: scrollBanner 35s linear infinite; gap: 80px; padding: 0 40px; align-items: center; }
+        .partner-track img { height: 45px; max-width: 140px; object-fit: contain; filter: grayscale(100%) opacity(0.7); transition: all 0.3s; }
         .partner-track img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- RUBRIEKEN MET ECHTE FOTO'S (Nieuwe Layout) --- */
-        .services-section { position: relative; z-index: 10; max-width: 1300px; margin: -80px auto 100px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        /* --- CATEGORIE DETAILS MET ECHTE FOTO'S --- */
+        .services-section { position: relative; z-index: 5; max-width: 1300px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
         .glass-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; transition: 0.4s; display: flex; flex-direction: column; }
-        .glass-card:hover { transform: translateY(-10px); border-color: var(--mario-orange); box-shadow: 0 25px 50px rgba(227, 108, 51, 0.15); }
+        .glass-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 25px 50px rgba(227, 108, 51, 0.15); }
         
-        .card-img-top { width: 100%; height: 200px; background-size: cover; background-position: center; border-bottom: 3px solid var(--mario-orange); }
-        .card-content { padding: 30px; flex: 1; display: flex; flex-direction: column; }
-        .card-content i { font-size: 30px; color: var(--mario-orange); margin-bottom: 15px; }
-        .card-content h3 { font-size: 20px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; color: var(--mario-navy); }
-        .card-content p { font-size: 14px; color: #475569; line-height: 1.6; margin-bottom: 25px; }
-        .btn-card { background: var(--mario-navy); color: white; border-radius: 6px; padding: 12px 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
+        .card-img-top { width: 100%; height: 220px; background-size: cover; background-position: center; border-bottom: 4px solid var(--mario-orange); }
+        .card-content { padding: 35px; flex: 1; display: flex; flex-direction: column; }
+        .card-content i { font-size: 35px; color: var(--mario-orange); margin-bottom: 15px; }
+        .card-content h3 { font-size: 22px; font-weight: 900; margin-bottom: 12px; text-transform: uppercase; color: var(--mario-navy); }
+        .card-content p { font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 20px; }
+        
+        .wip-badge { background: #FFF5F0; color: var(--mario-orange); padding: 10px 15px; border-radius: 8px; font-size: 13px; font-weight: 800; display: inline-block; margin-bottom: 20px; border: 1px solid #FBD38D; }
+        .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
         .card-garden .card-img-top { border-bottom-color: #48BB78; }
         .card-garden i { color: #48BB78; }
-        .card-garden:hover { border-color: #48BB78; box-shadow: 0 25px 50px rgba(72, 187, 120, 0.15); }
+        .card-garden .wip-badge { background: #F0FFF4; color: #2F855A; border-color: #9AE6B4; }
+        .card-garden:hover { border-color: #48BB78; }
         .card-garden:hover .btn-card { background: #48BB78; }
 
-        /* --- MAP & REVIEWS --- */
-        .info-section { max-width: 1300px; margin: 0 auto 100px; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 4px solid white; height: 100%; min-height: 450px; position: relative; }
+        /* --- GOOGLE REVIEWS & LIVE MAP --- */
+        .info-section { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
+        
+        /* De Onbreekbare Google Maps Link */
+        .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 5px solid white; height: 100%; min-height: 450px; }
         .google-map { width: 100%; height: 100%; border: 0; }
         
-        .reviews-container { display: grid; grid-template-rows: auto 1fr; gap: 20px; }
-        .reviews-header { font-size: 20px; font-weight: 800; text-transform: uppercase; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; }
+        .reviews-container { display: flex; flex-direction: column; gap: 20px; }
+        .reviews-header { font-size: 22px; font-weight: 900; text-transform: uppercase; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .reviews-header i { color: #F59E0B; }
-        .review-card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; }
+        .review-card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid var(--mario-border); transition: 0.3s; }
         .review-card:hover { transform: translateX(5px); border-color: var(--mario-orange); }
-        .review-stars { color: #F59E0B; margin-bottom: 10px; font-size: 14px; }
-        .review-text { font-size: 14px; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
-        .review-author { font-size: 13px; font-weight: 800; color: var(--mario-navy); text-transform: uppercase; }
+        .review-stars { color: #F59E0B; margin-bottom: 10px; font-size: 15px; letter-spacing: 2px; }
+        .review-text { font-size: 15px; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
+        .review-author { font-size: 14px; font-weight: 800; color: var(--mario-navy); text-transform: uppercase; }
 
         /* --- FOOTER & CREDITS --- */
-        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 40px; position: relative; }
-        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 800; }
-        .footer-col p { color: #CBD5E1; font-size: 14px; line-height: 1.7; display: flex; align-items: center; gap: 10px; }
-        .footer-col .big-hours { font-size: 20px; font-weight: 700; color: white; margin-top: 15px; }
-        .developer-credit-frame { max-width: 1300px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; text-align: center; }
-        .developer-credit-frame p { font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
-        .developer-credit-frame strong { color: white; font-weight: 700; }
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
+        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
         /* --- CHATBOT --- */
-        .ai-chat-btn { position: fixed; bottom: 25px; right: 25px; background: var(--mario-dark); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; text-decoration: none; transition: 0.3s; }
-        .ai-chat-btn:hover { transform: translateY(-5px); }
-        .ai-chat-btn i { color: #25d366; font-size: 22px; animation: heartbeat 2s infinite; }
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; text-decoration: none; transition: 0.3s; }
+        .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
+        .ai-chat-btn i { color: #25d366; font-size: 24px; animation: pulse 2s infinite; }
 
         @media (max-width: 900px) {
-            .hero-content { flex-direction: column; padding-top: 100px; padding-bottom: 100px; }
+            .hero { padding-top: 120px; min-height: auto; }
+            .hero-content { flex-direction: column; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
-            .hero-slider-card { min-height: 300px; }
+            .hero-slider-card { height: 280px; }
             .info-section { grid-template-columns: 1fr; }
-            .map-frame { min-height: 300px; }
+            .map-frame { min-height: 350px; }
+            .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
 
-    <a href="#" class="ai-chat-btn" onclick="alert('Mario AI Chatbot wordt geladen...')"><i class="fas fa-robot"></i> Chat met Mario AI</a>
+    <a href="#" class="ai-chat-btn"><i class="fas fa-robot"></i> Chat met Mario AI</a>
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="mario-logo.jpg" alt="Mario">
+            <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo.jpg';" alt="Mario">
             <div class="logo-text">Doe-Het-Zelf & Renovatie</div>
         </a>
         <div class="nav-links">
@@ -157,33 +157,27 @@
             
             <div class="hero-card">
                 <div class="card-inner">
-                    <img src="mario-logo.jpg" alt="Mario" class="card-logo">
+                    <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo.jpg';" alt="Mario" class="card-logo">
                     <h1 class="hero-card-title">Totaalrenovaties & Speciaalzaak</h1>
                 </div>
                 <p>Wij maken uw dromen werkelijkheid. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service in elke laag.</p>
-                <a href="winkel.html" class="btn-primary">Ontdek de zaak</a>
+                <a href="winkel.html" class="btn-primary">Ontdek Het Assortiment</a>
             </div>
 
             <div class="hero-slider-card">
                 <div class="slider-wrapper" id="slider">
-                    <div class="slide"><img src="final/dukkan/winkel1.jpg" onerror="this.onerror=null; this.src='winkel1.jpg';" alt="Winkel 1"></div>
-                    <div class="slide"><img src="final/dukkan/winkel2.jpg" onerror="this.onerror=null; this.src='winkel2.jpg';" alt="Winkel 2"></div>
-                    <div class="slide"><img src="final/dukkan/winkel3.jpg" onerror="this.onerror=null; this.src='winkel3.jpg';" alt="Winkel 3"></div>
-                    <div class="slide"><img src="final/dukkan/winkel4.jpg" onerror="this.onerror=null; this.src='winkel4.jpg';" alt="Winkel 4"></div>
-                    <div class="slide"><img src="final/dukkan/winkel5.jpg" onerror="this.onerror=null; this.src='winkel5.jpg';" alt="Winkel 5"></div>
-                </div>
-                <div class="slider-geometric-overlay"></div>
-                
-                <div class="hero-slider-info">
-                    <i class="fas fa-store-alt"></i>
-                    <h3>Bezoek onze speciaalzaak</h3>
+                    <div class="slide"><img src="final/dukkan/winkel1.jpg" onerror="this.onerror=null; this.src='winkel1.jpg';" alt="Winkel"></div>
+                    <div class="slide"><img src="final/dukkan/winkel2.jpg" onerror="this.onerror=null; this.src='winkel2.jpg';" alt="Winkel"></div>
+                    <div class="slide"><img src="final/dukkan/winkel3.jpg" onerror="this.onerror=null; this.src='winkel3.jpg';" alt="Winkel"></div>
+                    <div class="slide"><img src="final/dukkan/winkel4.jpg" onerror="this.onerror=null; this.src='winkel4.jpg';" alt="Winkel"></div>
+                    <div class="slide"><img src="final/dukkan/winkel5.jpg" onerror="this.onerror=null; this.src='winkel5.jpg';" alt="Winkel"></div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <div class="partner-banner">
+    <div class="partner-wrapper">
         <div class="partner-track">
             <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
             <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
@@ -218,8 +212,9 @@
             <div class="card-content">
                 <i class="fas fa-bolt"></i>
                 <h3>Elektriciteit</h3>
-                <p>Ontdek ons uitgebreide assortiment. Als <strong>officieel Niko-verdeler</strong> en dealer van ABB & Legrand bieden wij absolute topkwaliteit voor de vakman.</p>
-                <a href="elektriciteit.html" class="btn-card">Bekijk Assortiment</a>
+                <p>Ontdek ons uitgebreide assortiment. Als officieel Niko-verdeler bieden wij absolute topkwaliteit voor de vakman.</p>
+                <span class="wip-badge"><i class="fas fa-info-circle"></i> Webshop binnenkort actief</span>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
 
@@ -228,18 +223,20 @@
             <div class="card-content">
                 <i class="fas fa-bath"></i>
                 <h3>Badkamer & Sanitair</h3>
-                <p>Creëer uw droombadkamer met onze premium selectie. Van Aloni en Belrad meubels tot keramiek, wij hebben alles voor een luxe afwerking.</p>
-                <a href="sanitair.html" class="btn-card">Onze Projecten</a>
+                <p>Creëer uw droombadkamer met onze premium selectie. Van meubels tot keramiek, wij hebben alles voor een luxe afwerking.</p>
+                <span class="wip-badge"><i class="fas fa-info-circle"></i> Webshop binnenkort actief</span>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
 
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1555046243-d30906801977?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & BBQ</h3>
-                <p>Geef uw buitenruimte leven. Ontdek binnenkort ons curated assortiment professioneel tuingereedschap en BBQ-artikelen. <strong>Vanaf April!</strong></p>
-                <a href="winkel.html" class="btn-card">De Winkel</a>
+                <p>Geef uw buitenruimte leven. Ontdek binnenkort ons curated assortiment professioneel tuingereedschap en BBQ-artikelen.</p>
+                <span class="wip-badge"><i class="fas fa-calendar-alt"></i> Vanaf April beschikbaar</span>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
 
@@ -247,10 +244,10 @@
 
     <div class="info-section">
         <div class="map-frame">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.308253681604!2d4.424368515764024!3d51.19491687958514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f712b7fa12eb%3A0x2a799c92cc2c10b!2sDriekoningenstraat%2073%2C%202600%20Antwerpen!5e0!3m2!1snl!2sbe!4v1680000000000!5m2!1snl!2sbe" class="google-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073,%202600%20Berchem&t=&z=15&ie=UTF8&iwloc=&output=embed" class="google-map" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="reviews-container">
-            <h4 class="reviews-header"><i class="fas fa-star"></i> 5-Star Google Reviews</h4>
+            <h4 class="reviews-header"><i class="fas fa-star"></i> Echte Klantenbeoordelingen</h4>
             <div class="review-card">
                 <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 <p class="review-text">"Fijne winkel, liep toevallig binnen maar had geen geld bij me. Mocht de spullen achter de toonbank leggen... Aanraders!"</p>
@@ -287,6 +284,7 @@
                 <div class="big-hours">08:30 - 19:00</div>
             </div>
         </div>
+        
         <div class="developer-credit-frame">
             <p>Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong> • © 2026</p>
         </div>
@@ -296,7 +294,7 @@
         const slider = document.getElementById('slider');
         let index = 0; const totalSlides = 5;
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
-        setInterval(nextSlide, 4500); 
+        setInterval(nextSlide, 4000); 
     </script>
 
 </body>
