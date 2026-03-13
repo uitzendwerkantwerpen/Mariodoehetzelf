@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winkel | Mario Doe-Het-Zelf</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --mario-orange: #E36C33; --mario-blue: #1C3B5E; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; }
-        header { background: white; border-bottom: 2px solid var(--mario-blue); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { height: 40px; }
-        nav a { text-decoration: none; color: var(--mario-blue); font-weight: 700; margin-left: 15px; }
-        .content { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .box { padding: 30px; background: #f9f9f9; border-left: 5px solid var(--mario-orange); }
-        .parcel { background: var(--mario-blue); color: white; padding: 20px; margin-top: 30px; border-radius: 10px; }
-    </style>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doe-Het-Zelf Shop | Mario Berchem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="bg-overlay" style="background-image: url('34978.jpg');"></div>
 <header>
-    <img src="1765121277157.jpg" class="logo">
-    <nav><a href="index.html">Home</a><a href="winkel.html">Winkel</a><a href="renovatie.html">Renovatie</a><a href="contact.html">Contact</a></nav>
+    <div class="logo-container"><img src="1765121277157.jpg" alt="Mario Logo"></div>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="winkel.html" class="active">Winkel</a></li><li><a href="renovatie.html">Renovatie</a></li><li><a href="contact.html">Contact</a></li></ul>
 </header>
-<div class="content">
-    <h1>Onze Winkel in Berchem</h1>
-    <div class="grid">
-        <div class="box"><h3>Verf & Kleur</h3><p>Verdeler van Levis, Trimetal & AkzoNobel. Mengmachine aanwezig.</p></div>
-        <div class="box"><h3>Elektriciteit</h3><p>Niko Verdeelpunt, Twilight verlichting en meer.</p></div>
-        <div class="box"><h3>Sanitair</h3><p>Badkamermeubels en radiatoren op maat.</p></div>
+<main>
+    <div class="card">
+        <h1>Onze Doe-Het-Zelf Shop</h1>
+        <p>Alles voor uw woning, ondersteund door vakkundig advies en een 7/7 service.</p>
+        <ul class="service-list">
+            <li><strong>Verf Mengcenter:</strong> Officieel verdeler van <b>AkzoNobel, Levis en Trimetal</b>. Mengmachine direct aanwezig.</li>
+            <li><strong>Elektriciteit & Verlichting:</strong> Erkend <b>Niko Verdeelpunt</b> en Twilight verlichting.</li>
+            <li><strong>Sanitair:</strong> Ruim assortiment <b>badkamermeubels</b> en <b>radiatoren</b>.</li>
+            <li>Huishoudelijke artikelen en algemeen klusmateriaal.</li>
+        </ul>
     </div>
-    <div class="parcel">
-        <h2>📦 Officieel Afhaalpunt</h2>
-        <p>PostNL & Mondial Relay afhaalpunt. Breng of haal uw pakketten bij ons op!</p>
+    <div class="card" style="border-top-color: var(--mario-blue); background: rgba(28, 59, 94, 0.9); color: white;">
+        <h2 style="color:white; text-align: center;">📦 Officieel Afhaalpunt</h2>
+        <p style="color:#d1d5db; text-align:center;">Haal en breng uw pakketten gemakkelijk in de buurt.</p>
+        <div style="display:flex; justify-content:center; gap:20px; font-weight:700; font-size:18px;">
+            <div>PostNL Point</div>
+            <div>Mondial Relay</div>
+        </div>
     </div>
-</div>
+</main>
+<footer><p>Driekoningenstraat 73, Berchem | 7/7 Open vanaf 08:30</p></footer>
+<script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
 </body>
 </html>
