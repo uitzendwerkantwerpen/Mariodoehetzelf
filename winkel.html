@@ -3,278 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <title>Webshop | Mario DHZ Specialist</title>
+    <title>De Webshop | MARIO DHZ</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --mario-orange: #E36C33;
             --mario-navy: #060B11; 
-            --mario-light: #F1F5F9;
+            --mario-light: #F4F7F9;
             --mario-border: #E2E8F0;
-            --mario-grey: #4A5568;
+            --mario-green: #38A169;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--mario-light); color: var(--mario-navy); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-        /* --- HEADER & NAV --- */
-        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--mario-border); position: sticky; top: 0; z-index: 99; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .logo-frame { display: flex; flex-direction: column; text-decoration: none; }
-        .logo-frame img { height: 40px; width: auto; filter: drop-shadow(0 0 2px rgba(227, 108, 51, 0.5)); }
-        .logo-text { color: var(--mario-navy); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 2px; }
+        /* --- PROMO & HEADER --- */
+        .promo-bar { background: var(--mario-orange); color: white; text-align: center; padding: 10px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
         
-        .header-right { display: flex; align-items: center; gap: 20px; }
-        .back-btn { font-size: 14px; font-weight: 700; color: var(--mario-grey); text-decoration: none; text-transform: uppercase; transition: 0.3s; }
-        .back-btn:hover { color: var(--mario-orange); }
+        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--mario-border); position: sticky; top: 0; z-index: 99; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
         
-        .cart-btn { background: var(--mario-orange); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(227,108,51,0.3); }
-        .cart-btn:hover { transform: translateY(-2px); background: #d15a22; }
+        /* Foutloos Logo */
+        .logo-text-box { text-decoration: none; display: flex; flex-direction: column; }
+        .logo-text-box .mario { font-size: 26px; font-weight: 900; color: var(--mario-navy); letter-spacing: -1px; line-height: 1; }
+        .logo-text-box .mario span { color: var(--mario-orange); }
+        .logo-text-box .sub { font-size: 10px; font-weight: 700; color: #718096; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- WEBSHOP LAYOUT --- */
-        .shop-container { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 280px 1fr; gap: 40px; flex-grow: 1; }
+        /* Zoekbalk (Gamma stijl) */
+        .search-bar { display: flex; flex: 1; max-width: 500px; margin: 0 40px; border: 2px solid var(--mario-orange); border-radius: 8px; overflow: hidden; }
+        .search-bar input { width: 100%; padding: 12px 15px; border: none; outline: none; font-size: 14px; font-family: 'Outfit'; }
+        .search-bar button { background: var(--mario-orange); color: white; border: none; padding: 0 20px; cursor: pointer; font-size: 16px; }
 
-        /* --- SIDEBAR (CATEGORIEËN & SUBRUBRIEKEN) --- */
-        .sidebar { background: white; border-radius: 16px; border: 1px solid var(--mario-border); padding: 30px 20px; height: fit-content; position: sticky; top: 100px; }
-        .sidebar-title { font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 25px; color: var(--mario-navy); border-bottom: 2px solid var(--mario-border); padding-bottom: 10px; }
-        
-        .category-group { margin-bottom: 20px; }
-        .category-name { font-size: 15px; font-weight: 800; color: var(--mario-navy); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        .category-name:hover { color: var(--mario-orange); }
-        .category-name i { color: var(--mario-orange); width: 20px; }
-        
-        .sub-categories { list-style: none; padding-left: 30px; border-left: 2px solid var(--mario-light); margin-left: 10px; }
-        .sub-categories li { margin-bottom: 8px; }
-        .sub-categories a { text-decoration: none; color: var(--mario-grey); font-size: 14px; font-weight: 500; transition: 0.3s; display: block; }
-        .sub-categories a:hover { color: var(--mario-orange); transform: translateX(5px); font-weight: 700; }
+        .header-actions { display: flex; align-items: center; gap: 20px; }
+        .back-btn { font-size: 14px; font-weight: 700; color: var(--mario-navy); text-decoration: none; text-transform: uppercase; }
+        .cart-toggle-btn { background: var(--mario-navy); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; position: relative; }
+        .cart-toggle-btn:hover { background: var(--mario-orange); }
+        .cart-count { background: #E53E3E; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 11px; position: absolute; top: -8px; right: -8px; }
 
-        /* --- PRODUCT GRID --- */
-        .products-area { display: flex; flex-direction: column; gap: 20px; }
-        .shop-toolbar { display: flex; justify-content: space-between; align-items: center; background: white; padding: 15px 25px; border-radius: 12px; border: 1px solid var(--mario-border); }
-        .shop-toolbar h1 { font-size: 20px; font-weight: 800; text-transform: uppercase; }
-        .shop-toolbar select { padding: 10px; border-radius: 6px; border: 1px solid var(--mario-border); font-family: 'Outfit'; font-weight: 600; outline: none; }
+        /* --- SHOP LAYOUT --- */
+        .shop-wrapper { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-        
-        .product-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); padding: 20px; transition: 0.3s; display: flex; flex-direction: column; position: relative; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--mario-orange); }
-        
-        .badge { position: absolute; top: 15px; left: 15px; padding: 5px 10px; border-radius: 4px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
-        .badge-stock { background: #E6FFFA; color: #2F855A; border: 1px solid #9AE6B4; }
-        .badge-new { background: #FFF5F5; color: #C53030; border: 1px solid #FEB2B2; }
+        /* SIDEBAR */
+        .sidebar { background: white; padding: 30px 20px; border-radius: 12px; border: 1px solid var(--mario-border); height: fit-content; position: sticky; top: 100px; }
+        .sidebar h3 { font-size: 18px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; border-bottom: 2px solid var(--mario-light); padding-bottom: 10px; }
+        .sidebar ul { list-style: none; }
+        .sidebar li { margin-bottom: 15px; }
+        .sidebar a { text-decoration: none; color: #4A5568; font-weight: 600; font-size: 14px; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
+        .sidebar a:hover { color: var(--mario-orange); transform: translateX(5px); }
+        .sidebar a i { color: var(--mario-orange); width: 15px; }
 
-        .product-img { width: 100%; height: 200px; background: var(--mario-light); border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .product-img img { width: 60%; height: auto; mix-blend-mode: multiply; }
-        
-        .product-brand { font-size: 12px; font-weight: 800; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .product-title { font-size: 16px; font-weight: 700; color: var(--mario-navy); line-height: 1.4; margin-bottom: 15px; flex-grow: 1; }
-        .product-price { font-size: 22px; font-weight: 900; color: var(--mario-navy); margin-bottom: 20px; }
-        
-        .btn-add { background: var(--mario-navy); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 13px; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; gap: 8px; align-items: center; width: 100%; }
-        .btn-add:hover { background: var(--mario-orange); }
+        /* PRODUCT GRID */
+        .shop-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        .shop-toolbar h1 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
+        .shop-toolbar select { padding: 10px; border-radius: 6px; border: 1px solid var(--mario-border); outline: none; font-weight: 600; font-family: 'Outfit'; }
 
-        /* --- CHECKOUT/PAYMENT BANNER --- */
-        .payment-banner { background: white; border-top: 1px solid var(--mario-border); padding: 30px 5%; text-align: center; margin-top: 50px; }
-        .payment-banner h4 { font-size: 16px; font-weight: 800; text-transform: uppercase; color: var(--mario-navy); margin-bottom: 15px; }
-        .payment-icons { display: flex; justify-content: center; gap: 15px; align-items: center; }
-        .payment-icons img { height: 30px; object-fit: contain; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        
+        .product-card { background: white; border-radius: 12px; border: 1px solid var(--mario-border); padding: 20px; display: flex; flex-direction: column; transition: 0.3s; position: relative; }
+        .product-card:hover { box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--mario-orange); transform: translateY(-5px); }
+        
+        .stock-badge { position: absolute; top: 15px; left: 15px; background: #E6FFFA; color: var(--mario-green); border: 1px solid #9AE6B4; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 800; text-transform: uppercase; z-index: 2; }
+        
+        .product-img { width: 100%; height: 200px; border-radius: 8px; margin-bottom: 15px; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .product-card:hover .product-img img { transform: scale(1.05); }
+
+        .brand-name { font-size: 12px; font-weight: 800; color: var(--mario-orange); text-transform: uppercase; margin-bottom: 5px; }
+        .product-title { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 15px; flex-grow: 1; color: var(--mario-navy); }
+        .product-price { font-size: 24px; font-weight: 900; color: var(--mario-navy); margin-bottom: 20px; }
+        
+        .btn-add { background: #F1F5F9; color: var(--mario-navy); border: 2px solid var(--mario-border); padding: 12px; border-radius: 8px; font-weight: 800; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px; width: 100%; }
+        .btn-add:hover { background: var(--mario-orange); color: white; border-color: var(--mario-orange); }
+
+        /* --- SHOPPING CART DRAWER (Coolblue Style) --- */
+        .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999; display: none; opacity: 0; transition: 0.3s; }
+        .cart-drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; z-index: 10000; box-shadow: -10px 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .cart-drawer.active { right: 0; }
+        .cart-overlay.active { display: block; opacity: 1; }
+        
+        .cart-header { padding: 20px; background: var(--mario-light); border-bottom: 1px solid var(--mario-border); display: flex; justify-content: space-between; align-items: center; font-size: 18px; font-weight: 900; text-transform: uppercase; }
+        .close-cart { cursor: pointer; font-size: 20px; color: var(--mario-grey); }
+        
+        .cart-items { flex-grow: 1; overflow-y: auto; padding: 20px; }
+        .cart-empty { text-align: center; color: var(--mario-grey); margin-top: 50px; font-weight: 600; }
+        
+        .cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid var(--mario-border); padding-bottom: 15px; margin-bottom: 15px; }
+        .cart-item-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+        .cart-item-price { font-size: 15px; font-weight: 900; color: var(--mario-orange); }
+        
+        .cart-footer { padding: 20px; background: white; border-top: 1px solid var(--mario-border); box-shadow: 0 -10px 20px rgba(0,0,0,0.03); }
+        .cart-total-row { display: flex; justify-content: space-between; font-size: 20px; font-weight: 900; margin-bottom: 20px; }
+        
+        .btn-checkout { width: 100%; background: var(--mario-green); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: 900; font-size: 16px; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn-checkout:hover { background: #2F855A; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(56,161,105,0.3); }
+
+        /* FOUTLOZE CSS BETALINGSLOGO'S */
+        .safe-checkout { text-align: center; margin-top: 15px; font-size: 12px; color: var(--mario-grey); font-weight: 600; }
+        .payment-methods { display: flex; justify-content: center; gap: 10px; margin-top: 10px; font-size: 24px; color: var(--mario-navy); }
 
         @media (max-width: 900px) {
-            .shop-container { grid-template-columns: 1fr; }
-            .sidebar { position: relative; top: 0; }
-            .shop-toolbar { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .search-bar { display: none; }
+            .shop-wrapper { grid-template-columns: 1fr; margin-top: 20px; }
+            .sidebar { display: none; } /* Verberg sidebar op mobiel voor overzicht */
         }
     </style>
 </head>
 <body>
 
+    <div class="promo-bar">Gratis levering vanaf €50 | Vóór 22:00 besteld, morgen in huis</div>
+
     <header>
-        <a href="index.html" class="logo-frame">
-            <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo.jpg';" alt="Mario">
-            <div class="logo-text">De Webshop</div>
+        <a href="index.html" class="logo-text-box">
+            <div class="mario">MARIO <span>DHZ</span></div>
+            <div class="sub">Specialist</div>
         </a>
-        <div class="header-right">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Terug naar site</a>
-            <button class="cart-btn" id="cartBtn"><i class="fas fa-shopping-cart"></i> <span id="cartTotal">€0.00</span></button>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Zoek naar Niko, verf, gereedschap...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="header-actions">
+            <a href="index.html" class="back-btn"><i class="fas fa-home"></i> Home</a>
+            <button class="cart-toggle-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i> Winkelwagen
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
         </div>
     </header>
 
-    <div class="shop-container">
-        
+    <div class="shop-wrapper">
         <aside class="sidebar">
-            <h2 class="sidebar-title">Assortiment</h2>
-
-            <div class="category-group">
-                <div class="category-name"><i class="fas fa-bolt"></i> Elektriciteit</div>
-                <ul class="sub-categories">
-                    <li><a href="#">Schakelmateriaal (Niko)</a></li>
-                    <li><a href="#">Verlichting & Lampen</a></li>
-                    <li><a href="#">Installatiemateriaal</a></li>
-                    <li><a href="#">Verlengkabels & Stekkers</a></li>
-                    <li><a href="#">Zekeringkasten & Automaten</a></li>
-                </ul>
-            </div>
-
-            <div class="category-group">
-                <div class="category-name"><i class="fas fa-faucet"></i> Sanitair</div>
-                <ul class="sub-categories">
-                    <li><a href="#">Installatiemateriaal</a></li>
-                    <li><a href="#">Koppelingen & Buizen</a></li>
-                    <li><a href="#">Sifons & Toebehoren</a></li>
-                    <li><a href="#">Kranen & Douchekoppen</a></li>
-                    <li><a href="#">Waterdichting</a></li>
-                </ul>
-            </div>
-
-            <div class="category-group">
-                <div class="category-name"><i class="fas fa-paint-roller"></i> Verf & Wand</div>
-                <ul class="sub-categories">
-                    <li><a href="#">Muurverf (Binnen & Buiten)</a></li>
-                    <li><a href="#">Houtverf & Lak</a></li>
-                    <li><a href="#">Primer & Grondverf</a></li>
-                    <li><a href="#">Verfborstels & Rollers</a></li>
-                    <li><a href="#">Kitten & Plamuur (Siliconen)</a></li>
-                </ul>
-            </div>
-
-            <div class="category-group">
-                <div class="category-name"><i class="fas fa-bath"></i> Badkamermeubels</div>
-                <ul class="sub-categories">
-                    <li><a href="#">Wastafels & Kasten</a></li>
-                    <li><a href="#">Spiegels & Verlichting</a></li>
-                    <li><a href="#">Douchebakken & Wanden</a></li>
-                    <li><a href="#">Toiletten (Hang & Staand)</a></li>
-                </ul>
-            </div>
-
-            <div class="category-group">
-                <div class="category-name"><i class="fas fa-hammer"></i> Gereedschap</div>
-                <ul class="sub-categories">
-                    <li><a href="#">Handgereedschap</a></li>
-                    <li><a href="#">Elektrisch Gereedschap</a></li>
-                    <li><a href="#">Boren & Bits</a></li>
-                    <li><a href="#">Bevestigingsmateriaal</a></li>
-                </ul>
-            </div>
-
-            <div class="category-group">
-                <div class="category-name"><i class="fas fa-leaf"></i> Tuin & BBQ (April)</div>
-                <ul class="sub-categories">
-                    <li><a href="#">Tuingereedschap</a></li>
-                    <li><a href="#">BBQ Toestellen</a></li>
-                    <li><a href="#">Houtskool & Accessoires</a></li>
-                </ul>
-            </div>
+            <h3><i class="fas fa-list"></i> Categorieën</h3>
+            <ul>
+                <li><a href="#"><i class="fas fa-bolt"></i> Elektriciteit</a></li>
+                <li><a href="#"><i class="fas fa-faucet"></i> Sanitair & Meubels</a></li>
+                <li><a href="#"><i class="fas fa-paint-roller"></i> Verf & Wand</a></li>
+                <li><a href="#"><i class="fas fa-hammer"></i> Gereedschap</a></li>
+                <li><a href="#"><i class="fas fa-leaf"></i> Tuin & BBQ</a></li>
+                <li><a href="#"><i class="fas fa-box"></i> Bevestigingsmateriaal</a></li>
+            </ul>
         </aside>
 
-        <main class="products-area">
+        <main>
             <div class="shop-toolbar">
                 <h1>Alle Producten</h1>
                 <select>
-                    <option>Sorteer op: Meest verkocht</option>
-                    <option>Prijs: Laag naar Hoog</option>
-                    <option>Prijs: Hoog naar Laag</option>
+                    <option>Sorteer: Meest Verkocht</option>
+                    <option>Prijs: Laag - Hoog</option>
+                    <option>Prijs: Hoog - Laag</option>
                 </select>
             </div>
 
             <div class="product-grid">
-                
                 <div class="product-card">
-                    <span class="badge badge-stock">Op Voorraad</span>
-                    <div class="product-img"><img src="final/logo/niko.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" alt="Product"></div>
-                    <div class="product-brand">Niko</div>
-                    <h3 class="product-title">Original Enkelvoudige Schakelaar Wit</h3>
-                    <div class="product-price">€ 8.95</div>
-                    <button class="btn-add" onclick="addToCart(8.95)"><i class="fas fa-cart-plus"></i> In Winkelwagen</button>
+                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
+                    <div class="product-img"><img src="https://images.unsplash.com/photo-1558434695-1f953ad761a6?auto=format&fit=crop&w=400" alt="Niko"></div>
+                    <div class="brand-name">Niko</div>
+                    <div class="product-title">Original Enkelvoudige Schakelaar Wit</div>
+                    <div class="product-price">€ 8,95</div>
+                    <button class="btn-add" onclick="addToCart('Niko Schakelaar Wit', 8.95)"><i class="fas fa-plus"></i> Toevoegen</button>
                 </div>
 
                 <div class="product-card">
-                    <span class="badge badge-new">Bestseller</span>
-                    <div class="product-img"><img src="final/logo/levis.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" alt="Product"></div>
-                    <div class="product-brand">Levis</div>
-                    <h3 class="product-title">Ambiance Mur Extra Mat (Kleur op Maat) 2.5L</h3>
-                    <div class="product-price">€ 45.50</div>
-                    <button class="btn-add" onclick="addToCart(45.50)"><i class="fas fa-cart-plus"></i> In Winkelwagen</button>
+                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
+                    <div class="product-img"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=400" alt="Levis"></div>
+                    <div class="brand-name">Levis</div>
+                    <div class="product-title">Ambiance Mur Extra Mat (Kleur op Maat) 2.5L</div>
+                    <div class="product-price">€ 45,50</div>
+                    <button class="btn-add" onclick="addToCart('Levis Ambiance 2.5L', 45.50)"><i class="fas fa-plus"></i> Toevoegen</button>
                 </div>
 
                 <div class="product-card">
-                    <span class="badge badge-stock">Op Voorraad</span>
-                    <div class="product-img"><img src="final/logo/stanley.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" alt="Product"></div>
-                    <div class="product-brand">Stanley</div>
-                    <h3 class="product-title">FatMax Professionele Klauwhamer</h3>
-                    <div class="product-price">€ 24.99</div>
-                    <button class="btn-add" onclick="addToCart(24.99)"><i class="fas fa-cart-plus"></i> In Winkelwagen</button>
+                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
+                    <div class="product-img"><img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=400" alt="Stanley"></div>
+                    <div class="brand-name">Stanley</div>
+                    <div class="product-title">FatMax Professionele Klauwhamer</div>
+                    <div class="product-price">€ 24,99</div>
+                    <button class="btn-add" onclick="addToCart('Stanley FatMax Hamer', 24.99)"><i class="fas fa-plus"></i> Toevoegen</button>
                 </div>
 
                 <div class="product-card">
-                    <span class="badge badge-stock">Op Voorraad</span>
-                    <div class="product-img"><img src="final/logo/versa.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" alt="Product"></div>
-                    <div class="product-brand">Versa</div>
-                    <h3 class="product-title">Messing Knelkoppeling 16mm x 1/2"</h3>
-                    <div class="product-price">€ 4.20</div>
-                    <button class="btn-add" onclick="addToCart(4.20)"><i class="fas fa-cart-plus"></i> In Winkelwagen</button>
+                    <span class="stock-badge" style="color: #C53030; background: #FFF5F5; border-color: #FEB2B2;"><i class="fas fa-fire"></i> Bestseller</span>
+                    <div class="product-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400" alt="Versa"></div>
+                    <div class="brand-name">Versa Group</div>
+                    <div class="product-title">Luxe Wastafelmengkraan Mat Zwart</div>
+                    <div class="product-price">€ 89,00</div>
+                    <button class="btn-add" onclick="addToCart('Zwarte Mengkraan', 89.00)"><i class="fas fa-plus"></i> Toevoegen</button>
                 </div>
 
                 <div class="product-card">
-                    <span class="badge badge-stock">Op Voorraad</span>
-                    <div class="product-img"><img src="final/logo/knauf.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" alt="Product"></div>
-                    <div class="product-brand">Knauf</div>
-                    <h3 class="product-title">Goldband Pleistergips 25kg</h3>
-                    <div class="product-price">€ 14.50</div>
-                    <button class="btn-add" onclick="addToCart(14.50)"><i class="fas fa-cart-plus"></i> In Winkelwagen</button>
+                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
+                    <div class="product-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400" alt="Knauf"></div>
+                    <div class="brand-name">Knauf</div>
+                    <div class="product-title">Goldband Pleistergips 25kg</div>
+                    <div class="product-price">€ 14,50</div>
+                    <button class="btn-add" onclick="addToCart('Knauf Goldband 25kg', 14.50)"><i class="fas fa-plus"></i> Toevoegen</button>
                 </div>
 
                 <div class="product-card">
-                    <span class="badge badge-new">Luxe Selectie</span>
-                    <div class="product-img"><img src="final/logo/aloni.jpg" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';" alt="Product"></div>
-                    <div class="product-brand">Aloni</div>
-                    <h3 class="product-title">Wastafelmeubel Mat Zwart 80cm</h3>
-                    <div class="product-price">€ 289.00</div>
-                    <button class="btn-add" onclick="addToCart(289.00)"><i class="fas fa-cart-plus"></i> In Winkelwagen</button>
+                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
+                    <div class="product-img"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=400" alt="Aloni"></div>
+                    <div class="brand-name">Aloni</div>
+                    <div class="product-title">Design Wastafelmeubel Eiken 80cm</div>
+                    <div class="product-price">€ 289,00</div>
+                    <button class="btn-add" onclick="addToCart('Aloni Wastafelmeubel', 289.00)"><i class="fas fa-plus"></i> Toevoegen</button>
                 </div>
-
             </div>
         </main>
-
     </div>
 
-    <div class="payment-banner">
-        <h4>Veilig en Snel Betalen</h4>
-        <div class="payment-icons">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bancontact_logo.svg" alt="Bancontact">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay">
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            Jouw Winkelwagen <i class="fas fa-times close-cart" onclick="toggleCart()"></i>
         </div>
-        <p style="font-size: 13px; color: var(--mario-grey); margin-top: 15px;">Tijdens deze ontwikkelfase reserveert u de producten online en betaalt u veilig bij afhaling in onze winkel in Berchem.</p>
+        <div class="cart-items" id="cartItemsList">
+            <div class="cart-empty">Je winkelwagen is nog leeg.<br><br><i class="fas fa-shopping-basket" style="font-size: 40px; opacity: 0.2; margin-top: 10px;"></i></div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Totaal:</span>
+                <span id="cartDrawerTotal">€ 0,00</span>
+            </div>
+            <button class="btn-checkout" onclick="processCheckout()"><i class="fas fa-lock"></i> Veilig Afrekenen</button>
+            
+            <div class="safe-checkout">
+                Gegarandeerd veilig betalen met:
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                    <i class="fas fa-money-check-alt" title="Bancontact"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Simpel script om de winkelwagen werkend te laten lijken!
-        let total = 0.00;
-        function addToCart(price) {
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({name, price});
             total += price;
-            document.getElementById('cartTotal').innerText = '€' + total.toFixed(2);
+            updateCartUI();
             
-            // Knop animatie
-            const btn = document.getElementById('cartBtn');
-            btn.style.transform = 'scale(1.1)';
-            setTimeout(() => { btn.style.transform = 'scale(1)'; }, 200);
+            // Open de winkelwagen automatisch als ze iets toevoegen (Coolblue style)
+            document.getElementById('cartDrawer').classList.add('active');
+            document.getElementById('cartOverlay').classList.add('active');
         }
 
-        // Als ze op winkelwagen klikken:
-        document.getElementById('cartBtn').addEventListener('click', function() {
-            if(total > 0) {
-                alert("Afrekenmodule in opbouw.\n\nUw totaal is: €" + total.toFixed(2) + "\n\nBinnenkort kunt u hier afrekenen met Bancontact en Payconiq!");
-            } else {
-                alert("Uw winkelwagen is nog leeg.");
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            document.getElementById('cartDrawerTotal').innerText = '€ ' + total.toFixed(2).replace('.', ',');
+            
+            const list = document.getElementById('cartItemsList');
+            if(cart.length === 0) {
+                list.innerHTML = '<div class="cart-empty">Je winkelwagen is nog leeg.</div>';
+                return;
             }
-        });
-    </script>
 
-</body>
-</html>
+            list.innerHTML = '';
+            cart.forEach((item) => {
+                list.innerHTML += `
+                    <div class="cart-item">
+                        <div>
