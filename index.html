@@ -10,6 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
+  <script>
+
+let slides = document.querySelectorAll(".hero-slide");
+let index = 0;
+
+function nextSlide(){
+
+slides[index].classList.remove("active");
+
+index = (index + 1) % slides.length;
+
+slides[index].classList.add("active");
+
+}
+
+setInterval(nextSlide,4000);
+
+</script>
 <body>
 
 <header>
