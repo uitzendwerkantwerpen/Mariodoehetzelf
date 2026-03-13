@@ -6,132 +6,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario | Premium Doe-Het-Zelf & Renovatie</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --mario-orange: #F5A623; 
             --mario-blue: #1A233A; 
-            --text-dark: #333333;
-            --bg-light: #F9FAFB;
+            --text-dark: #2D3748;
+            --text-gray: #718096;
+            --bg-light: #F7FAFC;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-        body { background-color: white; color: var(--text-dark); }
+        body { background-color: white; color: var(--text-dark); overflow-x: hidden; }
 
-        /* --- 1. USP BALK --- */
-        .usp-bar { background: #F3F4F6; display: flex; justify-content: center; gap: 40px; padding: 10px 20px; border-bottom: 1px solid #E5E7EB; flex-wrap: wrap; }
-        .usp-item { font-size: 12px; font-weight: 600; color: #6B7280; display: flex; align-items: center; gap: 8px; }
-        .usp-item i { color: var(--mario-blue); }
-
-        /* --- 2. HEADER --- */
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; max-width: 1600px; margin: 0 auto; }
+        /* --- HEADER --- */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 25px 5% 15px; max-width: 1600px; margin: 0 auto; }
+        .logo-container img { max-width: 220px; height: auto; object-fit: contain; }
         
-        /* LOGO AANGEPAST - Veel strakker en niet meer schermvullend */
-        .logo-container img { max-width: 250px; height: auto; object-fit: contain; }
-        
-        .search-bar { flex: 1; max-width: 600px; margin: 0 40px; position: relative; }
-        .search-bar input { width: 100%; padding: 12px 20px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 14px; outline: none; transition: 0.3s; }
+        .search-bar { flex: 1; max-width: 650px; margin: 0 40px; position: relative; }
+        .search-bar input { width: 100%; padding: 14px 20px; border: 2px solid #E2E8F0; border-radius: 6px; font-size: 14px; outline: none; transition: 0.3s; color: var(--text-dark); font-weight: 600; }
         .search-bar input:focus { border-color: var(--mario-blue); }
         .search-bar button { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 16px; color: var(--mario-blue); cursor: pointer; }
 
-        .header-icons { display: flex; gap: 20px; align-items: center; font-size: 20px; color: var(--mario-blue); }
+        .header-icons { display: flex; gap: 25px; align-items: center; font-size: 22px; color: var(--mario-blue); }
         .icon-btn { position: relative; cursor: pointer; transition: 0.2s; }
         .icon-btn:hover { color: var(--mario-orange); }
-        .cart-badge { position: absolute; top: -8px; right: -8px; background: #EF4444; color: white; font-size: 10px; font-weight: bold; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .cart-badge { position: absolute; top: -8px; right: -10px; background: #E53E3E; color: white; font-size: 11px; font-weight: bold; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
 
-        /* --- 3. NAVIGATIE BALK --- */
-        .nav-bar { background: var(--mario-blue); padding: 12px 5%; display: flex; justify-content: center; gap: 30px; overflow-x: auto; white-space: nowrap; }
-        .nav-bar a { color: white; text-decoration: none; font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif; transition: 0.2s; }
+        /* --- USP BALK --- */
+        .usp-bar { max-width: 1600px; margin: 0 auto; padding: 10px 5% 20px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+        .usp-item { font-size: 13px; font-weight: 600; color: var(--text-gray); display: flex; align-items: center; gap: 10px; }
+        .usp-item i { color: var(--mario-blue); font-size: 16px; }
+
+        /* --- NAVIGATIE BALK --- */
+        .nav-bar { background: var(--mario-blue); padding: 15px 5%; display: flex; justify-content: center; gap: 35px; overflow-x: auto; white-space: nowrap; }
+        .nav-bar a { color: white; text-decoration: none; font-size: 14px; font-weight: 700; font-family: 'Montserrat', sans-serif; transition: 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
         .nav-bar a:hover { color: var(--mario-orange); }
 
-        /* --- 4. PARTNER LOGO BALK (NIEUW!) --- */
-        .partner-bar { background: white; padding: 15px 0; border-bottom: 1px solid #E5E7EB; overflow: hidden; white-space: nowrap; display: flex; align-items: center; }
-        .partner-track { display: flex; gap: 50px; padding: 0 5%; align-items: center; justify-content: center; width: 100%; flex-wrap: wrap; }
-        .partner-track img { height: 35px; max-width: 100px; object-fit: contain; filter: grayscale(100%); transition: 0.3s; opacity: 0.7; }
-        .partner-track img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+        /* --- INFINITE LOGO CAROUSEL --- */
+        .partner-slider { background: white; padding: 25px 0; border-bottom: 1px solid #E2E8F0; overflow: hidden; position: relative; width: 100%; }
+        .partner-slider::before, .partner-slider::after { content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; }
+        .partner-slider::before { left: 0; background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%); }
+        .partner-slider::after { right: 0; background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%); }
+        
+        .partner-track { display: flex; width: max-content; animation: scrollLogos 40s linear infinite; }
+        .partner-track:hover { animation-play-state: paused; }
+        .partner-track img { height: 40px; margin: 0 45px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; cursor: pointer; }
+        .partner-track img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
-        /* --- 5. HERO GRID SECTIE --- */
-        .hero-section { max-width: 1600px; margin: 30px auto; padding: 0 5%; display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
-        
-        .banners-col { display: flex; flex-direction: column; gap: 25px; }
-        
-        .banner { position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; background-color: #E5E7EB; display: flex; align-items: center; padding: 40px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .banner img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%); transition: 0.3s; }
-        .banner:hover img { transform: scale(1.05); } 
-        .banner:hover::after { background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%); }
-        
-        .banner-content { position: relative; z-index: 10; max-width: 350px; }
-        .banner-content h2 { background: white; color: var(--text-dark); display: inline-block; padding: 10px 20px; font-size: 24px; font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 20px; }
-        .btn-yellow { background: var(--mario-orange); color: white; padding: 10px 30px; border-radius: 4px; font-weight: 700; display: inline-block; border: none; cursor: pointer; transition: 0.2s; font-size: 14px; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-        .btn-yellow:hover { background: #E59819; transform: translateY(-2px); }
+        @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .banner-large { height: 350px; }
-        .banner-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; height: 200px; }
+        /* --- HERO GRID SECTIE --- */
+        .hero-section { max-width: 1600px; margin: 40px auto; padding: 0 5%; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        .banners-col { display: flex; flex-direction: column; gap: 30px; }
+        
+        .banner { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; background-color: var(--bg-light); display: flex; align-items: center; padding: 40px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .banner img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(26,35,58,0.8) 0%, rgba(26,35,58,0.1) 100%); transition: 0.3s; }
+        .banner:hover img { transform: scale(1.06); } 
+        .banner:hover::after { background: linear-gradient(to right, rgba(26,35,58,0.9) 0%, rgba(26,35,58,0.2) 100%); }
+        
+        .banner-content { position: relative; z-index: 10; max-width: 400px; }
+        .banner-content h2 { background: white; color: var(--text-dark); display: inline-block; padding: 12px 25px; font-size: 26px; font-family: 'Montserrat', sans-serif; font-weight: 800; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-transform: uppercase; }
+        .btn-yellow { background: var(--mario-orange); color: white; padding: 12px 35px; border-radius: 4px; font-weight: 800; display: inline-block; border: none; cursor: pointer; transition: 0.2s; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-yellow:hover { background: #E59819; transform: translateY(-3px); box-shadow: 0 4px 10px rgba(245, 166, 35, 0.4); }
+
+        .banner-large { height: 380px; }
+        .banner-grid-small { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; height: 220px; }
         .banner-small { height: 100%; padding: 30px; }
-        .banner-small .banner-content h2 { font-size: 18px; padding: 8px 15px; margin-bottom: 15px; }
+        .banner-small .banner-content h2 { font-size: 18px; padding: 10px 20px; margin-bottom: 15px; }
 
-        .pickup-box { background: white; border: 1px solid #E5E7EB; border-radius: 8px; padding: 40px 30px; text-align: center; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .pickup-box h3 { color: var(--mario-blue); font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 30px; line-height: 1.3; }
+        .pickup-box { background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .pickup-box h3 { color: var(--mario-blue); font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; margin-bottom: 30px; line-height: 1.3; text-align: center; }
         
-        .address-block { background: #F9FAFB; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--mario-orange); text-align: left; }
-        .address-block strong { display: block; font-size: 16px; color: var(--text-dark); margin-bottom: 5px; }
-        .address-block p { color: #6B7280; font-size: 14px; line-height: 1.5; }
-        .hours { margin-top: 10px; color: #10B981; font-weight: 700; font-size: 13px; }
+        .address-block { background: var(--bg-light); padding: 25px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid var(--mario-orange); text-align: left; }
+        .address-block strong { display: block; font-size: 18px; color: var(--text-dark); margin-bottom: 8px; font-weight: 700; }
+        .address-block p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
+        .hours { margin-top: 15px; color: #38A169; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+
+        .info-alert { background: #EBF4FF; border: 1px solid #BEE3F8; color: #3182CE; padding: 15px; border-radius: 8px; font-size: 14px; font-weight: 600; line-height: 1.5; display: flex; gap: 12px; align-items: flex-start; }
+
+        /* --- GOOGLE REVIEWS SECTIE --- */
+        .reviews-section { max-width: 1600px; margin: 60px auto 40px; padding: 0 5%; }
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 15px; }
+        .section-header h2 { font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--text-dark); }
+        
+        .google-rating-box { display: flex; align-items: center; gap: 15px; background: white; padding: 15px 25px; border-radius: 50px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .google-rating-box .score { font-size: 24px; font-weight: 800; color: var(--text-dark); }
+        .google-rating-box .stars { color: #FBBC04; font-size: 20px; letter-spacing: 2px; }
+        .google-rating-box .count { font-size: 14px; color: var(--text-gray); font-weight: 600; margin-left: 5px; }
+
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .review-card { background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: 0.3s; display: flex; flex-direction: column; }
+        .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); border-color: #CBD5E0; }
+        
+        .reviewer { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .reviewer-avatar { width: 45px; height: 45px; background: var(--mario-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+        .reviewer-info h4 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+        .reviewer-info p { font-size: 12px; color: var(--text-gray); }
+        .review-text { font-size: 14px; color: #4A5568; line-height: 1.6; font-style: italic; }
+        .g-logo { color: #4285F4; font-size: 20px; margin-left: auto; }
+
+        /* --- FOOTER MET GOOGLE MAPS --- */
+        .footer-section { background: var(--mario-blue); color: white; padding: 60px 5% 20px; margin-top: 60px; }
+        .footer-grid { max-width: 1600px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 40px; }
+        .footer-col h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 25px; color: white; }
+        .footer-col p { color: #A0AEC0; font-size: 14px; line-height: 1.8; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+        .footer-col p i { margin-top: 4px; color: var(--mario-orange); font-size: 16px; width: 20px; text-align: center; }
+        
+        .map-container { width: 100%; height: 250px; border-radius: 12px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); background: #E2E8F0; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; color: #718096; font-size: 13px; max-width: 1600px; margin: 0 auto; }
 
         @media (max-width: 1024px) {
             .hero-section { grid-template-columns: 1fr; }
+            .usp-bar { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .banner-grid-small { grid-template-columns: 1fr; height: auto; }
-            .banner-small { height: 200px; }
-            .partner-track { gap: 20px; }
+            .banner-small { height: 220px; }
+            .usp-item { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="usp-bar">
-        <div class="usp-item"><i class="fas fa-star"></i> Klantbeoordeling 9.8</div>
-        <div class="usp-item"><i class="fas fa-undo"></i> 14 dagen recht op retour</div>
-        <div class="usp-item"><i class="fas fa-store"></i> 15 jaar actief in Driekoningenstraat</div>
-        <div class="usp-item"><i class="fas fa-boxes"></i> Ruime keuze & Grote voorraad</div>
-    </div>
-
     <header class="header">
         <a href="index.html" class="logo-container">
             <img src="mario-logo.jpg" alt="Mario DHZ">
         </a>
-        
         <div class="search-bar">
             <input type="text" placeholder="Zoeken naar producten, merken of categorieën...">
             <button><i class="fas fa-search"></i></button>
         </div>
-
         <div class="header-icons">
             <div class="icon-btn"><i class="far fa-user"></i></div>
             <div class="icon-btn"><i class="far fa-heart"></i></div>
-            <div class="icon-btn">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-badge">0</span>
-            </div>
+            <div class="icon-btn"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></div>
         </div>
     </header>
+
+    <div class="usp-bar">
+        <div class="usp-item"><i class="fas fa-star"></i> Klantbeoordeling 5.0/5.0</div>
+        <div class="usp-item"><i class="fas fa-box-open"></i> 14 Dagen recht op retour</div>
+        <div class="usp-item"><i class="fas fa-store-alt"></i> 15 Jaar actief in Driekoningenstraat</div>
+        <div class="usp-item"><i class="fas fa-warehouse"></i> Ruime keuze & Grote voorraad</div>
+    </div>
 
     <nav class="nav-bar">
         <a href="#gereedschap">Gereedschap</a>
         <a href="#elektriciteit">Elektriciteit</a>
-        <a href="#schilderen">Schilderen & Schoonmaak</a>
+        <a href="#schilderen">Schilderen</a>
         <a href="#ijzerwaren">Ijzerwaren</a>
         <a href="#sanitair">Sanitair</a>
-        <a href="#badkamers">Badkamers</a>
+        <a href="#tuin">Tuin & BBQ</a>
         <a href="#PROMO" style="color: var(--mario-orange);">PROMO</a>
     </nav>
 
-    <div class="partner-bar">
+    <div class="partner-slider">
         <div class="partner-track">
+            <img src="final/niko.jpg" alt="Niko">
+            <img src="final/bticino.jpg" alt="Bticino">
+            <img src="final/levis.jpg" alt="Levis">
+            <img src="final/stanley.jpg" alt="Stanley">
+            <img src="final/knauf.jpg" alt="Knauf">
+            <img src="final/pardaen.jpg" alt="Pardaen">
+            <img src="final/polyfilla.jpg" alt="Polyfilla">
+            <img src="final/trimetal.jpg" alt="Trimetal">
             <img src="final/niko.jpg" alt="Niko">
             <img src="final/bticino.jpg" alt="Bticino">
             <img src="final/levis.jpg" alt="Levis">
@@ -144,53 +189,134 @@
     </div>
 
     <section class="hero-section">
-        
         <div class="banners-col">
-            
             <a href="#" class="banner banner-large">
                 <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=1600&auto=format&fit=crop" alt="Schilderen">
                 <div class="banner-content">
-                    <h2>ontdek ons verf assortiment</h2>
+                    <h2>Ontdek ons verf assortiment</h2>
                     <button class="btn-yellow">Bekijken</button>
                 </div>
             </a>
-
             <div class="banner-grid-small">
-                
-                <a href="#" class="banner banner-small">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=800&auto=format&fit=crop" alt="Elektriciteit">
-                    <div class="banner-content">
-                        <h2>Installatie & Elektra</h2>
-                        <button class="btn-yellow">Bekijken</button>
-                    </div>
-                </a>
-
                 <a href="#" class="banner banner-small">
                     <img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?q=80&w=800&auto=format&fit=crop" alt="Gereedschap">
                     <div class="banner-content">
-                        <h2>ontdek top gereedschap</h2>
+                        <h2>Top Gereedschap</h2>
                         <button class="btn-yellow">Bekijken</button>
                     </div>
                 </a>
-
+                <a href="#" class="banner banner-small">
+                    <img src="https://images.unsplash.com/photo-1525328437458-0c4d4a0bca00?q=80&w=800&auto=format&fit=crop" alt="Tuin en BBQ">
+                    <div class="banner-content">
+                        <h2>Binnenkort: Tuin & BBQ</h2>
+                        <button class="btn-yellow">Ontdek meer</button>
+                    </div>
+                </a>
             </div>
         </div>
 
         <div class="pickup-box">
             <h3>Bestelde producten<br>direct af te halen:</h3>
-            
             <div class="address-block">
                 <strong>Hoofdvestiging Berchem</strong>
-                <p>Driekoningenstraat 73<br>2600 Berchem</p>
-                <div class="hours"><i class="fas fa-clock"></i> 7/7 OPEN: 08:30 - 19:00</div>
+                <p>Driekoningenstraat 73<br>2600 Berchem (Antwerpen)</p>
+                <div class="hours"><i class="fas fa-check-circle"></i> 7/7 OPEN: 08:30 - 19:00</div>
             </div>
-            
-            <div style="margin-top: 20px; color: #6B7280; font-size: 13px; text-align: left;">
-                <i class="fas fa-info-circle"></i> Webshop in aanbouw. Kom voor uw materialen direct langs in de winkel.
+            <div class="info-alert">
+                <i class="fas fa-info-circle"></i>
+                <div>Webshop in aanbouw. Voor al uw materialen en direct afhalen bent u welkom in onze winkel.</div>
             </div>
         </div>
-
     </section>
+
+    <section class="reviews-section">
+        <div class="section-header">
+            <h2>Klantervaringen</h2>
+            <div class="google-rating-box">
+                <i class="fab fa-google" style="color: #4285F4; font-size: 24px;"></i>
+                <div class="score">5.0</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="count">(150 reviews)</div>
+            </div>
+        </div>
+        
+        <div class="reviews-grid">
+            
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: #E53E3E;">E</div>
+                    <div class="reviewer-info">
+                        <h4>Elisabeth Roggeman</h4>
+                        <p>1 week geleden</p>
+                    </div>
+                    <i class="fab fa-google g-logo"></i>
+                </div>
+                <div class="stars" style="margin-bottom: 10px; font-size: 14px; color: #FBBC04;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"Heel persoonlijke service! Ze denken mee na en hebben eerlijke prijzen"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: #38A169;">L</div>
+                    <div class="reviewer-info">
+                        <h4>Lauren Langenus</h4>
+                        <p>3 weken geleden</p>
+                    </div>
+                    <i class="fab fa-google g-logo"></i>
+                </div>
+                <div class="stars" style="margin-bottom: 10px; font-size: 14px; color: #FBBC04;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"SUPER behulpzaam en vriendelijk!!! Hartelijk dank voor de top service!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: #3182CE;">A</div>
+                    <div class="reviewer-info">
+                        <h4>ANNICK Vanfleteren</h4>
+                        <p>1 maand geleden</p>
+                    </div>
+                    <i class="fab fa-google g-logo"></i>
+                </div>
+                <div class="stars" style="margin-bottom: 10px; font-size: 14px; color: #FBBC04;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"Nieuw leven in deze top doe het zelf zaak. Hier vind je zo goed als alles . Goede service en aan interessante prijzen."</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <h3>Klantenservice</h3>
+                <p><i class="fas fa-angle-right"></i> Veelgestelde Vragen</p>
+                <p><i class="fas fa-angle-right"></i> Ruilen & Retourneren</p>
+                <p><i class="fas fa-angle-right"></i> Algemene Voorwaarden</p>
+                <p><i class="fas fa-angle-right"></i> Privacybeleid</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact & Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-phone-alt"></i> 0470 93 58 48</p>
+                <p><i class="fas fa-envelope"></i> info@mariodoehetzelf.be</p>
+                <p><i class="fas fa-clock"></i> 7/7 OPEN: 08:30 - 19:00</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Onze Locatie</h3>
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073,%202600%20Berchem,%20Antwerpen&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            © 2026 Mario DHZ Specialist & Totaalrenovaties. Alle rechten voorbehouden.
+        </div>
+    </footer>
 
 </body>
 </html>
