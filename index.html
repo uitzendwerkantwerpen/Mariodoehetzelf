@@ -1,144 +1,85 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario | Doe-Het-Zelf & Renovatiebedrijf</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        /* INLINE CSS ZODAT HET 100% WERKT OP JE GSM */
-        :root {
-            --mario-orange: #E36C33;
-            --mario-navy: #0B1B2E; /* Zeer donker, zakelijk blauw */
-            --white: #ffffff;
-            --light-gray: #f4f7f6;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--light-gray); color: var(--mario-navy); overflow-x: hidden; }
+<meta charset="UTF-8">
+<title>Mario Doe Het Zelf</title>
 
-        /* --- LUXE DOORZICHTIGE HEADER --- */
-        header {
-            position: absolute; width: 100%; top: 0; left: 0; z-index: 1000;
-            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(11, 27, 46, 0.85); 
-            backdrop-filter: blur(10px); 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .logo { height: 75px; width: auto; } /* Groter logo */
-        
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            color: var(--white); text-decoration: none; font-size: 13px; 
-            font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; 
-        }
-        .nav-links a:hover { color: var(--mario-orange); }
-        .hamburger { display: none; color: white; font-size: 32px; cursor: pointer; }
+<link rel="stylesheet" href="style.css">
 
-        /* --- GIGANTISCHE HERO MET JOUW UPLOAD FOTO --- */
-        .hero {
-            position: relative; height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center;
-            /* Hier roepen we jouw foto aan! */
-            background-image: url('34978.jpg'); 
-            background-size: cover; background-position: center;
-        }
-        
-        /* De donkere overlay voor de professionele look */
-        .hero::after { 
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(to bottom, rgba(11,27,46,0.85), rgba(11,27,46,0.6)); z-index: 1; 
-        }
-        
-        .hero-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 20px; max-width: 1000px; }
-        .hero-content h1 { font-size: clamp(35px, 6vw, 65px); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; line-height: 1.2; }
-        .hero-content h1 span { color: var(--mario-orange); }
-        .hero-content p { font-size: clamp(16px, 2vw, 22px); font-weight: 300; margin-bottom: 45px; line-height: 1.8; color: #e2e8f0; }
-        
-        /* --- STRAKKE KNOPPEN (Geen kinderachtige bolletjes) --- */
-        .btn-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .btn {
-            padding: 18px 45px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-            text-decoration: none; transition: 0.3s; border-radius: 4px;
-        }
-        .btn-primary { background: var(--mario-orange); color: var(--white); box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
-        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); }
-        .btn-outline { border: 2px solid var(--white); color: var(--white); backdrop-filter: blur(5px); }
-        .btn-outline:hover { background: var(--white); color: var(--mario-navy); }
-
-        /* --- ZWEVENDE KAARTEN ONDERAAN --- */
-        .features { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            max-width: 1200px; margin: -80px auto 80px; position: relative; z-index: 10; padding: 0 20px; gap: 30px; 
-        }
-        .feature-card { 
-            background: var(--white); padding: 50px 40px; border-radius: 8px; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15); text-align: center; transition: 0.4s; 
-            border-bottom: 5px solid var(--mario-orange); 
-        }
-        .feature-card:hover { transform: translateY(-15px); }
-        .feature-card i { font-size: 45px; color: var(--mario-orange); margin-bottom: 25px; }
-        .feature-card h3 { font-size: 22px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; font-weight: 800; }
-        .feature-card p { font-size: 16px; color: #555; line-height: 1.7; }
-
-        /* --- MOBIELE MENU FIX --- */
-        @media (max-width: 900px) {
-            .nav-links { 
-                display: none; position: absolute; top: 100%; left: 0; width: 100%; 
-                background: var(--mario-navy); flex-direction: column; padding: 20px 0; text-align: center; 
-                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            }
-            .nav-links.active { display: flex; }
-            .nav-links a { padding: 15px 0; display: block; }
-            .hamburger { display: block; }
-            header { padding: 15px 5%; }
-            .logo { height: 50px; }
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <header>
-        <img src="1765121277157.jpg" alt="Mario Logo" class="logo">
-        <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')"><i class="fas fa-bars"></i></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="winkel.html">Winkel</a></li>
-            <li><a href="renovatie.html">Renovatie</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </header>
+<header>
+<div class="container navbar">
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Doe-Het-Zelf Shop &<br><span>Renovatiebedrijf</span></h1>
-            <p>Welkom bij Mario. Dé speciaalzaak voor de doe-het-zelver en uw betrouwbare partner voor totaalrenovaties. Professioneel materiaal, deskundig advies en uitstekende service staan bij ons centraal.</p>
-            <div class="btn-group">
-                <a href="winkel.html" class="btn btn-primary">De Winkel</a>
-                <a href="renovatie.html" class="btn btn-outline">Renovaties</a>
-            </div>
-        </div>
-    </section>
+<img src="logo.jpg" class="logo">
 
-    <div class="features">
-        <div class="feature-card">
-            <i class="fas fa-paint-roller"></i>
-            <h3>Verf & Elektra</h3>
-            <p>Officieel verdeler van AkzoNobel, Levis en Trimetal. Niko Verdeelpunt. Alles voor de professional en particulier.</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-hammer"></i>
-            <h3>Totaalrenovatie</h3>
-            <p>Van strakke Gyproc-wanden tot complete badkamers en gevelrenovaties. Uitgevoerd door ervaren vakmensen.</p>
-        </div>
-        <div class="feature-card">
-            <i class="fas fa-box"></i>
-            <h3>Afhaalpunt</h3>
-            <p>Officieel PostNL en Mondial Relay punt. Haal en breng uw pakketten gemakkelijk in de buurt.</p>
-        </div>
-    </div>
+<nav>
+<a href="index.html">Home</a>
+<a href="winkel.html">Winkel</a>
+<a href="renovatie.html">Renovatie</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+
+<h1>Doe-Het-Zelf & Renovatie</h1>
+
+<p>
+Professionele materialen, vakadvies en betrouwbare service
+voor elke klus in en rond uw woning.
+</p>
+
+<a href="winkel.html" class="btn">Bekijk onze winkel</a>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="cards">
+
+<div class="card">
+<h3>Verf & Coatings</h3>
+<p>Officieel verdeler van kwaliteitsmerken voor binnen en buiten.</p>
+</div>
+
+<div class="card">
+<h3>Elektriciteit</h3>
+<p>Volledig assortiment schakelmateriaal en verlichting.</p>
+</div>
+
+<div class="card">
+<h3>Sanitair</h3>
+<p>Badkamermeubels, radiatoren en installatiemateriaal.</p>
+</div>
+
+<div class="card">
+<h3>Renovatie</h3>
+<p>Professionele ondersteuning bij renovatie en verbouwing.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Driekoningenstraat 73, Berchem  
+7/7 Open vanaf 08:30
+
+</footer>
 
 </body>
 </html>
