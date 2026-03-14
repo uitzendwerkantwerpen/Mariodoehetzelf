@@ -33,26 +33,10 @@
         }
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
+        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1)); }
         
-        .header-logo-img { 
-            height: 60px; 
-            width: auto; 
-            display: block; 
-            object-fit: contain; 
-            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1)); 
-        }
-
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
-        
-        .mario-logo-text { 
-            font-size: 38px; 
-            font-weight: 900; 
-            color: var(--mario-orange); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            line-height: 1;
-            text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); 
-        }
+        .mario-logo-text { font-size: 38px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
         .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
         .nav-links { display: flex; gap: 30px; list-style: none; }
@@ -65,29 +49,10 @@
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; justify-content: center; }
 
-        /* DE DONKERE PREMIUM KAART */
-        .hero-card {
-            background: rgba(6, 11, 17, 0.9); 
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 50px 40px; 
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.08); 
-            display: flex; flex-direction: column; align-items: flex-start; flex: 1.2;
-        }
+        /* DE DONKERE PREMIUM KAART MET GROOT TRANSPARANT LOGO */
+        .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
-        
-        /* JOUW LOGO IN HET MIDDEN: GEEN WITTE ACHTERGROND, LEKKER GROOT */
-        .card-logo { 
-            width: 120px; /* Goed groot en duidelijk */
-            height: auto; 
-            object-fit: contain; 
-            background: transparent; /* Witte achtergrond is WEG */
-            padding: 0; 
-            border-radius: 0;
-            box-shadow: none; /* Zwarte vierkante schaduw is WEG */
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); /* Lichte, strakke gloed eromheen */
-        }
+        .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
         .hero-card-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
@@ -131,12 +96,10 @@
         .card-garden:hover { border-color: #48BB78; }
         .card-garden:hover .btn-card { background: #48BB78; }
 
-        /* --- GOOGLE REVIEWS & LIVE MAP --- */
+        /* --- MAP & REVIEWS --- */
         .info-section { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
-        
         .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 5px solid white; height: 100%; min-height: 450px; }
         .google-map { width: 100%; height: 100%; border: 0; }
-        
         .reviews-container { display: flex; flex-direction: column; gap: 20px; }
         .reviews-header { font-size: 22px; font-weight: 900; text-transform: uppercase; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .reviews-header i { color: #F59E0B; }
@@ -146,7 +109,7 @@
         .review-text { font-size: 15px; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
         .review-author { font-size: 14px; font-weight: 800; color: var(--mario-navy); text-transform: uppercase; }
 
-        /* --- FOOTER & CREDITS --- */
+        /* --- FOOTER --- */
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
@@ -156,10 +119,37 @@
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* --- CHATBOT --- */
-        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; text-decoration: none; transition: 0.3s; }
+        /* --- LIVE AI CHATBOT MET EXPERTS STYLES --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn i { color: #25d366; font-size: 24px; animation: pulse 2s infinite; }
+
+        .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
+        .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
+        
+        .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 10px; margin: 0; }
+        .chat-header h4 i { color: var(--mario-orange); }
+        .close-chat { color: white; background: none; border: none; font-size: 20px; cursor: pointer; }
+        
+        /* DE 3 EXPERTS SELECTOR */
+        .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
+        .expert-btn { flex: 1; padding: 8px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 12px; font-weight: 700; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .expert-btn i { font-size: 16px; }
+        .expert-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
+        .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
+
+        .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+        .chat-msg { max-width: 85%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.4; font-weight: 500; }
+        .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
+        .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
+        
+        .chat-input-area { padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px; }
+        .chat-input-area input { flex: 1; padding: 10px 15px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px; }
+        .chat-input-area input:focus { border-color: var(--mario-orange); }
+        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .chat-send-btn:hover { background: var(--mario-navy); }
+        .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
 
         @media (max-width: 900px) {
             .hero { padding-top: 120px; min-height: auto; }
@@ -169,12 +159,35 @@
             .info-section { grid-template-columns: 1fr; }
             .map-frame { min-height: 350px; }
             .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
+            .chat-window { width: 320px; bottom: 70px; right: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <a href="#" class="ai-chat-btn"><i class="fas fa-robot"></i> Chat met Mario AI</a>
+    <div class="ai-chat-btn" id="openChatBtn"><i class="fas fa-robot"></i> Chat met de Experts</div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h4><i class="fas fa-bolt"></i> Mario Expert Team</h4>
+            <button class="close-chat" id="closeChatBtn">×</button>
+        </div>
+        
+        <div class="expert-selector">
+            <button class="expert-btn active" data-expert="mario"><i class="fas fa-hammer"></i> Mario<br>(Algemeen)</button>
+            <button class="expert-btn" data-expert="luigi"><i class="fas fa-paint-roller"></i> Luigi<br>(Verf)</button>
+            <button class="expert-btn" data-expert="giovanni"><i class="fas fa-plug"></i> Giovanni<br>(Techniek)</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-bot">Ciao! Ik ben Mario. Zoek je algemene bouwmaterialen of wil je een totaalrenovatie bespreken? Vraag maar raak!</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Expert is aan het nadenken...</div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <header>
         <a href="index.html" class="logo-frame">
@@ -184,7 +197,6 @@
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
             </div>
         </a>
-        
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a>
@@ -332,10 +344,122 @@
     </footer>
 
     <script>
+        // 1. SLIDER SCRIPT
         const slider = document.getElementById('slider');
         let index = 0; const totalSlides = 5;
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 4000); 
+
+        // 2. LIVE MULTI-BOT GEMINI AI SCRIPT
+        const chatBtn = document.getElementById('openChatBtn');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const expertBtns = document.querySelectorAll('.expert-btn');
+
+        // Expert Systeem
+        let currentExpert = 'mario';
+        
+        const expertProfiles = {
+            mario: {
+                greeting: "Ciao! Ik ben Mario. Zoek je algemene bouwmaterialen of wil je een totaalrenovatie bespreken? Vraag maar raak!",
+                prompt: "Je bent Mario, de trotse eigenaar van 'Mario DHZ' in Berchem. Je bent expert in algemene bouw, ruwbouw en totaalrenovaties. Je spreekt de klant soms vriendelijk aan met 'broer' of 'vriend'. Je bent direct, vakkundig en verkoopt graag je top service. Geef kort antwoord (max 3 zinnen)."
+            },
+            luigi: {
+                greeting: "Hoi! Ik ben Luigi, de verf- en interieurspecialist. Welke kleur of sfeer wil je creëren in huis?",
+                prompt: "Je bent Luigi, de creatieve verf- en interieurspecialist bij 'Mario DHZ' in Berchem. Je weet alles van verf mengen (Levis, AkzoNobel), schilderwerk en strakke gyproc afwerking. Je bent enthousiast en behulpzaam. Geef kort antwoord (max 3 zinnen)."
+            },
+            giovanni: {
+                greeting: "Hallo, Giovanni hier! Jouw expert voor elektriciteit en sanitair. Waar kan ik je technisch mee helpen?",
+                prompt: "Je bent Giovanni, de technische expert bij 'Mario DHZ' in Berchem. Je weet absoluut alles over elektriciteit (Niko, Legrand, zekeringen) en sanitair (Aloni, Belrad, leidingen). Je geeft strak, veilig en technisch correct advies. Geef kort antwoord (max 3 zinnen)."
+            }
+        };
+
+        // Switch Expert
+        expertBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                expertBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentExpert = btn.getAttribute('data-expert');
+                
+                // Welkomstbericht van de nieuwe expert
+                appendMessage(expertProfiles[currentExpert].greeting, 'msg-bot');
+            });
+        });
+
+        // Open & Sluit Chat
+        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
+        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+        // Verzenden
+        sendChatBtn.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleUserMessage();
+        });
+
+        function appendMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${className}`;
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        async function handleUserMessage() {
+            const userText = chatInput.value.trim();
+            if (userText === '') return;
+
+            appendMessage(userText, 'msg-user');
+            chatInput.value = '';
+
+            typingIndicator.style.display = 'block';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            await generateBotResponse(userText);
+            
+            typingIndicator.style.display = 'none';
+        }
+
+        // API CALL NAAR GEMINI
+        async function generateBotResponse(userInput) {
+            
+            // JOUW ECHTE GEMINI API KEY!
+            const API_KEY = 'AIzaSyC3Pl9gNF1dOIBQ99SZINnijx8jxPShzzw'; 
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+            // Pak de juiste persoonlijkheid op basis van de gekozen expert
+            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            role: 'user',
+                            parts: [{ text: systemPrompt + userInput }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                if(data.candidates && data.candidates.length > 0) {
+                    const aiText = data.candidates[0].content.parts[0].text;
+                    appendMessage(aiText, 'msg-bot');
+                } else {
+                    appendMessage("Mijn excuses, de server is even druk. Probeer het opnieuw.", 'msg-bot');
+                }
+
+            } catch (error) {
+                console.error("AI Fout:", error);
+                appendMessage("Oei, verbinding met de Gemini server mislukt. Bel gerust de winkel op 08:30 - 19:00!", 'msg-bot');
+            }
+        }
     </script>
 
 </body>
