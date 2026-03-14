@@ -29,7 +29,7 @@
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
         .top-bar-item i { font-size: 13px; }
 
-        /* --- HEADER & NAVIGATIE (LOGO NU EXTRA GROOT!) --- */
+        /* --- HEADER & NAVIGATIE --- */
         header {
             position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998;
             display: flex; justify-content: space-between; align-items: center;
@@ -37,18 +37,20 @@
             backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 18px; text-decoration: none; }
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 20px; text-decoration: none; }
         
-        /* JOUW TROTS: EXTRA GROOT LOGO */
+        /* JOUW TROTS: LOGO NU MEGA GROOT GEMAAKT EN GESCHAALD */
         .header-logo-img { 
-            height: 85px; 
+            height: 110px; /* Nog groter gemaakt! */
             width: auto; 
             display: block; 
             object-fit: contain; 
             filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); 
+            transform: scale(1.3); /* Blaast het logo op zodat de marges verdwijnen */
+            transform-origin: left center;
             transition: 0.3s;
         }
-        .header-logo-img:hover { transform: scale(1.05); }
+        .header-logo-img:hover { transform: scale(1.4); }
         
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         .mario-logo-text { font-size: 38px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
@@ -67,7 +69,7 @@
 
         .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
-        .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
+        .card-logo { width: 130px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); transform: scale(1.2); transform-origin: left center;}
         
         .hero-card-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
@@ -81,58 +83,16 @@
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- NIEUW: AANKONDIGING ANTWERPEN-ZUID --- */
-        .new-store-banner {
-            background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%);
-            padding: 40px 5%;
-            border-top: 4px solid var(--mario-orange);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: center;
-            position: relative;
-            z-index: 10;
-        }
-        .ns-content {
-            max-width: 1300px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            background: rgba(255,255,255,0.02);
-            padding: 30px 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-        .ns-content img {
-            width: 130px;
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(227, 108, 51, 0.3));
-        }
-        .ns-text h2 {
-            color: white;
-            font-size: 26px;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        /* --- AANKONDIGING ANTWERPEN-ZUID --- */
+        .new-store-banner { background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%); padding: 40px 5%; border-top: 4px solid var(--mario-orange); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; position: relative; z-index: 10; }
+        .ns-content { max-width: 1300px; width: 100%; display: flex; align-items: center; gap: 40px; background: rgba(255,255,255,0.02); padding: 30px 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+        /* Ook hier het logo een stuk groter gemaakt */
+        .ns-content img { width: 160px; height: auto; filter: drop-shadow(0 0 15px rgba(227, 108, 51, 0.3)); transform: scale(1.3); }
+        .ns-text h2 { color: white; font-size: 26px; font-weight: 900; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
         .ns-text h2 i { color: var(--mario-orange); font-size: 28px; }
-        .ns-text p {
-            color: #CBD5E1;
-            font-size: 16px;
-            line-height: 1.7;
-            margin: 0;
-        }
+        .ns-text p { color: #CBD5E1; font-size: 16px; line-height: 1.7; margin: 0; }
         .ns-text p strong { color: white; font-weight: 700; }
         .ns-text p span { color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
-
-        @media (max-width: 768px) {
-            .ns-content { flex-direction: column; text-align: center; gap: 20px; padding: 25px 20px; }
-            .ns-text h2 { justify-content: center; font-size: 20px; }
-        }
 
         /* --- LOPENDE BAND --- */
         .partner-wrapper { position: relative; z-index: 10; background: white; border-bottom: 2px solid var(--mario-border); padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
@@ -214,7 +174,7 @@
         .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
 
         .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
-        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; }
+        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; word-wrap: break-word; }
         .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
         .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
         
@@ -232,6 +192,8 @@
             .hero-content { flex-direction: column; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
             .hero-slider-card { height: 280px; }
+            .ns-content { flex-direction: column; text-align: center; gap: 20px; padding: 25px 20px; }
+            .ns-text h2 { justify-content: center; font-size: 20px; }
             .info-section { grid-template-columns: 1fr; }
             .map-frame { min-height: 350px; }
             .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
@@ -382,7 +344,7 @@
         </div>
 
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1416879598056-0cbb04922ba4?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & BBQ</h3>
@@ -427,7 +389,8 @@
             <div class="footer-col">
                 <h4>Winkel</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
-                <p><i class="fas fa-envelope"></i> info@mariodhz.be</p>
+                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
+                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
                 <p><i class="fas fa-truck"></i> Afhaalpunt PostNL & Mondial Relay</p>
             </div>
             <div class="footer-col">
@@ -522,9 +485,14 @@
         }
 
         async function generateBotResponse(userInput) {
-            const API_KEY = 'AIzaSyC3Pl9gNF1dOIBQ99SZINnijx8jxPShzzw'; 
+            const API_KEY = 'JOUW_NIEUWE_API_SLEUTEL_HIER'; 
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
             const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
+
+            if (API_KEY === 'JOUW_NIEUWE_API_SLEUTEL_HIER') {
+                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code (index.html).", 'msg-bot');
+                return;
+            }
 
             try {
                 const response = await fetch(url, {
@@ -532,6 +500,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{
+                            role: 'user',
                             parts: [{ text: systemPrompt + userInput }]
                         }]
                     })
@@ -540,18 +509,16 @@
                 const data = await response.json();
                 
                 if(data.error) {
-                    console.error("API Fout details:", data.error.message);
-                    appendMessage("Excuses, het systeem krijgt geen juiste verbinding. Probeer het over een minuutje nog eens.", 'msg-bot');
+                    console.error("API Fout:", data.error);
+                    appendMessage("❌ Fout: " + data.error.message, 'msg-bot');
                 } else if(data.candidates && data.candidates.length > 0) {
                     const aiText = data.candidates[0].content.parts[0].text;
                     appendMessage(aiText, 'msg-bot');
-                } else {
-                    appendMessage("Mijn excuses, het systeem is bezig met een update.", 'msg-bot');
                 }
 
             } catch (error) {
-                console.error("Fetch Fout:", error);
-                appendMessage("Netwerkverbinding mislukt. Bel ons gerust op of kom langs in Berchem!", 'msg-bot');
+                console.error("Netwerk Fout:", error);
+                appendMessage("❌ Netwerkverbinding mislukt. Check je internetverbinding.", 'msg-bot');
             }
         }
     </script>
