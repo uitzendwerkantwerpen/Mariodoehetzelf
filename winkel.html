@@ -1,274 +1,428 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Webshop | MARIO DHZ</title>
+    <meta name="color-scheme" content="light">
+    <title>De Winkel | Mario DHZ Specialist</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --mario-orange: #E36C33;
             --mario-navy: #060B11; 
-            --mario-light: #F4F7F9;
+            --mario-light: #F1F5F9;
             --mario-border: #E2E8F0;
-            --mario-green: #38A169;
+            --mario-grey: #4A5568;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--mario-light); color: var(--mario-navy); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-        /* --- PROMO & HEADER --- */
-        .promo-bar { background: var(--mario-orange); color: white; text-align: center; padding: 10px; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-        
-        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--mario-border); position: sticky; top: 0; z-index: 99; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
-        
-        /* Foutloos Logo */
-        .logo-text-box { text-decoration: none; display: flex; flex-direction: column; }
-        .logo-text-box .mario { font-size: 26px; font-weight: 900; color: var(--mario-navy); letter-spacing: -1px; line-height: 1; }
-        .logo-text-box .mario span { color: var(--mario-orange); }
-        .logo-text-box .sub { font-size: 10px; font-weight: 700; color: #718096; letter-spacing: 2px; text-transform: uppercase; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* Zoekbalk (Gamma stijl) */
-        .search-bar { display: flex; flex: 1; max-width: 500px; margin: 0 40px; border: 2px solid var(--mario-orange); border-radius: 8px; overflow: hidden; }
-        .search-bar input { width: 100%; padding: 12px 15px; border: none; outline: none; font-size: 14px; font-family: 'Outfit'; }
-        .search-bar button { background: var(--mario-orange); color: white; border: none; padding: 0 20px; cursor: pointer; font-size: 16px; }
+        /* --- HEADER & NAVIGATIE (IDENTIEK AAN HOME) --- */
+        header {
+            position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(6, 11, 17, 0.95);
+            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
+        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1)); }
+        
+        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
+        .mario-logo-text { font-size: 38px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
+        .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
-        .header-actions { display: flex; align-items: center; gap: 20px; }
-        .back-btn { font-size: 14px; font-weight: 700; color: var(--mario-navy); text-decoration: none; text-transform: uppercase; }
-        .cart-toggle-btn { background: var(--mario-navy); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; position: relative; }
-        .cart-toggle-btn:hover { background: var(--mario-orange); }
-        .cart-count { background: #E53E3E; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 11px; position: absolute; top: -8px; right: -8px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .nav-links a i { font-size: 16px; color: var(--mario-orange); }
+        .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
 
-        /* --- SHOP LAYOUT --- */
-        .shop-wrapper { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
+        /* --- SHOP HERO BANNERT --- */
+        .shop-hero { padding: 160px 5% 60px; background: var(--mario-navy); text-align: center; color: white; position: relative; }
+        .shop-hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at top, rgba(227, 108, 51, 0.15) 0%, var(--mario-navy) 100%); z-index: 1; }
+        .shop-hero-content { position: relative; z-index: 3; }
+        .shop-hero h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; text-transform: uppercase; margin-bottom: 15px; }
+        .shop-hero h1 span { color: var(--mario-orange); }
+        .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto; font-weight: 300; }
 
-        /* SIDEBAR */
-        .sidebar { background: white; padding: 30px 20px; border-radius: 12px; border: 1px solid var(--mario-border); height: fit-content; position: sticky; top: 100px; }
-        .sidebar h3 { font-size: 18px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; border-bottom: 2px solid var(--mario-light); padding-bottom: 10px; }
-        .sidebar ul { list-style: none; }
-        .sidebar li { margin-bottom: 15px; }
-        .sidebar a { text-decoration: none; color: #4A5568; font-weight: 600; font-size: 14px; transition: 0.2s; display: flex; align-items: center; gap: 10px; }
-        .sidebar a:hover { color: var(--mario-orange); transform: translateX(5px); }
-        .sidebar a i { color: var(--mario-orange); width: 15px; }
+        /* --- PRODUCT GRID (JOUW WINKEL) --- */
+        .shop-container { max-width: 1300px; margin: 60px auto 100px; padding: 0 20px; }
+        
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        
+        .product-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.12); }
+        
+        /* De foto van het product (Nu de Logo's) */
+        .product-img-box { width: 100%; height: 220px; background: #ffffff; padding: 30px; border-bottom: 1px solid var(--mario-light); display: flex; align-items: center; justify-content: center; }
+        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05)); transition: 0.3s; }
+        .product-card:hover .product-img-box img { transform: scale(1.05); }
 
-        /* PRODUCT GRID */
-        .shop-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .shop-toolbar h1 { font-size: 24px; font-weight: 900; text-transform: uppercase; }
-        .shop-toolbar select { padding: 10px; border-radius: 6px; border: 1px solid var(--mario-border); outline: none; font-weight: 600; font-family: 'Outfit'; }
+        .product-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-brand { font-size: 12px; color: var(--mario-orange); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .product-title { font-size: 18px; font-weight: 800; color: var(--mario-navy); margin-bottom: 10px; line-height: 1.3; }
+        .product-desc { font-size: 14px; color: var(--mario-grey); margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
+        
+        .product-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--mario-light); padding-top: 15px; }
+        .product-price { font-size: 22px; font-weight: 900; color: var(--mario-navy); }
+        
+        .btn-add { background: var(--mario-orange); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-add:hover { background: var(--mario-navy); }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        
-        .product-card { background: white; border-radius: 12px; border: 1px solid var(--mario-border); padding: 20px; display: flex; flex-direction: column; transition: 0.3s; position: relative; }
-        .product-card:hover { box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--mario-orange); transform: translateY(-5px); }
-        
-        .stock-badge { position: absolute; top: 15px; left: 15px; background: #E6FFFA; color: var(--mario-green); border: 1px solid #9AE6B4; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 800; text-transform: uppercase; z-index: 2; }
-        
-        .product-img { width: 100%; height: 200px; border-radius: 8px; margin-bottom: 15px; overflow: hidden; display: flex; justify-content: center; align-items: center; }
-        .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .product-card:hover .product-img img { transform: scale(1.05); }
+        /* --- FOOTER (IDENTIEK) --- */
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
+        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        .brand-name { font-size: 12px; font-weight: 800; color: var(--mario-orange); text-transform: uppercase; margin-bottom: 5px; }
-        .product-title { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 15px; flex-grow: 1; color: var(--mario-navy); }
-        .product-price { font-size: 24px; font-weight: 900; color: var(--mario-navy); margin-bottom: 20px; }
-        
-        .btn-add { background: #F1F5F9; color: var(--mario-navy); border: 2px solid var(--mario-border); padding: 12px; border-radius: 8px; font-weight: 800; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px; width: 100%; }
-        .btn-add:hover { background: var(--mario-orange); color: white; border-color: var(--mario-orange); }
+        /* --- LIVE AI CHATBOT MET EXPERTS STYLES (IDENTIEK) --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
+        .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
+        .ai-chat-btn i { color: #25d366; font-size: 24px; animation: pulse 2s infinite; }
 
-        /* --- SHOPPING CART DRAWER (Coolblue Style) --- */
-        .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999; display: none; opacity: 0; transition: 0.3s; }
-        .cart-drawer { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; z-index: 10000; box-shadow: -10px 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .cart-drawer.active { right: 0; }
-        .cart-overlay.active { display: block; opacity: 1; }
+        .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
+        .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
         
-        .cart-header { padding: 20px; background: var(--mario-light); border-bottom: 1px solid var(--mario-border); display: flex; justify-content: space-between; align-items: center; font-size: 18px; font-weight: 900; text-transform: uppercase; }
-        .close-cart { cursor: pointer; font-size: 20px; color: var(--mario-grey); }
+        .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-header h4 { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 10px; margin: 0; }
+        .chat-header h4 i { color: var(--mario-orange); }
+        .close-chat { color: white; background: none; border: none; font-size: 20px; cursor: pointer; }
         
-        .cart-items { flex-grow: 1; overflow-y: auto; padding: 20px; }
-        .cart-empty { text-align: center; color: var(--mario-grey); margin-top: 50px; font-weight: 600; }
-        
-        .cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid var(--mario-border); padding-bottom: 15px; margin-bottom: 15px; }
-        .cart-item-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
-        .cart-item-price { font-size: 15px; font-weight: 900; color: var(--mario-orange); }
-        
-        .cart-footer { padding: 20px; background: white; border-top: 1px solid var(--mario-border); box-shadow: 0 -10px 20px rgba(0,0,0,0.03); }
-        .cart-total-row { display: flex; justify-content: space-between; font-size: 20px; font-weight: 900; margin-bottom: 20px; }
-        
-        .btn-checkout { width: 100%; background: var(--mario-green); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: 900; font-size: 16px; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; }
-        .btn-checkout:hover { background: #2F855A; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(56,161,105,0.3); }
+        .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
+        .expert-btn { flex: 1; padding: 8px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 12px; font-weight: 700; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .expert-btn i { font-size: 16px; }
+        .expert-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
+        .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
 
-        /* FOUTLOZE CSS BETALINGSLOGO'S */
-        .safe-checkout { text-align: center; margin-top: 15px; font-size: 12px; color: var(--mario-grey); font-weight: 600; }
-        .payment-methods { display: flex; justify-content: center; gap: 10px; margin-top: 10px; font-size: 24px; color: var(--mario-navy); }
+        .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+        .chat-msg { max-width: 85%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.4; font-weight: 500; }
+        .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
+        .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
+        
+        .chat-input-area { padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px; }
+        .chat-input-area input { flex: 1; padding: 10px 15px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px; }
+        .chat-input-area input:focus { border-color: var(--mario-orange); }
+        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .chat-send-btn:hover { background: var(--mario-navy); }
+        .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
 
         @media (max-width: 900px) {
-            .search-bar { display: none; }
-            .shop-wrapper { grid-template-columns: 1fr; margin-top: 20px; }
-            .sidebar { display: none; } /* Verberg sidebar op mobiel voor overzicht */
+            .shop-hero { padding-top: 120px; }
+            .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
+            .chat-window { width: 320px; bottom: 70px; right: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="promo-bar">Gratis levering vanaf €50 | Vóór 22:00 besteld, morgen in huis</div>
+    <div class="ai-chat-btn" id="openChatBtn"><i class="fas fa-robot"></i> Vraag de Experts</div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h4><i class="fas fa-bolt"></i> Mario Expert Team</h4>
+            <button class="close-chat" id="closeChatBtn">×</button>
+        </div>
+        <div class="expert-selector">
+            <button class="expert-btn active" data-expert="mario"><i class="fas fa-hammer"></i> Mario<br>(Algemeen)</button>
+            <button class="expert-btn" data-expert="luigi"><i class="fas fa-paint-roller"></i> Luigi<br>(Verf)</button>
+            <button class="expert-btn" data-expert="giovanni"><i class="fas fa-plug"></i> Giovanni<br>(Techniek)</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-bot">Ciao! Ik ben Mario. Zoek je een specifiek product in onze winkel? Vraag maar raak!</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Expert is aan het nadenken...</div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Zoek een product..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <header>
-        <a href="index.html" class="logo-text-box">
-            <div class="mario">MARIO <span>DHZ</span></div>
-            <div class="sub">Specialist</div>
+        <a href="index.html" class="logo-frame">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
+            <div class="logo-text-wrapper">
+                <div class="mario-logo-text">MARIO</div>
+                <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
+            </div>
         </a>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Zoek naar Niko, verf, gereedschap...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-
-        <div class="header-actions">
-            <a href="index.html" class="back-btn"><i class="fas fa-home"></i> Home</a>
-            <button class="cart-toggle-btn" onclick="toggleCart()">
-                <i class="fas fa-shopping-cart"></i> Winkelwagen
-                <span class="cart-count" id="cartCount">0</span>
-            </button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="winkel.html" style="color: var(--mario-orange);"><i class="fas fa-shopping-cart"></i>De Winkel</a>
+            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i>Renovaties</a>
         </div>
     </header>
 
-    <div class="shop-wrapper">
-        <aside class="sidebar">
-            <h3><i class="fas fa-list"></i> Categorieën</h3>
-            <ul>
-                <li><a href="#"><i class="fas fa-bolt"></i> Elektriciteit</a></li>
-                <li><a href="#"><i class="fas fa-faucet"></i> Sanitair & Meubels</a></li>
-                <li><a href="#"><i class="fas fa-paint-roller"></i> Verf & Wand</a></li>
-                <li><a href="#"><i class="fas fa-hammer"></i> Gereedschap</a></li>
-                <li><a href="#"><i class="fas fa-leaf"></i> Tuin & BBQ</a></li>
-                <li><a href="#"><i class="fas fa-box"></i> Bevestigingsmateriaal</a></li>
-            </ul>
-        </aside>
-
-        <main>
-            <div class="shop-toolbar">
-                <h1>Alle Producten</h1>
-                <select>
-                    <option>Sorteer: Meest Verkocht</option>
-                    <option>Prijs: Laag - Hoog</option>
-                    <option>Prijs: Hoog - Laag</option>
-                </select>
-            </div>
-
-            <div class="product-grid">
-                <div class="product-card">
-                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
-                    <div class="product-img"><img src="https://images.unsplash.com/photo-1558434695-1f953ad761a6?auto=format&fit=crop&w=400" alt="Niko"></div>
-                    <div class="brand-name">Niko</div>
-                    <div class="product-title">Original Enkelvoudige Schakelaar Wit</div>
-                    <div class="product-price">€ 8,95</div>
-                    <button class="btn-add" onclick="addToCart('Niko Schakelaar Wit', 8.95)"><i class="fas fa-plus"></i> Toevoegen</button>
-                </div>
-
-                <div class="product-card">
-                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
-                    <div class="product-img"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=400" alt="Levis"></div>
-                    <div class="brand-name">Levis</div>
-                    <div class="product-title">Ambiance Mur Extra Mat (Kleur op Maat) 2.5L</div>
-                    <div class="product-price">€ 45,50</div>
-                    <button class="btn-add" onclick="addToCart('Levis Ambiance 2.5L', 45.50)"><i class="fas fa-plus"></i> Toevoegen</button>
-                </div>
-
-                <div class="product-card">
-                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
-                    <div class="product-img"><img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=400" alt="Stanley"></div>
-                    <div class="brand-name">Stanley</div>
-                    <div class="product-title">FatMax Professionele Klauwhamer</div>
-                    <div class="product-price">€ 24,99</div>
-                    <button class="btn-add" onclick="addToCart('Stanley FatMax Hamer', 24.99)"><i class="fas fa-plus"></i> Toevoegen</button>
-                </div>
-
-                <div class="product-card">
-                    <span class="stock-badge" style="color: #C53030; background: #FFF5F5; border-color: #FEB2B2;"><i class="fas fa-fire"></i> Bestseller</span>
-                    <div class="product-img"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400" alt="Versa"></div>
-                    <div class="brand-name">Versa Group</div>
-                    <div class="product-title">Luxe Wastafelmengkraan Mat Zwart</div>
-                    <div class="product-price">€ 89,00</div>
-                    <button class="btn-add" onclick="addToCart('Zwarte Mengkraan', 89.00)"><i class="fas fa-plus"></i> Toevoegen</button>
-                </div>
-
-                <div class="product-card">
-                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
-                    <div class="product-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400" alt="Knauf"></div>
-                    <div class="brand-name">Knauf</div>
-                    <div class="product-title">Goldband Pleistergips 25kg</div>
-                    <div class="product-price">€ 14,50</div>
-                    <button class="btn-add" onclick="addToCart('Knauf Goldband 25kg', 14.50)"><i class="fas fa-plus"></i> Toevoegen</button>
-                </div>
-
-                <div class="product-card">
-                    <span class="stock-badge"><i class="fas fa-check-circle"></i> Op Voorraad</span>
-                    <div class="product-img"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=400" alt="Aloni"></div>
-                    <div class="brand-name">Aloni</div>
-                    <div class="product-title">Design Wastafelmeubel Eiken 80cm</div>
-                    <div class="product-price">€ 289,00</div>
-                    <button class="btn-add" onclick="addToCart('Aloni Wastafelmeubel', 289.00)"><i class="fas fa-plus"></i> Toevoegen</button>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            Jouw Winkelwagen <i class="fas fa-times close-cart" onclick="toggleCart()"></i>
+    <section class="shop-hero">
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-content">
+            <h1>Onze <span>Materialen</span></h1>
+            <p>Bekijk ons assortiment van topmerken. Professionele kwaliteit voor de echte vakman en de handige doe-het-zelver.</p>
         </div>
-        <div class="cart-items" id="cartItemsList">
-            <div class="cart-empty">Je winkelwagen is nog leeg.<br><br><i class="fas fa-shopping-basket" style="font-size: 40px; opacity: 0.2; margin-top: 10px;"></i></div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total-row">
-                <span>Totaal:</span>
-                <span id="cartDrawerTotal">€ 0,00</span>
-            </div>
-            <button class="btn-checkout" onclick="processCheckout()"><i class="fas fa-lock"></i> Veilig Afrekenen</button>
-            
-            <div class="safe-checkout">
-                Gegarandeerd veilig betalen met:
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
-                    <i class="fas fa-money-check-alt" title="Bancontact"></i>
+    </section>
+
+    <section class="shop-container">
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko Materiaal">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Niko</span>
+                    <h3 class="product-title">Schakelmateriaal & Stopcontacten</h3>
+                    <p class="product-desc">Volledig assortiment Niko Original en Intense. Inbouw en opbouw beschikbaar.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
                 </div>
             </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Legrand</span>
+                    <h3 class="product-title">Zekeringkasten & Automaten</h3>
+                    <p class="product-desc">Veilige en gekeurde componenten voor uw elektrische installatie.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Verf">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Levis</span>
+                    <h3 class="product-title">Muurverf & Lakken</h3>
+                    <p class="product-desc">Direct gemengd in onze machine. Matte en afwasbare kwaliteitsverf.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Aloni</span>
+                    <h3 class="product-title">Sanitair & Keramiek</h3>
+                    <p class="product-desc">Hoogwaardige toiletten, wastafels en luxe badkamermeubels.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Belrad</span>
+                    <h3 class="product-title">Verwarming & Radiatoren</h3>
+                    <p class="product-desc">Paneelradiatoren met hoog rendement voor elke ruimte.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Stanley</span>
+                    <h3 class="product-title">Handgereedschap</h3>
+                    <p class="product-desc">Robuust en betrouwbaar gereedschap voor de professional.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">Knauf</span>
+                    <h3 class="product-title">Gips & Pleistermateriaal</h3>
+                    <p class="product-desc">Voor een perfect strakke afwerking van uw muren en plafonds.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
+                </div>
+                <div class="product-info">
+                    <span class="product-brand">ABB</span>
+                    <h3 class="product-title">Installatiemateriaal</h3>
+                    <p class="product-desc">Industriële en residentiële elektrische componenten.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">€0.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Over Mario</h4>
+                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Winkel</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-envelope"></i> info@mariodhz.be</p>
+                <p><i class="fas fa-truck"></i> Afhaalpunt PostNL & Mondial Relay</p>
+            </div>
+            <div class="footer-col">
+                <h4>Openingstijden</h4>
+                <p>7 Dagen per week geopend!</p>
+                <div class="big-hours">08:30 - 19:00</div>
+            </div>
+        </div>
+        
+        <div class="developer-credit-frame">
+            <p>Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong> • © 2026</p>
+        </div>
+    </footer>
 
     <script>
-        let cart = [];
-        let total = 0;
+        const chatBtn = document.getElementById('openChatBtn');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const expertBtns = document.querySelectorAll('.expert-btn');
 
-        function addToCart(name, price) {
-            cart.push({name, price});
-            total += price;
-            updateCartUI();
-            
-            // Open de winkelwagen automatisch als ze iets toevoegen (Coolblue style)
-            document.getElementById('cartDrawer').classList.add('active');
-            document.getElementById('cartOverlay').classList.add('active');
+        let currentExpert = 'mario';
+        
+        const expertProfiles = {
+            mario: {
+                greeting: "Ciao! Ik ben Mario. Zoek je algemene bouwmaterialen of wil je een totaalrenovatie bespreken? Vraag maar raak!",
+                prompt: "Je bent Mario, de eigenaar van 'Mario DHZ' in Berchem. Je bent expert in algemene bouw en totaalrenovaties. Geef kort antwoord (max 3 zinnen)."
+            },
+            luigi: {
+                greeting: "Hoi! Ik ben Luigi, de verf- en interieurspecialist. Welke kleur of verf (Levis) zoek je?",
+                prompt: "Je bent Luigi, de verf-specialist bij 'Mario DHZ' in Berchem. Je weet alles van verf mengen (Levis). Geef kort antwoord (max 3 zinnen)."
+            },
+            giovanni: {
+                greeting: "Hallo, Giovanni hier! Jouw expert voor elektriciteit (Niko) en sanitair. Waar kan ik mee helpen?",
+                prompt: "Je bent Giovanni, de technische expert bij 'Mario DHZ' in Berchem. Je weet alles over elektriciteit (Niko, ABB) en sanitair. Geef kort antwoord (max 3 zinnen)."
+            }
+        };
+
+        expertBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                expertBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentExpert = btn.getAttribute('data-expert');
+                appendMessage(expertProfiles[currentExpert].greeting, 'msg-bot');
+            });
+        });
+
+        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
+        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+        sendChatBtn.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') handleUserMessage();
+        });
+
+        function appendMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${className}`;
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        function updateCartUI() {
-            document.getElementById('cartCount').innerText = cart.length;
-            document.getElementById('cartDrawerTotal').innerText = '€ ' + total.toFixed(2).replace('.', ',');
-            
-            const list = document.getElementById('cartItemsList');
-            if(cart.length === 0) {
-                list.innerHTML = '<div class="cart-empty">Je winkelwagen is nog leeg.</div>';
-                return;
-            }
+        async function handleUserMessage() {
+            const userText = chatInput.value.trim();
+            if (userText === '') return;
 
-            list.innerHTML = '';
-            cart.forEach((item) => {
-                list.innerHTML += `
-                    <div class="cart-item">
-                        <div>
+            appendMessage(userText, 'msg-user');
+            chatInput.value = '';
+
+            typingIndicator.style.display = 'block';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            await generateBotResponse(userText);
+            
+            typingIndicator.style.display = 'none';
+        }
+
+        async function generateBotResponse(userInput) {
+            
+            // JOUW API KEY
+            const API_KEY = 'AIzaSyC3Pl9gNF1dOIBQ99SZINnijx8jxPShzzw'; 
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            role: 'user',
+                            parts: [{ text: systemPrompt + userInput }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
+                
+                if(data.candidates && data.candidates.length > 0) {
+                    const aiText = data.candidates[0].content.parts[0].text;
+                    appendMessage(aiText, 'msg-bot');
+                } else {
+                    appendMessage("Mijn excuses, de server is even druk.", 'msg-bot');
+                }
+
+            } catch (error) {
+                console.error("AI Fout:", error);
+                appendMessage("Verbinding mislukt. Bel gerust de winkel!", 'msg-bot');
+            }
+        }
+    </script>
+
+</body>
+</html>
