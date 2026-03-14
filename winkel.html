@@ -24,7 +24,7 @@
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* --- HEADER & NAVIGATIE (IDENTIEK AAN HOME) --- */
+        /* --- HEADER & NAVIGATIE --- */
         header {
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
             display: flex; justify-content: space-between; align-items: center;
@@ -52,21 +52,34 @@
         .shop-hero h1 span { color: var(--mario-orange); }
         .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto; font-weight: 300; }
 
-        /* --- PRODUCT GRID (JOUW WINKEL) --- */
+        /* --- DYNAMISCHE WINKEL CONTAINER --- */
         .shop-container { max-width: 1300px; margin: 60px auto 100px; padding: 0 20px; }
         
+        /* WEERGAVE 1: MERKEN OVERZICHT */
+        .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .brand-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+        .brand-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
+        .brand-card img { width: 100%; height: 120px; object-fit: contain; margin-bottom: 20px; transition: 0.3s; }
+        .brand-card:hover img { transform: scale(1.05); }
+        .brand-card h3 { font-size: 20px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
+        .brand-card p { font-size: 14px; color: var(--mario-orange); font-weight: 700; margin-top: 10px; display: flex; align-items: center; gap: 5px; }
+
+        /* WEERGAVE 2: PRODUCTEN VAN EEN MERK */
+        .products-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
+        .products-view-header h2 { font-size: 28px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
+        .btn-back { background: var(--mario-navy); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-back:hover { background: var(--mario-orange); }
+
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        
         .product-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.12); }
         
-        /* De foto van het product (Nu de Logo's) */
-        .product-img-box { width: 100%; height: 220px; background: #ffffff; padding: 30px; border-bottom: 1px solid var(--mario-light); display: flex; align-items: center; justify-content: center; }
+        .product-img-box { width: 100%; height: 200px; background: #ffffff; padding: 20px; border-bottom: 1px solid var(--mario-light); display: flex; align-items: center; justify-content: center; }
         .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05)); transition: 0.3s; }
         .product-card:hover .product-img-box img { transform: scale(1.05); }
 
         .product-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-brand { font-size: 12px; color: var(--mario-orange); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .product-brand-tag { font-size: 11px; color: white; background: var(--mario-grey); padding: 4px 10px; border-radius: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; align-self: flex-start; margin-bottom: 15px; }
         .product-title { font-size: 18px; font-weight: 800; color: var(--mario-navy); margin-bottom: 10px; line-height: 1.3; }
         .product-desc { font-size: 14px; color: var(--mario-grey); margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
         
@@ -76,7 +89,7 @@
         .btn-add { background: var(--mario-orange); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
         .btn-add:hover { background: var(--mario-navy); }
 
-        /* --- FOOTER (IDENTIEK) --- */
+        /* --- FOOTER --- */
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
@@ -86,34 +99,36 @@
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* --- LIVE AI CHATBOT MET EXPERTS STYLES (IDENTIEK) --- */
-        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
+        /* --- LIVE AI CHATBOT STYLES --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
-        .ai-chat-btn i { color: #25d366; font-size: 24px; animation: pulse 2s infinite; }
+        .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
 
-        .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.2); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
+        .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
         
-        .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-header h4 { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 10px; margin: 0; }
-        .chat-header h4 i { color: var(--mario-orange); }
-        .close-chat { color: white; background: none; border: none; font-size: 20px; cursor: pointer; }
+        .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
+        .chat-header img { height: 35px; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5)); }
+        .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
+        .chat-header-text strong { font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .chat-header-text small { font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px; }
+        .close-chat { color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: auto; line-height: 1; }
         
         .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
-        .expert-btn { flex: 1; padding: 8px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 12px; font-weight: 700; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-        .expert-btn i { font-size: 16px; }
+        .expert-btn { flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .expert-btn i { font-size: 18px; }
         .expert-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
         .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
 
         .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
-        .chat-msg { max-width: 85%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.4; font-weight: 500; }
+        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; }
         .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
         .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
         
         .chat-input-area { padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px; }
-        .chat-input-area input { flex: 1; padding: 10px 15px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px; }
+        .chat-input-area input { flex: 1; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px; }
         .chat-input-area input:focus { border-color: var(--mario-orange); }
-        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
         .chat-send-btn:hover { background: var(--mario-navy); }
         .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
 
@@ -126,24 +141,33 @@
 </head>
 <body>
 
-    <div class="ai-chat-btn" id="openChatBtn"><i class="fas fa-robot"></i> Vraag de Experts</div>
+    <div class="ai-chat-btn" id="openChatBtn">
+        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
+        Mario DHZ Klantenservice
+    </div>
 
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
-            <h4><i class="fas fa-bolt"></i> Mario Expert Team</h4>
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
+            <div class="chat-header-text">
+                <strong>Mario DHZ AI</strong>
+                <small>24/7 Klantenservice</small>
+            </div>
             <button class="close-chat" id="closeChatBtn">×</button>
         </div>
+        
         <div class="expert-selector">
-            <button class="expert-btn active" data-expert="mario"><i class="fas fa-hammer"></i> Mario<br>(Algemeen)</button>
-            <button class="expert-btn" data-expert="luigi"><i class="fas fa-paint-roller"></i> Luigi<br>(Verf)</button>
-            <button class="expert-btn" data-expert="giovanni"><i class="fas fa-plug"></i> Giovanni<br>(Techniek)</button>
+            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen<br>Advies</button>
+            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf &<br>Decor</button>
+            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Technische<br>Dienst</button>
         </div>
+
         <div class="chat-body" id="chatBody">
-            <div class="chat-msg msg-bot">Ciao! Ik ben Mario. Zoek je een specifiek product in onze winkel? Vraag maar raak!</div>
+            <div class="chat-msg msg-bot">Welkom in onze webshop. Naar welk product of merk bent u op zoek? Ik help u graag verder.</div>
         </div>
-        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Expert is aan het nadenken...</div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Systeem verwerkt uw vraag...</div>
         <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Zoek een product..." autocomplete="off">
+            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
             <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
@@ -167,134 +191,329 @@
         <div class="shop-hero-bg"></div>
         <div class="shop-hero-content">
             <h1>Onze <span>Materialen</span></h1>
-            <p>Bekijk ons assortiment van topmerken. Professionele kwaliteit voor de echte vakman en de handige doe-het-zelver.</p>
+            <p>Kies een merk om direct onze professionele producten en voorraad te bekijken.</p>
         </div>
     </section>
 
     <section class="shop-container">
-        <div class="product-grid">
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko Materiaal">
+        
+        <div id="brands-section">
+            <div class="brands-grid">
+                <div class="brand-card" onclick="showBrand('niko')">
+                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                    <h3>Niko</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-                <div class="product-info">
-                    <span class="product-brand">Niko</span>
-                    <h3 class="product-title">Schakelmateriaal & Stopcontacten</h3>
-                    <p class="product-desc">Volledig assortiment Niko Original en Intense. Inbouw en opbouw beschikbaar.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
+                <div class="brand-card" onclick="showBrand('legrand')">
                     <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
+                    <h3>Legrand</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-                <div class="product-info">
-                    <span class="product-brand">Legrand</span>
-                    <h3 class="product-title">Zekeringkasten & Automaten</h3>
-                    <p class="product-desc">Veilige en gekeurde componenten voor uw elektrische installatie.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
+                <div class="brand-card" onclick="showBrand('levis')">
+                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+                    <h3>Levis</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
-                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Verf">
-                </div>
-                <div class="product-info">
-                    <span class="product-brand">Levis</span>
-                    <h3 class="product-title">Muurverf & Lakken</h3>
-                    <p class="product-desc">Direct gemengd in onze machine. Matte en afwasbare kwaliteitsverf.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
+                <div class="brand-card" onclick="showBrand('aloni')">
                     <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
+                    <h3>Aloni</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-                <div class="product-info">
-                    <span class="product-brand">Aloni</span>
-                    <h3 class="product-title">Sanitair & Keramiek</h3>
-                    <p class="product-desc">Hoogwaardige toiletten, wastafels en luxe badkamermeubels.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
+                <div class="brand-card" onclick="showBrand('belrad')">
                     <img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad">
+                    <h3>Belrad</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-                <div class="product-info">
-                    <span class="product-brand">Belrad</span>
-                    <h3 class="product-title">Verwarming & Radiatoren</h3>
-                    <p class="product-desc">Paneelradiatoren met hoog rendement voor elke ruimte.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
+                <div class="brand-card" onclick="showBrand('stanley')">
                     <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
+                    <h3>Stanley</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-                <div class="product-info">
-                    <span class="product-brand">Stanley</span>
-                    <h3 class="product-title">Handgereedschap</h3>
-                    <p class="product-desc">Robuust en betrouwbaar gereedschap voor de professional.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
+                <div class="brand-card" onclick="showBrand('knauf')">
                     <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+                    <h3>Knauf</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
-                <div class="product-info">
-                    <span class="product-brand">Knauf</span>
-                    <h3 class="product-title">Gips & Pleistermateriaal</h3>
-                    <p class="product-desc">Voor een perfect strakke afwerking van uw muren en plafonds.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-box">
+                <div class="brand-card" onclick="showBrand('abb')">
                     <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
-                </div>
-                <div class="product-info">
-                    <span class="product-brand">ABB</span>
-                    <h3 class="product-title">Installatiemateriaal</h3>
-                    <p class="product-desc">Industriële en residentiële elektrische componenten.</p>
-                    <div class="product-bottom">
-                        <span class="product-price">€0.00</span>
-                        <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
-                    </div>
+                    <h3>ABB</h3>
+                    <p>Bekijk Producten <i class="fas fa-arrow-right"></i></p>
                 </div>
             </div>
-
         </div>
+
+        <div id="products-section" style="display: none;">
+            
+            <div class="products-view-header">
+                <h2 id="brand-title">Producten</h2>
+                <button class="btn-back" onclick="showAllBrands()"><i class="fas fa-arrow-left"></i> Terug naar Merken</button>
+            </div>
+
+            <div class="product-grid" id="product-list">
+                
+                <div class="product-card" data-brand="niko">
+                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">NIKO</span>
+                        <h3 class="product-title">Enkelvoudig Stopcontact Wit</h3>
+                        <p class="product-desc">Niko Original reeks. Inclusief afdekplaat, met penaarde. Klaar voor inbouw.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="niko">
+                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">NIKO</span>
+                        <h3 class="product-title">Dubbel Stopcontact Horizontaal</h3>
+                        <p class="product-desc">Niko Original reeks. Dubbel stopcontact voor 1 inbouwdoos.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="niko">
+                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">NIKO</span>
+                        <h3 class="product-title">Enkelpolige Lichtschakelaar</h3>
+                        <p class="product-desc">Standaard schakelaar voor één lichtpunt. Niko Original Wit.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="niko">
+                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">NIKO</span>
+                        <h3 class="product-title">LED Draaidimmer 2-draads</h3>
+                        <p class="product-desc">Perfect voor het flikkervrij dimmen van LED-lampen (3-200W).</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="legrand">
+                    <div class="product-img-box"><img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E30613;">LEGRAND</span>
+                        <h3 class="product-title">Zekeringautomaat 16A 2-Polig</h3>
+                        <p class="product-desc">Veilige automaat voor stopcontactkringen. CEBEC gekeurd.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="legrand">
+                    <div class="product-img-box"><img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E30613;">LEGRAND</span>
+                        <h3 class="product-title">Zekeringautomaat 20A 2-Polig</h3>
+                        <p class="product-desc">Zwaardere automaat voor keuken-apparatuur en wasmachines.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="legrand">
+                    <div class="product-img-box"><img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E30613;">LEGRAND</span>
+                        <h3 class="product-title">Verliesstroomschakelaar 40A / 300mA</h3>
+                        <p class="product-desc">Hoofddifferentieelschakelaar voor een veilige huisinstallatie.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #004B87;">LEVIS</span>
+                        <h3 class="product-title">Muurverf Ambiance Mur Mat 10L</h3>
+                        <p class="product-desc">Topkwaliteit matte muurverf. In de winkel te mengen in elke kleur.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #004B87;">LEVIS</span>
+                        <h3 class="product-title">Primer Muur & Plafond 5L</h3>
+                        <p class="product-desc">De perfecte grondlaag voor onbehandelde muren of gipsplaten.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #004B87;">LEVIS</span>
+                        <h3 class="product-title">Badkamer Lakverf Satin 1L</h3>
+                        <p class="product-desc">Schimmelwerende en afwasbare lakverf, speciaal voor vochtige ruimtes.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="aloni">
+                    <div class="product-img-box"><img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #111;">ALONI</span>
+                        <h3 class="product-title">Hangtoilet Set 'Rimless'</h3>
+                        <p class="product-desc">Compleet modern hangtoilet zonder spoelrand, inclusief soft-close bril.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="aloni">
+                    <div class="product-img-box"><img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #111;">ALONI</span>
+                        <h3 class="product-title">Keramische Wastafel 80cm</h3>
+                        <p class="product-desc">Strakke witte wastafel, geschikt voor inbouw of opbouw meubel.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="aloni">
+                    <div class="product-img-box"><img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #111;">ALONI</span>
+                        <h3 class="product-title">Inloopdouche Wand 90cm Glas</h3>
+                        <p class="product-desc">Veiligheidsglas 8mm dik met Nano-coating tegen kalkaanslag.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="belrad">
+                    <div class="product-img-box"><img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">BELRAD</span>
+                        <h3 class="product-title">Paneelradiator Type 22 (600x1000)</h3>
+                        <p class="product-desc">Hoge warmteafgifte, standaard witte afwerking. Inclusief ophangbeugels.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="belrad">
+                    <div class="product-img-box"><img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">BELRAD</span>
+                        <h3 class="product-title">Handdoekradiator Zwart Mat</h3>
+                        <p class="product-desc">Luxe design badkamerradiator (120x50cm). Ideaal voor handdoeken.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="stanley">
+                    <div class="product-img-box"><img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #FFCC00; color: black;">STANLEY</span>
+                        <h3 class="product-title">Rolmeter Tylon 5 Meter</h3>
+                        <p class="product-desc">Schokbestendige behuizing met duidelijke, slijtvaste Tylon-beschermlaag.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="stanley">
+                    <div class="product-img-box"><img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #FFCC00; color: black;">STANLEY</span>
+                        <h3 class="product-title">Schroevendraaierset (6-Delig)</h3>
+                        <p class="product-desc">CushionGrip set, plat en kruis (PZ/PH) met magnetische tip.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="knauf">
+                    <div class="product-img-box"><img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #005BAA;">KNAUF</span>
+                        <h3 class="product-title">Goldband Handpleister 25kg</h3>
+                        <p class="product-desc">De klassieker voor binnenmuren. 1-laags stucwerk voor de professional.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="knauf">
+                    <div class="product-img-box"><img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #005BAA;">KNAUF</span>
+                        <h3 class="product-title">Gyproc Wandplaat (120x260cm)</h3>
+                        <p class="product-desc">Standaard gipskartonplaat (ABA), 12.5mm dik voor strakke wanden en plafonds.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="abb">
+                    <div class="product-img-box"><img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E00000;">ABB</span>
+                        <h3 class="product-title">XVB Kabel 3G2.5 (50 Meter)</h3>
+                        <p class="product-desc">Klassieke grijze installatiekabel voor algemene stroomkringen en stopcontacten.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-brand="abb">
+                    <div class="product-img-box"><img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB Product"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E00000;">ABB</span>
+                        <h3 class="product-title">Hafobox Inbouwdoos Holle Wand</h3>
+                        <p class="product-desc">Dé betrouwbare inbouwdoos voor gyproc- en systeemwanden.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€0.00</span>
+                            <button class="btn-add"><i class="fas fa-plus"></i> Toevoegen</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </section>
 
     <footer>
@@ -322,6 +541,42 @@
     </footer>
 
     <script>
+        // --- 1. FILTER LOGICA (MERKEN -> PRODUCTEN) ---
+        function showBrand(brandName) {
+            // Verberg de merken-grid
+            document.getElementById('brands-section').style.display = 'none';
+            // Toon de producten sectie
+            document.getElementById('products-section').style.display = 'block';
+            
+            // Verander de titel (Bijv. "Producten van Niko")
+            document.getElementById('brand-title').innerText = "Producten van " + brandName;
+
+            // Loop door alle product-cards
+            const products = document.querySelectorAll('.product-grid .product-card');
+            products.forEach(product => {
+                // Als de data-brand overeenkomt, laat zien. Anders, verberg.
+                if (product.getAttribute('data-brand') === brandName) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            // Scroll soepel naar boven naar de producten
+            window.scrollTo({ top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function showAllBrands() {
+            // Verberg de producten
+            document.getElementById('products-section').style.display = 'none';
+            // Toon de merken weer
+            document.getElementById('brands-section').style.display = 'block';
+            
+            // Scroll weer naar de merken
+            window.scrollTo({ top: document.getElementById('brands-section').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        // --- 2. LIVE GEMINI AI SCRIPT (FOUTLOOS & EXACT ALS HOME) ---
         const chatBtn = document.getElementById('openChatBtn');
         const chatWindow = document.getElementById('chatWindow');
         const closeChatBtn = document.getElementById('closeChatBtn');
@@ -331,20 +586,20 @@
         const typingIndicator = document.getElementById('typingIndicator');
         const expertBtns = document.querySelectorAll('.expert-btn');
 
-        let currentExpert = 'mario';
+        let currentExpert = 'algemeen';
         
         const expertProfiles = {
-            mario: {
-                greeting: "Ciao! Ik ben Mario. Zoek je algemene bouwmaterialen of wil je een totaalrenovatie bespreken? Vraag maar raak!",
-                prompt: "Je bent Mario, de eigenaar van 'Mario DHZ' in Berchem. Je bent expert in algemene bouw en totaalrenovaties. Geef kort antwoord (max 3 zinnen)."
+            algemeen: {
+                greeting: "Welkom! Heeft u vragen over onze bouwmaterialen, openingstijden of totaalrenovaties? Ik help u graag verder.",
+                prompt: "Je bent de professionele AI assistent van 'Mario DHZ', een premium speciaalzaak in Berchem. Je geeft beleefd, vakkundig en algemeen advies over bouwmaterialen en renovaties. Geef kort en professioneel antwoord (max 3 zinnen)."
             },
-            luigi: {
-                greeting: "Hoi! Ik ben Luigi, de verf- en interieurspecialist. Welke kleur of verf (Levis) zoek je?",
-                prompt: "Je bent Luigi, de verf-specialist bij 'Mario DHZ' in Berchem. Je weet alles van verf mengen (Levis). Geef kort antwoord (max 3 zinnen)."
+            verf: {
+                greeting: "Hallo. Zoekt u advies over verf, lakken of stucwerk? Wij mengen Levis verf direct op kleur in de winkel.",
+                prompt: "Je bent de professionele verf- en interieurspecialist van 'Mario DHZ' in Berchem. Je adviseert over verf (Levis), afwerking en interieur. Geef kort en professioneel antwoord (max 3 zinnen)."
             },
-            giovanni: {
-                greeting: "Hallo, Giovanni hier! Jouw expert voor elektriciteit (Niko) en sanitair. Waar kan ik mee helpen?",
-                prompt: "Je bent Giovanni, de technische expert bij 'Mario DHZ' in Berchem. Je weet alles over elektriciteit (Niko, ABB) en sanitair. Geef kort antwoord (max 3 zinnen)."
+            techniek: {
+                greeting: "Goedendag. Voor vragen over elektriciteit (Niko, Legrand) of sanitair (Aloni, Belrad) bent u hier aan het juiste adres.",
+                prompt: "Je bent de professionele technisch adviseur van 'Mario DHZ' in Berchem. Je geeft correct advies over elektriciteits- en sanitairinstallaties. Geef kort en professioneel antwoord (max 3 zinnen)."
             }
         };
 
@@ -402,7 +657,6 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{
-                            role: 'user',
                             parts: [{ text: systemPrompt + userInput }]
                         }]
                     })
@@ -410,16 +664,19 @@
 
                 const data = await response.json();
                 
-                if(data.candidates && data.candidates.length > 0) {
+                if(data.error) {
+                    console.error("API Fout details:", data.error.message);
+                    appendMessage("Excuses, het systeem krijgt geen juiste verbinding. Probeer het over een minuutje nog eens.", 'msg-bot');
+                } else if(data.candidates && data.candidates.length > 0) {
                     const aiText = data.candidates[0].content.parts[0].text;
                     appendMessage(aiText, 'msg-bot');
                 } else {
-                    appendMessage("Mijn excuses, de server is even druk.", 'msg-bot');
+                    appendMessage("Mijn excuses, het systeem is bezig met een update.", 'msg-bot');
                 }
 
             } catch (error) {
-                console.error("AI Fout:", error);
-                appendMessage("Verbinding mislukt. Bel gerust de winkel!", 'msg-bot');
+                console.error("Fetch Fout:", error);
+                appendMessage("Netwerkverbinding mislukt. Bel ons gerust op of kom langs in Berchem!", 'msg-bot');
             }
         }
     </script>
