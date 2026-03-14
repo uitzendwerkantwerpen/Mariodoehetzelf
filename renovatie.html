@@ -1,32 +1,255 @@
-m<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renovatiebedrijf | Mario Berchem</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Totaalrenovaties | Mario DHZ Specialist Berchem</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --mario-orange: #E36C33;
+            --mario-navy: #060B11; 
+            --mario-light: #F1F5F9;
+            --mario-border: #E2E8F0;
+            --mario-grey: #4A5568;
+            --card-glass: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        /* --- HEADER & NAVIGATIE --- */
+        header {
+            position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(6, 11, 17, 0.95);
+            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo-frame { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
+        .logo-frame img { height: 45px; width: auto; display: block; border-radius: 4px; }
+        .logo-text { color: white; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .nav-links a i { font-size: 16px; color: var(--mario-orange); }
+        .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
+
+        /* --- RENOVATIE HERO (Compact & Krachtig) --- */
+        .reno-hero { position: relative; padding: 120px 5% 60px; background-color: var(--mario-navy); display: flex; align-items: center; justify-content: center; min-height: 70vh; }
+        .reno-hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(227, 108, 51, 0.15) 0%, var(--mario-navy) 100%); z-index: 1; }
+        
+        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; }
+        
+        .hero-text-box { flex: 1; color: white; }
+        .hero-text-box h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 20px; line-height: 1.1; }
+        .hero-text-box h1 span { color: var(--mario-orange); }
+        .hero-text-box p { font-size: 17px; color: #CBD5E1; line-height: 1.7; font-weight: 300; margin-bottom: 30px; }
+        
+        .trust-badges { display: flex; gap: 20px; margin-bottom: 30px; }
+        .trust-badge { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: white; background: rgba(255,255,255,0.1); padding: 10px 15px; border-radius: 8px; }
+        .trust-badge i { color: #48BB78; }
+
+        .btn-quote { display: inline-block; padding: 16px 35px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 25px rgba(227, 108, 51, 0.4); }
+        .btn-quote:hover { transform: translateY(-3px); background: #d15a22; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.6); }
+
+        /* JOUW ECHTE FOTO SLIDER */
+        .hero-slider-card { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.1); height: 400px; position: relative; background: #1A202C; }
+        .slider-wrapper { display: flex; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .slide { width: 100%; height: 100%; flex-shrink: 0; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slide-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px 20px 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); color: white; text-align: center; }
+        .slide-overlay h3 { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: white; margin: 0; }
+
+        /* --- SPECIALITEITEN GRID (GEEN LEEGTE) --- */
+        .services-section { position: relative; z-index: 5; max-width: 1300px; margin: -50px auto 60px; padding: 0 20px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        
+        .service-card { background: white; border-radius: 16px; padding: 35px 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.06); border: 1px solid var(--mario-border); transition: 0.4s; display: flex; flex-direction: column; align-items: flex-start; }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
+        
+        .icon-box { width: 60px; height: 60px; background: #FFF5F0; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .icon-box i { font-size: 28px; color: var(--mario-orange); }
+        
+        .service-card h3 { font-size: 20px; font-weight: 900; color: var(--mario-navy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: -0.5px; }
+        .service-card p { font-size: 14px; color: var(--mario-grey); line-height: 1.6; font-weight: 400; margin-bottom: 20px; flex-grow: 1; }
+        
+        .service-list { list-style: none; width: 100%; margin-bottom: 0; }
+        .service-list li { font-size: 13px; color: var(--mario-navy); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 700; border-bottom: 1px solid var(--mario-light); padding-bottom: 8px; }
+        .service-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .service-list li i { color: #48BB78; font-size: 14px; }
+
+        /* --- FOOTER & CREDITS --- */
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: auto; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
+        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
+
+        /* --- CHATBOT --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 15px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; text-decoration: none; transition: 0.3s; }
+        .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
+        .ai-chat-btn i { color: #25d366; font-size: 24px; animation: pulse 2s infinite; }
+
+        @media (max-width: 900px) {
+            .hero-content { flex-direction: column; text-align: center; }
+            .trust-badges { justify-content: center; flex-wrap: wrap; }
+            .hero-slider-card { width: 100%; height: 300px; }
+            .services-section { margin-top: 40px; }
+        }
+    </style>
 </head>
 <body>
-<div class="bg-overlay" style="background-image: url('34979.jpg');"></div>
-<header>
-    <div class="logo-container"><img src="1765121277157.jpg" alt="Mario Logo"></div>
-    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-    <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="winkel.html">Winkel</a></li><li><a href="renovatie.html" class="active">Renovatie</a></li><li><a href="contact.html">Contact</a></li></ul>
-</header>
-<main>
-    <div class="card">
-        <h1>Renovatiebedrijf Mario</h1>
-        <p>Onze gediplomeerde vakmensen staan klaar voor al uw projecten, groot of klein.</p>
-        <ul class="service-list">
-            <li>Gevelrenovaties & Dakwerken.</li>
-            <li>Totaalrenovaties van Badkamers.</li>
-            <li><strong>Gyproc Specialist:</strong> Professionele plaatsing van wanden en plafonds.</li>
-            <li>Algemene elektriciteitswerken en binnenafwerking.</li>
-        </ul>
-    </div>
-</main>
-<footer><p>Driekoningenstraat 73, Berchem | 7/7 Open vanaf 08:30</p></footer>
-<script>function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
+
+    <a href="#" class="ai-chat-btn"><i class="fas fa-robot"></i> Chat met Mario AI</a>
+
+    <header>
+        <a href="index.html" class="logo-frame">
+            <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo.jpg';" alt="Mario">
+            <div class="logo-text">Doe-Het-Zelf & Renovatie</div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a>
+            <a href="renovatie.html" style="color: var(--mario-orange);"><i class="fas fa-drafting-compass"></i>Renovaties</a>
+        </div>
+    </header>
+
+    <section class="reno-hero">
+        <div class="reno-hero-bg"></div>
+        <div class="hero-content">
+            
+            <div class="hero-text-box">
+                <h1>Van Kleine Klusjes tot <span>Totaalrenovatie</span></h1>
+                <p>Bij Mario DHZ & Renovaties combineren we absolute passie met jarenlange ervaring. Wij ontzorgen u van A tot Z. Klanttevredenheid, een warme service en een loeistrakke afwerking staan bij ons altijd op één.</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge"><i class="fas fa-medal"></i> Jarenlange Ervaring</div>
+                    <div class="trust-badge"><i class="fas fa-handshake"></i> Warme Service</div>
+                </div>
+
+                <a href="#specialiteiten" class="btn-quote">Ontdek onze specialiteiten</a>
+            </div>
+
+            <div class="hero-slider-card">
+                <div class="slider-wrapper" id="slider">
+                    <div class="slide">
+                        <img src="final/renovatie1.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie1.jpg';" alt="Project">
+                        <div class="slide-overlay"><h3>Vakmanschap</h3></div>
+                    </div>
+                    <div class="slide">
+                        <img src="final/renovatie2.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie2.jpg';" alt="Project">
+                        <div class="slide-overlay"><h3>Oog voor Detail</h3></div>
+                    </div>
+                    <div class="slide">
+                        <img src="final/renovatie3.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie3.jpg';" alt="Project">
+                        <div class="slide-overlay"><h3>Strakke Afwerking</h3></div>
+                    </div>
+                    <div class="slide">
+                        <img src="final/renovatie4.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie4.jpg';" alt="Project">
+                        <div class="slide-overlay"><h3>Jarenlange Ervaring</h3></div>
+                    </div>
+                    <div class="slide">
+                        <img src="final/renovatie5.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie5.jpg';" alt="Project">
+                        <div class="slide-overlay"><h3>Uw Droomproject</h3></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="specialiteiten" class="services-section">
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-bath"></i></div>
+                <h3>Badkamerrenovatie</h3>
+                <p>Volledige transformatie van uw badkamer. Van afbraak tot de laatste kitnaad, wij leveren uw droombadkamer turn-key op.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Sanitair & Leidingwerk</li>
+                    <li><i class="fas fa-check"></i> Vloer & Wandtegels</li>
+                    <li><i class="fas fa-check"></i> Installatie Meubels (Aloni, Belrad)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-home"></i></div>
+                <h3>Dak & Gevel</h3>
+                <p>Bescherm uw woning tegen weer en wind. Wij renoveren en isoleren daken en zorgen voor een strakke, vernieuwde gevel.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Dakisolatie & Pannen</li>
+                    <li><i class="fas fa-check"></i> Gevelbepleistering</li>
+                    <li><i class="fas fa-check"></i> Zink- en Koperwerken</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-hammer"></i></div>
+                <h3>Ruwbouw</h3>
+                <p>De stevige basis voor elk project. Wij voeren structurele aanpassingen, afbraakwerken en metselwerken veilig en vakkundig uit.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Metsel & Funderingwerken</li>
+                    <li><i class="fas fa-check"></i> Steunbalken plaatsen (Poutrels)</li>
+                    <li><i class="fas fa-check"></i> Veilige Afbraakwerken</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
+                <h3>Binnenafwerking & Gyproc</h3>
+                <p>Een naadloos, schilderklaar resultaat. Wij zijn dé specialist in het plaatsen van valse wanden, verlaagde plafonds en isolatie.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Scheidings- en Voorzetwanden</li>
+                    <li><i class="fas fa-check"></i> Verlaagde Plafonds</li>
+                    <li><i class="fas fa-check"></i> Strakke Bepleistering & Plinten</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Over Mario</h4>
+                <p>Dé premium speciaalzaak en aannemer in Berchem. Van kleine klusjes tot totaalrenovaties, wij staan voor u klaar.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Winkel & Showroom</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-envelope"></i> info@mariodhz.be</p>
+            </div>
+            <div class="footer-col">
+                <h4>Openingstijden</h4>
+                <p>7 Dagen per week geopend!</p>
+                <div class="big-hours">08:30 - 19:00</div>
+            </div>
+        </div>
+        
+        <div class="developer-credit-frame">
+            <p>Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong> • © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.getElementById('slider');
+        let index = 0; const totalSlides = 5;
+        function nextSlide() { 
+            index = (index + 1) % totalSlides; 
+            slider.style.transform = `translateX(-${index * 100}%)`; 
+        }
+        setInterval(nextSlide, 3500); // Swipt automatisch elke 3.5 seconden
+    </script>
+
 </body>
 </html>
