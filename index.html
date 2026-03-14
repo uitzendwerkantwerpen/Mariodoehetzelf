@@ -24,32 +24,47 @@
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* --- HEADER & NAVIGATIE --- */
+        /* --- WEBSHOP USP TOP BAR --- */
+        .top-bar { background: var(--mario-orange); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; z-index: 10000; position: fixed; top: 0; width: 100%; }
+        .top-bar-item { display: flex; align-items: center; gap: 8px; }
+        .top-bar-item i { font-size: 13px; }
+
+        /* --- HEADER & NAVIGATIE (LOGO NU EXTRA GROOT!) --- */
         header {
-            position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
+            position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: rgba(6, 11, 17, 0.95);
+            padding: 10px 5%; background: rgba(6, 11, 17, 0.95);
             backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
-        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1)); }
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 18px; text-decoration: none; }
+        
+        /* JOUW TROTS: EXTRA GROOT LOGO */
+        .header-logo-img { 
+            height: 85px; 
+            width: auto; 
+            display: block; 
+            object-fit: contain; 
+            filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); 
+            transition: 0.3s;
+        }
+        .header-logo-img:hover { transform: scale(1.05); }
         
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         .mario-logo-text { font-size: 38px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
         .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
-        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
+        .cart-badge { background: white; color: var(--mario-orange); border-radius: 50%; padding: 2px 6px; font-size: 11px; font-weight: 900; margin-left: 2px; }
 
         /* --- HERO SECTION --- */
-        .hero { position: relative; padding: 140px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        .hero { position: relative; padding: 180px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; justify-content: center; }
 
-        /* DE DONKERE PREMIUM KAART */
         .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
         .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
@@ -61,11 +76,63 @@
         .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); background: #d15a22; }
 
-        /* DE RECHTER SLIDER KAART */
         .hero-slider-card { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.08); height: 350px; position: relative; }
         .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- NIEUW: AANKONDIGING ANTWERPEN-ZUID --- */
+        .new-store-banner {
+            background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%);
+            padding: 40px 5%;
+            border-top: 4px solid var(--mario-orange);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+        .ns-content {
+            max-width: 1300px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: rgba(255,255,255,0.02);
+            padding: 30px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        .ns-content img {
+            width: 130px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(227, 108, 51, 0.3));
+        }
+        .ns-text h2 {
+            color: white;
+            font-size: 26px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .ns-text h2 i { color: var(--mario-orange); font-size: 28px; }
+        .ns-text p {
+            color: #CBD5E1;
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .ns-text p strong { color: white; font-weight: 700; }
+        .ns-text p span { color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            .ns-content { flex-direction: column; text-align: center; gap: 20px; padding: 25px 20px; }
+            .ns-text h2 { justify-content: center; font-size: 20px; }
+        }
 
         /* --- LOPENDE BAND --- */
         .partner-wrapper { position: relative; z-index: 10; background: white; border-bottom: 2px solid var(--mario-border); padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
@@ -109,17 +176,23 @@
         .review-text { font-size: 15px; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
         .review-author { font-size: 14px; font-weight: 800; color: var(--mario-navy); text-transform: uppercase; }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER & BETAALLOGOS --- */
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
         .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        
+        .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
+        .payment-icons i { transition: 0.3s; cursor: pointer; }
+        .payment-icons i:hover { color: var(--mario-orange); }
+        .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
+
         .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* --- PROFESSIONELE AI CHATBOT STYLES --- */
+        /* --- LIVE AI CHATBOT MET EXPERTS STYLES --- */
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
@@ -153,7 +226,9 @@
         .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
 
         @media (max-width: 900px) {
-            .hero { padding-top: 120px; min-height: auto; }
+            .top-bar-hide { display: none; }
+            .top-bar { justify-content: center; }
+            .hero { padding-top: 150px; min-height: auto; }
             .hero-content { flex-direction: column; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
             .hero-slider-card { height: 280px; }
@@ -165,6 +240,12 @@
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
+        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel (Driekoningenstraat)</div>
+        <div class="top-bar-item top-bar-hide"><i class="fas fa-shield-alt"></i> Veilig Betalen & Ruilen</div>
+    </div>
 
     <div class="ai-chat-btn" id="openChatBtn">
         <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
@@ -207,8 +288,8 @@
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a>
-            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i>Renovaties</a>
+            <a href="winkel.html"><i class="fas fa-shopping-cart"></i> De Winkel <span class="cart-badge">0</span></a>
+            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
         </div>
     </header>
 
@@ -235,6 +316,16 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="new-store-banner">
+        <div class="ns-content">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
+            <div class="ns-text">
+                <h2><i class="fas fa-map-marker-alt"></i> Binnenkort in Antwerpen-Zuid (Nieuw Zuid)!</h2>
+                <p>Uw nieuwe premium bestemming voor <strong>Doe-Het-Zelf, Huishoudelijke Spullen, Elektriciteit, Verfartikelen, Sanitair & Badkamermeubels</strong> en nog veel meer. Verwacht de vertrouwde <span>Mario Service</span>, binnenkort in Nieuw Zuid.</p>
+            </div>
         </div>
     </section>
 
@@ -274,7 +365,7 @@
                 <i class="fas fa-bolt"></i>
                 <h3>Elektriciteit</h3>
                 <p>Ontdek ons uitgebreide assortiment. Als officieel Niko-verdeler bieden wij absolute topkwaliteit voor de vakman.</p>
-                <span class="wip-badge"><i class="fas fa-info-circle"></i> Webshop binnenkort online</span>
+                <span class="wip-badge"><i class="fas fa-info-circle"></i> Direct uit voorraad leverbaar</span>
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
@@ -285,13 +376,13 @@
                 <i class="fas fa-bath"></i>
                 <h3>Badkamer & Sanitair</h3>
                 <p>Creëer uw droombadkamer met onze premium selectie. Van meubels tot keramiek, wij hebben alles voor een luxe afwerking.</p>
-                <span class="wip-badge"><i class="fas fa-info-circle"></i> Webshop binnenkort online</span>
+                <span class="wip-badge"><i class="fas fa-info-circle"></i> Inclusief showroom modellen</span>
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
 
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.pexels.com/photos/15180415/pexels-photo-15180415.jpeg?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & BBQ</h3>
@@ -340,9 +431,14 @@
                 <p><i class="fas fa-truck"></i> Afhaalpunt PostNL & Mondial Relay</p>
             </div>
             <div class="footer-col">
-                <h4>Openingstijden</h4>
-                <p>7 Dagen per week geopend!</p>
-                <div class="big-hours">08:30 - 19:00</div>
+                <h4>Veilig & Snel Betalen</h4>
+                <p>Bestel online en betaal veilig.</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <span class="bancontact-text">Bancontact</span>
+                </div>
             </div>
         </div>
         
@@ -358,7 +454,7 @@
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 4000); 
 
-        // 2. LIVE GEMINI AI SCRIPT (FOUTLOOS)
+        // 2. LIVE GEMINI AI SCRIPT
         const chatBtn = document.getElementById('openChatBtn');
         const chatWindow = document.getElementById('chatWindow');
         const closeChatBtn = document.getElementById('closeChatBtn');
@@ -426,11 +522,7 @@
         }
 
         async function generateBotResponse(userInput) {
-            
-            // JOUW API KEY
             const API_KEY = 'AIzaSyC3Pl9gNF1dOIBQ99SZINnijx8jxPShzzw'; 
-
-            // Update URL naar het meest stabiele model voor chat
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
             const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
 
