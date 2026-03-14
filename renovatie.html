@@ -41,7 +41,7 @@
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
 
-        /* --- RENOVATIE HERO (Compact & Krachtig) --- */
+        /* --- RENOVATIE HERO --- */
         .reno-hero { position: relative; padding: 120px 5% 60px; background-color: var(--mario-navy); display: flex; align-items: center; justify-content: center; min-height: 70vh; }
         .reno-hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(227, 108, 51, 0.15) 0%, var(--mario-navy) 100%); z-index: 1; }
         
@@ -59,7 +59,7 @@
         .btn-quote { display: inline-block; padding: 16px 35px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 25px rgba(227, 108, 51, 0.4); }
         .btn-quote:hover { transform: translateY(-3px); background: #d15a22; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.6); }
 
-        /* JOUW ECHTE FOTO SLIDER */
+        /* FOTO SLIDER */
         .hero-slider-card { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.1); height: 400px; position: relative; background: #1A202C; }
         .slider-wrapper { display: flex; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
         .slide { width: 100%; height: 100%; flex-shrink: 0; position: relative; }
@@ -67,7 +67,7 @@
         .slide-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px 20px 20px; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); color: white; text-align: center; }
         .slide-overlay h3 { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: white; margin: 0; }
 
-        /* --- SPECIALITEITEN GRID (GEEN LEEGTE) --- */
+        /* --- SPECIALITEITEN GRID --- */
         .services-section { position: relative; z-index: 5; max-width: 1300px; margin: -50px auto 60px; padding: 0 20px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
@@ -80,7 +80,7 @@
         .service-card h3 { font-size: 20px; font-weight: 900; color: var(--mario-navy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: -0.5px; }
         .service-card p { font-size: 14px; color: var(--mario-grey); line-height: 1.6; font-weight: 400; margin-bottom: 20px; flex-grow: 1; }
         
-        .service-list { list-style: none; width: 100%; margin-bottom: 0; }
+        .service-list { list-style: none; width: 100%; margin-bottom: 0; padding: 0; }
         .service-list li { font-size: 13px; color: var(--mario-navy); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 700; border-bottom: 1px solid var(--mario-light); padding-bottom: 8px; }
         .service-list li:last-child { border-bottom: none; padding-bottom: 0; }
         .service-list li i { color: #48BB78; font-size: 14px; }
@@ -141,25 +141,55 @@
             </div>
 
             <div class="hero-slider-card">
+                
+                <script>
+                    // Dit slimme script herstelt direct elk pad probleem op GitHub.
+                    // Het kijkt specifiek in jouw 'final/FINAL/' map.
+                    function loadRenoImg(img, num) {
+                        let attempts = parseInt(img.getAttribute('data-attempts') || '0');
+                        const paths = [
+                            `final/FINAL/renovatie${num}.jpg`,  /* Gebaseerd op jouw screenshot */
+                            `final/renovatie${num}.jpg`, 
+                            `FINAL/renovatie${num}.jpg`,
+                            `renovatie${num}.jpg`
+                        ];
+                        const fallbacks = [
+                            'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200',
+                            'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200',
+                            'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200',
+                            'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1200',
+                            'https://images.unsplash.com/photo-1581428982868-e410dd147a90?auto=format&fit=crop&w=1200'
+                        ];
+
+                        if (attempts < paths.length) {
+                            img.src = paths[attempts];
+                            img.setAttribute('data-attempts', attempts + 1);
+                        } else {
+                            img.onerror = null; // Voorkom oneindige loop, toon gegarandeerde placeholder
+                            img.src = fallbacks[num - 1];
+                        }
+                    }
+                </script>
+
                 <div class="slider-wrapper" id="slider">
                     <div class="slide">
-                        <img src="final/renovatie1.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie1.jpg';" alt="Project">
+                        <img src="final/FINAL/renovatie1.jpg" onerror="loadRenoImg(this, 1)" alt="Project 1">
                         <div class="slide-overlay"><h3>Vakmanschap</h3></div>
                     </div>
                     <div class="slide">
-                        <img src="final/renovatie2.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie2.jpg';" alt="Project">
+                        <img src="final/FINAL/renovatie2.jpg" onerror="loadRenoImg(this, 2)" alt="Project 2">
                         <div class="slide-overlay"><h3>Oog voor Detail</h3></div>
                     </div>
                     <div class="slide">
-                        <img src="final/renovatie3.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie3.jpg';" alt="Project">
+                        <img src="final/FINAL/renovatie3.jpg" onerror="loadRenoImg(this, 3)" alt="Project 3">
                         <div class="slide-overlay"><h3>Strakke Afwerking</h3></div>
                     </div>
                     <div class="slide">
-                        <img src="final/renovatie4.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie4.jpg';" alt="Project">
+                        <img src="final/FINAL/renovatie4.jpg" onerror="loadRenoImg(this, 4)" alt="Project 4">
                         <div class="slide-overlay"><h3>Jarenlange Ervaring</h3></div>
                     </div>
                     <div class="slide">
-                        <img src="final/renovatie5.jpg" onerror="this.onerror=null; this.src='FINAL/renovatie5.jpg';" alt="Project">
+                        <img src="final/FINAL/renovatie5.jpg" onerror="loadRenoImg(this, 5)" alt="Project 5">
                         <div class="slide-overlay"><h3>Uw Droomproject</h3></div>
                     </div>
                 </div>
@@ -248,7 +278,7 @@
             index = (index + 1) % totalSlides; 
             slider.style.transform = `translateX(-${index * 100}%)`; 
         }
-        setInterval(nextSlide, 3500); // Swipt automatisch elke 3.5 seconden
+        setInterval(nextSlide, 3500); 
     </script>
 
 </body>
