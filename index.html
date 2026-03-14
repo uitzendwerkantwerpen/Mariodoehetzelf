@@ -17,6 +17,7 @@
             --mario-light: #F1F5F9;
             --mario-border: #E2E8F0;
             --mario-grey: #4A5568;
+            /* Green variable removed as it's not used */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -24,7 +25,7 @@
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* --- HEADER & NAVIGATIE --- */
+        /* --- HEADER & NAVIGATIE (MET GROOT LOGO EN ORANJE TEKST) --- */
         header {
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
             display: flex; justify-content: space-between; align-items: center;
@@ -32,16 +33,30 @@
             backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        .logo-frame { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
-        /* Het transparante logo in de header met een zachte oranje gloed */
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
+        
+        /* Groot, opvallend logo links */
         .header-logo-img { 
-            height: 40px; 
+            height: 60px; /* GOED GROOT zoals gevraagd */
             width: auto; 
             display: block; 
             object-fit: contain; 
-            filter: drop-shadow(0 0 6px rgba(227, 108, 51, 0.6)); 
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1)); 
         }
-        .logo-subtext { color: rgba(255,255,255,0.85); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 6px; }
+
+        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
+        
+        /* MARIO tekst in het ORANJE - FOUTLOOS */
+        .mario-logo-text { 
+            font-size: 38px; /* Heel groot en krachtig */
+            font-weight: 900; 
+            color: var(--mario-orange); /* IN HET ORANJE */
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); /* Subtiele oranje gloed */
+        }
+        .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
@@ -64,8 +79,7 @@
             display: flex; flex-direction: column; align-items: flex-start; flex: 1.2;
         }
         .card-inner { display: flex; gap: 25px; align-items: center; margin-bottom: 20px; }
-        /* Transparant logo in de kaart, zonder wit vlak erachter */
-        .card-logo { width: 80px; height: 80px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)); }
+        .card-logo { width: 70px; height: 70px; border-radius: 16px; object-fit: contain; background: white; padding: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         
         .hero-card-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
@@ -157,8 +171,13 @@
     <header>
         <a href="index.html" class="logo-frame">
             <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
-            <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
+            
+            <div class="logo-text-wrapper">
+                <div class="mario-logo-text">MARIO</div>
+                <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
+            </div>
         </a>
+        
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="winkel.html"><i class="fas fa-shopping-cart"></i>De Winkel</a>
@@ -245,7 +264,7 @@
         </div>
 
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1555046243-d30906801977?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-img-top" style="background-image: url('https://images.pexels.com/photos/15180415/pexels-photo-15180415.jpeg?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & BBQ</h3>
