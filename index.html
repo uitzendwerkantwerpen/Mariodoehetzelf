@@ -17,7 +17,6 @@
             --mario-light: #F1F5F9;
             --mario-border: #E2E8F0;
             --mario-grey: #4A5568;
-            /* Green variable removed as it's not used */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
@@ -25,7 +24,7 @@
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* --- HEADER & NAVIGATIE (MET GROOT LOGO EN ORANJE TEKST) --- */
+        /* --- HEADER & NAVIGATIE --- */
         header {
             position: fixed; width: 100%; top: 0; left: 0; z-index: 9999;
             display: flex; justify-content: space-between; align-items: center;
@@ -35,9 +34,8 @@
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
         
-        /* Groot, opvallend logo links */
         .header-logo-img { 
-            height: 60px; /* GOED GROOT zoals gevraagd */
+            height: 60px; 
             width: auto; 
             display: block; 
             object-fit: contain; 
@@ -46,15 +44,14 @@
 
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         
-        /* MARIO tekst in het ORANJE - FOUTLOOS */
         .mario-logo-text { 
-            font-size: 38px; /* Heel groot en krachtig */
+            font-size: 38px; 
             font-weight: 900; 
-            color: var(--mario-orange); /* IN HET ORANJE */
+            color: var(--mario-orange); 
             text-transform: uppercase; 
             letter-spacing: 1px; 
             line-height: 1;
-            text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); /* Subtiele oranje gloed */
+            text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); 
         }
         .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
 
@@ -78,8 +75,19 @@
             border: 1px solid rgba(255,255,255,0.08); 
             display: flex; flex-direction: column; align-items: flex-start; flex: 1.2;
         }
-        .card-inner { display: flex; gap: 25px; align-items: center; margin-bottom: 20px; }
-        .card-logo { width: 70px; height: 70px; border-radius: 16px; object-fit: contain; background: white; padding: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
+        
+        /* JOUW LOGO IN HET MIDDEN: GEEN WITTE ACHTERGROND, LEKKER GROOT */
+        .card-logo { 
+            width: 120px; /* Goed groot en duidelijk */
+            height: auto; 
+            object-fit: contain; 
+            background: transparent; /* Witte achtergrond is WEG */
+            padding: 0; 
+            border-radius: 0;
+            box-shadow: none; /* Zwarte vierkante schaduw is WEG */
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); /* Lichte, strakke gloed eromheen */
+        }
         
         .hero-card-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
@@ -171,7 +179,6 @@
     <header>
         <a href="index.html" class="logo-frame">
             <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
-            
             <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
