@@ -62,7 +62,6 @@
         /* --- DYNAMISCHE WINKEL CONTAINER --- */
         .shop-container { max-width: 1300px; margin: 60px auto 100px; padding: 0 20px; }
         
-        /* WEERGAVE 1: MERKEN & CATEGORIEEN OVERZICHT */
         .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         .brand-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
         .brand-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
@@ -72,7 +71,6 @@
         .brand-card h3 { font-size: 20px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
         .brand-card p { font-size: 14px; color: var(--mario-orange); font-weight: 700; margin-top: 10px; display: flex; align-items: center; gap: 5px; }
 
-        /* WEERGAVE 2: PRODUCTEN LIJST */
         .products-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
         .products-view-header h2 { font-size: 28px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
         .btn-back { background: var(--mario-navy); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
@@ -93,12 +91,10 @@
         
         .product-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--mario-light); padding-top: 15px; }
         
-        /* PRIJS WEERGAVE MET OUDE PRIJS */
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 22px; font-weight: 900; color: var(--mario-navy); line-height: 1; }
         .old-price { font-size: 13px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
-        /* KNOPPEN */
         .btn-whatsapp { background: var(--whatsapp-green); color: white; border: none; padding: 10px 15px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .btn-whatsapp:hover { background: #1da851; transform: scale(1.05); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
 
@@ -123,6 +119,7 @@
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
+        
         .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
         .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
@@ -137,316 +134,4 @@
         .expert-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
         .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
         .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
-        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; word-wrap: break-word; }
-        .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
-        .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
-        .chat-input-area { padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px; }
-        .chat-input-area input { flex: 1; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px; }
-        .chat-input-area input:focus { border-color: var(--mario-orange); }
-        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
-        .chat-send-btn:hover { background: var(--mario-navy); }
-        .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
-
-        @media (max-width: 900px) {
-            .top-bar-hide { display: none; }
-            .top-bar { justify-content: center; }
-            .shop-hero { padding-top: 150px; }
-            .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
-            .chat-window { width: 320px; bottom: 70px; right: 15px; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="top-bar">
-        <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel (Driekoningenstraat)</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-shield-alt"></i> Veilig Betalen & Ruilen</div>
-    </div>
-
-    <header>
-        <a href="index.html" class="logo-frame">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
-            <div class="logo-text-wrapper">
-                <div class="mario-logo-text">MARIO</div>
-                <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
-            </div>
-        </a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="winkel.html" style="color: var(--mario-orange);"><i class="fas fa-shopping-cart"></i> De Winkel</a>
-            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
-        </div>
-    </header>
-
-    <section class="shop-hero">
-        <div class="shop-hero-bg"></div>
-        <div class="shop-hero-content">
-            <h1>Onze <span>Catalogus</span></h1>
-            <p>Kies een categorie of merk. Bestel online of reserveer direct via WhatsApp.</p>
-        </div>
-    </section>
-
-    <section class="shop-container">
-        
-        <div id="brands-section">
-            <div class="brands-grid">
-                <div class="brand-card" style="border-color: var(--mario-orange);" onclick="showBrand('huishoudelijk')">
-                    <i class="fas fa-tape cat-icon"></i>
-                    <h3>Lijmen & Tapes</h3>
-                    <p>Huishoudelijk & Bevestiging <i class="fas fa-arrow-right"></i></p>
-                </div>
-                <div class="brand-card" onclick="showBrand('levis')">
-                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-                    <h3>Levis</h3>
-                    <p>Verf & Lakken <i class="fas fa-arrow-right"></i></p>
-                </div>
-                <div class="brand-card" onclick="showBrand('niko')">
-                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
-                    <h3>Niko</h3>
-                    <p>Schakelmateriaal <i class="fas fa-arrow-right"></i></p>
-                </div>
-            </div>
-        </div>
-
-        <div id="products-section" style="display: none;">
-            
-            <div class="products-view-header">
-                <h2 id="brand-title">Producten</h2>
-                <button class="btn-back" onclick="showAllBrands()"><i class="fas fa-arrow-left"></i> Terug naar Overzicht</button>
-            </div>
-
-            <div class="product-grid" id="product-list">
-                
-                <div class="product-card" data-brand="huishoudelijk">
-                    <div class="product-img-box">
-                        <img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='IMG-20250107-WA0057.jpg';" alt="Pattex Power Tape">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-brand-tag" style="background: #E30613;">PATTEX</span>
-                        <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
-                        <p class="product-desc">Extra sterke, waterbestendige reparatietape. Onmisbaar in elk huishouden.</p>
-                        
-                        <div class="product-bottom">
-                            <div class="price-box">
-                                <span class="product-price">€6.49</span>
-                                <span class="old-price">€8.95</span>
-                            </div>
-                            <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy">
-                                <i class="fas fa-shopping-cart"></i> Koop Nu
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-brand="huishoudelijk">
-                    <div class="product-img-box"><i class="fas fa-fill-drip" style="font-size: 80px; color: #ddd;"></i></div>
-                    <div class="product-info">
-                        <span class="product-brand-tag" style="background: #E30613;">LOCTITE</span>
-                        <h3 class="product-title">Secondelijm Super Glue-3 (3g)</h3>
-                        <p class="product-desc">Vloeibare secondelijm. Droogt in enkele seconden. Voor porselein, metaal, rubber.</p>
-                        <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€5.49</span></div>
-                            <button class="btn-whatsapp" onclick="orderWhatsApp('Loctite Secondelijm 3g', '€5.49')"><i class="fab fa-whatsapp"></i> Bestel</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis"></div>
-                    <div class="product-info">
-                        <span class="product-brand-tag" style="background: #00a4e4;">LEVIS ESSENTIAL</span>
-                        <h3 class="product-title">Muurverf Wit Mat - 10L</h3>
-                        <p class="product-desc">Grote voordeelpot. Rendement: 100m². Ideaal voor totaalrenovaties.</p>
-                        <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€74.95</span></div>
-                            <button class="btn-whatsapp" onclick="orderWhatsApp('Levis Essential Wit 10L', '€74.95')"><i class="fab fa-whatsapp"></i> Bestel</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-brand="niko">
-                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko"></div>
-                    <div class="product-info">
-                        <span class="product-brand-tag" style="background: #000;">NIKO ORIGINAL WIT</span>
-                        <h3 class="product-title">Stopcontact met penaarde</h3>
-                        <p class="product-desc">Inbouw stopcontact. Sokkel + centraalplaat met kinderbeveiliging.</p>
-                        <div class="product-bottom">
-                            <span class="product-price">€8.65</span>
-                            <button class="btn-whatsapp" onclick="orderWhatsApp('Niko Stopcontact Wit', '€8.65')"><i class="fab fa-whatsapp"></i> Bestel</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <div class="ai-chat-btn" id="openChatBtn">
-        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
-        Mario DHZ Klantenservice
-    </div>
-
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
-            <div class="chat-header-text">
-                <strong>Mario DHZ AI</strong>
-                <small>24/7 Klantenservice</small>
-            </div>
-            <button class="close-chat" id="closeChatBtn">×</button>
-        </div>
-        
-        <div class="expert-selector">
-            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen<br>Advies</button>
-            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf &<br>Decor</button>
-            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Technische<br>Dienst</button>
-        </div>
-
-        <div class="chat-body" id="chatBody">
-            <div class="chat-msg msg-bot">Welkom bij Mario DHZ. Waarmee kan ik u vandaag helpen?</div>
-        </div>
-        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Systeem verwerkt uw vraag...</div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
-            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Over Mario</h4>
-                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Winkel</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
-                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
-                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
-            </div>
-            <div class="footer-col">
-                <h4>Veilig & Snel Betalen</h4>
-                <p>Betaal veilig online via Bancontact en Visa.</p>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <span class="bancontact-text">Bancontact</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // --- FILTER LOGICA ---
-        function showBrand(brandName) {
-            document.getElementById('brands-section').style.display = 'none';
-            document.getElementById('products-section').style.display = 'block';
-            const titleName = brandName === 'huishoudelijk' ? 'Lijmen & Tapes' : brandName.charAt(0).toUpperCase() + brandName.slice(1);
-            document.getElementById('brand-title').innerText = "Producten: " + titleName;
-
-            const products = document.querySelectorAll('.product-grid .product-card');
-            products.forEach(product => {
-                if (product.getAttribute('data-brand') === brandName) {
-                    product.style.display = 'flex';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
-            window.scrollTo({ top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth' });
-        }
-
-        function showAllBrands() {
-            document.getElementById('products-section').style.display = 'none';
-            document.getElementById('brands-section').style.display = 'block';
-            window.scrollTo({ top: document.getElementById('brands-section').offsetTop - 100, behavior: 'smooth' });
-        }
-
-        // --- WHATSAPP BESTEL LOGICA ---
-        function orderWhatsApp(productName, price) {
-            const phoneNumber = "32479935848";
-            const message = `Hallo Mario DHZ, ik wil graag het volgende bestellen via de website:\n\n*Product:* ${productName}\n*Prijs:* ${price}\n\nKan ik dit afhalen in Berchem of laten leveren?`;
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // --- AI CHATBOT LOGICA ---
-        const chatBtn = document.getElementById('openChatBtn');
-        const chatWindow = document.getElementById('chatWindow');
-        const closeChatBtn = document.getElementById('closeChatBtn');
-        const chatBody = document.getElementById('chatBody');
-        const chatInput = document.getElementById('chatInput');
-        const sendChatBtn = document.getElementById('sendChatBtn');
-        const typingIndicator = document.getElementById('typingIndicator');
-        const expertBtns = document.querySelectorAll('.expert-btn');
-
-        let currentExpert = 'algemeen';
-        const expertProfiles = {
-            algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
-            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
-            techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
-        };
-
-        expertBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                expertBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentExpert = btn.getAttribute('data-expert');
-                appendMessage(expertProfiles[currentExpert].greeting, 'msg-bot');
-            });
-        });
-
-        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
-        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
-
-        sendChatBtn.addEventListener('click', handleUserMessage);
-        chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleUserMessage(); });
-
-        function appendMessage(text, className) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `chat-msg ${className}`;
-            msgDiv.textContent = text;
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        async function handleUserMessage() {
-            const userText = chatInput.value.trim();
-            if (userText === '') return;
-            appendMessage(userText, 'msg-user');
-            chatInput.value = '';
-            typingIndicator.style.display = 'block';
-            chatBody.scrollTop = chatBody.scrollHeight;
-            await generateBotResponse(userText);
-            typingIndicator.style.display = 'none';
-        }
-
-        async function generateBotResponse(userInput) {
-            const API_KEY = 'JOUW_NIEUWE_API_SLEUTEL_HIER'; 
-            if (API_KEY === 'JOUW_NIEUWE_API_SLEUTEL_HIER') {
-                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code (index.html).", 'msg-bot');
-                return;
-            }
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt + userInput }] }] })
-                });
-                const data = await response.json();
-                if(data.error) {
-                    appendMessage("❌ Fout: " + data.error.message, 'msg-bot');
-                } else if(data.candidates && data.candidates.length > 0) {
-                    appendMessage(data.candidates[0].content.parts[0].text, 'msg-bot');
-                }
-            } catch (error) {
-                appendMessage("❌ Netwerkverbinding mislukt.", 'msg-bot');
-            }
-        }
-    </script>
-</body>
-</html>
+        .chat-msg { max-width: 85%; padding: 1
