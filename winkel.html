@@ -62,6 +62,7 @@
         /* --- DYNAMISCHE WINKEL CONTAINER --- */
         .shop-container { max-width: 1300px; margin: 60px auto 100px; padding: 0 20px; }
         
+        /* WEERGAVE 1: MERKEN & CATEGORIEEN OVERZICHT */
         .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         .brand-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
         .brand-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
@@ -71,6 +72,7 @@
         .brand-card h3 { font-size: 20px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
         .brand-card p { font-size: 14px; color: var(--mario-orange); font-weight: 700; margin-top: 10px; display: flex; align-items: center; gap: 5px; }
 
+        /* WEERGAVE 2: PRODUCTEN LIJST */
         .products-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
         .products-view-header h2 { font-size: 28px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
         .btn-back { background: var(--mario-navy); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
@@ -100,7 +102,6 @@
         .btn-whatsapp { background: var(--whatsapp-green); color: white; border: none; padding: 10px 15px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .btn-whatsapp:hover { background: #1da851; transform: scale(1.05); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
 
-        /* DE NIEUWE SHOPIFY KOOP KNOP */
         .btn-buy { background: var(--mario-navy); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .btn-buy:hover { background: var(--mario-orange); transform: scale(1.05); box-shadow: 0 5px 15px rgba(227, 108, 51, 0.4); }
 
@@ -136,7 +137,7 @@
         .expert-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
         .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
         .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
-        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; }
+        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; word-wrap: break-word; }
         .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
         .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
         .chat-input-area { padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px; }
@@ -218,7 +219,9 @@
             <div class="product-grid" id="product-list">
                 
                 <div class="product-card" data-brand="huishoudelijk">
-                    <div class="product-img-box"><i class="fas fa-tape" style="font-size: 80px; color: #ddd;"></i></div>
+                    <div class="product-img-box">
+                        <img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='IMG-20250107-WA0057.jpg';" alt="Pattex Power Tape">
+                    </div>
                     <div class="product-info">
                         <span class="product-brand-tag" style="background: #E30613;">PATTEX</span>
                         <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
@@ -229,7 +232,6 @@
                                 <span class="product-price">€6.49</span>
                                 <span class="old-price">€8.95</span>
                             </div>
-                            
                             <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy">
                                 <i class="fas fa-shopping-cart"></i> Koop Nu
                             </a>
@@ -259,6 +261,19 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€74.95</span></div>
                             <button class="btn-whatsapp" onclick="orderWhatsApp('Levis Essential Wit 10L', '€74.95')"><i class="fab fa-whatsapp"></i> Bestel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="niko">
+                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">NIKO ORIGINAL WIT</span>
+                        <h3 class="product-title">Stopcontact met penaarde</h3>
+                        <p class="product-desc">Inbouw stopcontact. Sokkel + centraalplaat met kinderbeveiliging.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€8.65</span>
+                            <button class="btn-whatsapp" onclick="orderWhatsApp('Niko Stopcontact Wit', '€8.65')"><i class="fab fa-whatsapp"></i> Bestel</button>
                         </div>
                     </div>
                 </div>
