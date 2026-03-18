@@ -39,4 +39,411 @@
         }
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 20px; text-decoration: none; }
-        .header-logo-img { height: 110px; width:
+        .header-logo-img { height: 110px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transform: scale(1.3); transform-origin: left center; transition: 0.3s; }
+        .header-logo-img:hover { transform: scale(1.4); }
+        
+        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
+        .mario-logo-text { font-size: 38px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
+        .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .nav-links a i { font-size: 16px; color: var(--mario-orange); }
+        .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
+
+        /* --- SHOP HERO BANNER --- */
+        .shop-hero { padding: 160px 5% 60px; background: var(--mario-navy); text-align: center; color: white; position: relative; }
+        .shop-hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at top, rgba(227, 108, 51, 0.15) 0%, var(--mario-navy) 100%); z-index: 1; }
+        .shop-hero-content { position: relative; z-index: 3; }
+        .shop-hero h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; text-transform: uppercase; margin-bottom: 15px; }
+        .shop-hero h1 span { color: var(--mario-orange); }
+        .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto; font-weight: 300; }
+
+        /* --- DYNAMISCHE WINKEL CONTAINER --- */
+        .shop-container { max-width: 1300px; margin: 60px auto 100px; padding: 0 20px; }
+        
+        .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .brand-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; text-align: center; }
+        .brand-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
+        .brand-card img { width: 100%; height: 100px; object-fit: contain; margin-bottom: 20px; transition: 0.3s; }
+        .brand-card i.cat-icon { font-size: 80px; color: var(--mario-navy); margin-bottom: 20px; transition: 0.3s; }
+        .brand-card:hover img, .brand-card:hover i.cat-icon { transform: scale(1.05); color: var(--mario-orange); }
+        .brand-card h3 { font-size: 20px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
+        .brand-card p { font-size: 14px; color: var(--mario-orange); font-weight: 700; margin-top: 10px; display: flex; align-items: center; gap: 5px; }
+
+        .products-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
+        .products-view-header h2 { font-size: 28px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
+        .btn-back { background: var(--mario-navy); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-back:hover { background: var(--mario-orange); }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); box-shadow: 0 10px 25px rgba(0,0,0,0.04); overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.12); }
+        
+        .product-img-box { width: 100%; height: 200px; background: #ffffff; padding: 20px; border-bottom: 1px solid var(--mario-light); display: flex; align-items: center; justify-content: center; }
+        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05)); transition: 0.3s; }
+        .product-card:hover .product-img-box img { transform: scale(1.05); }
+
+        .product-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-brand-tag { font-size: 11px; color: white; background: var(--mario-grey); padding: 4px 10px; border-radius: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; align-self: flex-start; margin-bottom: 15px; }
+        .product-title { font-size: 18px; font-weight: 800; color: var(--mario-navy); margin-bottom: 10px; line-height: 1.3; }
+        .product-desc { font-size: 13px; color: var(--mario-grey); margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
+        
+        .product-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--mario-light); padding-top: 15px; }
+        
+        .price-box { display: flex; flex-direction: column; }
+        .product-price { font-size: 22px; font-weight: 900; color: var(--mario-navy); line-height: 1; }
+        .old-price { font-size: 13px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
+        
+        .btn-whatsapp { background: var(--whatsapp-green); color: white; border: none; padding: 10px 15px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .btn-whatsapp:hover { background: #1da851; transform: scale(1.05); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+
+        .btn-buy { background: var(--mario-navy); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .btn-buy:hover { background: var(--mario-orange); transform: scale(1.05); box-shadow: 0 5px 15px rgba(227, 108, 51, 0.4); }
+
+        /* --- FOOTER --- */
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
+        .payment-icons i { transition: 0.3s; cursor: pointer; }
+        .payment-icons i:hover { color: var(--mario-orange); }
+        .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
+        .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
+        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
+
+        /* --- LIVE AI CHATBOT MET EXPERTS STYLES --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
+        .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
+        .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
+        
+        .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
+        .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
+        .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
+        .chat-header img { height: 35px; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5)); }
+        .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
+        .chat-header-text strong { font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .chat-header-text small { font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px; }
+        .close-chat { color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: auto; line-height: 1; }
+        .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
+        .expert-btn { flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .expert-btn i { font-size: 18px; }
+        .expert-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
+        .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
+        .chat-body { padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; word-wrap: break-word; }
+        .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
+        .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
+        .chat-input-area { padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px; }
+        .chat-input-area input { flex: 1; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px; }
+        .chat-input-area input:focus { border-color: var(--mario-orange); }
+        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .chat-send-btn:hover { background: var(--mario-navy); }
+        .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
+
+        /* --- MOBIELE FIX VOOR CHATKNOP --- */
+        @media (max-width: 900px) {
+            .top-bar-hide { display: none; }
+            .top-bar { justify-content: center; }
+            .shop-hero { padding-top: 150px; }
+            .ai-chat-btn { bottom: 15px; right: 15px; padding: 0; border-radius: 50%; width: 60px; height: 60px; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+            .ai-chat-btn span { display: none; }
+            .ai-chat-btn img { height: 35px; margin: 0; }
+            .chat-window { width: 320px; bottom: 85px; right: 15px; }
+            .shop-container { margin-bottom: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
+        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel (Driekoningenstraat)</div>
+        <div class="top-bar-item top-bar-hide"><i class="fas fa-shield-alt"></i> Veilig Betalen & Ruilen</div>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo-frame">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
+            <div class="logo-text-wrapper">
+                <div class="mario-logo-text">MARIO</div>
+                <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="winkel.html" style="color: var(--mario-orange);"><i class="fas fa-shopping-cart"></i> De Winkel</a>
+            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
+        </div>
+    </header>
+
+    <section class="shop-hero">
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-content">
+            <h1>Onze <span>Catalogus</span></h1>
+            <p>Kies een categorie of merk. Bestel online of reserveer direct via WhatsApp.</p>
+        </div>
+    </section>
+
+    <section class="shop-container">
+        
+        <div id="brands-section">
+            <div class="brands-grid">
+                <div class="brand-card" style="border-color: var(--mario-orange);" onclick="showBrand('huishoudelijk')">
+                    <i class="fas fa-tape cat-icon"></i>
+                    <h3>Lijmen & Tapes</h3>
+                    <p>Huishoudelijk & Bevestiging <i class="fas fa-arrow-right"></i></p>
+                </div>
+                <div class="brand-card" onclick="showBrand('levis')">
+                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+                    <h3>Levis</h3>
+                    <p>Verf & Lakken <i class="fas fa-arrow-right"></i></p>
+                </div>
+                <div class="brand-card" onclick="showBrand('niko')">
+                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                    <h3>Niko</h3>
+                    <p>Schakelmateriaal <i class="fas fa-arrow-right"></i></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="products-section" style="display: none;">
+            <div class="products-view-header">
+                <h2 id="brand-title">Producten</h2>
+                <button class="btn-back" onclick="showAllBrands()"><i class="fas fa-arrow-left"></i> Terug naar Overzicht</button>
+            </div>
+
+            <div class="product-grid" id="product-list">
+                
+                <div class="product-card" data-brand="huishoudelijk">
+                    <div class="product-img-box">
+                        <img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='final/IMG-20250107-WA0057.JPG';" alt="Pattex Power Tape">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E30613;">PATTEX</span>
+                        <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
+                        <p class="product-desc">Extra sterke, waterbestendige reparatietape. Onmisbaar in elk huishouden.</p>
+                        
+                        <div class="product-bottom">
+                            <div class="price-box">
+                                <span class="product-price">€6.49</span>
+                                <span class="old-price">€8.95</span>
+                            </div>
+                            <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i> Koop Nu
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="huishoudelijk">
+                    <div class="product-img-box"><i class="fas fa-fill-drip" style="font-size: 80px; color: #ddd;"></i></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E30613;">LOCTITE</span>
+                        <h3 class="product-title">Secondelijm Super Glue-3 (3g)</h3>
+                        <p class="product-desc">Vloeibare secondelijm. Droogt in enkele seconden. Voor porselein, metaal, rubber.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€5.49</span></div>
+                            <button class="btn-whatsapp" onclick="orderWhatsApp('Loctite Secondelijm 3g', '€5.49')"><i class="fab fa-whatsapp"></i> Bestel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #00a4e4;">LEVIS ESSENTIAL</span>
+                        <h3 class="product-title">Muurverf Wit Mat - 10L</h3>
+                        <p class="product-desc">Grote voordeelpot. Rendement: 100m². Ideaal voor totaalrenovaties.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€74.95</span></div>
+                            <button class="btn-whatsapp" onclick="orderWhatsApp('Levis Essential Wit 10L', '€74.95')"><i class="fab fa-whatsapp"></i> Bestel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="niko">
+                    <div class="product-img-box"><img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #000;">NIKO ORIGINAL WIT</span>
+                        <h3 class="product-title">Stopcontact met penaarde</h3>
+                        <p class="product-desc">Inbouw stopcontact. Sokkel + centraalplaat met kinderbeveiliging.</p>
+                        <div class="product-bottom">
+                            <span class="product-price">€8.65</span>
+                            <button class="btn-whatsapp" onclick="orderWhatsApp('Niko Stopcontact Wit', '€8.65')"><i class="fab fa-whatsapp"></i> Bestel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <div class="ai-chat-btn" id="openChatBtn">
+        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
+        <span>Mario DHZ Klantenservice</span>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
+            <div class="chat-header-text">
+                <strong>Mario DHZ AI</strong>
+                <small>24/7 Klantenservice</small>
+            </div>
+            <button class="close-chat" id="closeChatBtn">×</button>
+        </div>
+        
+        <div class="expert-selector">
+            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen<br>Advies</button>
+            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf &<br>Decor</button>
+            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Technische<br>Dienst</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-bot">Welkom bij Mario DHZ. Waarmee kan ik u vandaag helpen?</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Systeem verwerkt uw vraag...</div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Over Mario</h4>
+                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Winkel</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
+                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
+            </div>
+            <div class="footer-col">
+                <h4>Veilig & Snel Betalen</h4>
+                <p>Betaal veilig online via Bancontact en Visa.</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <span class="bancontact-text">Bancontact</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showBrand(brandName) {
+            document.getElementById('brands-section').style.display = 'none';
+            document.getElementById('products-section').style.display = 'block';
+            const titleName = brandName === 'huishoudelijk' ? 'Lijmen & Tapes' : brandName.charAt(0).toUpperCase() + brandName.slice(1);
+            document.getElementById('brand-title').innerText = "Producten: " + titleName;
+
+            const products = document.querySelectorAll('.product-grid .product-card');
+            products.forEach(product => {
+                if (product.getAttribute('data-brand') === brandName) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            window.scrollTo({ top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function showAllBrands() {
+            document.getElementById('products-section').style.display = 'none';
+            document.getElementById('brands-section').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('brands-section').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function orderWhatsApp(productName, price) {
+            const phoneNumber = "32479935848";
+            const message = `Hallo Mario DHZ, ik wil graag het volgende bestellen via de website:\n\n*Product:* ${productName}\n*Prijs:* ${price}\n\nKan ik dit afhalen in Berchem of laten leveren?`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        const chatBtn = document.getElementById('openChatBtn');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const expertBtns = document.querySelectorAll('.expert-btn');
+
+        let currentExpert = 'algemeen';
+        const expertProfiles = {
+            algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
+            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
+            techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
+        };
+
+        expertBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                expertBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentExpert = btn.getAttribute('data-expert');
+                appendMessage(expertProfiles[currentExpert].greeting, 'msg-bot');
+            });
+        });
+
+        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
+        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+        sendChatBtn.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleUserMessage(); });
+
+        function appendMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${className}`;
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        async function handleUserMessage() {
+            const userText = chatInput.value.trim();
+            if (userText === '') return;
+            appendMessage(userText, 'msg-user');
+            chatInput.value = '';
+            typingIndicator.style.display = 'block';
+            chatBody.scrollTop = chatBody.scrollHeight;
+            await generateBotResponse(userText);
+            typingIndicator.style.display = 'none';
+        }
+
+        async function generateBotResponse(userInput) {
+            const API_KEY = 'JOUW_NIEUWE_API_SLEUTEL_HIER'; 
+            if (API_KEY === 'JOUW_NIEUWE_API_SLEUTEL_HIER') {
+                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code.", 'msg-bot');
+                return;
+            }
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt + userInput }] }] })
+                });
+                const data = await response.json();
+                if(data.error) {
+                    appendMessage("❌ Fout: " + data.error.message, 'msg-bot');
+                } else if(data.candidates && data.candidates.length > 0) {
+                    appendMessage(data.candidates[0].content.parts[0].text, 'msg-bot');
+                }
+            } catch (error) {
+                appendMessage("❌ Netwerkverbinding mislukt.", 'msg-bot');
+            }
+        }
+    </script>
+</body>
+</html>
