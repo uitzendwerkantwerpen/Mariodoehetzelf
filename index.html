@@ -59,10 +59,10 @@
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
         .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
-        /* DE FOUTLOZE TITEL FIX: Schaalbaar en perfect uitgelijnd */
-        .hero-card-title { font-size: clamp(22px, 5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.2; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
-        .hero-card-title span { color: var(--mario-orange); display: inline-block; margin-top: 4px; }
-        .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-top: 15px; margin-bottom: 35px; }
+        /* FIX: PROFESSIONELE TEKST INDELING TOTAALRENOVATIES EN SPECIALZAAK: KLEINER OP MOBIEL */
+        .hero-card-title { font-size: clamp(20px, 5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
+        .hero-card-title span { color: var(--mario-orange); }
+        .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; }
         
         .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); background: #d15a22; }
@@ -83,6 +83,7 @@
         .dealer-text { flex: 1; }
         .dealer-text h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
         .dealer-text h2 i { color: #F59E0B; font-size: 32px; }
+        
         .dealer-text p { color: var(--mario-grey); font-size: 16px; line-height: 1.7; }
         .dealer-text p strong { color: var(--mario-navy); font-weight: 800; }
         
@@ -127,14 +128,14 @@
         .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
-        /* DE GEFIXTE FOTO'S (TUIN IS NU 100% BETROUWBARE AFBEELDING) */
-        .card-garden .card-img-top { background-color: #e6ffed; border-bottom-color: #48BB78; }
+        /* FIX: NIEUWE SFEERVOLLE BETROUWBARE TUINIER AFBEELDING: PURE TUIN & PLANTEN FOTO */
+        .card-garden .card-img-top { background-image: url('https://images.unsplash.com/photo-1599684988226-e13715c0a0c9?auto=format&fit=crop&q=80&w=600'); border-bottom-color: #48BB78; }
         .card-garden i { color: #48BB78; }
         .card-garden .wip-badge { background: #F0FFF4; color: #2F855A; border-color: #9AE6B4; }
         .card-garden:hover { border-color: #48BB78; }
         .card-garden:hover .btn-card { background: #48BB78; }
 
-        .card-paint .card-img-top { background-color: #e6f6fd; border-bottom-color: #00a4e4; }
+        .card-paint .card-img-top { border-bottom-color: #00a4e4; }
         .card-paint i { color: #00a4e4; }
         .card-paint .wip-badge { background: #e6f6fd; color: #007bb5; border-color: #b3e3f8; }
         .card-paint:hover { border-color: #00a4e4; }
@@ -163,7 +164,7 @@
         .payment-icons i:hover { color: var(--mario-orange); }
         .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
         .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
-        
+
         /* DEVELOPER CREDIT EN NIEUWE WETTELIJKE FOOTER MET MS GLOBAL */
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
@@ -176,7 +177,6 @@
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
-        .ai-chat-text { display: block; }
         
         .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
@@ -232,7 +232,7 @@
             
             /* Chat knop 100% geforceerd naar klein bolletje op mobiel! */
             .ai-chat-btn { bottom: 20px !important; right: 20px !important; padding: 0 !important; border-radius: 50% !important; width: 60px !important; height: 60px !important; justify-content: center !important; box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important; z-index: 10000 !important; }
-            .ai-chat-text { display: none !important; }
+            .ai-chat-btn span { display: none !important; }
             .ai-chat-btn img { height: 32px !important; margin: 0 !important; }
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
         }
@@ -269,7 +269,7 @@
                 <div class="card-inner">
                     <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario" class="card-logo">
                     
-                    <h1 class="hero-card-title">Totaalrenovaties<br><span>& Speciaalzaak</span></h1>
+                    <h1 class="hero-card-title">Totaalrenovaties & <br><span>Speciaalzaak</span></h1>
                 </div>
                 <p>Wij maken uw dromen werkelijkheid. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service in elke laag.</p>
                 <a href="winkel.html" class="btn-primary">Ontdek Het Assortiment</a>
@@ -391,12 +391,12 @@
                 <h3>Verf & Decoratie</h3>
                 <p>Officieel AkzoNobel & Levis verdeler. Professionele verfmengmachine in de winkel voor elke gewenste kleur.</p>
                 <span class="wip-badge"><i class="fas fa-tint"></i> 5.000+ Kleuren leverbaar</span>
-                <a href="winkel.html" class="btn-card">Naar Verfafdeling</a>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
 
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4ce88?auto=format&fit=crop&q=80&w=600'); background-color: #e6ffed;"></div>
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1599684988226-e13715c0a0c9?auto=format&fit=crop&q=80&w=600'); border-bottom-color: #48BB78; background-color: #e6ffed;"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & Gereedschap</h3>
@@ -515,7 +515,7 @@
         let currentExpert = 'algemeen';
         const expertProfiles = {
             algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
-            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
+            verf: { greeting: "Hallo. Zoekt u advies over verf or lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
             techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
         };
 
