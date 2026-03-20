@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -52,11 +51,11 @@
         .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
 
         /* --- HERO SECTION --- */
-        .hero { position: relative; padding: 220px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        .hero { position: relative; padding: 200px 5% 60px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; justify-content: center; }
+        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; justify-content: center; }
 
-        .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; }
+        .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; min-width: 320px; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
         .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
@@ -67,12 +66,17 @@
         .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); background: #d15a22; }
 
-        .hero-slider-card { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.08); height: 350px; position: relative; }
+        .hero-slider-card { flex: 1; min-width: 320px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.08); height: 350px; position: relative; }
         .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- NIEUW: ERKEND VERKOOPPUNT (DE AKZONOBEL / NIKO FLEX) --- */
+        /* NIEUW: DE PROFESSIONELE OPVULLING VOOR HET ZWARTE GAT */
+        .features-strip { width: 100%; display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; z-index: 10; position: relative; }
+        .feature-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px 25px; border-radius: 12px; display: flex; align-items: center; gap: 15px; color: white; font-weight: 700; font-size: 14px; backdrop-filter: blur(10px); text-transform: uppercase; letter-spacing: 1px; }
+        .feature-item i { color: var(--mario-orange); font-size: 22px; }
+
+        /* --- ERKEND VERKOOPPUNT (DE AKZONOBEL / NIKO FLEX) --- */
         .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
         .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .dealer-text { flex: 1; }
@@ -106,8 +110,8 @@
         .partner-track img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CATEGORIE DETAILS --- */
-        .services-section { position: relative; z-index: 5; max-width: 1300px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        /* --- CATEGORIE DETAILS (NU 4 STUKS INCL VERF) --- */
+        .services-section { position: relative; z-index: 5; max-width: 1300px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
         .glass-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; transition: 0.4s; display: flex; flex-direction: column; }
         .glass-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 25px 50px rgba(227, 108, 51, 0.15); }
@@ -128,6 +132,12 @@
         .card-garden:hover { border-color: #48BB78; }
         .card-garden:hover .btn-card { background: #48BB78; }
 
+        .card-paint .card-img-top { border-bottom-color: #00a4e4; }
+        .card-paint i { color: #00a4e4; }
+        .card-paint .wip-badge { background: #e6f6fd; color: #007bb5; border-color: #b3e3f8; }
+        .card-paint:hover { border-color: #00a4e4; }
+        .card-paint:hover .btn-card { background: #00a4e4; }
+
         /* --- MAP & REVIEWS --- */
         .info-section { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
         .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 5px solid white; height: 100%; min-height: 450px; }
@@ -146,21 +156,20 @@
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
         .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        
         .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
         .payment-icons i { transition: 0.3s; cursor: pointer; }
         .payment-icons i:hover { color: var(--mario-orange); }
         .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
-
         .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* --- LIVE AI CHATBOT MET EXPERTS STYLES --- */
-        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
+        /* --- LIVE AI CHATBOT --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
+        .ai-chat-text { display: block; }
         
         .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
@@ -189,13 +198,19 @@
         .chat-send-btn:hover { background: var(--mario-navy); }
         .typing-indicator { font-size: 12px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
 
+        /* --- FOUTLOZE MOBIELE WEERGAVE --- */
         @media (max-width: 900px) {
             .top-bar-hide { display: none; }
             .top-bar { justify-content: center; }
-            .hero { padding-top: 180px; min-height: auto; }
-            .hero-content { flex-direction: column; }
+            
+            /* Hero fix voor de leegte */
+            .hero { padding-top: 140px; padding-bottom: 40px; }
+            .hero-content { flex-direction: column; gap: 30px; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
-            .hero-slider-card { height: 280px; }
+            .hero-slider-card { height: 260px; }
+            .features-strip { margin-top: 10px; flex-direction: column; gap: 10px; }
+            .feature-item { width: 100%; justify-content: center; }
+
             .ns-content { flex-direction: column; text-align: center; gap: 20px; padding: 25px 20px; }
             .ns-text h2 { justify-content: center; font-size: 20px; }
             .info-section { grid-template-columns: 1fr; }
@@ -206,10 +221,10 @@
             .dealer-text h2 { justify-content: center; font-size: 22px; }
             .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
             
-            /* Chat knop compact op mobiel */
-            .ai-chat-btn { bottom: 20px; right: 20px; padding: 0; border-radius: 50%; width: 55px; height: 55px; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 10000; }
-            .ai-chat-btn span { display: none; }
-            .ai-chat-btn img { height: 30px; margin: 0; }
+            /* Chat knop 100% geforceerd naar klein bolletje op mobiel! */
+            .ai-chat-text { display: none !important; }
+            .ai-chat-btn { bottom: 20px !important; right: 20px !important; padding: 0 !important; border-radius: 50% !important; width: 60px !important; height: 60px !important; justify-content: center !important; box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important; z-index: 10000 !important; }
+            .ai-chat-btn img { height: 32px !important; margin: 0 !important; }
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
         }
     </style>
@@ -220,37 +235,6 @@
         <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
         <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel (Driekoningenstraat)</div>
         <div class="top-bar-item top-bar-hide"><i class="fas fa-shield-alt"></i> Veilig Betalen & Ruilen</div>
-    </div>
-
-    <div class="ai-chat-btn" id="openChatBtn">
-        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
-        <span>Mario DHZ Klantenservice</span>
-    </div>
-
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
-            <div class="chat-header-text">
-                <strong>Mario DHZ AI</strong>
-                <small>24/7 Klantenservice</small>
-            </div>
-            <button class="close-chat" id="closeChatBtn">×</button>
-        </div>
-        
-        <div class="expert-selector">
-            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen<br>Advies</button>
-            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf &<br>Decor</button>
-            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Technische<br>Dienst</button>
-        </div>
-
-        <div class="chat-body" id="chatBody">
-            <div class="chat-msg msg-bot">Welkom bij Mario DHZ. Waarmee kan ik u vandaag helpen? Wij zijn gespecialiseerd in bouwmaterialen en totaalrenovaties.</div>
-        </div>
-        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Systeem verwerkt uw vraag...</div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
-            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
-        </div>
     </div>
 
     <header>
@@ -289,6 +273,12 @@
                     <div class="slide"><img src="final/dukkan/winkel4.jpg" onerror="this.onerror=null; this.src='winkel4.jpg';" alt="Winkel"></div>
                     <div class="slide"><img src="final/dukkan/winkel5.jpg" onerror="this.onerror=null; this.src='winkel5.jpg';" alt="Winkel"></div>
                 </div>
+            </div>
+
+            <div class="features-strip">
+                <div class="feature-item"><i class="fas fa-bolt"></i> Direct uit voorraad</div>
+                <div class="feature-item"><i class="fas fa-paint-roller"></i> Verfmengmachine Service</div>
+                <div class="feature-item"><i class="fas fa-hammer"></i> Advies op maat</div>
             </div>
 
         </div>
@@ -358,6 +348,7 @@
     </div>
 
     <div class="services-section">
+        
         <div class="glass-card">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -368,6 +359,7 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+
         <div class="glass-card">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -379,16 +371,28 @@
             </div>
         </div>
         
+        <div class="glass-card card-paint">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-content">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Verf & Decoratie</h3>
+                <p>Officieel AkzoNobel & Levis verdeler. Professionele verfmengmachine in de winkel voor elke gewenste kleur.</p>
+                <span class="wip-badge"><i class="fas fa-tint"></i> 5.000+ Kleuren leverbaar</span>
+                <a href="winkel.html" class="btn-card">Naar Verfafdeling</a>
+            </div>
+        </div>
+
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1592424001801-1d07e6eecc27?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
-                <h3>Tuinartikelen & BBQ</h3>
-                <p>Geef uw buitenruimte leven. Ontdek binnenkort ons curated assortiment professioneel tuingereedschap en BBQ-artikelen.</p>
+                <h3>Tuinartikelen & Gereedschap</h3>
+                <p>Geef uw buitenruimte leven. Ontdek ons complete assortiment professioneel tuingereedschap en onderhoud.</p>
                 <span class="wip-badge"><i class="fas fa-calendar-alt"></i> Vanaf April beschikbaar</span>
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+
     </div>
 
     <div class="info-section">
@@ -444,6 +448,37 @@
             <p>Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong> • © 2026</p>
         </div>
     </footer>
+
+    <div class="ai-chat-btn" id="openChatBtn">
+        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
+        <span class="ai-chat-text">Mario DHZ Klantenservice</span>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
+            <div class="chat-header-text">
+                <strong>Mario DHZ AI</strong>
+                <small>24/7 Klantenservice</small>
+            </div>
+            <button class="close-chat" id="closeChatBtn">×</button>
+        </div>
+        
+        <div class="expert-selector">
+            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen<br>Advies</button>
+            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf &<br>Decor</button>
+            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Technische<br>Dienst</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-bot">Welkom bij Mario DHZ. Waarmee kan ik u vandaag helpen? Wij zijn gespecialiseerd in bouwmaterialen en totaalrenovaties.</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Systeem verwerkt uw vraag...</div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <script>
         const slider = document.getElementById('slider');
