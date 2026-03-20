@@ -37,39 +37,29 @@
             backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 20px; text-decoration: none; }
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
+        /* Logo fix voor laptop overlap */
+        .header-logo-img { height: 90px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transform: scale(1.15); transform-origin: left center; transition: 0.3s; }
+        .header-logo-img:hover { transform: scale(1.25); }
         
-        /* JOUW TROTS: LOGO NU MEGA GROOT GEMAAKT EN GESCHAALD */
-        .header-logo-img { 
-            height: 110px; /* Nog groter gemaakt! */
-            width: auto; 
-            display: block; 
-            object-fit: contain; 
-            filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); 
-            transform: scale(1.3); /* Blaast het logo op zodat de marges verdwijnen */
-            transform-origin: left center;
-            transition: 0.3s;
-        }
-        .header-logo-img:hover { transform: scale(1.4); }
-        
-        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
-        .mario-logo-text { font-size: 38px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
-        .logo-subtext { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; margin-left: 10px; }
+        .mario-logo-text { font-size: 34px; font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); }
+        .logo-subtext { color: rgba(255,255,255,0.85); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
 
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
-        .cart-badge { background: white; color: var(--mario-orange); border-radius: 50%; padding: 2px 6px; font-size: 11px; font-weight: 900; margin-left: 2px; }
 
         /* --- HERO SECTION --- */
-        .hero { position: relative; padding: 180px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        /* Padding top verhoogd zodat het logo niet meer over de knop valt! */
+        .hero { position: relative; padding: 220px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; justify-content: center; }
 
-        .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; }
+        .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: flex-start; flex: 1.2; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
-        .card-logo { width: 130px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); transform: scale(1.2); transform-origin: left center;}
+        .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
         .hero-card-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
@@ -83,11 +73,33 @@
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* --- NIEUW: ERKEND VERKOOPPUNT (DE AKZONOBEL / NIKO FLEX) --- */
+        .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
+        .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .dealer-text { flex: 1; }
+        .dealer-text h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+        .dealer-text h2 i { color: #F59E0B; font-size: 32px; }
+        .dealer-text p { color: var(--mario-grey); font-size: 16px; line-height: 1.7; }
+        .dealer-text p strong { color: var(--mario-navy); font-weight: 800; }
+        
+        .dealer-logos { display: flex; gap: 20px; flex: 1.5; justify-content: flex-end; }
+        .dealer-box { display: flex; align-items: center; gap: 15px; background: var(--mario-light); padding: 20px; border-radius: 16px; border: 1px solid var(--mario-border); text-decoration: none; transition: 0.3s; width: 100%; max-width: 320px; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+        .dealer-box:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.15); background: white; }
+        .dealer-box img { width: 70px; height: 70px; object-fit: contain; mix-blend-mode: multiply; }
+        .dealer-info { display: flex; flex-direction: column; }
+        .dealer-info strong { color: var(--mario-navy); font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.2; margin-bottom: 5px; }
+        .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; }
+
+        @media (max-width: 900px) {
+            .dealer-container { flex-direction: column; text-align: center; }
+            .dealer-text h2 { justify-content: center; font-size: 22px; }
+            .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
+        }
+
         /* --- AANKONDIGING ANTWERPEN-ZUID --- */
         .new-store-banner { background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%); padding: 40px 5%; border-top: 4px solid var(--mario-orange); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; position: relative; z-index: 10; }
         .ns-content { max-width: 1300px; width: 100%; display: flex; align-items: center; gap: 40px; background: rgba(255,255,255,0.02); padding: 30px 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
-        /* Ook hier het logo een stuk groter gemaakt */
-        .ns-content img { width: 160px; height: auto; filter: drop-shadow(0 0 15px rgba(227, 108, 51, 0.3)); transform: scale(1.3); }
+        .ns-content img { width: 130px; height: auto; filter: drop-shadow(0 0 15px rgba(227, 108, 51, 0.3)); transform: scale(1.3); }
         .ns-text h2 { color: white; font-size: 26px; font-weight: 900; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
         .ns-text h2 i { color: var(--mario-orange); font-size: 28px; }
         .ns-text p { color: #CBD5E1; font-size: 16px; line-height: 1.7; margin: 0; }
@@ -156,10 +168,8 @@
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
-
         .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
-        
         .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
         .chat-header img { height: 35px; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5)); }
         .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
@@ -188,7 +198,7 @@
         @media (max-width: 900px) {
             .top-bar-hide { display: none; }
             .top-bar { justify-content: center; }
-            .hero { padding-top: 150px; min-height: auto; }
+            .hero { padding-top: 180px; min-height: auto; }
             .hero-content { flex-direction: column; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
             .hero-slider-card { height: 280px; }
@@ -196,8 +206,11 @@
             .ns-text h2 { justify-content: center; font-size: 20px; }
             .info-section { grid-template-columns: 1fr; }
             .map-frame { min-height: 350px; }
-            .ai-chat-btn { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 13px; }
-            .chat-window { width: 320px; bottom: 70px; right: 15px; }
+            /* Chat knop compact op mobiel */
+            .ai-chat-btn { bottom: 15px; right: 15px; padding: 0; border-radius: 50%; width: 60px; height: 60px; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+            .ai-chat-btn span { display: none; }
+            .ai-chat-btn img { height: 35px; margin: 0; }
+            .chat-window { width: 320px; bottom: 85px; right: 15px; }
         }
     </style>
 </head>
@@ -211,7 +224,7 @@
 
     <div class="ai-chat-btn" id="openChatBtn">
         <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
-        Mario DHZ Klantenservice
+        <span>Mario DHZ Klantenservice</span>
     </div>
 
     <div class="chat-window" id="chatWindow">
@@ -250,7 +263,7 @@
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="winkel.html"><i class="fas fa-shopping-cart"></i> De Winkel <span class="cart-badge">0</span></a>
+            <a href="winkel.html"><i class="fas fa-shopping-cart"></i> De Winkel</a>
             <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
         </div>
     </header>
@@ -278,6 +291,31 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="official-dealers">
+        <div class="dealer-container">
+            <div class="dealer-text">
+                <h2><i class="fas fa-medal"></i> Erkend Premium Verkooppunt</h2>
+                <p>Zowel voor de <strong>particulier</strong> als de <strong>professional</strong>. Kom langs in onze winkel voor deskundig advies op maat, directe verkoop uit voorraad en professionele projectbestellingen.</p>
+            </div>
+            <div class="dealer-logos">
+                <a href="https://www.levis.info/nl" target="_blank" class="dealer-box">
+                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis AkzoNobel">
+                    <div class="dealer-info">
+                        <strong>Officieel Levis Dealer</strong>
+                        <span>Incl. verfmengmachine service</span>
+                    </div>
+                </a>
+                <a href="https://www.niko.eu/nl-be" target="_blank" class="dealer-box">
+                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                    <div class="dealer-info">
+                        <strong>Officieel Niko Dealer</strong>
+                        <span>Premium schakelmateriaal</span>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -320,7 +358,6 @@
     </div>
 
     <div class="services-section">
-        
         <div class="glass-card">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -331,7 +368,6 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
-
         <div class="glass-card">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -342,7 +378,6 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
-
         <div class="glass-card card-garden">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1416879598056-0cbb04922ba4?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -353,7 +388,6 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
-
     </div>
 
     <div class="info-section">
@@ -411,13 +445,11 @@
     </footer>
 
     <script>
-        // 1. SLIDER SCRIPT
         const slider = document.getElementById('slider');
         let index = 0; const totalSlides = 5;
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 4000); 
 
-        // 2. LIVE GEMINI AI SCRIPT
         const chatBtn = document.getElementById('openChatBtn');
         const chatWindow = document.getElementById('chatWindow');
         const closeChatBtn = document.getElementById('closeChatBtn');
@@ -428,20 +460,10 @@
         const expertBtns = document.querySelectorAll('.expert-btn');
 
         let currentExpert = 'algemeen';
-        
         const expertProfiles = {
-            algemeen: {
-                greeting: "Welkom! Heeft u vragen over onze bouwmaterialen, openingstijden of totaalrenovaties? Ik help u graag verder.",
-                prompt: "Je bent de professionele AI assistent van 'Mario DHZ', een premium speciaalzaak in Berchem. Je geeft beleefd, vakkundig en algemeen advies over bouwmaterialen en renovaties. Geef kort en professioneel antwoord (max 3 zinnen)."
-            },
-            verf: {
-                greeting: "Hallo. Zoekt u advies over verf, lakken of stucwerk? Wij mengen Levis verf direct op kleur in de winkel.",
-                prompt: "Je bent de professionele verf- en interieurspecialist van 'Mario DHZ' in Berchem. Je adviseert over verf (Levis), afwerking en interieur. Geef kort en professioneel antwoord (max 3 zinnen)."
-            },
-            techniek: {
-                greeting: "Goedendag. Voor vragen over elektriciteit (Niko, Legrand) of sanitair (Aloni, Belrad) bent u hier aan het juiste adres.",
-                prompt: "Je bent de professionele technisch adviseur van 'Mario DHZ' in Berchem. Je geeft correct advies over elektriciteits- en sanitairinstallaties. Geef kort en professioneel antwoord (max 3 zinnen)."
-            }
+            algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
+            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
+            techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
         };
 
         expertBtns.forEach(btn => {
@@ -457,9 +479,7 @@
         closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
 
         sendChatBtn.addEventListener('click', handleUserMessage);
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') handleUserMessage();
-        });
+        chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleUserMessage(); });
 
         function appendMessage(text, className) {
             const msgDiv = document.createElement('div');
@@ -472,53 +492,37 @@
         async function handleUserMessage() {
             const userText = chatInput.value.trim();
             if (userText === '') return;
-
             appendMessage(userText, 'msg-user');
             chatInput.value = '';
-
             typingIndicator.style.display = 'block';
             chatBody.scrollTop = chatBody.scrollHeight;
-
             await generateBotResponse(userText);
-            
             typingIndicator.style.display = 'none';
         }
 
         async function generateBotResponse(userInput) {
             const API_KEY = 'JOUW_NIEUWE_API_SLEUTEL_HIER'; 
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
-
             if (API_KEY === 'JOUW_NIEUWE_API_SLEUTEL_HIER') {
-                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code (index.html).", 'msg-bot');
+                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code.", 'msg-bot');
                 return;
             }
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
 
             try {
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{
-                            role: 'user',
-                            parts: [{ text: systemPrompt + userInput }]
-                        }]
-                    })
+                    body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt + userInput }] }] })
                 });
-
                 const data = await response.json();
-                
                 if(data.error) {
-                    console.error("API Fout:", data.error);
                     appendMessage("❌ Fout: " + data.error.message, 'msg-bot');
                 } else if(data.candidates && data.candidates.length > 0) {
-                    const aiText = data.candidates[0].content.parts[0].text;
-                    appendMessage(aiText, 'msg-bot');
+                    appendMessage(data.candidates[0].content.parts[0].text, 'msg-bot');
                 }
-
             } catch (error) {
-                console.error("Netwerk Fout:", error);
-                appendMessage("❌ Netwerkverbinding mislukt. Check je internetverbinding.", 'msg-bot');
+                appendMessage("❌ Netwerkverbinding mislukt.", 'msg-bot');
             }
         }
     </script>
