@@ -59,6 +59,7 @@
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
         .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
+        /* FIX: PROFESSIONELE TEKST INDELING TOTAALRENOVATIES EN SPECIALZAAK */
         .hero-card-title { font-size: clamp(26px, 3.5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
         .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; }
@@ -71,7 +72,7 @@
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* NIEUW: DE PROFESSIONELE OPVULLING VOOR HET ZWARTE GAT */
+        /* FEATURE STRIP MET NIEUWE WEBSHOP UPDATES TEKST */
         .features-strip { width: 100%; display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; z-index: 10; position: relative; }
         .feature-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px 25px; border-radius: 12px; display: flex; align-items: center; gap: 15px; color: white; font-weight: 700; font-size: 14px; backdrop-filter: blur(10px); text-transform: uppercase; letter-spacing: 1px; }
         .feature-item i { color: var(--mario-orange); font-size: 22px; }
@@ -82,6 +83,8 @@
         .dealer-text { flex: 1; }
         .dealer-text h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
         .dealer-text h2 i { color: #F59E0B; font-size: 32px; }
+        
+        /* AANGEPAST: VERKOOPPUNT TEKST BOST VOOR KLANTEN AANTREKKEN */
         .dealer-text p { color: var(--mario-grey); font-size: 16px; line-height: 1.7; }
         .dealer-text p strong { color: var(--mario-navy); font-weight: 800; }
         
@@ -110,7 +113,7 @@
         .partner-track img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CATEGORIE DETAILS (NU 4 STUKS INCL VERF) --- */
+        /* --- CATEGORIE DETAILS --- */
         .services-section { position: relative; z-index: 5; max-width: 1300px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         
         .glass-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; transition: 0.4s; display: flex; flex-direction: column; }
@@ -126,6 +129,7 @@
         .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
+        /* NIEUWE SFEERVOLLE TUIN AFBEELDING: PURE TUIN & PLANTEN FOTO */
         .card-garden .card-img-top { border-bottom-color: #48BB78; }
         .card-garden i { color: #48BB78; }
         .card-garden .wip-badge { background: #F0FFF4; color: #2F855A; border-color: #9AE6B4; }
@@ -161,15 +165,19 @@
         .payment-icons i:hover { color: var(--mario-orange); }
         .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
         .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
+
+        /* DEVELOPER CREDIT & NIEUWE WETTELIJKE FOOTER */
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
-        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
+        
+        .legal-footer-frame { background: #000000; padding: 15px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .legal-footer-frame p { font-size: 11px; color: #718096; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin: 0; line-height: 1.5; }
 
         /* --- LIVE AI CHATBOT --- */
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
-        .ai-chat-text { display: block; }
         
         .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
@@ -208,6 +216,8 @@
             .hero-content { flex-direction: column; gap: 30px; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
             .hero-slider-card { height: 260px; }
+            
+            /* feature strip fix voor mobiel */
             .features-strip { margin-top: 10px; flex-direction: column; gap: 10px; }
             .feature-item { width: 100%; justify-content: center; }
 
@@ -222,8 +232,8 @@
             .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
             
             /* Chat knop 100% geforceerd naar klein bolletje op mobiel! */
-            .ai-chat-text { display: none !important; }
             .ai-chat-btn { bottom: 20px !important; right: 20px !important; padding: 0 !important; border-radius: 50% !important; width: 60px !important; height: 60px !important; justify-content: center !important; box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important; z-index: 10000 !important; }
+            .ai-chat-btn span { display: none !important; }
             .ai-chat-btn img { height: 32px !important; margin: 0 !important; }
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
         }
@@ -259,7 +269,8 @@
             <div class="hero-card">
                 <div class="card-inner">
                     <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario" class="card-logo">
-                    <h1 class="hero-card-title">Totaalrenovaties & <br><span>Speciaalzaak</span></h1>
+                    
+                    <h1 class="hero-card-title">Totaalrenovaties & <br><span>Specialzaak</span></h1>
                 </div>
                 <p>Wij maken uw dromen werkelijkheid. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service in elke laag.</p>
                 <a href="winkel.html" class="btn-primary">Ontdek Het Assortiment</a>
@@ -279,6 +290,8 @@
                 <div class="feature-item"><i class="fas fa-bolt"></i> Direct uit voorraad</div>
                 <div class="feature-item"><i class="fas fa-paint-roller"></i> Verfmengmachine Service</div>
                 <div class="feature-item"><i class="fas fa-hammer"></i> Advies op maat</div>
+                
+                <div class="feature-item" style="background: rgba(227, 108, 51, 0.1); border-color: rgba(227, 108, 51, 0.2);"><i class="fas fa-sync-alt" style="color: white; font-size: 18px;"></i> Dagelijks nieuwe artikelen online!</div>
             </div>
 
         </div>
@@ -288,7 +301,8 @@
         <div class="dealer-container">
             <div class="dealer-text">
                 <h2><i class="fas fa-medal"></i> Erkend Premium Verkooppunt</h2>
-                <p>Zowel voor de <strong>particulier</strong> als de <strong>professional</strong>. Kom langs in onze winkel voor deskundig advies op maat, directe verkoop uit voorraad en professionele projectbestellingen.</p>
+                
+                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons Erkend Premium Verkooppunt in Berchem. Wij bieden de perfecte combinatie van deskundig advies, topmerken als Levis en Niko, en alles wat u nodig heeft voor uw particuliere of professionele klus.</p>
             </div>
             <div class="dealer-logos">
                 <a href="https://www.levis.info/nl" target="_blank" class="dealer-box">
@@ -378,7 +392,7 @@
                 <h3>Verf & Decoratie</h3>
                 <p>Officieel AkzoNobel & Levis verdeler. Professionele verfmengmachine in de winkel voor elke gewenste kleur.</p>
                 <span class="wip-badge"><i class="fas fa-tint"></i> 5.000+ Kleuren leverbaar</span>
-                <a href="winkel.html" class="btn-card">Naar Verfafdeling</a>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
 
@@ -445,13 +459,17 @@
         </div>
         
         <div class="developer-credit-frame">
-            <p>Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong> • © 2026</p>
+            <p>© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+        </div>
+        
+        <div class="legal-footer-frame">
+            <p>Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
         </div>
     </footer>
 
     <div class="ai-chat-btn" id="openChatBtn">
         <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
-        <span class="ai-chat-text">Mario DHZ Klantenservice</span>
+        <span>Mario DHZ Klantenservice</span>
     </div>
 
     <div class="chat-window" id="chatWindow">
@@ -562,6 +580,5 @@
             }
         }
     </script>
-
 </body>
 </html>
