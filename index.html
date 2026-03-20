@@ -423,4 +423,169 @@
                 <p class="review-author">- Merel Van Den Burg</p>
             </div>
             <div class="review-card">
-                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"Heel behulpzaam en vriendelijk verder geholpen, denken mee na voor een geschikte oplossing."</p>
+                <p class="review-author">- Veronique Vereyken</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"Heel vriendelijk, snelle behandeling. Kwaliteit en service staan hier duidelijk op één."</p>
+                <p class="review-author">- Maksym Kashtanov</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Over Mario</h4>
+                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Winkel</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
+                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
+            </div>
+            <div class="footer-col">
+                <h4>Veilig & Snel Betalen</h4>
+                <p>Bestel online en betaal veilig.</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <span class="bancontact-text">Bancontact</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="developer-credit-frame">
+            <p>© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+        </div>
+        
+        <div class="legal-footer-frame">
+            <p>Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 10px;">
+                <img src="final/postnl_logo.png" onerror="this.onerror=null; this.src='final/dukkan/postnl.png';" alt="PostNL" style="height: 25px;">
+                <img src="final/mondial_relay_logo.png" onerror="this.onerror=null; this.src='final/dukkan/mondialrelay.png';" alt="Mondial Relay" style="height: 25px;">
+            </div>
+        </div>
+    </footer>
+
+    <div class="ai-chat-btn" id="openChatBtn">
+        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
+        <span class="ai-chat-text">Mario DHZ Klantenservice</span>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
+            <div class="chat-header-text">
+                <strong>Mario DHZ AI</strong>
+                <small>24/7 Klantenservice</small>
+            </div>
+            <button class="close-chat" id="closeChatBtn">×</button>
+        </div>
+        
+        <div class="expert-selector">
+            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen<br>Advies</button>
+            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf &<br>Decor</button>
+            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Technische<br>Dienst</button>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-bot">Welkom bij Mario DHZ. Waarmee kan ik u vandaag helpen? Wij zijn gespecialiseerd in bouwmaterialen en totaalrenovaties.</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Systeem verwerkt uw vraag...</div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Stel uw vraag hier..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        let index = 0; const totalSlides = 5;
+        function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
+        setInterval(nextSlide, 4000); 
+
+        const chatBtn = document.getElementById('openChatBtn');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const expertBtns = document.querySelectorAll('.expert-btn');
+
+        let currentExpert = 'algemeen';
+        const expertProfiles = {
+            algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
+            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
+            techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
+        };
+
+        expertBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                expertBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentExpert = btn.getAttribute('data-expert');
+                appendMessage(expertProfiles[currentExpert].greeting, 'msg-bot');
+            });
+        });
+
+        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
+        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+        sendChatBtn.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleUserMessage(); });
+
+        function appendMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${className}`;
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        async function handleUserMessage() {
+            const userText = chatInput.value.trim();
+            if (userText === '') return;
+            appendMessage(userText, 'msg-user');
+            chatInput.value = '';
+            typingIndicator.style.display = 'block';
+            chatBody.scrollTop = chatBody.scrollHeight;
+            await generateBotResponse(userText);
+            typingIndicator.style.display = 'none';
+        }
+
+        async function generateBotResponse(userInput) {
+            const API_KEY = 'JOUW_NIEUWE_API_SLEUTEL_HIER'; 
+            if (API_KEY === 'JOUW_NIEUWE_API_SLEUTEL_HIER') {
+                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code.", 'msg-bot');
+                return;
+            }
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt + userInput }] }] })
+                });
+                const data = await response.json();
+                if(data.error) {
+                    appendMessage("❌ Fout: " + data.error.message, 'msg-bot');
+                } else if(data.candidates && data.candidates.length > 0) {
+                    appendMessage(data.candidates[0].content.parts[0].text, 'msg-bot');
+                }
+            } catch (error) {
+                appendMessage("❌ Netwerkverbinding mislukt.", 'msg-bot');
+            }
+        }
+    </script>
+
+</body>
+</html>
