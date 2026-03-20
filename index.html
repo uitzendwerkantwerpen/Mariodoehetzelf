@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light">
     <title>Mario | Premium Totaalrenovaties & Doe-Het-Zelf Berchem</title>
     
@@ -34,11 +35,10 @@
             position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998;
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 5%; background: rgba(6, 11, 17, 0.95);
-            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
-        /* Logo fix voor laptop overlap */
         .header-logo-img { height: 90px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transform: scale(1.15); transform-origin: left center; transition: 0.3s; }
         .header-logo-img:hover { transform: scale(1.25); }
         
@@ -52,7 +52,6 @@
         .nav-links a:hover { color: var(--mario-orange); transform: translateY(-2px); }
 
         /* --- HERO SECTION --- */
-        /* Padding top verhoogd zodat het logo niet meer over de knop valt! */
         .hero { position: relative; padding: 220px 5% 80px; min-height: 80vh; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; gap: 50px; align-items: center; justify-content: center; }
@@ -89,12 +88,6 @@
         .dealer-info { display: flex; flex-direction: column; }
         .dealer-info strong { color: var(--mario-navy); font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.2; margin-bottom: 5px; }
         .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; }
-
-        @media (max-width: 900px) {
-            .dealer-container { flex-direction: column; text-align: center; }
-            .dealer-text h2 { justify-content: center; font-size: 22px; }
-            .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
-        }
 
         /* --- AANKONDIGING ANTWERPEN-ZUID --- */
         .new-store-banner { background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%); padding: 40px 5%; border-top: 4px solid var(--mario-orange); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; position: relative; z-index: 10; }
@@ -168,6 +161,7 @@
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
+        
         .chat-window { position: fixed; bottom: 90px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
         .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
@@ -206,11 +200,17 @@
             .ns-text h2 { justify-content: center; font-size: 20px; }
             .info-section { grid-template-columns: 1fr; }
             .map-frame { min-height: 350px; }
+            
+            /* Erkend verkooppunt fix voor mobiel */
+            .dealer-container { flex-direction: column; text-align: center; }
+            .dealer-text h2 { justify-content: center; font-size: 22px; }
+            .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
+            
             /* Chat knop compact op mobiel */
-            .ai-chat-btn { bottom: 15px; right: 15px; padding: 0; border-radius: 50%; width: 60px; height: 60px; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
+            .ai-chat-btn { bottom: 20px; right: 20px; padding: 0; border-radius: 50%; width: 55px; height: 55px; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 10000; }
             .ai-chat-btn span { display: none; }
-            .ai-chat-btn img { height: 35px; margin: 0; }
-            .chat-window { width: 320px; bottom: 85px; right: 15px; }
+            .ai-chat-btn img { height: 30px; margin: 0; }
+            .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
         }
     </style>
 </head>
@@ -378,8 +378,9 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+        
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1416879598056-0cbb04922ba4?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & BBQ</h3>
