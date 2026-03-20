@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -7,7 +8,7 @@
     <meta name="color-scheme" content="light">
     <title>Mario | Premium Totaalrenovaties & Doe-Het-Zelf Berchem</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght=300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -59,10 +60,9 @@
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
         .card-logo { width: 120px; height: auto; object-fit: contain; background: transparent; padding: 0; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
-        /* FIX: PROFESSIONELE TEKST INDELING TOTAALRENOVATIES EN SPECIALZAAK: KLEINER OP MOBIEL */
         .hero-card-title { font-size: clamp(22px, 5vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
-        .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; }
+        .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; margin-top: 15px; }
         
         .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); background: #d15a22; }
@@ -72,12 +72,12 @@
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* FEATURE STRIP MET NIEUWE WEBSHOP UPDATES TEKST */
+        /* FEATURE STRIP */
         .features-strip { width: 100%; display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; z-index: 10; position: relative; }
         .feature-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px 25px; border-radius: 12px; display: flex; align-items: center; gap: 15px; color: white; font-weight: 700; font-size: 14px; backdrop-filter: blur(10px); text-transform: uppercase; letter-spacing: 1px; }
         .feature-item i { color: var(--mario-orange); font-size: 22px; }
 
-        /* --- ERKEND VERKOOPPUNT (DE AKZONOBEL / NIKO FLEX) --- */
+        /* --- ERKEND VERKOOPPUNT --- */
         .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
         .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .dealer-text { flex: 1; }
@@ -128,8 +128,8 @@
         .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
-        /* NIEUWE SFEERVOLLE BETROUWBARE TUINIER AFBEELDING: PURE TUIN & PLANTEN FOTO */
-        .card-garden .card-img-top { background-image: url('https://images.unsplash.com/photo-1599684988226-e13715c0a0c9?auto=format&fit=crop&q=80&w=600'); border-bottom-color: #48BB78; }
+        /* FIX: 100% BETROUWBARE PEXELS TUIN FOTO MET BACKUP KLEUR */
+        .card-garden .card-img-top { background-color: #e6ffed; background-image: url('https://images.pexels.com/photos/298413/pexels-photo-298413.jpeg?auto=compress&cs=tinysrgb&w=600'); border-bottom-color: #48BB78; }
         .card-garden i { color: #48BB78; }
         .card-garden .wip-badge { background: #F0FFF4; color: #2F855A; border-color: #9AE6B4; }
         .card-garden:hover { border-color: #48BB78; }
@@ -165,7 +165,7 @@
         .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
         .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
         
-        /* DEVELOPER CREDIT EN NIEUWE WETTELIJKE FOOTER MET MS GLOBAL */
+        /* DEVELOPER CREDIT EN WETTELIJKE FOOTER */
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
@@ -217,7 +217,6 @@
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
             .hero-slider-card { height: 260px; }
             
-            /* feature strip fix voor mobiel */
             .features-strip { margin-top: 10px; flex-direction: column; gap: 10px; }
             .feature-item { width: 100%; justify-content: center; }
 
@@ -226,14 +225,13 @@
             .info-section { grid-template-columns: 1fr; }
             .map-frame { min-height: 350px; }
             
-            /* Erkend verkooppunt fix voor mobiel */
             .dealer-container { flex-direction: column; text-align: center; }
             .dealer-text h2 { justify-content: center; font-size: 22px; }
             .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
             
             /* Chat knop 100% geforceerd naar klein bolletje op mobiel! */
             .ai-chat-btn { bottom: 20px !important; right: 20px !important; padding: 0 !important; border-radius: 50% !important; width: 60px !important; height: 60px !important; justify-content: center !important; box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important; z-index: 10000 !important; }
-            .ai-chat-btn span { display: none !important; }
+            .ai-chat-text { display: none !important; }
             .ai-chat-btn img { height: 32px !important; margin: 0 !important; }
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
         }
@@ -269,7 +267,6 @@
             <div class="hero-card">
                 <div class="card-inner">
                     <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario" class="card-logo">
-                    
                     <h1 class="hero-card-title">Totaalrenovaties & <br><span>Speciaalzaak</span></h1>
                 </div>
                 <p>Wij maken uw dromen werkelijkheid. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service in elke laag.</p>
@@ -290,7 +287,6 @@
                 <div class="feature-item"><i class="fas fa-bolt"></i> Direct uit voorraad</div>
                 <div class="feature-item"><i class="fas fa-paint-roller"></i> Verfmengmachine Service</div>
                 <div class="feature-item"><i class="fas fa-hammer"></i> Advies op maat</div>
-                
                 <div class="feature-item" style="background: rgba(227, 108, 51, 0.1); border-color: rgba(227, 108, 51, 0.2);"><i class="fas fa-sync-alt" style="color: white; font-size: 18px;"></i> Dagelijks nieuwe artikelen online!</div>
             </div>
 
@@ -301,12 +297,11 @@
         <div class="dealer-container">
             <div class="dealer-text">
                 <h2><i class="fas fa-medal"></i> Erkend Premium Verkooppunt</h2>
-                
-                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons Erkend Premium Verkooppunt in Berchem. Wij bieden de perfecte combinatie van deskundig advies, topmerken als AkzoNobel and Niko, en alles wat u nodig heeft voor uw particuliere of professionele klus.</p>
+                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons Erkend Premium Verkooppunt in Berchem. Wij bieden de perfecte combinatie van deskundig advies, topmerken als AkzoNobel en Niko, en alles wat u nodig heeft voor uw particuliere of professionele klus.</p>
             </div>
             <div class="dealer-logos">
                 <a href="https://www.akzonobel.com/nl" target="_blank" class="dealer-box">
-                    <img src="final/akzonobel_logo.png" onerror="this.onerror=null; this.src='final/akzonobel.jpg';" alt="AkzoNobel Levis Mengmachine">
+                    <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel Levis Mengmachine">
                     <div class="dealer-info">
                         <strong>AkzoNobel Partner</strong>
                         <span>Levis & Verfmengmachine</span>
@@ -344,6 +339,7 @@
             <img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad">
             <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
             <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+            <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
             <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
             <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
             
@@ -356,6 +352,7 @@
             <img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad">
             <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
             <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+            <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
             <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
             <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
         </div>
@@ -397,7 +394,7 @@
         </div>
 
         <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1599684988226-e13715c0a0c9?auto=format&fit=crop&q=80&w=600'); border-bottom-color: #48BB78; background-color: #e6ffed;"></div>
+            <div class="card-img-top" style="background-color: #e6ffed; background-image: url('https://images.pexels.com/photos/298413/pexels-photo-298413.jpeg?auto=compress&cs=tinysrgb&w=600');"></div>
             <div class="card-content">
                 <i class="fas fa-leaf"></i>
                 <h3>Tuinartikelen & Gereedschap</h3>
@@ -411,7 +408,7 @@
 
     <div class="info-section">
         <div class="map-frame">
-            <iframe src="http://googleusercontent.com/maps.google.com/0" class="google-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.308726543162!2d4.423984!3d51.1949162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f71c459b3e15%3A0xcb1b590e8ef2825!2sDriekoningenstraat%2073%2C%202600%20Antwerpen%2C%20Belgium!5e0!3m2!1sen!2snl!4v1700000000000!5m2!1sen!2snl" class="google-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="reviews-container">
             <h4 class="reviews-header"><i class="fas fa-star"></i> Echte Klantenbeoordelingen</h4>
@@ -465,8 +462,8 @@
             <p>Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
             
             <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 10px;">
-                <img src="final/dukkan/postnl.png" onerror="this.onerror=null; this.src='final/dukkan/IMG-20250107-WA0057.jpg';" alt="PostNL" style="height: 25px;">
-                <img src="final/dukkan/mondialrelay.png" onerror="this.onerror=null; this.src='final/rukkan/IMG-20250107-WA0057.jpg';" alt="Mondial Relay" style="height: 25px;">
+                <img src="final/postnl.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/4/4b/PostNL_logo.svg';" alt="PostNL" style="height: 25px;">
+                <span style="color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; gap: 5px;"><i class="fas fa-box-open" style="color: var(--mario-orange);"></i> Mondial Relay</span>
             </div>
         </div>
     </footer>
@@ -520,7 +517,7 @@
         let currentExpert = 'algemeen';
         const expertProfiles = {
             algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
-            verf: { greeting: "Hallo. Zoekt u advies over verf or lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
+            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
             techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
         };
 
