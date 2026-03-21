@@ -52,21 +52,30 @@
         .nav-links a:hover, .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
 
         /* --- SHOP HERO BANNER --- */
-        .shop-hero { padding: 190px 5% 70px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
+        .shop-hero { padding: 190px 5% 40px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
         .shop-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80') center/cover; opacity: 0.1; mix-blend-mode: overlay; }
         .shop-hero-content { position: relative; z-index: 3; }
         .shop-hero h1 { font-size: clamp(36px, 5vw, 55px); font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; }
         .shop-hero h1 span { color: var(--mario-orange); text-shadow: 0 0 20px rgba(227,108,51,0.4); }
-        .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto; font-weight: 400; }
+        .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto 30px; font-weight: 400; }
+
+        /* --- LOPENDE BAND (MERKEN SCROLLER) --- */
+        .partner-wrapper { position: relative; z-index: 10; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; overflow: hidden; backdrop-filter: blur(5px); }
+        .partner-track { display: inline-flex; animation: scrollBanner 35s linear infinite; gap: 80px; padding: 0 40px; align-items: center; }
+        .partner-track img { height: 35px; max-width: 140px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.7); transition: all 0.3s; }
+        .partner-track img:hover { opacity: 1; transform: scale(1.1); }
+        @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- DYNAMISCHE WINKEL CONTAINER --- */
         .shop-container { max-width: 1350px; margin: 60px auto 120px; padding: 0 20px; }
         
-        /* 🔥 WEEK PROMO SECTIE */
+        /* 🔥 WEEK PROMO SECTIE MET LEVIS LOGO */
         .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
         .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
-        .promo-text h2 { font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
-        .promo-text p { font-size: 16px; font-weight: 500; opacity: 0.9; }
+        .promo-content-left { display: flex; align-items: center; gap: 25px; z-index: 2; }
+        .promo-logo { height: 60px; background: white; padding: 8px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .promo-text h2 { font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+        .promo-text p { font-size: 16px; font-weight: 500; opacity: 0.9; margin: 0; }
         .promo-btn { background: white; color: var(--mario-orange); padding: 12px 25px; border-radius: 30px; font-weight: 800; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 2; border: none; }
         .promo-btn:hover { transform: scale(1.05); background: var(--mario-navy); color: white; }
 
@@ -77,7 +86,6 @@
         .brand-card:hover { transform: translateY(-10px); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.2); }
         .brand-card:hover::before { transform: scaleX(1); }
         .brand-card img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; }
-        .brand-card img.cover-img { object-fit: cover; border-radius: 12px; }
         .brand-card h3 { font-size: 18px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
 
         /* 🔍 LIVE ZOEKBALK */
@@ -104,7 +112,6 @@
         .product-info { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; background: white; }
         .product-brand-tag { font-size: 10px; color: var(--mario-orange); background: rgba(227,108,51,0.1); padding: 6px 12px; border-radius: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; align-self: flex-start; margin-bottom: 15px; border: 1px solid rgba(227,108,51,0.2); }
         
-        /* Specifieke merk kleuren */
         .tag-levis { background: rgba(0, 164, 228, 0.1); color: #00a4e4; border-color: rgba(0, 164, 228, 0.2); }
         .tag-poly { background: rgba(227, 6, 19, 0.1); color: #E30613; border-color: rgba(227, 6, 19, 0.2); }
         
@@ -118,6 +125,7 @@
         
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
+        .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
         .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
@@ -126,12 +134,30 @@
 
         .no-results { width: 100%; padding: 40px; text-align: center; color: var(--mario-grey); font-size: 18px; font-weight: 500; display: none; }
 
+        /* --- FOOTER (PROFESSIONEEL) --- */
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: 50px; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
+        .payment-icons i { transition: 0.3s; cursor: pointer; }
+        .payment-icons i:hover { color: var(--mario-orange); }
+        .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
+        
+        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
+        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
+        
+        .legal-footer-frame { background: #000000; padding: 15px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        .legal-footer-frame p { font-size: 11px; color: #718096; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin: 0; line-height: 1.5; }
+
         /* --- MOBIELE FIX --- */
         @media (max-width: 900px) {
             .top-bar-hide { display: none; }
             .top-bar { justify-content: center; }
             .shop-hero { padding-top: 160px; }
             .promo-banner { flex-direction: column; text-align: center; gap: 20px; padding: 25px; }
+            .promo-content-left { flex-direction: column; gap: 15px; }
             .products-view-header { flex-direction: column; align-items: flex-start; }
             .product-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
             .shopify-button-container { width: 100%; }
@@ -167,6 +193,34 @@
             <h1>Premium <span>Catalogus</span></h1>
             <p>De beste merken voor particulieren en vakmannen. Bestel direct online.</p>
         </div>
+        
+        <div class="partner-wrapper">
+            <div class="partner-track">
+                <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
+                <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
+                <img src="final/logo/abus.jpg" onerror="this.onerror=null; this.src='final/abus.jpg';" alt="Abus">
+                <img src="final/logo/litto.jpg" onerror="this.onerror=null; this.src='final/litto.jpg';" alt="Litto">
+                <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
+                <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
+                <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+                <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
+                <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
+                <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+                
+                <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
+                <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
+                <img src="final/logo/abus.jpg" onerror="this.onerror=null; this.src='final/abus.jpg';" alt="Abus">
+                <img src="final/logo/litto.jpg" onerror="this.onerror=null; this.src='final/litto.jpg';" alt="Litto">
+                <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
+                <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
+                <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+                <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
+                <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
+                <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+            </div>
+        </div>
     </section>
 
     <section class="shop-container">
@@ -174,9 +228,12 @@
         <div id="brands-section">
             
             <div class="promo-banner">
-                <div class="promo-text">
-                    <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
-                    <p>De ultieme dekkracht voor jouw grote schilderklus. Nergens goedkoper.</p>
+                <div class="promo-content-left">
+                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis" class="promo-logo">
+                    <div class="promo-text">
+                        <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
+                        <p>De ultieme dekkracht voor jouw grote schilderklus. Nergens goedkoper.</p>
+                    </div>
                 </div>
                 <button class="promo-btn" onclick="showPromoProduct()">Bekijk de Deal</button>
             </div>
@@ -203,13 +260,8 @@
                 </div>
                 
                 <div class="brand-card" onclick="showBrand('huishoudelijk')">
-                    <img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='final/IMG-20250107-WA0057.jpg';" alt="Pattex">
+                    <img src="final/pattex.jpg" onerror="this.onerror=null; this.src='final/IMG-20250107-WA0057.jpg';" alt="Lijmen en Tapes">
                     <h3>Lijmen & Tapes</h3>
-                </div>
-
-                <div class="brand-card" onclick="showBrand('tuin')">
-                    <img src="final/hovenier-betekenis.jpg" class="cover-img" onerror="this.onerror=null; this.src='https://images.pexels.com/photos/298413/pexels-photo-298413.jpeg?auto=compress&cs=tinysrgb&w=600';" alt="Tuin & BBQ">
-                    <h3>Tuin & BBQ</h3>
                 </div>
             </div>
         </div>
@@ -269,7 +321,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€18.95</span></div>
+                            <div class="price-box"><span class="product-price">€18.95</span><span class="old-price">€23.99</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884923564409:1?channel=buy_button" class="btn-buy" style="background: #E30613;">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -292,7 +344,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€7.95</span></div>
+                            <div class="price-box"><span class="product-price">€7.95</span><span class="old-price">€9.99</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" class="btn-buy" style="background: #E30613;">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -334,7 +386,7 @@
                             De professionele grondverf voor al je houtwerk binnen (deuren, meubels).
                             <ul>
                                 <li>Sneldrogend, perfect schuurbaar.</li>
-                                <li>Rendement: ± 30 m².</li>
+                                <li>Rendement: ± 30 m² (Grote pot).</li>
                             </ul>
                         </div>
                         <div class="product-bottom">
@@ -349,19 +401,19 @@
                 </div>
 
                 <div class="product-card" data-brand="levis" id="prod-levis-muur5l">
-                    <div class="product-img-box"><img src="final/5412271147349 - 5030739 - TLD - LV PRIMER MUR_PLAFOND MAT BASE W 5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Muur 5L"></div>
+                    <div class="product-img-box"><img src="final/5412271147349 - 5030739 - TLD - LV PRIMER MUR_PLAFOND MAT BASE W 5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Primer Muur 5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
-                        <h3 class="product-title">Levis Muur & Plafond Wit Mat 5L</h3>
+                        <h3 class="product-title">Levis Primer Muur & Plafond Mat Wit 5L</h3>
                         <div class="product-desc">
-                            Hoogwaardige watergedragen muurverf voor een strak eindresultaat.
+                            De perfecte grondlaag voor een strak en duurzaam eindresultaat.
                             <ul>
-                                <li>Spat niet, smeert extreem soepel.</li>
+                                <li>Isoleert de ondergrond.</li>
                                 <li>Rendement: ± 50 m².</li>
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€64.95</span></div>
+                            <div class="price-box"><span class="product-price">€64.95</span><span class="old-price">€125.00</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884898431353:1?channel=buy_button" class="btn-buy">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -384,7 +436,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€79.95</span></div>
+                            <div class="price-box"><span class="product-price">€79.95</span><span class="old-price">€99.00</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" class="btn-buy">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -407,7 +459,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€139.95</span></div>
+                            <div class="price-box"><span class="product-price">€139.95</span><span class="old-price">€192.00</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" class="btn-buy">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -453,7 +505,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€114.95</span></div>
+                            <div class="price-box"><span class="product-price">€114.95</span><span class="old-price">€125.00</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884889354617:1?channel=buy_button" class="btn-buy">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -476,7 +528,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€66.99</span></div>
+                            <div class="price-box"><span class="product-price">€66.99</span><span class="old-price">€76.99</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" class="btn-buy">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -487,7 +539,7 @@
                 </div>
 
                 <div class="product-card" data-brand="huishoudelijk" id="prod-pattex-tape">
-                    <div class="product-img-box"><img src="final/IMG-20250107-WA0057.jpg" alt="Pattex"></div>
+                    <div class="product-img-box"><img src="final/pattex.jpg" onerror="this.onerror=null; this.src='final/logo/pattex.jpg';" alt="Pattex"></div>
                     <div class="product-info">
                         <span class="product-brand-tag" style="background: #E30613; color: white;">PATTEX</span>
                         <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
@@ -499,7 +551,7 @@
                             </ul>
                         </div>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€6.49</span></div>
+                            <div class="price-box"><span class="product-price">€6.49</span><span class="old-price">€8.95</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy">
                                     <i class="fas fa-shopping-cart"></i> Koop Nu
@@ -512,6 +564,43 @@
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Over Mario</h4>
+                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Winkel</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
+                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
+            </div>
+            <div class="footer-col">
+                <h4>Veilig & Snel Betalen</h4>
+                <p>Bestel online en betaal veilig.</p>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <span class="bancontact-text">Bancontact</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="developer-credit-frame">
+            <p>© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+        </div>
+        
+        <div class="legal-footer-frame">
+            <p>Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 10px;">
+                <img src="final/postnl.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/4/4b/PostNL_logo.svg';" alt="PostNL" style="height: 25px;">
+                <span style="color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; gap: 5px;"><i class="fas fa-box-open" style="color: var(--mario-orange);"></i> Mondial Relay</span>
+            </div>
+        </div>
+    </footer>
 
     <div class="ai-chat-btn" id="openChatBtn">
         <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
@@ -526,12 +615,10 @@
             </div>
             <button class="close-chat" id="closeChatBtn">×</button>
         </div>
-        
         <div class="expert-selector">
             <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen</button>
             <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf</button>
         </div>
-
         <div class="chat-body" id="chatBody">
             <div class="chat-msg msg-bot">Welkom! Waarmee kan ik u helpen?</div>
         </div>
@@ -541,21 +628,6 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Over Mario</h4>
-                <p>Dé premium speciaalzaak in Berchem.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Winkel</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, Berchem</p>
-                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
-                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
         let currentBrandFilter = 'all';
 
@@ -563,7 +635,7 @@
             currentBrandFilter = brandName;
             document.getElementById('brands-section').style.display = 'none';
             document.getElementById('products-section').style.display = 'block';
-            document.getElementById('searchInput').value = ''; // Reset zoekbalk
+            document.getElementById('searchInput').value = ''; 
             
             let titleName = brandName.charAt(0).toUpperCase() + brandName.slice(1);
             if (brandName === 'huishoudelijk') titleName = 'Lijmen & Tapes';
@@ -606,14 +678,12 @@
             }, 300);
         }
 
-        /* 🔍 LIVE ZOEK FUNCTIE */
         function filterProducts() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let products = document.querySelectorAll('.product-grid .product-card');
             let hasVisibleProducts = false;
 
             products.forEach(product => {
-                // Controleer of we in een specifieke merk-weergave zitten
                 let matchesBrand = (currentBrandFilter === 'all') || (product.getAttribute('data-brand') === currentBrandFilter);
                 
                 if (matchesBrand) {
@@ -632,7 +702,6 @@
             document.getElementById('noResults').style.display = hasVisibleProducts ? 'none' : 'block';
         }
 
-        /* Chat scripts */
         const chatBtn = document.getElementById('openChatBtn');
         const chatWindow = document.getElementById('chatWindow');
         const closeChatBtn = document.getElementById('closeChatBtn');
