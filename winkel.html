@@ -25,6 +25,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
+        /* --- NOODBEVEILIGING VOOR LOGO'S DIE NIET LADEN --- */
+        .fallback-logo {
+            font-size: 24px; font-weight: 900; color: white; background: var(--mario-orange);
+            padding: 5px 15px; border-radius: 8px; text-transform: uppercase;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid white; box-shadow: 0 0 10px rgba(227,108,51,0.5);
+        }
+        
         /* --- WEBSHOP USP TOP BAR --- */
         .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
@@ -41,6 +49,7 @@
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
         .header-logo-img { height: 85px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.2)); transition: 0.3s; }
+        
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         .mario-logo-text { font-size: 32px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; letter-spacing: 1px; line-height: 1; }
         .mario-logo-text span { color: var(--mario-orange); }
@@ -69,7 +78,7 @@
         /* --- DYNAMISCHE WINKEL CONTAINER --- */
         .shop-container { max-width: 1350px; margin: 60px auto 120px; padding: 0 20px; }
         
-        /* 🔥 WEEK PROMO SECTIE MET LEVIS LOGO */
+        /* 🔥 WEEK PROMO SECTIE */
         .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
         .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
         .promo-content-left { display: flex; align-items: center; gap: 25px; z-index: 2; }
@@ -125,7 +134,6 @@
         
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
-        .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
         .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
@@ -156,8 +164,14 @@
             .top-bar-hide { display: none; }
             .top-bar { justify-content: center; }
             .shop-hero { padding-top: 160px; }
+            
+            /* Logo uitlijning fix n.a.v. image_1.png */
+            .logo-frame { gap: 10px; }
+            .header-logo-img { height: 60px; }
+            .mario-logo-text { font-size: 24px; }
+
             .promo-banner { flex-direction: column; text-align: center; gap: 20px; padding: 25px; }
-            .promo-content-left { flex-direction: column; gap: 15px; }
+            .promo-logo-container { flex-direction: column-reverse; gap: 15px; }
             .products-view-header { flex-direction: column; align-items: flex-start; }
             .product-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
             .shopify-button-container { width: 100%; }
@@ -165,6 +179,19 @@
     </style>
 </head>
 <body>
+
+    <script>
+        function handleImageError(img, type) {
+            img.style.display = 'none';
+            const container = img.parentElement;
+            
+            if (type === 'header-logo' || type === 'chat-logo') {
+                container.innerHTML = '<div class="fallback-logo">Mario</div>';
+            } else if (type === 'promo-logo') {
+                container.innerHTML = '<div class="fallback-logo" style="background:white; color:#00a4e4; border:none; padding:10px 20px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">LEVIS</div>';
+            }
+        }
+    </script>
 
     <div class="top-bar">
         <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
@@ -174,7 +201,7 @@
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
+            <img src="final/logo10.png" onerror="handleImageError(this, 'header-logo')" alt="Mario Logo" class="header-logo-img">
             <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
@@ -228,11 +255,11 @@
         <div id="brands-section">
             
             <div class="promo-banner">
-                <div class="promo-content-left">
-                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis" class="promo-logo">
+                <div class="promo-logo-container">
+                    <img src="final/logo/levis.jpg" onerror="handleImageError(this, 'promo-logo')" alt="Levis" class="promo-logo">
                     <div class="promo-text">
                         <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
-                        <p>De ultieme dekkracht voor jouw grote schilderklus. Nergens goedkoper.</p>
+                        <p>Tijdelijk Scherp Geprijsd. De ultieme dekkracht voor jouw grote schilderklus.</p>
                     </div>
                 </div>
                 <button class="promo-btn" onclick="showPromoProduct()">Bekijk de Deal</button>
@@ -245,7 +272,7 @@
                 </div>
 
                 <div class="brand-card" onclick="showBrand('polyfilla')">
-                    <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Polyfilla">
+                    <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
                     <h3>Polyfilla</h3>
                 </div>
                 
@@ -259,8 +286,8 @@
                     <h3>Legrand</h3>
                 </div>
                 
-                <div class="brand-card" onclick="showBrand('huishoudelijk')">
-                    <img src="final/pattex.jpg" onerror="this.onerror=null; this.src='final/IMG-20250107-WA0057.jpg';" alt="Lijmen en Tapes">
+                <div class="brand-card" onclick="showBrand('huishoudelijk')" style="padding: 10px;">
+                    <img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='final/pattex.jpg';" alt="Lijmen en Tapes" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 10px;">
                     <h3>Lijmen & Tapes</h3>
                 </div>
             </div>
@@ -285,277 +312,172 @@
 
             <div class="product-grid" id="product-list">
                 
-                <div class="product-card" data-brand="polyfilla" id="prod-poly-snel">
+                <div class="product-card" data-brand="polyfilla">
                     <div class="product-img-box"><img src="final/5410083131334_01_c1.png" onerror="this.onerror=null; this.src='final/polyfilla.jpg';" alt="Polyfilla Snelplamuur"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Snelplamuur - 330g</h3>
-                        <div class="product-desc">
-                            Sneldrogende vuller voor een spiegelgladde afwerking van deuren en hout.
-                            <ul>
-                                <li>Droog in 30 minuten.</li>
-                                <li>Overschilderbaar & perfect schuurbaar.</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Sneldrogende vuller voor een spiegelgladde afwerking van deuren en hout.</p>
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€8.49</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884924023161:1?channel=buy_button" class="btn-buy" style="background: #E30613;">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884924023161:1?channel=buy_button" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="polyfilla" id="prod-poly-groot">
+                <div class="product-card" data-brand="polyfilla">
                     <div class="product-img-box"><img src="final/5410083116027_01_c1.png" onerror="this.onerror=null; this.src='final/polyfilla.jpg';" alt="Polyfilla Grote Gaten"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Grote Gatenvuller - 1KG</h3>
-                        <div class="product-desc">
-                            Vult diepe gaten en scheuren tot wel 5 cm in één keer. Zakt niet in.
-                            <ul>
-                                <li>Krimpt niet, voor binnen en buiten.</li>
-                                <li>Schroef- en boorvast.</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Vult diepe gaten en scheuren tot wel 5 cm in één keer. Zakt niet in.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€18.95</span><span class="old-price">€23.99</span></div>
+                            <div class="price-box"><span class="product-price">€18.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884923564409:1?channel=buy_button" class="btn-buy" style="background: #E30613;">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884923564409:1?channel=buy_button" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="polyfilla" id="prod-poly-alles">
+                <div class="product-card" data-brand="polyfilla">
                     <div class="product-img-box"><img src="final/5410083131013_01_c1.png" onerror="this.onerror=null; this.src='final/polyfilla.jpg';" alt="Polyfilla Allesvuller"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Allesvuller Pasta - 330g</h3>
-                        <div class="product-desc">
-                            De ideale kant-en-klare vuller voor standaard gaten en scheuren.
-                            <ul>
-                                <li>Direct vanuit de handige tube.</li>
-                                <li>Extreem sterk en overschilderbaar.</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">De ideale kant-en-klare vuller voor standaard gaten en scheuren.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€7.95</span><span class="old-price">€9.99</span></div>
+                            <div class="price-box"><span class="product-price">€7.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" class="btn-buy" style="background: #E30613;">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="levis" id="prod-levis-easy1l">
-                    <div class="product-img-box"><img src="final/5412271303424 - 5040656 - TLD - LV EASYCLEAN K_B MAT BASE W 1L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis EasyClean 1L"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271303424 - 5040656 - TLD - LV EASYCLEAN K_B MAT BASE W 1L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean 1L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis EasyClean Keuken Badkamer 1L</h3>
-                        <div class="product-desc">
-                            Extreem vlekwerend voor zwaar belaste ruimtes. Was je eenvoudig af.
-                            <ul>
-                                <li>Vloeistoffen parelen af, trekt niet in.</li>
-                                <li>Rendement: ± 10 m².</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Extreem vlekwerend voor zwaar belaste ruimtes. Was je eenvoudig af.</p>
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€32.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="levis" id="prod-levis-houtprimer">
-                    <div class="product-img-box"><img src="final/5412271190833 - 5030948 - TLD - LV EXPERT HOUT PRIMER BINNEN BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Hout Primer"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271190833 - 5030948 - TLD - LV EXPERT HOUT PRIMER BINNEN BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Hout Primer"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Hout Primer Binnen 2,5L</h3>
-                        <div class="product-desc">
-                            De professionele grondverf voor al je houtwerk binnen (deuren, meubels).
-                            <ul>
-                                <li>Sneldrogend, perfect schuurbaar.</li>
-                                <li>Rendement: ± 30 m² (Grote pot).</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">De professionele grondverf voor al je houtwerk binnen.</p>
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€89.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899086713:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="levis" id="prod-levis-muur5l">
-                    <div class="product-img-box"><img src="final/5412271147349 - 5030739 - TLD - LV PRIMER MUR_PLAFOND MAT BASE W 5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Primer Muur 5L"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271147349 - 5030739 - TLD - LV PRIMER MUR_PLAFOND MAT BASE W 5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Primer Muur 5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Primer Muur & Plafond Mat Wit 5L</h3>
-                        <div class="product-desc">
-                            De perfecte grondlaag voor een strak en duurzaam eindresultaat.
-                            <ul>
-                                <li>Isoleert de ondergrond.</li>
-                                <li>Rendement: ± 50 m².</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">De perfecte grondlaag voor een strak en duurzaam eindresultaat.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€64.95</span><span class="old-price">€125.00</span></div>
+                            <div class="price-box"><span class="product-price">€64.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884898431353:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884898431353:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="product-card promo-card" data-brand="levis" id="prod-levis-promo">
-                    <div class="product-img-box"><img src="final/5412271257031 - 5035256 - TLD - LV MUR_PLAFOND MAT BASE W 10L PROMO.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Muur Wit Promo"></div>
+                    <div class="product-img-box"><img src="final/5412271257031 - 5035256 - TLD - LV MUR_PLAFOND MAT BASE W 10L PROMO.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur Wit Promo"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis" style="background: var(--mario-orange); color: white;">🔥 WEEK PROMO</span>
                         <h3 class="product-title">Levis Muur & Plafond 8+2L Wit Mat</h3>
-                        <div class="product-desc">
-                            Klassieke, betrouwbare dekkracht in een extra grote voordeelpot.
-                            <ul>
-                                <li>Camoufleert kleine oneffenheden.</li>
-                                <li>Rendement: ± 100 m².</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Klassieke, betrouwbare dekkracht in een extra grote voordeelpot.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€79.95</span><span class="old-price">€99.00</span></div>
+                            <div class="price-box"><span class="product-price">€79.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="levis" id="prod-levis-essentials10l">
-                    <div class="product-img-box"><img src="final/5412271588067 - 5218733 - TLD - LV ESSENTIALS MUR_PRIMER MAT BASE W 10L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Essentials 10L"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271588067 - 5218733 - TLD - LV ESSENTIALS MUR_PRIMER MAT BASE W 10L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Essentials 10L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS ESSENTIALS</span>
                         <h3 class="product-title">Levis Essentials 2-in-1 Wit 10L</h3>
-                        <div class="product-desc">
-                            De slimme keuze voor grote renovaties! Geïntegreerde primer.
-                            <ul>
-                                <li>2-in-1: Primer en verf in één.</li>
-                                <li>Rendement: ± 100 m² (Grote emmer).</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">De slimme keuze voor grote renovaties! Geïntegreerde primer.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€139.95</span><span class="old-price">€192.00</span></div>
+                            <div class="price-box"><span class="product-price">€139.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="levis" id="prod-levis-muur25l">
-                    <div class="product-img-box"><img src="final/5412271256997 - 5035252 - TLD - LV MUR_PLAFOND MAT BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Muur 2.5L"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271256997 - 5035252 - TLD - LV MUR_PLAFOND MAT BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur 2.5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Muur & Plafond Wit Mat 2,5L</h3>
-                        <div class="product-desc">
-                            Hoogwaardige watergedragen muurverf voor perfect strakke binnenmuren.
-                            <ul>
-                                <li>Spat niet, zeer dekkend.</li>
-                                <li>Rendement: ± 25 m².</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Hoogwaardige watergedragen muurverf voor perfect strakke binnenmuren.</p>
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€39.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889846137:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889846137:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="levis" id="prod-levis-houtlak">
-                    <div class="product-img-box"><img src="final/5412271188656 - 5030940 - TLD - LV EXPERT HOUTLAK BINNEN SATIN BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis Houtlak"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271188656 - 5030940 - TLD - LV EXPERT HOUTLAK BINNEN SATIN BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Houtlak"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Houtlak Zijdeglans 2,5L</h3>
-                        <div class="product-desc">
-                            Absolute topkwaliteit voor de vakman. Ideaal voor deuren en kozijnen.
-                            <ul>
-                                <li>Uitzonderlijk kras- en slijtvast.</li>
-                                <li>Rendement: ± 30 m².</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Absolute topkwaliteit voor de vakman. Scratch en slijtvast.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€114.95</span><span class="old-price">€125.00</span></div>
+                            <div class="price-box"><span class="product-price">€114.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889354617:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889354617:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-brand="levis" id="prod-levis-easy25l">
-                    <div class="product-img-box"><img src="final/5412271303431 - 5040657 - TLD - LV EASYCLEAN K_B MAT BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis EasyClean"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/5412271303431 - 5040657 - TLD - LV EASYCLEAN K_B MAT BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis EasyClean Keuken Badkamer 2,5L</h3>
-                        <div class="product-desc">
-                            De ultieme afwasbare verf voor ruimtes waar intensief geleefd wordt!
-                            <ul>
-                                <li>Perfect vet- en vlekwerend.</li>
-                                <li>Rendement: ± 25 m².</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">De ultieme afwasbare verf voor ruimtes waar intensief geleefd wordt!</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€66.99</span><span class="old-price">€76.99</span></div>
+                            <div class="price-box"><span class="product-price">€66.99</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="huishoudelijk" id="prod-pattex-tape">
-                    <div class="product-img-box"><img src="final/pattex.jpg" onerror="this.onerror=null; this.src='final/logo/pattex.jpg';" alt="Pattex"></div>
+                <div class="product-card" data-brand="huishoudelijk">
+                    <div class="product-img-box"><img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='final/pattex.jpg';" alt="Pattex Power Tape"></div>
                     <div class="product-info">
                         <span class="product-brand-tag" style="background: #E30613; color: white;">PATTEX</span>
                         <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
-                        <div class="product-desc">
-                            Extra sterke, waterbestendige reparatietape.
-                            <ul>
-                                <li>Scheurbaar met de hand.</li>
-                                <li>Voor binnen en buiten.</li>
-                            </ul>
-                        </div>
+                        <p class="product-desc">Extra sterke, waterbestendige reparatietape.</p>
                         <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€6.49</span><span class="old-price">€8.95</span></div>
+                            <div class="price-box"><span class="product-price">€6.49</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy">
-                                    <i class="fas fa-shopping-cart"></i> Koop Nu
-                                </a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -565,36 +487,36 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Over Mario</h4>
-                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
+    <footer style="background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: 50px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1300px; margin: 0 auto; padding-bottom: 40px;">
+            <div>
+                <h4 style="color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900;">Over Mario</h4>
+                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8;">Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
             </div>
-            <div class="footer-col">
-                <h4>Winkel</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
-                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
-                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
+            <div>
+                <h4 style="color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900;">Winkel</h4>
+                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
+                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
             </div>
-            <div class="footer-col">
-                <h4>Veilig & Snel Betalen</h4>
-                <p>Bestel online en betaal veilig.</p>
-                <div class="payment-icons">
+            <div>
+                <h4 style="color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900;">Veilig & Snel Betalen</h4>
+                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8;">Bestel online en betaal veilig.</p>
+                <div style="display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center;">
                     <i class="fab fa-cc-visa"></i>
                     <i class="fab fa-cc-mastercard"></i>
                     <i class="fab fa-cc-paypal"></i>
-                    <span class="bancontact-text">Bancontact</span>
+                    <span style="font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; line-height: 1;">Bancontact</span>
                 </div>
             </div>
         </div>
         
-        <div class="developer-credit-frame">
-            <p>© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+        <div style="background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px;">© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong style="color: var(--mario-orange); font-weight: 900;">MS Global Creative Studios Builder Saraç</strong>.</p>
         </div>
         
-        <div class="legal-footer-frame">
-            <p>Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
+        <div style="background: #000000; padding: 15px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+            <p style="font-size: 11px; color: #718096; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin: 0; line-height: 1.5;">Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
             <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 10px;">
                 <img src="final/postnl.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/4/4b/PostNL_logo.svg';" alt="PostNL" style="height: 25px;">
                 <span style="color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; gap: 5px;"><i class="fas fa-box-open" style="color: var(--mario-orange);"></i> Mondial Relay</span>
@@ -602,29 +524,30 @@
         </div>
     </footer>
 
-    <div class="ai-chat-btn" id="openChatBtn">
-        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI">
+    <div class="ai-chat-btn" id="openChatBtn" style="position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); padding: 12px; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+        <img src="final/logo10.png" onerror="handleImageError(this, 'chat-logo')" alt="Mario AI" style="height: 35px; object-fit: contain;">
     </div>
 
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
-            <div class="chat-header-text">
-                <strong>Mario DHZ AI</strong>
-                <small>24/7 Klantenservice</small>
+    <div class="chat-window" id="chatWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transition: all 0.3s;">
+        <div class="chat-header" style="background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange);">
+            <img src="final/logo10.png" onerror="handleImageError(this, 'header-logo')" alt="Mario Logo" style="height: 35px;">
+            <div class="chat-header-text" style="display: flex; flex-direction: column; flex-grow: 1;">
+                <strong style="font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">Mario DHZ AI</strong>
+                <small style="font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px;">24/7 Klantenservice</small>
             </div>
-            <button class="close-chat" id="closeChatBtn">×</button>
+            <button class="close-chat" id="closeChatBtn" style="color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: auto;">×</button>
         </div>
-        <div class="expert-selector">
-            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Algemeen</button>
-            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf</button>
+        
+        <div class="expert-selector" style="display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border);">
+            <button class="expert-btn active" data-expert="algemeen" style="flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: var(--mario-orange); font-size: 11px; font-weight: 800; text-transform: uppercase; color: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px;"><i class="fas fa-info-circle" style="font-size: 18px;"></i> Algemeen</button>
         </div>
-        <div class="chat-body" id="chatBody">
-            <div class="chat-msg msg-bot">Welkom! Waarmee kan ik u helpen?</div>
+
+        <div class="chat-body" id="chatBody" style="padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px;">
+            <div class="chat-msg msg-bot" style="background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; padding: 14px 18px; border-radius: 12px; font-size: 14px; font-weight: 500; color: var(--mario-navy);">Welkom! Waarmee kan ik u helpen?</div>
         </div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Stel uw vraag..." autocomplete="off">
-            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        <div class="chat-input-area" style="padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px;">
+            <input type="text" id="chatInput" placeholder="Stel uw vraag..." autocomplete="off" style="flex: 1; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px;">
+            <button class="chat-send-btn" id="sendChatBtn" style="background: var(--mario-orange); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -639,7 +562,6 @@
             
             let titleName = brandName.charAt(0).toUpperCase() + brandName.slice(1);
             if (brandName === 'huishoudelijk') titleName = 'Lijmen & Tapes';
-            if (brandName === 'tuin') titleName = 'Tuin & BBQ';
             
             document.getElementById('brand-title').innerHTML = `<i class="fas fa-box-open"></i> Producten: ${titleName}`;
 
@@ -669,7 +591,7 @@
         function showPromoProduct() {
             showBrand('levis');
             setTimeout(() => {
-                const promoElement = document.getElementById('prod-levis-promo');
+                const promoElement = document.querySelector('.promo-card');
                 if(promoElement) {
                     promoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     promoElement.style.boxShadow = "0 0 30px rgba(227, 108, 51, 0.8)";
