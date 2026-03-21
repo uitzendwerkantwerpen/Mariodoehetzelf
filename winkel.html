@@ -24,14 +24,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-
-        /* --- NOODBEVEILIGING VOOR LOGO'S DIE NIET LADEN --- */
-        .fallback-logo {
-            font-size: 24px; font-weight: 900; color: white; background: var(--mario-orange);
-            padding: 5px 15px; border-radius: 8px; text-transform: uppercase;
-            display: flex; align-items: center; justify-content: center;
-            border: 2px solid white; box-shadow: 0 0 10px rgba(227,108,51,0.5);
-        }
         
         /* --- WEBSHOP USP TOP BAR --- */
         .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -82,7 +74,7 @@
         .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
         .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
         .promo-content-left { display: flex; align-items: center; gap: 25px; z-index: 2; }
-        .promo-logo { height: 60px; background: white; padding: 8px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .promo-logo { height: 60px; background: white; padding: 8px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); object-fit: contain; }
         .promo-text h2 { font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
         .promo-text p { font-size: 16px; font-weight: 500; opacity: 0.9; margin: 0; }
         .promo-btn { background: white; color: var(--mario-orange); padding: 12px 25px; border-radius: 30px; font-weight: 800; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 2; border: none; }
@@ -134,6 +126,7 @@
         
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
+        .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
         .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
@@ -150,7 +143,6 @@
         .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
         .payment-icons i { transition: 0.3s; cursor: pointer; }
         .payment-icons i:hover { color: var(--mario-orange); }
-        .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
         
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
@@ -165,7 +157,7 @@
             .top-bar { justify-content: center; }
             .shop-hero { padding-top: 160px; }
             
-            /* Logo uitlijning fix n.a.v. image_1.png */
+            /* Logo uitlijning fix */
             .logo-frame { gap: 10px; }
             .header-logo-img { height: 60px; }
             .mario-logo-text { font-size: 24px; }
@@ -180,19 +172,6 @@
 </head>
 <body>
 
-    <script>
-        function handleImageError(img, type) {
-            img.style.display = 'none';
-            const container = img.parentElement;
-            
-            if (type === 'header-logo' || type === 'chat-logo') {
-                container.innerHTML = '<div class="fallback-logo">Mario</div>';
-            } else if (type === 'promo-logo') {
-                container.innerHTML = '<div class="fallback-logo" style="background:white; color:#00a4e4; border:none; padding:10px 20px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">LEVIS</div>';
-            }
-        }
-    </script>
-
     <div class="top-bar">
         <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
         <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel</div>
@@ -201,7 +180,7 @@
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="final/logo10.png" onerror="handleImageError(this, 'header-logo')" alt="Mario Logo" class="header-logo-img">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
             <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
@@ -231,7 +210,6 @@
                 <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
                 <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
                 <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-                <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
                 <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
                 <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
                 
@@ -243,7 +221,6 @@
                 <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
                 <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
                 <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-                <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
                 <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
                 <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
             </div>
@@ -256,7 +233,7 @@
             
             <div class="promo-banner">
                 <div class="promo-logo-container">
-                    <img src="final/logo/levis.jpg" onerror="handleImageError(this, 'promo-logo')" alt="Levis" class="promo-logo">
+                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis" class="promo-logo">
                     <div class="promo-text">
                         <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
                         <p>Tijdelijk Scherp Geprijsd. De ultieme dekkracht voor jouw grote schilderklus.</p>
@@ -272,7 +249,7 @@
                 </div>
 
                 <div class="brand-card" onclick="showBrand('polyfilla')">
-                    <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
+                    <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Polyfilla">
                     <h3>Polyfilla</h3>
                 </div>
                 
@@ -356,7 +333,7 @@
                 </div>
 
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271303424 - 5040656 - TLD - LV EASYCLEAN K_B MAT BASE W 1L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean 1L"></div>
+                    <div class="product-img-box"><img src="final/5412271303424%20-%205040656%20-%20TLD%20-%20LV%20EASYCLEAN%20K_B%20MAT%20BASE%20W%201L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean 1L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis EasyClean Keuken Badkamer 1L</h3>
@@ -364,13 +341,13 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€32.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271190833 - 5030948 - TLD - LV EXPERT HOUT PRIMER BINNEN BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Hout Primer"></div>
+                    <div class="product-img-box"><img src="final/5412271190833%20-%205030948%20-%20TLD%20-%20LV%20EXPERT%20HOUT%20PRIMER%20BINNEN%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Hout Primer"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Hout Primer Binnen 2,5L</h3>
@@ -378,13 +355,13 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€89.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899086713:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271147349 - 5030739 - TLD - LV PRIMER MUR_PLAFOND MAT BASE W 5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Primer Muur 5L"></div>
+                    <div class="product-img-box"><img src="final/5412271147349%20-%205030739%20-%20TLD%20-%20LV%20PRIMER%20MUR_PLAFOND%20MAT%20BASE%20W%205L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Primer Muur 5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Primer Muur & Plafond Mat Wit 5L</h3>
@@ -398,7 +375,7 @@
                     </div>
                 </div>
                 <div class="product-card promo-card" data-brand="levis" id="prod-levis-promo">
-                    <div class="product-img-box"><img src="final/5412271257031 - 5035256 - TLD - LV MUR_PLAFOND MAT BASE W 10L PROMO.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur Wit Promo"></div>
+                    <div class="product-img-box"><img src="final/5412271257031%20-%205035256%20-%20TLD%20-%20LV%20MUR_PLAFOND%20MAT%20BASE%20W%2010L%20PROMO.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur Wit Promo"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis" style="background: var(--mario-orange); color: white;">🔥 WEEK PROMO</span>
                         <h3 class="product-title">Levis Muur & Plafond 8+2L Wit Mat</h3>
@@ -412,7 +389,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271588067 - 5218733 - TLD - LV ESSENTIALS MUR_PRIMER MAT BASE W 10L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Essentials 10L"></div>
+                    <div class="product-img-box"><img src="final/5412271588067%20-%205218733%20-%20TLD%20-%20LV%20ESSENTIALS%20MUR_PRIMER%20MAT%20BASE%20W%2010L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Essentials 10L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS ESSENTIALS</span>
                         <h3 class="product-title">Levis Essentials 2-in-1 Wit 10L</h3>
@@ -426,7 +403,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271256997 - 5035252 - TLD - LV MUR_PLAFOND MAT BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur 2.5L"></div>
+                    <div class="product-img-box"><img src="final/5412271256997%20-%205035252%20-%20TLD%20-%20LV%20MUR_PLAFOND%20MAT%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur 2.5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Muur & Plafond Wit Mat 2,5L</h3>
@@ -440,7 +417,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271188656 - 5030940 - TLD - LV EXPERT HOUTLAK BINNEN SATIN BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Houtlak"></div>
+                    <div class="product-img-box"><img src="final/5412271188656%20-%205030940%20-%20TLD%20-%20LV%20EXPERT%20HOUTLAK%20BINNEN%20SATIN%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Houtlak"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Houtlak Zijdeglans 2,5L</h3>
@@ -454,7 +431,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271303431 - 5040657 - TLD - LV EASYCLEAN K_B MAT BASE W 2,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean"></div>
+                    <div class="product-img-box"><img src="final/5412271303431%20-%205040657%20-%20TLD%20-%20LV%20EASYCLEAN%20K_B%20MAT%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis EasyClean Keuken Badkamer 2,5L</h3>
@@ -525,12 +502,12 @@
     </footer>
 
     <div class="ai-chat-btn" id="openChatBtn" style="position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); padding: 12px; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
-        <img src="final/logo10.png" onerror="handleImageError(this, 'chat-logo')" alt="Mario AI" style="height: 35px; object-fit: contain;">
+        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI" style="height: 35px; object-fit: contain;">
     </div>
 
     <div class="chat-window" id="chatWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transition: all 0.3s;">
         <div class="chat-header" style="background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange);">
-            <img src="final/logo10.png" onerror="handleImageError(this, 'header-logo')" alt="Mario Logo" style="height: 35px;">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" style="height: 35px;">
             <div class="chat-header-text" style="display: flex; flex-direction: column; flex-grow: 1;">
                 <strong style="font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">Mario DHZ AI</strong>
                 <small style="font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px;">24/7 Klantenservice</small>
