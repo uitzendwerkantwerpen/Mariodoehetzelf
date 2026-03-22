@@ -58,7 +58,8 @@
 
         .partner-wrapper { position: relative; z-index: 10; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; overflow: hidden; backdrop-filter: blur(5px); }
         .partner-track { display: inline-flex; animation: scrollBanner 35s linear infinite; gap: 80px; padding: 0 40px; align-items: center; }
-        .partner-track img { height: 35px; max-width: 140px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.7); transition: all 0.3s; }
+        /* Partner track op wit geforceerd met invert filter zodat grijze blokken verdwijnen */
+        .partner-track img { height: 35px; max-width: 140px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.8); transition: all 0.3s; }
         .partner-track img:hover { opacity: 1; transform: scale(1.1); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -67,7 +68,7 @@
         .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
         .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
         .promo-content-left { display: flex; align-items: center; gap: 25px; z-index: 2; }
-        .promo-logo { height: 60px; background: white; padding: 8px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); object-fit: contain; }
+        .promo-logo { height: 60px; width: auto; background: white; padding: 8px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); object-fit: contain; }
         .promo-text h2 { font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
         .promo-text p { font-size: 16px; font-weight: 500; opacity: 0.9; margin: 0; }
         .promo-btn { background: white; color: var(--mario-orange); padding: 12px 25px; border-radius: 30px; font-weight: 800; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 2; border: none; }
@@ -116,12 +117,12 @@
         
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
+        .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
         .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
 
         .shopify-button-container { width: 140px; }
-
         .no-results { width: 100%; padding: 40px; text-align: center; color: var(--mario-grey); font-size: 18px; font-weight: 500; display: none; }
 
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: 50px; }
@@ -154,7 +155,7 @@
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo.jpg';" alt="Mario Logo" class="header-logo-img">
+            <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
             <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
@@ -176,17 +177,17 @@
         
         <div class="partner-wrapper">
             <div class="partner-track">
-                <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
-                <img src="final/legrand.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg';" alt="Legrand">
-                <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis">
-                <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
-                <img src="final/stanley.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Stanley_Tools_logo.svg';" alt="Stanley">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg" alt="Niko">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg" alt="Legrand">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg" alt="Levis">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Henkel_logo.svg" alt="Pattex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Stanley_Tools_logo.svg" alt="Stanley">
                 
-                <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
-                <img src="final/legrand.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg';" alt="Legrand">
-                <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis">
-                <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
-                <img src="final/stanley.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Stanley_Tools_logo.svg';" alt="Stanley">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg" alt="Niko">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg" alt="Legrand">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg" alt="Levis">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Henkel_logo.svg" alt="Pattex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Stanley_Tools_logo.svg" alt="Stanley">
             </div>
         </div>
     </section>
@@ -197,7 +198,7 @@
             
             <div class="promo-banner">
                 <div class="promo-logo-container">
-                    <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis" class="promo-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg" alt="Levis" class="promo-logo">
                     <div class="promo-text">
                         <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
                         <p>Tijdelijk Scherp Geprijsd. De ultieme dekkracht voor jouw grote schilderklus.</p>
@@ -254,7 +255,7 @@
             <div class="product-grid" id="product-list">
                 
                 <div class="product-card" data-brand="polyfilla">
-                    <div class="product-img-box"><img src="final/123%20(2).jpeg" alt="Polyfilla Snelplamuur"></div>
+                    <div class="product-img-box"><img src="final/instantvuller.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Snelplamuur"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Snelplamuur - 330g</h3>
@@ -268,7 +269,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="polyfilla">
-                    <div class="product-img-box"><img src="final/550x641.jpg" alt="Polyfilla Grote Gaten"></div>
+                    <div class="product-img-box"><img src="final/550x641.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Grote Gaten"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Grote Gatenvuller - 1KG</h3>
@@ -282,7 +283,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="polyfilla">
-                    <div class="product-img-box"><img src="final/283x840.jpg" alt="Polyfilla Allesvuller"></div>
+                    <div class="product-img-box"><img src="final/pollyfillaallesvuller.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Allesvuller"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Allesvuller Pasta - 330g</h3>
@@ -297,7 +298,7 @@
                 </div>
 
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/81E%2BhiNurkL._AC_UF894%2C1000_QL80_FMwebp_.webp" alt="Levis EasyClean 1L"></div>
+                    <div class="product-img-box"><img src="final/leviseasyclean.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis EasyClean 1L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis EasyClean Keuken Badkamer 1L</h3>
@@ -311,7 +312,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/714jVBtoC9L._AC_UF894%2C1000_QL80_FMwebp_.webp" alt="Levis Hout Primer"></div>
+                    <div class="product-img-box"><img src="final/levisexpert25l.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Hout Primer"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Hout Primer Binnen 2,5L</h3>
@@ -325,7 +326,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/550x548.jpg" alt="Levis Primer Muur 5L"></div>
+                    <div class="product-img-box"><img src="final/MURPRIMER5L.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Primer Muur 5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Primer Muur & Plafond Mat Wit 5L</h3>
@@ -339,7 +340,7 @@
                     </div>
                 </div>
                 <div class="product-card promo-card" data-brand="levis" id="prod-levis-promo">
-                    <div class="product-img-box"><img src="final/550x478.jpg" alt="Levis Muur Wit Promo"></div>
+                    <div class="product-img-box"><img src="final/murplafond10lpromo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur Wit Promo"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis" style="background: var(--mario-orange); color: white;">🔥 WEEK PROMO</span>
                         <h3 class="product-title">Levis Muur & Plafond 8+2L Wit Mat</h3>
@@ -353,7 +354,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/550x503.jpg" alt="Levis Essentials 10L"></div>
+                    <div class="product-img-box"><img src="final/levis2in110l.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Essentials 10L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS ESSENTIALS</span>
                         <h3 class="product-title">Levis Essentials 2-in-1 Wit 10L</h3>
@@ -367,7 +368,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/550x478.jpg" alt="Levis Muur 2.5L"></div>
+                    <div class="product-img-box"><img src="final/expertwithout2.5lsatin.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur 2.5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Muur & Plafond Wit Mat 2,5L</h3>
@@ -381,7 +382,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/550x559.jpg" alt="Levis Houtlak"></div>
+                    <div class="product-img-box"><img src="final/experthoutlak.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Houtlak"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Houtlak Zijdeglans 2,5L</h3>
@@ -396,7 +397,7 @@
                 </div>
 
                 <div class="product-card" data-brand="huishoudelijk">
-                    <div class="product-img-box"><img src="final/IMG-20260107-WA0067.jpg" alt="Pattex Power Tape"></div>
+                    <div class="product-img-box"><img src="final/IMG-20260107-WA0067.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Pattex Power Tape"></div>
                     <div class="product-info">
                         <span class="product-brand-tag" style="background: #E30613; color: white;">PATTEX</span>
                         <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
