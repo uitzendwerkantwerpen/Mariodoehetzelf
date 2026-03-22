@@ -17,7 +17,6 @@
             --mario-light: #F8FAFC;
             --mario-border: #E2E8F0;
             --mario-grey: #4A5568;
-            --whatsapp-green: #25D366;
             --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
             --card-hover: 0 20px 40px rgba(227, 108, 51, 0.12);
         }
@@ -25,12 +24,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
-        /* --- WEBSHOP USP TOP BAR --- */
         .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
         .top-bar-item i { font-size: 14px; }
 
-        /* --- HEADER & NAVIGATIE --- */
         header {
             position: fixed; width: 100%; top: 36px; left: 0; z-index: 9998;
             display: flex; justify-content: space-between; align-items: center;
@@ -40,7 +37,7 @@
         }
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
-        .header-logo-img { height: 85px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.2)); transition: 0.3s; }
+        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.2)); transition: 0.3s; }
         
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         .mario-logo-text { font-size: 32px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; letter-spacing: 1px; line-height: 1; }
@@ -52,7 +49,6 @@
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover, .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
 
-        /* --- SHOP HERO BANNER --- */
         .shop-hero { padding: 190px 5% 40px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
         .shop-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80') center/cover; opacity: 0.1; mix-blend-mode: overlay; }
         .shop-hero-content { position: relative; z-index: 3; }
@@ -60,17 +56,14 @@
         .shop-hero h1 span { color: var(--mario-orange); text-shadow: 0 0 20px rgba(227,108,51,0.4); }
         .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto 30px; font-weight: 400; }
 
-        /* --- LOPENDE BAND (MERKEN SCROLLER) --- */
         .partner-wrapper { position: relative; z-index: 10; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; overflow: hidden; backdrop-filter: blur(5px); }
         .partner-track { display: inline-flex; animation: scrollBanner 35s linear infinite; gap: 80px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 35px; max-width: 140px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.7); transition: all 0.3s; }
         .partner-track img:hover { opacity: 1; transform: scale(1.1); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- DYNAMISCHE WINKEL CONTAINER --- */
         .shop-container { max-width: 1350px; margin: 60px auto 120px; padding: 0 20px; }
         
-        /* 🔥 WEEK PROMO SECTIE */
         .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
         .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
         .promo-content-left { display: flex; align-items: center; gap: 25px; z-index: 2; }
@@ -80,7 +73,6 @@
         .promo-btn { background: white; color: var(--mario-orange); padding: 12px 25px; border-radius: 30px; font-weight: 800; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 2; border: none; }
         .promo-btn:hover { transform: scale(1.05); background: var(--mario-navy); color: white; }
 
-        /* High-Tech Brand Cards */
         .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
         .brand-card { background: white; border-radius: 20px; border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--card-shadow); overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 30px 20px; text-align: center; position: relative; }
         .brand-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--mario-orange); transform: scaleX(0); transition: 0.4s; }
@@ -89,7 +81,6 @@
         .brand-card img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; }
         .brand-card h3 { font-size: 18px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
 
-        /* 🔍 LIVE ZOEKBALK */
         .search-container { margin-bottom: 40px; position: relative; width: 100%; max-width: 600px; }
         .search-container i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--mario-grey); font-size: 18px; }
         .search-input { width: 100%; padding: 18px 20px 18px 50px; border-radius: 30px; border: 2px solid var(--mario-border); font-family: 'Outfit'; font-size: 16px; font-weight: 500; color: var(--mario-navy); box-shadow: var(--card-shadow); transition: 0.3s; outline: none; }
@@ -101,7 +92,6 @@
         .btn-back { background: white; color: var(--mario-navy); border: 2px solid var(--mario-border); padding: 12px 24px; border-radius: 30px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
         .btn-back:hover { border-color: var(--mario-navy); background: var(--mario-light); }
 
-        /* High-Tech Product Cards */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 35px; }
         .product-card { background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--card-shadow); overflow: hidden; transition: all 0.4s ease; display: flex; flex-direction: column; position: relative; }
         .product-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.3); }
@@ -126,7 +116,6 @@
         
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
-        .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
         .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
@@ -135,33 +124,18 @@
 
         .no-results { width: 100%; padding: 40px; text-align: center; color: var(--mario-grey); font-size: 18px; font-weight: 500; display: none; }
 
-        /* --- FOOTER (PROFESSIONEEL) --- */
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: 50px; }
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
         .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
         .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
-        .payment-icons i { transition: 0.3s; cursor: pointer; }
-        .payment-icons i:hover { color: var(--mario-orange); }
         
-        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
-        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
-        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
-        
-        .legal-footer-frame { background: #000000; padding: 15px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .legal-footer-frame p { font-size: 11px; color: #718096; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin: 0; line-height: 1.5; }
-
-        /* --- MOBIELE FIX --- */
         @media (max-width: 900px) {
             .top-bar-hide { display: none; }
             .top-bar { justify-content: center; }
             .shop-hero { padding-top: 160px; }
-            
-            /* Logo uitlijning fix */
             .logo-frame { gap: 10px; }
-            .header-logo-img { height: 60px; }
             .mario-logo-text { font-size: 24px; }
-
             .promo-banner { flex-direction: column; text-align: center; gap: 20px; padding: 25px; }
             .promo-logo-container { flex-direction: column-reverse; gap: 15px; }
             .products-view-header { flex-direction: column; align-items: flex-start; }
@@ -180,7 +154,7 @@
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
+            <img src="mario-logo.jpg" onerror="this.onerror=null; this.src='logo.jpg';" alt="Mario Logo" class="header-logo-img">
             <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
@@ -202,27 +176,17 @@
         
         <div class="partner-wrapper">
             <div class="partner-track">
-                <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
-                <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
-                <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
-                <img src="final/logo/abus.jpg" onerror="this.onerror=null; this.src='final/abus.jpg';" alt="Abus">
-                <img src="final/logo/litto.jpg" onerror="this.onerror=null; this.src='final/litto.jpg';" alt="Litto">
-                <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
-                <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
-                <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-                <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
-                <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+                <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
+                <img src="final/legrand.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg';" alt="Legrand">
+                <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis">
+                <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
+                <img src="final/stanley.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Stanley_Tools_logo.svg';" alt="Stanley">
                 
-                <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
-                <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
-                <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
-                <img src="final/logo/abus.jpg" onerror="this.onerror=null; this.src='final/abus.jpg';" alt="Abus">
-                <img src="final/logo/litto.jpg" onerror="this.onerror=null; this.src='final/litto.jpg';" alt="Litto">
-                <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
-                <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
-                <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-                <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
-                <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+                <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
+                <img src="final/legrand.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg';" alt="Legrand">
+                <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis">
+                <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
+                <img src="final/stanley.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Stanley_Tools_logo.svg';" alt="Stanley">
             </div>
         </div>
     </section>
@@ -233,7 +197,7 @@
             
             <div class="promo-banner">
                 <div class="promo-logo-container">
-                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis" class="promo-logo">
+                    <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis" class="promo-logo">
                     <div class="promo-text">
                         <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
                         <p>Tijdelijk Scherp Geprijsd. De ultieme dekkracht voor jouw grote schilderklus.</p>
@@ -244,27 +208,27 @@
 
             <div class="brands-grid">
                 <div class="brand-card" onclick="showBrand('levis')">
-                    <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
+                    <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis">
                     <h3>Levis</h3>
                 </div>
 
                 <div class="brand-card" onclick="showBrand('polyfilla')">
-                    <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Polyfilla">
+                    <img src="final/polyfilla.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
                     <h3>Polyfilla</h3>
                 </div>
                 
                 <div class="brand-card" onclick="showBrand('niko')">
-                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                    <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
                     <h3>Niko</h3>
                 </div>
 
                 <div class="brand-card" onclick="showBrand('legrand')">
-                    <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
+                    <img src="final/legrand.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Legrand_logo.svg';" alt="Legrand">
                     <h3>Legrand</h3>
                 </div>
                 
                 <div class="brand-card" onclick="showBrand('huishoudelijk')" style="padding: 10px;">
-                    <img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='final/pattex.jpg';" alt="Lijmen en Tapes" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 10px;">
+                    <img src="final/IMG-20260107-WA0067.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/8/87/Henkel_logo.svg';" alt="Lijmen en Tapes" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 10px;">
                     <h3>Lijmen & Tapes</h3>
                 </div>
             </div>
@@ -290,7 +254,7 @@
             <div class="product-grid" id="product-list">
                 
                 <div class="product-card" data-brand="polyfilla">
-                    <div class="product-img-box"><img src="final/5410083131334_01_c1.png" onerror="this.onerror=null; this.src='final/polyfilla.jpg';" alt="Polyfilla Snelplamuur"></div>
+                    <div class="product-img-box"><img src="final/123%20(2).jpeg" alt="Polyfilla Snelplamuur"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Snelplamuur - 330g</h3>
@@ -304,7 +268,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="polyfilla">
-                    <div class="product-img-box"><img src="final/5410083116027_01_c1.png" onerror="this.onerror=null; this.src='final/polyfilla.jpg';" alt="Polyfilla Grote Gaten"></div>
+                    <div class="product-img-box"><img src="final/550x641.jpg" alt="Polyfilla Grote Gaten"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Grote Gatenvuller - 1KG</h3>
@@ -318,7 +282,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="polyfilla">
-                    <div class="product-img-box"><img src="final/5410083131013_01_c1.png" onerror="this.onerror=null; this.src='final/polyfilla.jpg';" alt="Polyfilla Allesvuller"></div>
+                    <div class="product-img-box"><img src="final/283x840.jpg" alt="Polyfilla Allesvuller"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-poly">POLYFILLA</span>
                         <h3 class="product-title">Polyfilla Allesvuller Pasta - 330g</h3>
@@ -333,7 +297,7 @@
                 </div>
 
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271303424%20-%205040656%20-%20TLD%20-%20LV%20EASYCLEAN%20K_B%20MAT%20BASE%20W%201L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean 1L"></div>
+                    <div class="product-img-box"><img src="final/81E%2BhiNurkL._AC_UF894%2C1000_QL80_FMwebp_.webp" alt="Levis EasyClean 1L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis EasyClean Keuken Badkamer 1L</h3>
@@ -347,7 +311,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271190833%20-%205030948%20-%20TLD%20-%20LV%20EXPERT%20HOUT%20PRIMER%20BINNEN%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Hout Primer"></div>
+                    <div class="product-img-box"><img src="final/714jVBtoC9L._AC_UF894%2C1000_QL80_FMwebp_.webp" alt="Levis Hout Primer"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Hout Primer Binnen 2,5L</h3>
@@ -361,7 +325,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271147349%20-%205030739%20-%20TLD%20-%20LV%20PRIMER%20MUR_PLAFOND%20MAT%20BASE%20W%205L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Primer Muur 5L"></div>
+                    <div class="product-img-box"><img src="final/550x548.jpg" alt="Levis Primer Muur 5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Primer Muur & Plafond Mat Wit 5L</h3>
@@ -375,7 +339,7 @@
                     </div>
                 </div>
                 <div class="product-card promo-card" data-brand="levis" id="prod-levis-promo">
-                    <div class="product-img-box"><img src="final/5412271257031%20-%205035256%20-%20TLD%20-%20LV%20MUR_PLAFOND%20MAT%20BASE%20W%2010L%20PROMO.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur Wit Promo"></div>
+                    <div class="product-img-box"><img src="final/550x478.jpg" alt="Levis Muur Wit Promo"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis" style="background: var(--mario-orange); color: white;">🔥 WEEK PROMO</span>
                         <h3 class="product-title">Levis Muur & Plafond 8+2L Wit Mat</h3>
@@ -389,7 +353,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271588067%20-%205218733%20-%20TLD%20-%20LV%20ESSENTIALS%20MUR_PRIMER%20MAT%20BASE%20W%2010L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Essentials 10L"></div>
+                    <div class="product-img-box"><img src="final/550x503.jpg" alt="Levis Essentials 10L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS ESSENTIALS</span>
                         <h3 class="product-title">Levis Essentials 2-in-1 Wit 10L</h3>
@@ -403,7 +367,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271256997%20-%205035252%20-%20TLD%20-%20LV%20MUR_PLAFOND%20MAT%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Muur 2.5L"></div>
+                    <div class="product-img-box"><img src="final/550x478.jpg" alt="Levis Muur 2.5L"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS</span>
                         <h3 class="product-title">Levis Muur & Plafond Wit Mat 2,5L</h3>
@@ -417,7 +381,7 @@
                     </div>
                 </div>
                 <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271188656%20-%205030940%20-%20TLD%20-%20LV%20EXPERT%20HOUTLAK%20BINNEN%20SATIN%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis Houtlak"></div>
+                    <div class="product-img-box"><img src="final/550x559.jpg" alt="Levis Houtlak"></div>
                     <div class="product-info">
                         <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
                         <h3 class="product-title">Levis Expert Houtlak Zijdeglans 2,5L</h3>
@@ -430,23 +394,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card" data-brand="levis">
-                    <div class="product-img-box"><img src="final/5412271303431%20-%205040657%20-%20TLD%20-%20LV%20EASYCLEAN%20K_B%20MAT%20BASE%20W%202,5L.jpg" onerror="this.onerror=null; this.src='final/logo/levis.jpg';" alt="Levis EasyClean"></div>
-                    <div class="product-info">
-                        <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
-                        <h3 class="product-title">Levis EasyClean Keuken Badkamer 2,5L</h3>
-                        <p class="product-desc">De ultieme afwasbare verf voor ruimtes waar intensief geleefd wordt!</p>
-                        <div class="product-bottom">
-                            <div class="price-box"><span class="product-price">€66.99</span></div>
-                            <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="product-card" data-brand="huishoudelijk">
-                    <div class="product-img-box"><img src="final/IMG-20250107-WA0057.jpg" onerror="this.onerror=null; this.src='final/pattex.jpg';" alt="Pattex Power Tape"></div>
+                    <div class="product-img-box"><img src="final/IMG-20260107-WA0067.jpg" alt="Pattex Power Tape"></div>
                     <div class="product-info">
                         <span class="product-brand-tag" style="background: #E30613; color: white;">PATTEX</span>
                         <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
@@ -491,42 +441,7 @@
         <div style="background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
             <p style="font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px;">© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong style="color: var(--mario-orange); font-weight: 900;">MS Global Creative Studios Builder Saraç</strong>.</p>
         </div>
-        
-        <div style="background: #000000; padding: 15px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-            <p style="font-size: 11px; color: #718096; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin: 0; line-height: 1.5;">Deze website, inclusief alle pagina's, teksten en afbeeldingen, is juridisch beschermd en eigendom van Mario Doe-Het-Zelf en zijn licentiegevers.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-top: 10px;">
-                <img src="final/postnl.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/4/4b/PostNL_logo.svg';" alt="PostNL" style="height: 25px;">
-                <span style="color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; gap: 5px;"><i class="fas fa-box-open" style="color: var(--mario-orange);"></i> Mondial Relay</span>
-            </div>
-        </div>
     </footer>
-
-    <div class="ai-chat-btn" id="openChatBtn" style="position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); padding: 12px; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
-        <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario AI" style="height: 35px; object-fit: contain;">
-    </div>
-
-    <div class="chat-window" id="chatWindow" style="position: fixed; bottom: 100px; right: 30px; width: 380px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transition: all 0.3s;">
-        <div class="chat-header" style="background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange);">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" style="height: 35px;">
-            <div class="chat-header-text" style="display: flex; flex-direction: column; flex-grow: 1;">
-                <strong style="font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">Mario DHZ AI</strong>
-                <small style="font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px;">24/7 Klantenservice</small>
-            </div>
-            <button class="close-chat" id="closeChatBtn" style="color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: auto;">×</button>
-        </div>
-        
-        <div class="expert-selector" style="display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border);">
-            <button class="expert-btn active" data-expert="algemeen" style="flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: var(--mario-orange); font-size: 11px; font-weight: 800; text-transform: uppercase; color: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px;"><i class="fas fa-info-circle" style="font-size: 18px;"></i> Algemeen</button>
-        </div>
-
-        <div class="chat-body" id="chatBody" style="padding: 20px; height: 320px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px;">
-            <div class="chat-msg msg-bot" style="background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; padding: 14px 18px; border-radius: 12px; font-size: 14px; font-weight: 500; color: var(--mario-navy);">Welkom! Waarmee kan ik u helpen?</div>
-        </div>
-        <div class="chat-input-area" style="padding: 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 10px;">
-            <input type="text" id="chatInput" placeholder="Stel uw vraag..." autocomplete="off" style="flex: 1; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 14px;">
-            <button class="chat-send-btn" id="sendChatBtn" style="background: var(--mario-orange); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
 
     <script>
         let currentBrandFilter = 'all';
@@ -600,12 +515,6 @@
 
             document.getElementById('noResults').style.display = hasVisibleProducts ? 'none' : 'block';
         }
-
-        const chatBtn = document.getElementById('openChatBtn');
-        const chatWindow = document.getElementById('chatWindow');
-        const closeChatBtn = document.getElementById('closeChatBtn');
-        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
-        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
     </script>
 </body>
 </html>
