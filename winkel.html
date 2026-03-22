@@ -49,17 +49,18 @@
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover, .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
 
-        .shop-hero { padding: 190px 5% 40px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
+        .shop-hero { padding: 190px 5% 0px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
         .shop-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80') center/cover; opacity: 0.1; mix-blend-mode: overlay; }
-        .shop-hero-content { position: relative; z-index: 3; }
+        .shop-hero-content { position: relative; z-index: 3; padding-bottom: 50px; }
         .shop-hero h1 { font-size: clamp(36px, 5vw, 55px); font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; }
         .shop-hero h1 span { color: var(--mario-orange); text-shadow: 0 0 20px rgba(227,108,51,0.4); }
         .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto 30px; font-weight: 400; }
 
-        .partner-wrapper { position: relative; z-index: 10; background: rgba(255,255,255,0.05); border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; overflow: hidden; backdrop-filter: blur(5px); }
-        .partner-track { display: inline-flex; animation: scrollBanner 35s linear infinite; gap: 40px; padding: 0 40px; align-items: center; }
-        .partner-track img { height: 45px; width: 120px; object-fit: contain; background: white; padding: 8px 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.3s; }
-        .partner-track img:hover { transform: scale(1.1); box-shadow: 0 6px 15px rgba(227, 108, 51, 0.4); }
+        /* --- VERNIEUWDE LOPENDE BAND (Groot, Clean, Geen Witte Dozen) --- */
+        .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-top: 1px solid var(--mario-border); border-bottom: 1px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
+        .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
+        .partner-track img:hover { transform: scale(1.15); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .shop-container { max-width: 1350px; margin: 60px auto 120px; padding: 0 20px; }
@@ -78,7 +79,7 @@
         .brand-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--mario-orange); transform: scaleX(0); transition: 0.4s; }
         .brand-card:hover { transform: translateY(-10px); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.2); }
         .brand-card:hover::before { transform: scaleX(1); }
-        .brand-card img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; }
+        .brand-card img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; mix-blend-mode: multiply; }
         .brand-card h3 { font-size: 18px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
 
         .search-container { margin-bottom: 40px; position: relative; width: 100%; max-width: 600px; }
@@ -97,7 +98,7 @@
         .product-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.3); }
         
         .product-img-box { width: 100%; height: 240px; background: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%); padding: 30px; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid rgba(0,0,0,0.02); }
-        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); transition: 0.5s ease; }
+        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); transition: 0.5s ease; mix-blend-mode: multiply; }
         .product-card:hover .product-img-box img { transform: scale(1.1) rotate(-2deg); }
 
         .product-info { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; background: white; }
@@ -116,7 +117,6 @@
         
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
-        .old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; margin-top: 2px; font-weight: 600; }
         
         .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
@@ -173,33 +173,39 @@
             <h1>Premium <span>Catalogus</span></h1>
             <p>De beste merken voor particulieren en vakmannen. Bestel direct online.</p>
         </div>
-        
-        <div class="partner-wrapper">
-            <div class="partner-track">
-                <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
-                <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
-                <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
-                <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
-                <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
-                <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
-                <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
-                <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
-                <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
-                <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
-                
-                <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
-                <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
-                <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
-                <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
-                <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
-                <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
-                <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
-                <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
-                <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
-                <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
-            </div>
-        </div>
     </section>
+
+    <div class="partner-wrapper">
+        <div class="partner-track">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
+            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
+            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
+            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
+            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
+            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
+            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
+            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
+            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
+            
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
+            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
+            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
+            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
+            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
+            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
+            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
+            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
+            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
+        </div>
+    </div>
 
     <section class="shop-container">
         
@@ -246,10 +252,20 @@
                     <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa&font=Montserrat';" alt="Versa">
                     <h3>Versa</h3>
                 </div>
-                
-                <div class="brand-card" onclick="showBrand('huishoudelijk')" style="padding: 10px;">
-                    <img src="final/IMG-20260107-WA0067.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/e36c33/ffffff?text=Lijmen+%26+Tapes&font=Montserrat';" alt="Lijmen en Tapes" style="width: 100%; height: 130px; object-fit: cover; border-radius: 12px; margin-bottom: 10px;">
-                    <h3>Lijmen & Tapes</h3>
+
+                <div class="brand-card" onclick="showBrand('loctite')">
+                    <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Loctite&font=Montserrat';" alt="Loctite">
+                    <h3>Loctite</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('pattex')">
+                    <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Pattex&font=Montserrat';" alt="Pattex">
+                    <h3>Pattex</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('twilight')">
+                    <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Twilight&font=Montserrat';" alt="Twilight">
+                    <h3>Twilight</h3>
                 </div>
             </div>
         </div>
@@ -429,7 +445,7 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="huishoudelijk">
+                <div class="product-card" data-brand="pattex">
                     <div class="product-img-box"><img src="final/IMG-20260107-WA0067.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Pattex Power Tape"></div>
                     <div class="product-info">
                         <span class="product-brand-tag" style="background: #E30613; color: white;">PATTEX</span>
@@ -487,8 +503,12 @@
             document.getElementById('searchInput').value = ''; 
             
             let titleName = brandName.charAt(0).toUpperCase() + brandName.slice(1);
-            if (brandName === 'huishoudelijk') titleName = 'Lijmen & Tapes';
+            if (brandName === 'bobrush') titleName = 'Bobrush';
             if (brandName === 'hg') titleName = 'HG';
+            if (brandName === 'versa') titleName = 'Versa';
+            if (brandName === 'loctite') titleName = 'Loctite';
+            if (brandName === 'pattex') titleName = 'Pattex';
+            if (brandName === 'twilight') titleName = 'Twilight';
             
             document.getElementById('brand-title').innerHTML = `<i class="fas fa-box-open"></i> Producten: ${titleName}`;
 
