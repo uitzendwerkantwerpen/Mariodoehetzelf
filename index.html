@@ -39,7 +39,6 @@
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
         
-        /* FIX: LOGO AANZIENLIJK GROTER EN DUIDELIJKER GEMAAKT */
         .header-logo-img { height: 95px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transform: scale(1.3); transform-origin: left center; transition: 0.3s; margin-left: 5px; }
         .header-logo-img:hover { transform: scale(1.4); }
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; margin-left: 15px; }
@@ -77,23 +76,24 @@
         .feature-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px 25px; border-radius: 12px; display: flex; align-items: center; gap: 15px; color: white; font-weight: 700; font-size: 14px; backdrop-filter: blur(10px); text-transform: uppercase; letter-spacing: 1px; }
         .feature-item i { color: var(--mario-orange); font-size: 22px; }
 
-        /* --- ERKEND VERKOOPPUNT --- */
+        /* --- ERKEND VERKOOPPUNT (VERSA TOEGEVOEGD) --- */
         .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
-        .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-        .dealer-text { flex: 1; }
-        .dealer-text h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
-        .dealer-text h2 i { color: #F59E0B; font-size: 32px; }
+        .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
         
-        .dealer-text p { color: var(--mario-grey); font-size: 16px; line-height: 1.7; }
-        .dealer-text p strong { color: var(--mario-navy); font-weight: 800; }
+        .dealer-header { text-align: center; max-width: 800px; margin: 0 auto; }
+        .dealer-header h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .dealer-header h2 i { color: #F59E0B; font-size: 32px; }
+        .dealer-header p { color: var(--mario-grey); font-size: 16px; line-height: 1.7; }
+        .dealer-header p strong { color: var(--mario-navy); font-weight: 800; }
         
-        .dealer-logos { display: flex; gap: 20px; flex: 1.5; justify-content: flex-end; }
-        .dealer-box { display: flex; align-items: center; gap: 15px; background: var(--mario-light); padding: 20px; border-radius: 16px; border: 1px solid var(--mario-border); text-decoration: none; transition: 0.3s; width: 100%; max-width: 320px; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+        .dealer-logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%; }
+        
+        .dealer-box { display: flex; align-items: center; gap: 15px; background: var(--mario-light); padding: 20px; border-radius: 16px; border: 1px solid var(--mario-border); text-decoration: none; transition: 0.3s; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
         .dealer-box:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.15); background: white; }
         .dealer-box img { width: 70px; height: 70px; object-fit: contain; mix-blend-mode: multiply; }
         .dealer-info { display: flex; flex-direction: column; }
         .dealer-info strong { color: var(--mario-navy); font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.2; margin-bottom: 5px; }
-        .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; }
+        .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; line-height: 1.4; }
 
         /* --- AANKONDIGING ANTWERPEN-ZUID --- */
         .new-store-banner { background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%); padding: 40px 5%; border-top: 4px solid var(--mario-orange); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; position: relative; z-index: 10; }
@@ -105,11 +105,11 @@
         .ns-text p strong { color: white; font-weight: 700; }
         .ns-text p span { color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- LOPENDE BAND --- */
-        .partner-wrapper { position: relative; z-index: 10; background: white; border-bottom: 2px solid var(--mario-border); padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
-        .partner-track { display: inline-flex; animation: scrollBanner 35s linear infinite; gap: 80px; padding: 0 40px; align-items: center; }
-        .partner-track img { height: 45px; max-width: 140px; object-fit: contain; filter: grayscale(100%) opacity(0.7); transition: all 0.3s; }
-        .partner-track img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+        /* --- LOPENDE BAND (CLEAN & GROOT) --- */
+        .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
+        .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
+        .partner-track img:hover { transform: scale(1.15); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- CATEGORIE DETAILS --- */
@@ -128,7 +128,6 @@
         .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
-        /* FIX: 100% JOUW EIGEN TUIN FOTO UPLOAD VAN GITHUB */
         .card-garden .card-img-top { background-color: #e6ffed; background-image: url('final/hovenier-betekenis.jpg'); border-bottom-color: #48BB78; }
         .card-garden i { color: #48BB78; }
         .card-garden .wip-badge { background: #F0FFF4; color: #2F855A; border-color: #9AE6B4; }
@@ -211,7 +210,6 @@
             .top-bar-hide { display: none; }
             .top-bar { justify-content: center; }
             
-            /* Hero fix voor extra ruimte met grote logo */
             .hero { padding-top: 160px; padding-bottom: 40px; }
             .hero-content { flex-direction: column; gap: 30px; }
             .hero-card, .hero-slider-card { width: 100%; flex: none; }
@@ -225,11 +223,9 @@
             .info-section { grid-template-columns: 1fr; }
             .map-frame { min-height: 350px; }
             
-            .dealer-container { flex-direction: column; text-align: center; }
-            .dealer-text h2 { justify-content: center; font-size: 22px; }
-            .dealer-logos { flex-direction: column; width: 100%; align-items: center; }
+            .dealer-header h2 { font-size: 22px; }
+            .dealer-logos { grid-template-columns: 1fr; }
             
-            /* Chat knop 100% geforceerd naar klein bolletje op mobiel! */
             .ai-chat-btn { bottom: 20px !important; right: 20px !important; padding: 0 !important; border-radius: 50% !important; width: 60px !important; height: 60px !important; justify-content: center !important; box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important; z-index: 10000 !important; }
             .ai-chat-text { display: none !important; }
             .ai-chat-btn img { height: 32px !important; margin: 0 !important; }
@@ -295,23 +291,30 @@
 
     <section class="official-dealers">
         <div class="dealer-container">
-            <div class="dealer-text">
+            <div class="dealer-header">
                 <h2><i class="fas fa-medal"></i> Erkend Premium Verkooppunt</h2>
-                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons Erkend Premium Verkooppunt in Berchem. Wij bieden de perfecte combinatie van deskundig advies, topmerken als AkzoNobel en Niko, en alles wat u nodig heeft voor uw particuliere of professionele klus.</p>
+                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons Erkend Premium Verkooppunt in Berchem. Wij bieden de perfecte combinatie van deskundig advies en topmerken voor uw particuliere of professionele klus.</p>
             </div>
             <div class="dealer-logos">
                 <a href="https://www.akzonobel.com/nl" target="_blank" class="dealer-box">
-                    <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel Levis Mengmachine">
+                    <img src="final/akzonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel Levis Mengmachine">
                     <div class="dealer-info">
                         <strong>AkzoNobel Partner</strong>
                         <span>Levis & Verfmengmachine</span>
                     </div>
                 </a>
                 <a href="https://www.niko.eu/nl-be" target="_blank" class="dealer-box">
-                    <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
+                    <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
                     <div class="dealer-info">
                         <strong>Officieel Niko Dealer</strong>
                         <span>Premium schakelmateriaal</span>
+                    </div>
+                </a>
+                <a href="https://www.groupversa.com" target="_blank" class="dealer-box">
+                    <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa&font=Montserrat';" alt="Group Versa">
+                    <div class="dealer-info">
+                        <strong>Group Versa Dealer</strong>
+                        <span>Dé premium partner voor al uw hoogwaardige badkamer- en sanitairbenodigdheden.</span>
                     </div>
                 </a>
             </div>
@@ -330,31 +333,33 @@
 
     <div class="partner-wrapper">
         <div class="partner-track">
-            <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
-            <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
-            <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
-            <img src="final/logo/abus.jpg" onerror="this.onerror=null; this.src='final/abus.jpg';" alt="Abus">
-            <img src="final/logo/litto.jpg" onerror="this.onerror=null; this.src='final/litto.jpg';" alt="Litto">
-            <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
-            <img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad">
-            <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
-            <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-            <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
-            <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
-            <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
+            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
+            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
+            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
+            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
+            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
+            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
+            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
+            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
             
-            <img src="final/logo/niko.jpg" onerror="this.onerror=null; this.src='final/niko.jpg';" alt="Niko">
-            <img src="final/logo/abb.jpg" onerror="this.onerror=null; this.src='final/abb.jpg';" alt="ABB">
-            <img src="final/logo/legrand.jpg" onerror="this.onerror=null; this.src='final/legrand.jpg';" alt="Legrand">
-            <img src="final/logo/abus.jpg" onerror="this.onerror=null; this.src='final/abus.jpg';" alt="Abus">
-            <img src="final/logo/litto.jpg" onerror="this.onerror=null; this.src='final/litto.jpg';" alt="Litto">
-            <img src="final/logo/aloni.jpg" onerror="this.onerror=null; this.src='final/aloni.jpg';" alt="Aloni">
-            <img src="final/logo/belrad.jpg" onerror="this.onerror=null; this.src='final/belrad.jpg';" alt="Belrad">
-            <img src="final/logo/bticino.jpg" onerror="this.onerror=null; this.src='final/bticino.jpg';" alt="Bticino">
-            <img src="final/logo/levis.jpg" onerror="this.onerror=null; this.src='final/levis.jpg';" alt="Levis">
-            <img src="final/akzonobel.jpg" onerror="this.onerror=null; this.src='final/logo/stanley.jpg';" alt="AkzoNobel">
-            <img src="final/logo/stanley.jpg" onerror="this.onerror=null; this.src='final/stanley.jpg';" alt="Stanley">
-            <img src="final/logo/knauf.jpg" onerror="this.onerror=null; this.src='final/knauf.jpg';" alt="Knauf">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
+            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
+            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
+            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
+            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
+            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
+            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
+            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
+            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
         </div>
     </div>
 
