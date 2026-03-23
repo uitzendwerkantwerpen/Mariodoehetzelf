@@ -94,6 +94,16 @@
         .dealer-info strong { color: var(--mario-navy); font-size: 14px; font-weight: 900; text-transform: uppercase; line-height: 1.2; margin-bottom: 5px; }
         .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; line-height: 1.4; }
 
+        /* --- 🎬 PREMIUM VIDEO SECTIE START --- */
+        .video-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: center; position: relative; z-index: 10; }
+        .video-header { margin-bottom: 25px; }
+        .video-header h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 12px; }
+        .video-header h2 i { color: var(--mario-orange); }
+        .video-header p { color: var(--mario-grey); font-size: 16px; font-weight: 500; }
+        .video-frame { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 5px solid white; background: #000; }
+        .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        /* --- 🎬 PREMIUM VIDEO SECTIE EINDE --- */
+
         /* --- AANKONDIGING ANTWERPEN-ZUID --- */
         .new-store-banner { background: linear-gradient(135deg, #0a111a 0%, var(--mario-navy) 100%); padding: 40px 5%; border-top: 4px solid var(--mario-orange); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center; position: relative; z-index: 10; }
         .ns-content { max-width: 1300px; width: 100%; display: flex; align-items: center; gap: 40px; background: rgba(255,255,255,0.02); padding: 30px 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
@@ -104,7 +114,7 @@
         .ns-text p strong { color: white; font-weight: 700; }
         .ns-text p span { color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- LOPENDE BAND --- */
+        /* --- LOPENDE BAND (CLEAN & GROOT) --- */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
@@ -152,7 +162,7 @@
         .review-text { font-size: 15px; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 10px; }
         .review-author { font-size: 14px; font-weight: 800; color: var(--mario-navy); text-transform: uppercase; }
 
-        /* --- NIEUWE FOOTER MET KLANTENSERVICE --- */
+        /* --- FOOTER & BETAALLOGOS --- */
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
@@ -161,7 +171,9 @@
         .payment-icons i { transition: 0.3s; cursor: pointer; }
         .payment-icons i:hover { color: var(--mario-orange); }
         .bancontact-text { font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; line-height: 1; margin-top: 4px; }
+        .footer-col .big-hours { font-size: 22px; font-weight: 800; color: white; margin-top: 15px; }
         
+        /* DEVELOPER CREDIT EN WETTELIJKE FOOTER */
         .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
@@ -318,6 +330,20 @@
         </div>
     </section>
 
+    <section class="video-section">
+        <div class="video-header">
+            <h2><i class="fas fa-play-circle"></i> Achter de Schermen</h2>
+            <p>Onze exclusieve samenwerking met AkzoNobel. Absolute topkwaliteit, direct uit onze professionele verfmengmachine.</p>
+        </div>
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/wQEUcgkWVJw?rel=0&modestbranding=1" 
+                    title="Mario DHZ x AkzoNobel" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
     <section class="new-store-banner">
         <div class="ns-content">
             <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
@@ -361,6 +387,7 @@
     </div>
 
     <div class="services-section">
+        
         <div class="glass-card">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -371,6 +398,7 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+
         <div class="glass-card">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -381,6 +409,7 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+        
         <div class="glass-card card-paint">
             <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=600');"></div>
             <div class="card-content">
@@ -391,6 +420,7 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+
         <div class="glass-card card-garden">
             <div class="card-img-top" style="background-color: #e6ffed; background-image: url('final/hovenier-betekenis.jpg');"></div>
             <div class="card-content">
@@ -401,6 +431,7 @@
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
+
     </div>
 
     <div class="info-section">
