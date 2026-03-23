@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retourbeleid | Mario DHZ Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --mario-orange: #E36C33; --mario-navy: #060B11; --mario-light: #F8FAFC; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); padding: 40px 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { max-width: 800px; width: 100%; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-top: 5px solid var(--mario-orange); }
+        .logo-container { text-align: center; margin-bottom: 30px; }
+        .logo-container img { height: 70px; }
+        h1 { color: var(--mario-navy); margin-bottom: 25px; text-transform: uppercase; font-weight: 900; font-size: 28px; text-align: center; }
+        h1 span { color: var(--mario-orange); }
+        h2 { margin-top: 30px; margin-bottom: 12px; font-size: 18px; font-weight: 800; color: var(--mario-navy); text-transform: uppercase; letter-spacing: 1px; }
+        p { line-height: 1.7; margin-bottom: 15px; color: #4A5568; font-size: 15px; }
+        .btn-back { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 40px; padding: 15px 30px; background: var(--mario-navy); color: white; text-decoration: none; border-radius: 12px; font-weight: 800; text-transform: uppercase; transition: 0.3s; }
+        .btn-back:hover { background: var(--mario-orange); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo">
+        </div>
+        
+        <h1>Retourbeleid & <span>Garantie</span></h1>
+        
+        <p>Bij <strong>Mario DHZ Specialist & Totaalrenovaties</strong> staat klanttevredenheid voorop. Bent u niet 100% tevreden met uw aankoop of heeft u te veel ingeslagen voor uw klus? Dan kunt u rekenen op ons eerlijke en transparante retourbeleid.</p>
+
+        <h2>1. Bedenktijd (Zichttermijn)</h2>
+        <p>U heeft het recht om uw online bestelling binnen 14 dagen na ontvangst zonder opgave van redenen te annuleren en te retourneren. Het artikel dient ongebruikt, onbeschadigd en in de originele, ongeopende verpakking te zitten. <br><br><strong>Uitzondering:</strong> Op maat gemaakte producten, zoals verf die speciaal voor u is gemengd op onze verfmengmachine, zijn wettelijk uitgesloten van het herroepingsrecht en kunnen niet worden geretourneerd.</p>
+
+        <h2>2. Hoe retourneer ik een product?</h2>
+        <p>Om retourkosten en gedoe te besparen, kunt u uw product(en) eenvoudig, veilig en kosteloos retourneren in onze fysieke winkel aan de <strong>Driekoningenstraat 73, 2600 Berchem</strong>. Neem altijd uw originele aankoopbewijs of factuur mee.</p>
+
+        <h2>3. Terugbetaling</h2>
+        <p>Zodra wij uw retour in de winkel hebben geaccepteerd of in goede staat retour hebben ontvangen via de post, storten wij het aankoopbedrag (exclusief eventuele verzendkosten) binnen 5 werkdagen terug via de originele betaalmethode.</p>
+
+        <h2>4. Garantie & Defecten</h2>
+        <p>Is uw product defect of beschadigd bij levering? Neem dan direct contact met onze klantenservice op via <strong>Info@tmkdhz.be</strong> of bel ons op <strong>0479/93.58.48</strong>. Wij zorgen direct voor een vervangend artikel of een passende oplossing.</p>
+
+        <a href="winkel.html" class="btn-back"><i class="fas fa-arrow-left"></i> Terug naar de winkel</a>
+    </div>
+</body>
+</html>
