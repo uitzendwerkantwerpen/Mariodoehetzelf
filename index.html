@@ -534,9 +534,9 @@
 
         let currentExpert = 'algemeen';
         const expertProfiles = {
-            algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent AI assistent van 'Mario DHZ'. Geef kort advies (max 3 zinnen)." },
-            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent verf-specialist van 'Mario DHZ'. Adviseer over Levis. Geef kort antwoord (max 3 zinnen)." },
-            techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Geef kort antwoord." }
+            algemeen: { greeting: "Welkom! Heeft u vragen over onze bouwmaterialen? Ik help u graag verder.", prompt: "Je bent de AI assistent van 'Mario DHZ Specialist & Totaalrenovaties' in Berchem. Geef vriendelijk, professioneel en kort advies (max 3 zinnen)." },
+            verf: { greeting: "Hallo. Zoekt u advies over verf of lakken? Wij mengen Levis.", prompt: "Je bent de verf-specialist van 'Mario DHZ' in Berchem. Adviseer over Levis verf en schilderen. Geef kort en krachtig antwoord (max 3 zinnen)." },
+            techniek: { greeting: "Goedendag. Vragen over elektriciteit of sanitair?", prompt: "Je bent technisch adviseur van 'Mario DHZ'. Je helpt met vragen over Niko schakelmateriaal, sanitair en gereedschap. Geef kort antwoord." }
         };
 
         expertBtns.forEach(btn => {
@@ -574,11 +574,8 @@
         }
 
         async function generateBotResponse(userInput) {
-            const API_KEY = 'JOUW_NIEUWE_API_SLEUTEL_HIER'; 
-            if (API_KEY === 'JOUW_NIEUWE_API_SLEUTEL_HIER') {
-                appendMessage("❌ Systeemfout: Voeg eerst je nieuwe API-sleutel toe in de code.", 'msg-bot');
-                return;
-            }
+            // HIER IS JOUW LIVE API SLEUTEL INGEVULD! 🔥
+            const API_KEY = 'AIzaSyDwYQXk-J875f6bSm87BjsMaKrBwhp5w9M'; 
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
             const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
 
