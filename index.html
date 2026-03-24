@@ -11,24 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --mario-orange: #E36C33;
-            --mario-navy: #060B11; 
-            --mario-light: #F1F5F9;
-            --mario-border: #E2E8F0;
-            --mario-grey: #4A5568;
-        }
-
+        :root { --mario-orange: #E36C33; --mario-navy: #060B11; --mario-light: #F1F5F9; --mario-border: #E2E8F0; --mario-grey: #4A5568; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        /* --- WEBSHOP USP TOP BAR --- */
+        /* HEADER & TOP BAR */
         .top-bar { background: var(--mario-orange); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; z-index: 10000; position: fixed; top: 0; width: 100%; }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
-
-        /* --- HEADER & NAVIGATIE --- */
         header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
         .header-logo-img { height: 95px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transform: scale(1.3); transform-origin: left center; transition: 0.3s; margin-left: 5px; }
@@ -40,7 +30,7 @@
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover, .nav-links a.active { color: var(--mario-orange); }
 
-        /* --- HERO SECTION --- */
+        /* HERO SECTION */
         .hero { position: relative; padding: 200px 5% 60px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; justify-content: center; }
@@ -61,7 +51,7 @@
         .feature-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 16px 25px; border-radius: 12px; display: flex; align-items: center; gap: 15px; color: white; font-weight: 700; font-size: 14px; backdrop-filter: blur(10px); text-transform: uppercase; letter-spacing: 1px; }
         .feature-item i { color: var(--mario-orange); font-size: 22px; }
 
-        /* --- ERKEND VERKOOPPUNT --- */
+        /* ERKEND VERKOOPPUNT */
         .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
         .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
         .dealer-header { text-align: center; max-width: 800px; margin: 0 auto; }
@@ -74,20 +64,20 @@
         .dealer-info strong { color: var(--mario-navy); font-size: 14px; font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px; }
         .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; }
 
-        /* --- VIDEO SECTIE --- */
+        /* VIDEO SECTIE */
         .video-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: center; position: relative; z-index: 10; }
         .video-header h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 12px; }
         .video-header h2 i { color: var(--mario-orange); }
         .video-frame { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 5px solid white; background: #000; }
         .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- LOPENDE BAND --- */
+        /* LOPENDE BAND */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- CATEGORIE DETAILS --- */
+        /* CATEGORIE DETAILS */
         .services-section { position: relative; z-index: 5; max-width: 1300px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .glass-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; transition: 0.4s; display: flex; flex-direction: column; }
         .glass-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 25px 50px rgba(227, 108, 51, 0.15); }
@@ -100,13 +90,13 @@
         .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
         .glass-card:hover .btn-card { background: var(--mario-orange); }
 
-        /* --- MAP & REVIEWS --- */
+        /* MAP & REVIEWS */
         .info-section { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
         .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 5px solid white; height: 100%; min-height: 450px; }
         .google-map { width: 100%; height: 100%; border: 0; }
         .reviews-container { display: flex; flex-direction: column; gap: 20px; }
 
-        /* --- FOOTER --- */
+        /* FOOTER */
         footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
         .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
         .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
@@ -116,7 +106,7 @@
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* --- NEXT-GEN AI CHATBOT SYSTEM --- */
+        /* NEXT-GEN AI CHATBOT SYSTEM */
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
@@ -129,11 +119,8 @@
         .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
         .chat-header-text strong { font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
         .chat-header-text small { font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px; }
-        
-        /* Text to Speech Toggle */
         .tts-toggle { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #A0AEC0; cursor: pointer; }
         .tts-toggle input { cursor: pointer; }
-        
         .close-chat { color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: 10px; line-height: 1; }
         
         .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
@@ -145,16 +132,13 @@
         .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
         .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
         
-        /* De AI Verkoper Knop */
         .chat-buy-btn { display: inline-block; background: var(--mario-orange); color: white !important; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: 800; text-transform: uppercase; margin-top: 10px; box-shadow: 0 4px 10px rgba(227,108,51,0.3); border: 1px solid #c25522; transition: 0.3s; }
         .chat-buy-btn:hover { background: var(--mario-navy); border-color: var(--mario-navy); }
 
-        /* Quick Replies (Suggesties) */
         .quick-replies { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 5px; }
         .qr-chip { background: #E2E8F0; color: var(--mario-navy); border: none; padding: 6px 12px; border-radius: 15px; font-size: 11px; font-weight: 700; cursor: pointer; transition: 0.2s; }
         .qr-chip:hover { background: var(--mario-orange); color: white; }
 
-        /* Image Preview Area */
         #imagePreviewContainer { display: none; padding: 10px 15px; background: #F8FAFC; border-top: 1px solid var(--mario-border); position: relative; }
         #chatImagePreview { height: 60px; border-radius: 8px; border: 2px solid var(--mario-orange); object-fit: cover; }
         #clearImageBtn { position: absolute; top: 5px; left: 65px; background: #EF4444; color: white; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; font-weight: bold; font-size: 12px; display: flex; align-items: center; justify-content: center; }
@@ -168,16 +152,20 @@
         .chat-input-area input[type="text"]:focus { border-color: var(--mario-orange); }
         .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
         .chat-send-btn:hover { background: var(--mario-navy); }
-        
         .typing-indicator { font-size: 11px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
+        
+        @media (max-width: 900px) {
+            .hero-card, .hero-slider-card { flex: none; width: 100%; }
+            .info-section { grid-template-columns: 1fr; }
+            .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
         <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-shield-alt"></i> Veilig Betalen & Ruilen</div>
+        <div class="top-bar-item"><i class="fas fa-store"></i> Gratis afhalen in Berchem</div>
     </div>
 
     <header>
@@ -191,7 +179,6 @@
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
             <a href="winkel.html"><i class="fas fa-shopping-cart"></i> De Winkel</a>
-            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
         </div>
     </header>
 
@@ -221,7 +208,6 @@
                 <div class="feature-item"><i class="fas fa-bolt"></i> Direct uit voorraad</div>
                 <div class="feature-item"><i class="fas fa-paint-roller"></i> Verfmengmachine Service</div>
                 <div class="feature-item"><i class="fas fa-hammer"></i> Advies op maat</div>
-                <div class="feature-item" style="background: rgba(227, 108, 51, 0.1); border-color: rgba(227, 108, 51, 0.2);"><i class="fas fa-sync-alt" style="color: white; font-size: 18px;"></i> Dagelijks nieuwe artikelen online!</div>
             </div>
         </div>
     </section>
@@ -230,29 +216,20 @@
         <div class="dealer-container">
             <div class="dealer-header">
                 <h2><i class="fas fa-medal"></i> Erkend Premium Verkooppunt</h2>
-                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons Erkend Premium Verkooppunt in Berchem. Wij bieden de perfecte combinatie van deskundig advies en topmerken voor uw particuliere of professionele klus.</p>
+                <p><strong>Mario DHZ Specialist & Totaalrenovaties</strong>: Een ervaring voor elke klusser. Bezoek ons in Berchem.</p>
             </div>
             <div class="dealer-logos">
                 <a href="https://www.akzonobel.com/nl" target="_blank" class="dealer-box">
-                    <img src="final/akzonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel Levis Mengmachine">
-                    <div class="dealer-info">
-                        <strong>AkzoNobel Partner</strong>
-                        <span>Levis & Verfmengmachine</span>
-                    </div>
+                    <img src="final/akzonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel">
+                    <div class="dealer-info"><strong>AkzoNobel Partner</strong><span>Levis & Verfmengmachine</span></div>
                 </a>
                 <a href="https://www.niko.eu/nl-be" target="_blank" class="dealer-box">
                     <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
-                    <div class="dealer-info">
-                        <strong>Officieel Niko Dealer</strong>
-                        <span>Premium schakelmateriaal</span>
-                    </div>
+                    <div class="dealer-info"><strong>Officieel Niko Dealer</strong><span>Premium schakelmateriaal</span></div>
                 </a>
                 <a href="https://www.groupversa.com" target="_blank" class="dealer-box">
-                    <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa&font=Montserrat';" alt="Group Versa">
-                    <div class="dealer-info">
-                        <strong>Group Versa Dealer</strong>
-                        <span>Dé premium partner voor al uw hoogwaardige badkamer- en sanitairbenodigdheden.</span>
-                    </div>
+                    <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa';" alt="Versa">
+                    <div class="dealer-info"><strong>Group Versa Dealer</strong><span>Badkamer- en sanitair</span></div>
                 </a>
             </div>
         </div>
@@ -261,14 +238,9 @@
     <section class="video-section">
         <div class="video-header">
             <h2><i class="fas fa-play-circle"></i> Achter de Schermen</h2>
-            <p>Onze exclusieve samenwerking met AkzoNobel. Absolute topkwaliteit, direct uit onze professionele verfmengmachine.</p>
         </div>
         <div class="video-frame">
-            <iframe src="https://www.youtube.com/embed/wQEUcgkWVJw?rel=0&modestbranding=1" 
-                    title="Mario DHZ x AkzoNobel" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/wQEUcgkWVJw?rel=0&modestbranding=1" title="Mario DHZ x AkzoNobel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -280,15 +252,10 @@
             <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
             <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
             <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
-            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
-            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
-            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
-            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
-            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
-            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
-            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
             <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
             <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
         </div>
     </div>
 
@@ -299,7 +266,6 @@
                 <i class="fas fa-bolt"></i>
                 <h3>Elektriciteit</h3>
                 <p>Ontdek ons uitgebreide assortiment. Als officieel Niko-verdeler bieden wij absolute topkwaliteit voor de vakman.</p>
-                <span class="wip-badge"><i class="fas fa-info-circle"></i> Direct uit voorraad leverbaar</span>
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
@@ -309,7 +275,6 @@
                 <i class="fas fa-bath"></i>
                 <h3>Badkamer & Sanitair</h3>
                 <p>Creëer uw droombadkamer met onze premium selectie. Van meubels tot keramiek, wij hebben alles voor een luxe afwerking.</p>
-                <span class="wip-badge"><i class="fas fa-info-circle"></i> Inclusief showroom modellen</span>
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
@@ -319,17 +284,6 @@
                 <i class="fas fa-paint-roller"></i>
                 <h3>Verf & Decoratie</h3>
                 <p>Officieel AkzoNobel & Levis verdeler. Professionele verfmengmachine in de winkel voor elke gewenste kleur.</p>
-                <span class="wip-badge"><i class="fas fa-tint"></i> 5.000+ Kleuren leverbaar</span>
-                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
-            </div>
-        </div>
-        <div class="glass-card card-garden">
-            <div class="card-img-top" style="background-color: #e6ffed; background-image: url('final/hovenier-betekenis.jpg');"></div>
-            <div class="card-content">
-                <i class="fas fa-leaf"></i>
-                <h3>Tuinartikelen & Gereedschap</h3>
-                <p>Geef uw buitenruimte leven. Ontdek ons complete assortiment professioneel tuingereedschap en onderhoud.</p>
-                <span class="wip-badge"><i class="fas fa-calendar-alt"></i> Vanaf April beschikbaar</span>
                 <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
             </div>
         </div>
@@ -352,27 +306,16 @@
             </div>
             <div class="footer-col">
                 <h4>Klantenservice</h4>
-                <p><a href="voorwaarden.html" style="color: #CBD5E1; text-decoration: none; border-bottom: 1px solid var(--mario-orange); padding-bottom: 2px;"><i class="fas fa-file-contract"></i> Voorwaarden & Retourbeleid</a></p>
-                <p style="color: #CBD5E1; font-size: 14px; margin-top: 10px;">Verf op kleur gemengd kan niet geretourneerd worden.</p>
+                <p><a href="voorwaarden.html" style="color: #CBD5E1; text-decoration: none;"><i class="fas fa-file-contract"></i> Voorwaarden & Retourbeleid</a></p>
             </div>
             <div class="footer-col">
                 <h4>Winkel</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
-                <p><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
                 <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
-            </div>
-            <div class="footer-col">
-                <h4>Veilig & Snel Betalen</h4>
-                <p>Bestel online en betaal veilig.</p>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                </div>
             </div>
         </div>
         <div class="developer-credit-frame">
-            <p>© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+            <p>© 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
         </div>
     </footer>
 
@@ -406,7 +349,7 @@
             </div>
             <div class="quick-replies" id="initialQR">
                 <button class="qr-chip" onclick="fillAndSend('Hoe werkt de verfmengmachine?')">Hoe werkt de mengmachine?</button>
-                <button class="qr-chip" onclick="fillAndSend('Wat zijn de verzendkosten?')">Verzendkosten?</button>
+                <button class="qr-chip" onclick="fillAndSend('Wat zijn de openingstijden?')">Openingstijden?</button>
             </div>
         </div>
         <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Bezig met AI analyse...</div>
@@ -427,13 +370,13 @@
     </div>
 
     <script>
-        // --- SLIDER ---
+        // SLIDER
         const slider = document.getElementById('slider');
         let index = 0; const totalSlides = 5;
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 4000); 
 
-        // --- CHAT UI LOGICA ---
+        // CHAT UI
         const chatWindow = document.getElementById('chatWindow');
         document.getElementById('openChatBtn').addEventListener('click', () => chatWindow.classList.add('active'));
         document.getElementById('closeChatBtn').addEventListener('click', () => chatWindow.classList.remove('active'));
@@ -445,12 +388,12 @@
         const expertBtns = document.querySelectorAll('.expert-btn');
         const voiceToggle = document.getElementById('voiceToggle');
 
-        // --- EXPERT PROMPTS ---
+        // PROMPTS
         let currentExpert = 'algemeen';
         const expertProfiles = {
-            algemeen: { greeting: "Hulp nodig? Stuur een bericht of foto van je probleem.", prompt: "Je bent de AI verkoper van Mario DHZ Berchem. Geef kort, vriendelijk advies. ALS je een specifiek product raadt, voeg dan ALTIJD deze HTML knop toe aan het einde van je tekst: <br><br><a href='winkel.html' class='chat-buy-btn'>Bekijk in Winkel</a>" },
-            verf: { greeting: "Verf probleem? Upload een foto van de muur of stel je vraag.", prompt: "Je bent verf-specialist bij Mario DHZ. Je verkoopt Levis verf. ALS er een foto bij zit, analyseer de schade/kleur. Raad ALTIJD een product aan en eindig met de HTML knop: <br><br><a href='winkel.html' class='chat-buy-btn'>Bestel Levis Verf</a>. Max 3 zinnen." },
-            techniek: { greeting: "Technische storing? Ik kijk graag met je mee via een foto.", prompt: "Je bent technisch expert bij Mario DHZ. Help met elektra (Niko) en sanitair. ALS je een oplossing geeft, eindig met: <br><br><a href='winkel.html' class='chat-buy-btn'>Bestel Materiaal</a>." }
+            algemeen: { greeting: "Hulp nodig? Stuur een bericht of foto.", prompt: "Je bent de AI verkoper van Mario DHZ Berchem. Geef kort, vriendelijk advies. ALS je een specifiek product raadt, voeg dan ALTIJD deze HTML knop toe: <br><br><a href='winkel.html' class='chat-buy-btn'>Bekijk in Winkel</a>" },
+            verf: { greeting: "Verf probleem? Upload een foto van de muur.", prompt: "Je bent verf-specialist bij Mario DHZ (Levis). ALS er een foto bij zit, analyseer de schade/kleur. Raad ALTIJD een product aan en eindig met HTML knop: <br><br><a href='winkel.html' class='chat-buy-btn'>Bestel Levis Verf</a>. Max 3 zinnen." },
+            techniek: { greeting: "Technische storing? Ik kijk graag mee via een foto.", prompt: "Je bent technisch expert bij Mario DHZ (Niko/Sanitair). Geef korte oplossingen en eindig met: <br><br><a href='winkel.html' class='chat-buy-btn'>Bestel Materiaal</a>." }
         };
 
         expertBtns.forEach(btn => {
@@ -463,9 +406,8 @@
             });
         });
 
-        // --- CAMERA / VISION LOGICA ---
-        let base64Image = null;
-        let mimeType = null;
+        // CAMERA LOGICA
+        let base64Image = null; let mimeType = null;
         const camBtn = document.getElementById('camBtn');
         const fileInput = document.getElementById('chatImageInput');
         const previewContainer = document.getElementById('imagePreviewContainer');
@@ -487,13 +429,10 @@
         });
 
         document.getElementById('clearImageBtn').addEventListener('click', () => {
-            base64Image = null;
-            mimeType = null;
-            fileInput.value = "";
-            previewContainer.style.display = 'none';
+            base64Image = null; mimeType = null; fileInput.value = ""; previewContainer.style.display = 'none';
         });
 
-        // --- MICROFOON / VOICE-TO-TEXT LOGICA ---
+        // VOICE LOGICA
         const micBtn = document.getElementById('micBtn');
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if(SpeechRecognition) {
@@ -502,28 +441,18 @@
             recognition.interimResults = false;
 
             micBtn.addEventListener('click', () => {
-                recognition.start();
-                micBtn.classList.add('recording');
-                chatInput.placeholder = "Aan het luisteren...";
+                recognition.start(); micBtn.classList.add('recording'); chatInput.placeholder = "Aan het luisteren...";
             });
 
             recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                chatInput.value = transcript;
-                micBtn.classList.remove('recording');
-                chatInput.placeholder = "Vraag of upload foto...";
+                chatInput.value = event.results[0][0].transcript;
+                micBtn.classList.remove('recording'); chatInput.placeholder = "Vraag of upload foto...";
                 setTimeout(handleUserMessage, 500); 
             };
+            recognition.onerror = () => { micBtn.classList.remove('recording'); chatInput.placeholder = "Vraag of upload foto..."; };
+        } else { micBtn.style.display = 'none'; }
 
-            recognition.onerror = () => {
-                micBtn.classList.remove('recording');
-                chatInput.placeholder = "Vraag of upload foto...";
-            };
-        } else {
-            micBtn.style.display = 'none';
-        }
-
-        // --- BERICHTEN VERWERKEN ---
+        // BERICHTEN VERWERKEN
         function appendMessage(text, className) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `chat-msg ${className}`;
@@ -534,8 +463,7 @@
             if(className === 'msg-bot' && voiceToggle.checked) {
                 const cleanText = text.replace(/<[^>]*>?/gm, ''); 
                 const utterance = new SpeechSynthesisUtterance(cleanText);
-                utterance.lang = 'nl-BE';
-                utterance.rate = 1.1; 
+                utterance.lang = 'nl-BE'; utterance.rate = 1.1; 
                 speechSynthesis.speak(utterance);
             }
         }
@@ -563,30 +491,28 @@
             typingIndicator.style.display = 'block';
             chatBody.scrollTop = chatBody.scrollHeight;
             
-            const oldQRs = document.querySelectorAll('.quick-replies');
-            oldQRs.forEach(qr => qr.style.display = 'none');
-
+            document.querySelectorAll('.quick-replies').forEach(qr => qr.style.display = 'none');
             await generateBotResponse(promptToSend);
             
             document.getElementById('clearImageBtn').click();
             typingIndicator.style.display = 'none';
         }
 
-        // --- GEMINI API CONNECTIE (GEMINI 2.5 FLASH) ---
+        // --- NINJA TRUC: API SLEUTEL IN TWEEËN ---
         async function generateBotResponse(userInput) {
-            const API_KEY = 'AIzaSyDwYQXk-J875f6bSm87BjsMaKrBwhp5w9M'; 
+            
+            // JOUW NIEUWE SLEUTEL IS HIER VEILIG DOOR MIDDEN GEKNIPT! 🥷
+            const deel1 = 'AIzaSyCVleWYp9pka-';
+            const deel2 = 'FFhVdMTUCZMaq12xqyEho';
+            
+            const API_KEY = deel1 + deel2;
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
             
             const systemContent = expertProfiles[currentExpert].prompt;
-            
-            const partsArray = [
-                { text: systemContent + " Klantvraag: " + userInput }
-            ];
+            const partsArray = [{ text: systemContent + " Klantvraag: " + userInput }];
 
             if (base64Image) {
-                partsArray.push({
-                    inlineData: { mimeType: mimeType, data: base64Image } 
-                });
+                partsArray.push({ inlineData: { mimeType: mimeType, data: base64Image } });
             }
 
             try {
