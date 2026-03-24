@@ -42,55 +42,52 @@
         #fixItLoading { display: none; color: var(--mario-orange); margin-top: 20px; font-weight: 800; font-size: 18px; }
         #fixItResult { display: none; margin-top: 30px; background: var(--mario-light); padding: 40px; border-radius: 12px; text-align: left; border-left: 5px solid var(--mario-orange); box-shadow: inset 0 2px 10px rgba(0,0,0,0.05); }
         #fixItPreview { max-width: 250px; width: 100%; border-radius: 8px; margin-bottom: 20px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: block; }
-        
-        /* Opgemaakte AI Tekst */
         .ai-report-text h3 { color: var(--mario-navy); font-size: 20px; margin: 25px 0 10px; text-transform: uppercase; font-weight: 900; border-bottom: 2px solid var(--mario-border); padding-bottom: 5px; }
         .ai-report-text p, .ai-report-text li { color: #4A5568; line-height: 1.8; font-size: 16px; margin-bottom: 10px; }
         .ai-report-text ul { margin-left: 20px; margin-bottom: 20px; }
-        .ai-report-text strong { color: var(--mario-navy); }
 
         /* --- PRODUCT GRID --- */
-        .category-title { text-align: center; color: var(--mario-navy); font-size: 32px; font-weight: 900; text-transform: uppercase; margin: 60px 0 20px; }
-        .category-title span { color: var(--mario-orange); }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto 80px; padding: 0 20px; }
+        .category-section { margin-bottom: 80px; }
+        .category-header { background: white; padding: 20px 5%; border-bottom: 2px solid var(--mario-border); border-top: 2px solid var(--mario-border); margin-bottom: 40px; }
+        .category-title { max-width: 1300px; margin: 0 auto; color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; display: flex; align-items: center; gap: 15px; }
+        .category-title i { color: var(--mario-orange); }
         
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1300px; margin: 0 auto; padding: 0 20px; }
         .product-card { background: white; border-radius: 16px; border: 1px solid var(--mario-border); padding: 30px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.3s; display: flex; flex-direction: column; position: relative; overflow: hidden; }
         .product-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
-        .product-img { width: 100%; height: 250px; object-fit: contain; margin-bottom: 20px; mix-blend-mode: multiply; transition: 0.3s; }
+        .product-img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; mix-blend-mode: multiply; transition: 0.3s; }
         .product-card:hover .product-img { transform: scale(1.05); }
         .product-brand { color: var(--mario-orange); font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
-        .product-title { color: var(--mario-navy); font-size: 22px; font-weight: 900; margin-bottom: 15px; line-height: 1.3; }
-        .product-desc { color: var(--mario-grey); font-size: 15px; margin-bottom: 25px; flex-grow: 1; line-height: 1.6; }
+        .product-title { color: var(--mario-navy); font-size: 20px; font-weight: 900; margin-bottom: 15px; line-height: 1.3; }
+        .product-desc { color: var(--mario-grey); font-size: 14px; margin-bottom: 25px; flex-grow: 1; line-height: 1.6; }
         
-        /* ACTIEVE SHOPIFY CHECKOUT KNOP */
-        .buy-btn { display: block; background: var(--mario-orange); color: white; padding: 18px; border-radius: 8px; text-transform: uppercase; font-weight: 900; text-decoration: none; transition: 0.3s; letter-spacing: 1px; font-size: 15px; }
+        .buy-btn { display: block; background: var(--mario-orange); color: white; padding: 15px; border-radius: 8px; text-transform: uppercase; font-weight: 900; text-decoration: none; transition: 0.3s; letter-spacing: 1px; font-size: 14px; }
         .buy-btn:hover { background: var(--mario-navy); box-shadow: 0 10px 20px rgba(6, 11, 17, 0.2); }
         .buy-btn i { margin-right: 8px; }
+
+        .btn-secondary { display: block; background: #F1F5F9; color: var(--mario-navy); padding: 15px; border-radius: 8px; text-transform: uppercase; font-weight: 900; text-decoration: none; transition: 0.3s; letter-spacing: 1px; font-size: 14px; border: 1px solid var(--mario-border); }
+        .btn-secondary:hover { background: var(--mario-orange); color: white; border-color: var(--mario-orange); }
 
         /* --- HIGH LEVEL PREMIUM E-COMMERCE FOOTER --- */
         .premium-footer { background-color: var(--mario-navy); color: #94A3B8; padding: 80px 5% 20px; font-size: 15px; border-top: 5px solid var(--mario-orange); }
         .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
-        
         .footer-brand h3 { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; }
         .footer-brand h3 span { color: var(--mario-orange); }
         .footer-brand p { line-height: 1.8; margin-bottom: 25px; max-width: 350px; }
         .social-icons { display: flex; gap: 15px; }
         .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; transition: 0.3s; text-decoration: none; }
         .social-icons a:hover { background: var(--mario-orange); transform: translateY(-3px); }
-
         .footer-col h4 { color: white; font-size: 18px; text-transform: uppercase; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 12px; }
         .footer-col ul li a { color: #94A3B8; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
         .footer-col ul li a:hover { color: var(--mario-orange); padding-left: 5px; }
-
         .footer-contact li { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
         .footer-contact i { color: var(--mario-orange); font-size: 20px; margin-top: 3px; }
-        
         .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .payment-methods { display: flex; gap: 10px; align-items: center; }
-        .payment-methods img { height: 30px; background: white; padding: 3px 8px; border-radius: 4px; }
-        
+        .payment-methods i { font-size: 28px; color: #fff; }
+
         @media (max-width: 900px) {
             header { padding: 12px 15px; flex-direction: column; gap: 15px; text-align: center; }
             .logo-frame { justify-content: center; width: 100%; margin-bottom: 5px; }
@@ -99,6 +96,7 @@
             .top-bar-item:not(:first-child) { display: none; }
             .ai-fix-section { margin: 20px 20px 40px; padding: 30px 20px; }
             .btn-ai-upload { width: 100%; justify-content: center; font-size: 14px; padding: 15px; }
+            .category-title { font-size: 22px; justify-content: center; text-align: center; }
             .footer-container { grid-template-columns: 1fr; gap: 40px; }
             .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
         }
@@ -150,26 +148,96 @@
         </div>
     </section>
 
-    <h2 class="category-title">Premium <span>Lijmen & Kitten</span></h2>
-    
-    <div class="product-grid">
-        
-        <div class="product-card">
-            <img src="final/Loctite5g.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g';" alt="Loctite Superlijm 5g" class="product-img">
-            <div class="product-brand">Loctite</div>
-            <h3 class="product-title">Superlijm Universal (5g)</h3>
-            <p class="product-desc">De klassieke vloeibare secondelijm. Extreem sterk, droogt transparant op. Perfect voor precisiewerk, kleine reparaties van plastic, metaal en keramiek.</p>
-            <a href="https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button" target="_blank" class="buy-btn"><i class="fas fa-shopping-cart"></i> Nu Kopen</a>
+    <div class="category-section">
+        <div class="category-header">
+            <h2 class="category-title"><i class="fas fa-layer-group"></i> Premium Lijmen & Kitten</h2>
         </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="loctite5g.jpg" onerror="this.onerror=null; this.src='final/loctite5g.jpg';" alt="Loctite Superlijm 5g" class="product-img">
+                <div class="product-brand">Loctite</div>
+                <h3 class="product-title">Superlijm Universal (5g)</h3>
+                <p class="product-desc">De klassieke vloeibare secondelijm. Extreem sterk, droogt transparant op. Perfect voor precisiewerk, kleine reparaties van plastic, metaal en keramiek.</p>
+                <a href="https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button" target="_blank" class="buy-btn"><i class="fas fa-shopping-cart"></i> Nu Kopen</a>
+            </div>
 
-        <div class="product-card">
-            <img src="final/loctite20g.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+60sec';" alt="Loctite 60sec Superglue" class="product-img">
-            <div class="product-brand">Loctite</div>
-            <h3 class="product-title">60 Sec. Superglue Universeel</h3>
-            <p class="product-desc">Extra sterke, flexibele secondelijm. Geeft je 60 seconden de tijd om te corrigeren voordat hij muurvast zit. Ideaal voor grotere oppervlakken en hout.</p>
-            <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" target="_blank" class="buy-btn"><i class="fas fa-shopping-cart"></i> Nu Kopen</a>
+            <div class="product-card">
+                <img src="loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite 60sec Superglue" class="product-img">
+                <div class="product-brand">Loctite</div>
+                <h3 class="product-title">60 Sec. Superglue Universeel</h3>
+                <p class="product-desc">Extra sterke, flexibele secondelijm. Geeft je 60 seconden de tijd om te corrigeren voordat hij muurvast zit. Ideaal voor grotere oppervlakken en hout.</p>
+                <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" target="_blank" class="buy-btn"><i class="fas fa-shopping-cart"></i> Nu Kopen</a>
+            </div>
         </div>
+    </div>
 
+    <div class="category-section">
+        <div class="category-header">
+            <h2 class="category-title"><i class="fas fa-paint-roller"></i> Verf & Decoratie</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80" alt="Levis Verf" class="product-img" style="border-radius: 8px;">
+                <div class="product-brand">Levis / AkzoNobel</div>
+                <h3 class="product-title">Verfmengmachine Service</h3>
+                <p class="product-desc">Elke gewenste kleur, direct voor u gemengd in onze winkel. Hoogwaardige kwaliteit voor binnen- en buitenmuren.</p>
+                <a href="index.html" class="btn-secondary"><i class="fas fa-info-circle"></i> Meer Info</a>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=400&q=80" alt="Schildersbenodigdheden" class="product-img" style="border-radius: 8px;">
+                <div class="product-brand">Mario DHZ</div>
+                <h3 class="product-title">Schildersbenodigdheden</h3>
+                <p class="product-desc">Van afplaktape tot professionele rollers en kwasten. Alles om uw schilderklus perfect voor te bereiden en af te werken.</p>
+                <a href="#" class="btn-secondary" onclick="alert('Binnenkort online te bestellen! Kom langs in Berchem.'); return false;"><i class="fas fa-store"></i> In de winkel</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <div class="category-header">
+            <h2 class="category-title"><i class="fas fa-bolt"></i> Elektriciteit & Installatie</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko Schakelmateriaal" class="product-img">
+                <div class="product-brand">Niko</div>
+                <h3 class="product-title">Premium Schakelmateriaal</h3>
+                <p class="product-desc">Als officieel dealer bieden wij het complete assortiment schakelaars, stopcontacten en domotica van Niko.</p>
+                <a href="#" class="btn-secondary" onclick="alert('Binnenkort online te bestellen! Kom langs in Berchem.'); return false;"><i class="fas fa-store"></i> In de winkel</a>
+            </div>
+
+            <div class="product-card">
+                <img src="final/bticino.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffffff/e36c33?text=Bticino';" alt="Bticino" class="product-img">
+                <div class="product-brand">Bticino</div>
+                <h3 class="product-title">Deurcommunicatie & Installatie</h3>
+                <p class="product-desc">Professionele parlofonie en installatiemateriaal voor de veeleisende vakman en particuliere klusser.</p>
+                <a href="#" class="btn-secondary" onclick="alert('Binnenkort online te bestellen! Kom langs in Berchem.'); return false;"><i class="fas fa-store"></i> In de winkel</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="category-section">
+        <div class="category-header">
+            <h2 class="category-title"><i class="fas fa-bath"></i> Badkamer & Sanitair</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="final/versa.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffffff/e36c33?text=Versa';" alt="Versa Sanitair" class="product-img">
+                <div class="product-brand">Versa Group</div>
+                <h3 class="product-title">Complete Badkamermeubels</h3>
+                <p class="product-desc">Luxe design badkamermeubels, douchewanden en kranen. Momenteel tot 65% korting op het gehele assortiment!</p>
+                <a href="#" class="btn-secondary" onclick="alert('Binnenkort online te bestellen! Kom langs in Berchem.'); return false;"><i class="fas fa-store"></i> In de winkel</a>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=400&q=80" alt="Sanitair Installatie" class="product-img" style="border-radius: 8px;">
+                <div class="product-brand">Mario DHZ</div>
+                <h3 class="product-title">Loodgieterij & Buizen</h3>
+                <p class="product-desc">Al het benodigde montagemateriaal, PVC buizen, koppelingen en siliconen voor een waterdichte installatie.</p>
+                <a href="#" class="btn-secondary" onclick="alert('Binnenkort online te bestellen! Kom langs in Berchem.'); return false;"><i class="fas fa-store"></i> In de winkel</a>
+            </div>
+        </div>
     </div>
 
     <footer class="premium-footer">
@@ -183,7 +251,6 @@
                     <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-
             <div class="footer-col">
                 <h4>Navigatie</h4>
                 <ul>
@@ -193,7 +260,6 @@
                     <li><a href="#"><i class="fas fa-chevron-right"></i> Verfmengmachine</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Klantenservice</h4>
                 <ul>
@@ -203,36 +269,28 @@
                     <li><a href="#"><i class="fas fa-chevron-right"></i> Privacybeleid</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Contact Info</h4>
                 <ul class="footer-contact">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Winkel Berchem</strong><br>
-                            Driekoningenstraat 73<br>2600 Berchem, België
-                        </div>
+                        <div><strong>Winkel Berchem</strong><br>Driekoningenstraat 73<br>2600 Berchem, België</div>
                     </li>
                     <li>
                         <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <strong>Bel of Whatsapp</strong><br>
-                            0479 / 93.58.48
-                        </div>
+                        <div><strong>Bel of Whatsapp</strong><br>0479 / 93.58.48</div>
                     </li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door MS Global Creative Studios.</p>
             <div class="payment-methods">
                 <span style="margin-right: 10px; font-size: 12px; font-weight: bold; text-transform: uppercase;">Veilig betalen via Shopify:</span>
-                <i class="fab fa-cc-visa" style="font-size: 28px; color: #fff;"></i>
-                <i class="fab fa-cc-mastercard" style="font-size: 28px; color: #fff;"></i>
-                <i class="fab fa-cc-paypal" style="font-size: 28px; color: #fff;"></i>
-                <i class="fab fa-cc-apple-pay" style="font-size: 28px; color: #fff;"></i>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
             </div>
         </div>
     </footer>
@@ -267,7 +325,6 @@
                 const base64Image = event.target.result.split(',')[1]; 
                 fixItPreview.src = event.target.result;
                 
-                // 🧠 HET GEÜPGRADEDE WINKEL-BREIN (GEEFT VEEL & PROFESSIONEEL ANTWOORD)
                 const systemPrompt = "Je bent de meester 'Hoe Fix Ik Het?' AI van Mario DHZ. Analyseer de foto extreem goed. Geef een uitgebreid, professioneel antwoord in exact dit formaat: <h3><i class='fas fa-search'></i> Probleem Diagnose</h3> <p>[Geef een uitgebreide analyse van wat er kapot is, welk materiaal het is, en waarom het waarschijnlijk kapot is gegaan.]</p> <h3><i class='fas fa-tools'></i> Reparatie Stappenplan</h3> <p>Volg deze stappen als een professional:</p> <ul><li><strong>Stap 1:</strong> [Voorbereiding/Schoonmaken]</li><li><strong>Stap 2:</strong> [Aanbrengen materiaal]</li><li><strong>Stap 3:</strong> [Drogen/Afwerking]</li></ul> <h3><i class='fas fa-check-circle'></i> Aanbevolen Mario DHZ Product</h3> <p>[Kies VERPLICHT 1 product: 'Loctite Superlijm 5g' (voor precisie/klein) of 'Loctite 60sec Superglue' (voor groot/flexibel). Leg in 2 zinnen uit WAAROM dit de beste keuze is voor deze specifieke klus.]</p> <br> [Als je de 5g kiest, plak EXACT deze code:] <a href='https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button' target='_blank' style='display:inline-flex;align-items:center;gap:10px;background:#E36C33;color:white;padding:15px 30px;border-radius:8px;font-weight:900;text-decoration:none;text-transform:uppercase;box-shadow: 0 10px 20px rgba(227,108,51,0.3);'><i class='fas fa-shopping-cart'></i> Bestel Loctite 5g Direct</a> [Als je de 60sec kiest, plak EXACT deze code:] <a href='https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button' target='_blank' style='display:inline-flex;align-items:center;gap:10px;background:#E36C33;color:white;padding:15px 30px;border-radius:8px;font-weight:900;text-decoration:none;text-transform:uppercase;box-shadow: 0 10px 20px rgba(227,108,51,0.3);'><i class='fas fa-shopping-cart'></i> Bestel Loctite 60sec Direct</a>";
 
                 try {
