@@ -576,7 +576,7 @@
         async function generateBotResponse(userInput) {
             // HIER IS JOUW LIVE API SLEUTEL INGEVULD! 🔥
             const API_KEY = 'AIzaSyDwYQXk-J875f6bSm87BjsMaKrBwhp5w9M'; 
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
             const systemPrompt = expertProfiles[currentExpert].prompt + " Klantvraag: ";
 
             try {
