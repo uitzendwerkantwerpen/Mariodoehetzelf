@@ -27,6 +27,7 @@
         /* --- WEBSHOP USP TOP BAR --- */
         .top-bar { background: var(--mario-orange); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; z-index: 10000; position: fixed; top: 0; width: 100%; }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
+        .top-bar-item i { font-size: 13px; }
 
         /* --- HEADER & NAVIGATIE --- */
         header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -392,8 +393,9 @@
         // --- GEMINI API CONNECTIE (MULTIMODAL) ---
         async function generateBotResponse(userInput) {
             const API_KEY = 'AIzaSyDwYQXk-J875f6bSm87BjsMaKrBwhp5w9M'; 
-            // We gebruiken de 1.5-flash motor omdat deze VISION (foto's) ondersteunt!
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            
+            // HIER IS HIJ GEFIXT: Hij staat nu veilig terug op gemini-2.5-flash! 🔥
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
             
             const systemContent = expertProfiles[currentExpert].prompt;
             
@@ -404,7 +406,7 @@
 
             if (base64Image) {
                 partsArray.push({
-                    inline_data: { mime_type: mimeType, data: base64Image }
+                    inlineData: { mimeType: mimeType, data: base64Image } // Nu met correcte camelCase (inlineData & mimeType)
                 });
             }
 
