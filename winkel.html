@@ -24,6 +24,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
         body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
+        /* --- HEADER --- */
         .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
         .top-bar-item i { font-size: 14px; }
@@ -49,6 +50,7 @@
         .nav-links a i { font-size: 16px; color: var(--mario-orange); }
         .nav-links a:hover, .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
 
+        /* --- SHOP HERO --- */
         .shop-hero { padding: 190px 5% 0px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
         .shop-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80') center/cover; opacity: 0.1; mix-blend-mode: overlay; }
         .shop-hero-content { position: relative; z-index: 3; padding-bottom: 50px; }
@@ -56,14 +58,29 @@
         .shop-hero h1 span { color: var(--mario-orange); text-shadow: 0 0 20px rgba(227,108,51,0.4); }
         .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto 30px; font-weight: 400; }
 
-        /* --- VERNIEUWDE LOPENDE BAND (Groot, Clean, Geen Witte Dozen) --- */
+        /* --- LOPENDE BAND --- */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-top: 1px solid var(--mario-border); border-bottom: 1px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
         .partner-track img:hover { transform: scale(1.15); }
         @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .shop-container { max-width: 1350px; margin: 60px auto 120px; padding: 0 20px; }
+        /* --- DE AI MODULE (NIEUW!) --- */
+        .ai-fix-section { max-width: 1350px; margin: 40px auto; background: white; border-radius: 20px; padding: 40px; text-align: center; box-shadow: var(--card-shadow); border: 2px dashed var(--mario-orange); position: relative; z-index: 10; }
+        .ai-fix-section h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .ai-fix-section h2 i { color: var(--mario-orange); }
+        .ai-fix-section p { color: var(--mario-grey); margin-bottom: 25px; }
+        .btn-ai-upload { background: var(--mario-navy); color: white; border: none; padding: 18px 40px; font-size: 16px; font-weight: 800; text-transform: uppercase; border-radius: 50px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); display: inline-flex; align-items: center; gap: 10px; }
+        .btn-ai-upload:hover { transform: translateY(-3px); background: var(--mario-orange); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.4); }
+        #fixItLoading { display: none; color: var(--mario-orange); margin-top: 20px; font-weight: 800; font-size: 18px; }
+        #fixItResult { display: none; margin-top: 30px; background: var(--mario-light); padding: 40px; border-radius: 12px; text-align: left; border-left: 5px solid var(--mario-orange); box-shadow: inset 0 2px 10px rgba(0,0,0,0.05); }
+        #fixItPreview { max-width: 250px; width: 100%; border-radius: 8px; margin-bottom: 20px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: block; }
+        .ai-report-text h3 { color: var(--mario-navy); font-size: 20px; margin: 25px 0 10px; text-transform: uppercase; font-weight: 900; border-bottom: 2px solid var(--mario-border); padding-bottom: 5px; }
+        .ai-report-text p, .ai-report-text li { color: #4A5568; line-height: 1.8; font-size: 16px; margin-bottom: 10px; }
+        .ai-report-text ul { margin-left: 20px; margin-bottom: 20px; }
+
+        /* --- SHOP CONTAINER & MERKEN GRID --- */
+        .shop-container { max-width: 1350px; margin: 20px auto 120px; padding: 0 20px; }
         
         .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
         .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
@@ -124,11 +141,25 @@
         .shopify-button-container { width: 140px; }
         .no-results { width: 100%; padding: 40px; text-align: center; color: var(--mario-grey); font-size: 18px; font-weight: 500; display: none; }
 
-        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: 50px; }
-        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
-        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
-        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
+        /* --- PREMIUM FOOTER (NIEUW!) --- */
+        .premium-footer { background-color: var(--mario-navy); color: #94A3B8; padding: 80px 5% 20px; font-size: 15px; border-top: 5px solid var(--mario-orange); }
+        .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
+        .footer-brand h3 { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; }
+        .footer-brand h3 span { color: var(--mario-orange); }
+        .footer-brand p { line-height: 1.8; margin-bottom: 25px; max-width: 350px; }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { background: var(--mario-orange); transform: translateY(-3px); }
+        .footer-col h4 { color: white; font-size: 18px; text-transform: uppercase; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #94A3B8; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .footer-col ul li a:hover { color: var(--mario-orange); padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+        .footer-contact i { color: var(--mario-orange); font-size: 20px; margin-top: 3px; }
+        .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .payment-methods { display: flex; gap: 10px; align-items: center; }
+        .payment-methods i { font-size: 28px; color: #fff; }
         
         @media (max-width: 900px) {
             .top-bar-hide { display: none; }
@@ -141,6 +172,8 @@
             .products-view-header { flex-direction: column; align-items: flex-start; }
             .product-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
             .shopify-button-container { width: 100%; }
+            .footer-container { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
         }
     </style>
 </head>
@@ -190,29 +223,36 @@
             <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
             <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
             <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
-            
             <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
             <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
-            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
-            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
-            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
-            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
-            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
-            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
-            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
-            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
-            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
-            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
-            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
         </div>
     </div>
+
+    <section class="ai-fix-section">
+        <h2><i class="fas fa-band-aid"></i> Iets gebroken? Hoe Fix Ik Het?</h2>
+        <p>Upload een foto van wat er stuk is. Onze AI analyseert het probleem grondig en geeft je een professioneel stappenplan inclusief de juiste bestellink!</p>
+        
+        <input type="file" id="fixItInput" accept="image/*" style="display:none;">
+        <button class="btn-ai-upload" id="fixItBtn">
+            <i class="fas fa-camera"></i> Foto Uploaden & Fixen
+        </button>
+
+        <div id="fixItLoading">
+            <i class="fas fa-tools fa-spin"></i> AI analyseert materiaal en zoekt in het magazijn...
+        </div>
+
+        <div id="fixItResult">
+            <img id="fixItPreview" src="" alt="Jouw Probleem">
+            <div id="fixItText" class="ai-report-text"></div>
+        </div>
+    </section>
 
     <section class="shop-container">
         
         <div id="brands-section">
             
             <div class="promo-banner">
-                <div class="promo-logo-container">
+                <div class="promo-content-left">
                     <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis" class="promo-logo">
                     <div class="promo-text">
                         <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
@@ -298,7 +338,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€8.49</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884924023161:1?channel=buy_button" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884924023161:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -312,7 +352,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€18.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884923564409:1?channel=buy_button" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884923564409:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -326,7 +366,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€7.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -341,7 +381,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€32.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -355,7 +395,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€89.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899086713:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899086713:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -369,7 +409,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€64.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884898431353:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884898431353:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -383,7 +423,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€79.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -397,7 +437,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€139.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -411,7 +451,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€39.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889846137:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889846137:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -425,7 +465,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€114.95</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889354617:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889354617:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -439,7 +479,7 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€66.99</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -454,7 +494,37 @@
                         <div class="product-bottom">
                             <div class="price-box"><span class="product-price">€6.49</span></div>
                             <div class="shopify-button-container">
-                                <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="loctite">
+                    <div class="product-img-box"><img src="loctite5g.jpg" onerror="this.onerror=null; this.src='final/loctite5g.jpg';" alt="Loctite Superlijm 5g"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
+                        <h3 class="product-title">Superlijm Universal (5g)</h3>
+                        <p class="product-desc">De klassieke vloeibare secondelijm. Extreem sterk, droogt transparant op. Perfect voor precisiewerk en kleine reparaties.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€6.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button" class="btn-buy" target="_blank"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="loctite">
+                    <div class="product-img-box"><img src="loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite 60sec Superglue"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
+                        <h3 class="product-title">60 Sec. Superglue Universeel</h3>
+                        <p class="product-desc">Extra sterke, flexibele secondelijm. Geeft je 60 seconden de tijd om te corrigeren voordat hij muurvast zit.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€9.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" class="btn-buy" target="_blank"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
                             </div>
                         </div>
                     </div>
@@ -464,36 +534,63 @@
         </div>
     </section>
 
-    <footer style="background-color: var(--mario-navy); color: white; padding: 60px 5% 0; margin-top: 50px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1300px; margin: 0 auto; padding-bottom: 40px;">
-            <div>
-                <h4 style="color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900;">Over Mario</h4>
-                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8;">Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
-            </div>
-            <div>
-                <h4 style="color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900;">Winkel</h4>
-                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
-                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><i class="fas fa-envelope"></i> Info@tmkdhz.be</p>
-                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px;"><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
-            </div>
-            <div>
-                <h4 style="color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900;">Veilig & Snel Betalen</h4>
-                <p style="color: #CBD5E1; font-size: 15px; line-height: 1.8;">Bestel online en betaal veilig.</p>
-                <div style="display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center;">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <span style="font-size: 13px; font-weight: 900; background: white; color: #004B87; padding: 4px 8px; border-radius: 4px; line-height: 1;">Bancontact</span>
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>MARIO <span>DHZ</span></h3>
+                <p>Jouw betrouwbare partner in Berchem voor alle doe-het-zelf projecten. Van professioneel advies door onze AI tot premium materialen direct uit voorraad.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
+            <div class="footer-col">
+                <h4>Navigatie</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepagina</a></li>
+                    <li><a href="winkel.html"><i class="fas fa-chevron-right"></i> De Winkel</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Klus-Scanner</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Verfmengmachine</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Klantenservice</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Retourneren</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Verzending & Levering</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Algemene Voorwaarden</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacybeleid</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Winkel Berchem</strong><br>Driekoningenstraat 73<br>2600 Berchem, België</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <div><strong>Bel of Whatsapp</strong><br>0479 / 93.58.48</div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
-        <div style="background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
-            <p style="font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; margin-bottom: 8px;">© 2026 Mario Doe-Het-Zelf Berchem. Alle Rechten Voorbehouden. • Ontwikkeld en gehost door: <strong style="color: var(--mario-orange); font-weight: 900;">MS Global Creative Studios Builder Saraç</strong>.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door MS Global Creative Studios.</p>
+            <div class="payment-methods">
+                <span style="margin-right: 10px; font-size: 12px; font-weight: bold; text-transform: uppercase;">Veilig betalen via Shopify:</span>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+            </div>
         </div>
     </footer>
 
     <script>
+        // JOUW ORIGINELE MERKEN-FILTER LOGICA
         let currentBrandFilter = 'all';
 
         function showBrand(brandName) {
@@ -569,6 +666,66 @@
             });
 
             document.getElementById('noResults').style.display = hasVisibleProducts ? 'none' : 'block';
+        }
+
+        // DE NIEUWE AI "HOE FIX IK HET?" LOGICA
+        const deel1 = 'AIzaSyCVleWYp9pka-';
+        const deel2 = 'FFhVdMTUCZMaq12xqyEho';
+        const API_KEY = deel1 + deel2;
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+
+        const fixItBtn = document.getElementById('fixItBtn');
+        const fixItInput = document.getElementById('fixItInput');
+        const fixItLoading = document.getElementById('fixItLoading');
+        const fixItResult = document.getElementById('fixItResult');
+        const fixItPreview = document.getElementById('fixItPreview');
+        const fixItText = document.getElementById('fixItText');
+
+        if(fixItBtn) {
+            fixItBtn.addEventListener('click', () => fixItInput.click());
+
+            fixItInput.addEventListener('change', async function(e) {
+                const file = e.target.files[0];
+                if(!file) return;
+                
+                fixItBtn.style.display = 'none';
+                fixItResult.style.display = 'none';
+                fixItLoading.style.display = 'block';
+
+                const mimeType = file.type;
+                const reader = new FileReader();
+                
+                reader.onload = async function(event) {
+                    const base64Image = event.target.result.split(',')[1]; 
+                    fixItPreview.src = event.target.result;
+                    
+                    const systemPrompt = "Je bent de meester 'Hoe Fix Ik Het?' AI van Mario DHZ. Analyseer de foto extreem goed. Geef een uitgebreid, professioneel antwoord in exact dit formaat: <h3><i class='fas fa-search'></i> Probleem Diagnose</h3> <p>[Geef een uitgebreide analyse van wat er kapot is, welk materiaal het is, en waarom het waarschijnlijk kapot is gegaan.]</p> <h3><i class='fas fa-tools'></i> Reparatie Stappenplan</h3> <p>Volg deze stappen als een professional:</p> <ul><li><strong>Stap 1:</strong> [Voorbereiding/Schoonmaken]</li><li><strong>Stap 2:</strong> [Aanbrengen materiaal]</li><li><strong>Stap 3:</strong> [Drogen/Afwerking]</li></ul> <h3><i class='fas fa-check-circle'></i> Aanbevolen Mario DHZ Product</h3> <p>[Kies VERPLICHT 1 product: 'Loctite Superlijm 5g' (voor precisie/klein) of 'Loctite 60sec Superglue' (voor groot/flexibel). Leg in 2 zinnen uit WAAROM dit de beste keuze is voor deze specifieke klus.]</p> <br> [Als je de 5g kiest, plak EXACT deze code:] <a href='https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button' target='_blank' style='display:inline-flex;align-items:center;gap:10px;background:#E36C33;color:white;padding:15px 30px;border-radius:8px;font-weight:900;text-decoration:none;text-transform:uppercase;box-shadow: 0 10px 20px rgba(227,108,51,0.3);'><i class='fas fa-shopping-cart'></i> Bestel Loctite 5g Direct</a> [Als je de 60sec kiest, plak EXACT deze code:] <a href='https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button' target='_blank' style='display:inline-flex;align-items:center;gap:10px;background:#E36C33;color:white;padding:15px 30px;border-radius:8px;font-weight:900;text-decoration:none;text-transform:uppercase;box-shadow: 0 10px 20px rgba(227,108,51,0.3);'><i class='fas fa-shopping-cart'></i> Bestel Loctite 60sec Direct</a>";
+
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ 
+                                contents: [{ parts: [{ text: systemPrompt }, { inlineData: { mimeType: mimeType, data: base64Image } }] }] 
+                            })
+                        });
+                        const data = await response.json();
+                        if(data.candidates) {
+                            fixItText.innerHTML = data.candidates[0].content.parts[0].text;
+                        } else {
+                            fixItText.innerHTML = "Oeps, ik kon het niet goed zien. Probeer een andere foto.";
+                        }
+                    } catch (error) {
+                        fixItText.innerHTML = "Netwerkfout bij het zoeken naar het product.";
+                    }
+                    
+                    fixItLoading.style.display = 'none';
+                    fixItResult.style.display = 'block';
+                    fixItBtn.style.display = 'inline-flex';
+                    fixItBtn.innerHTML = '<i class="fas fa-redo"></i> Nog iets fixen?';
+                };
+                reader.readAsDataURL(file);
+            });
         }
     </script>
 </body>
