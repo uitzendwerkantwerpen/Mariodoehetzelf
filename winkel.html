@@ -27,17 +27,18 @@
         /* --- HEADER --- */
         .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
+        .top-bar-item i { font-size: 14px; }
 
         header {
             position: fixed; width: 100%; top: 36px; left: 0; z-index: 9998;
             display: flex; justify-content: space-between; align-items: center;
             padding: 12px 5%; background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
         
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
-        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.2)); }
+        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.2)); transition: 0.3s; }
         
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         .mario-logo-text { font-size: 32px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; letter-spacing: 1px; line-height: 1; }
@@ -50,100 +51,131 @@
         .nav-links a:hover, .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
 
         /* --- SHOP HERO --- */
-        .shop-hero { padding: 190px 5% 50px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
-        .shop-hero h1 { font-size: clamp(36px, 5vw, 55px); font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; position: relative; z-index: 2; }
-        .shop-hero h1 span { color: var(--mario-orange); }
-        .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto; font-weight: 400; position: relative; z-index: 2; }
+        .shop-hero { padding: 190px 5% 0px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
+        .shop-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80') center/cover; opacity: 0.1; mix-blend-mode: overlay; }
+        .shop-hero-content { position: relative; z-index: 3; padding-bottom: 50px; }
+        .shop-hero h1 { font-size: clamp(36px, 5vw, 55px); font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 15px; }
+        .shop-hero h1 span { color: var(--mario-orange); text-shadow: 0 0 20px rgba(227,108,51,0.4); }
+        .shop-hero p { font-size: 18px; color: #CBD5E1; max-width: 600px; margin: 0 auto 30px; font-weight: 400; }
+
+        /* --- LOPENDE BAND --- */
+        .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-top: 1px solid var(--mario-border); border-bottom: 1px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
+        .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
+        .partner-track img:hover { transform: scale(1.15); }
+        @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- DE AI MODULE --- */
+        .ai-fix-section { max-width: 1350px; margin: 40px auto; background: white; border-radius: 20px; padding: 40px; text-align: center; box-shadow: var(--card-shadow); border: 2px dashed var(--mario-orange); position: relative; z-index: 10; }
+        .ai-fix-section h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .ai-fix-section h2 i { color: var(--mario-orange); }
+        .ai-fix-section p { color: var(--mario-grey); margin-bottom: 25px; }
+        .btn-ai-upload { background: var(--mario-navy); color: white; border: none; padding: 18px 40px; font-size: 16px; font-weight: 800; text-transform: uppercase; border-radius: 50px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); display: inline-flex; align-items: center; gap: 10px; }
+        .btn-ai-upload:hover { transform: translateY(-3px); background: var(--mario-orange); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.4); }
+        #fixItLoading { display: none; color: var(--mario-orange); margin-top: 20px; font-weight: 800; font-size: 18px; }
+        #fixItResult { display: none; margin-top: 30px; background: var(--mario-light); padding: 40px; border-radius: 12px; text-align: left; border-left: 5px solid var(--mario-orange); box-shadow: inset 0 2px 10px rgba(0,0,0,0.05); }
+        #fixItPreview { max-width: 250px; width: 100%; border-radius: 8px; margin-bottom: 20px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: block; }
+        .ai-report-text h3 { color: var(--mario-navy); font-size: 20px; margin: 25px 0 10px; text-transform: uppercase; font-weight: 900; border-bottom: 2px solid var(--mario-border); padding-bottom: 5px; }
+        .ai-report-text p, .ai-report-text li { color: #4A5568; line-height: 1.8; font-size: 16px; margin-bottom: 10px; }
+        .ai-report-text ul { margin-left: 20px; margin-bottom: 20px; }
 
         /* --- SHOP CONTAINER & MERKEN GRID --- */
-        .shop-container { max-width: 1350px; margin: 40px auto 120px; padding: 0 20px; }
+        .shop-container { max-width: 1350px; margin: 20px auto 120px; padding: 0 20px; }
         
-        .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); }
-        .promo-content-left { display: flex; align-items: center; gap: 25px; }
-        .promo-logo { height: 60px; background: white; padding: 8px 15px; border-radius: 12px; }
-        .promo-text h2 { font-size: 24px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; }
-        .promo-btn { background: white; color: var(--mario-orange); padding: 12px 25px; border-radius: 30px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; }
+        .promo-banner { background: linear-gradient(135deg, #E36C33 0%, #d15a22 100%); border-radius: 20px; padding: 30px 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(227, 108, 51, 0.3); position: relative; overflow: hidden; }
+        .promo-banner::after { content: '🔥'; font-size: 150px; position: absolute; right: -20px; top: -30px; opacity: 0.1; }
+        .promo-content-left { display: flex; align-items: center; gap: 25px; z-index: 2; }
+        .promo-logo { height: 60px; width: auto; background: white; padding: 8px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); object-fit: contain; }
+        .promo-text h2 { font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+        .promo-text p { font-size: 16px; font-weight: 500; opacity: 0.9; margin: 0; }
+        .promo-btn { background: white; color: var(--mario-orange); padding: 12px 25px; border-radius: 30px; font-weight: 800; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 2; border: none; }
         .promo-btn:hover { transform: scale(1.05); background: var(--mario-navy); color: white; }
 
         .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
-        .brand-card { background: white; border-radius: 20px; border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--card-shadow); padding: 30px 20px; text-align: center; cursor: pointer; transition: 0.3s; }
-        .brand-card:hover { transform: translateY(-10px); box-shadow: var(--card-hover); border-color: var(--mario-orange); }
-        .brand-card img { height: 70px; object-fit: contain; margin-bottom: 15px; mix-blend-mode: multiply; }
+        .brand-card { background: white; border-radius: 20px; border: 1px solid rgba(0,0,0,0.03); box-shadow: var(--card-shadow); overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 30px 20px; text-align: center; position: relative; }
+        .brand-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--mario-orange); transform: scaleX(0); transition: 0.4s; }
+        .brand-card:hover { transform: translateY(-10px); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.2); }
+        .brand-card:hover::before { transform: scaleX(1); }
+        .brand-card img { width: 100%; height: 90px; object-fit: contain; margin-bottom: 15px; transition: 0.3s; mix-blend-mode: multiply; }
         .brand-card h3 { font-size: 18px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
 
-        /* --- PRODUCTEN OVERZICHT --- */
-        .products-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
+        .search-container { margin-bottom: 40px; position: relative; width: 100%; max-width: 600px; }
+        .search-container i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--mario-grey); font-size: 18px; }
+        .search-input { width: 100%; padding: 18px 20px 18px 50px; border-radius: 30px; border: 2px solid var(--mario-border); font-family: 'Outfit'; font-size: 16px; font-weight: 500; color: var(--mario-navy); box-shadow: var(--card-shadow); transition: 0.3s; outline: none; }
+        .search-input:focus { border-color: var(--mario-orange); box-shadow: var(--card-hover); }
+
+        .products-view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); flex-wrap: wrap; gap: 20px; }
         .products-view-header h2 { font-size: 28px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
         .products-view-header h2 i { color: var(--mario-orange); }
+        .btn-back { background: white; color: var(--mario-navy); border: 2px solid var(--mario-border); padding: 12px 24px; border-radius: 30px; font-size: 13px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .btn-back:hover { border-color: var(--mario-navy); background: var(--mario-light); }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 35px; }
+        .product-card { background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--card-shadow); overflow: hidden; transition: all 0.4s ease; display: flex; flex-direction: column; position: relative; }
+        .product-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.3); }
         
-        .search-input { padding: 15px 20px; border-radius: 30px; border: 2px solid var(--mario-border); width: 300px; font-family: 'Outfit'; font-size: 14px; outline: none; transition: 0.3s; }
-        .search-input:focus { border-color: var(--mario-orange); }
+        .product-img-box { width: 100%; height: 240px; background: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%); padding: 30px; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid rgba(0,0,0,0.02); }
+        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); transition: 0.5s ease; mix-blend-mode: multiply; }
+        .product-card:hover .product-img-box img { transform: scale(1.1) rotate(-2deg); }
+
+        .product-info { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; background: white; }
+        .product-brand-tag { font-size: 10px; color: var(--mario-orange); background: rgba(227,108,51,0.1); padding: 6px 12px; border-radius: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; align-self: flex-start; margin-bottom: 15px; border: 1px solid rgba(227,108,51,0.2); }
         
-        .btn-back { background: white; border: 2px solid var(--mario-border); padding: 10px 20px; border-radius: 30px; font-weight: 800; cursor: pointer; transition: 0.3s; }
-        .btn-back:hover { background: var(--mario-light); border-color: var(--mario-navy); }
-
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .tag-levis { background: rgba(0, 164, 228, 0.1); color: #00a4e4; border-color: rgba(0, 164, 228, 0.2); }
+        .tag-poly { background: rgba(227, 6, 19, 0.1); color: #E30613; border-color: rgba(227, 6, 19, 0.2); }
         
-        /* Product Kaartje - Maakt de HELE kaart klikbaar voor de Modal */
-        .product-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); box-shadow: var(--card-shadow); overflow: hidden; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.4); }
-        .product-img-box { height: 200px; background: #f8fafc; padding: 20px; display: flex; justify-content: center; align-items: center; }
-        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: 0.3s; }
-        .product-card:hover .product-img-box img { transform: scale(1.05); }
-        .product-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-brand-tag { font-size: 10px; background: rgba(0,0,0,0.05); padding: 5px 10px; border-radius: 15px; font-weight: 900; text-transform: uppercase; align-self: flex-start; margin-bottom: 10px; }
-        .product-title { font-size: 16px; font-weight: 900; color: var(--mario-navy); line-height: 1.3; margin-bottom: 10px; }
-        .product-price { font-size: 22px; font-weight: 900; color: var(--mario-orange); margin-top: auto; }
-
-        /* Verborgen details voor de pop-up */
-        .hidden-specs { display: none; }
-
-        /* --- NIEUW: DE PRODUCT POP-UP (MODAL) --- */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 11, 17, 0.85); z-index: 100000; backdrop-filter: blur(8px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
-        .modal-overlay.active { display: flex; opacity: 1; }
+        .product-title { font-size: 19px; font-weight: 900; color: var(--mario-navy); margin-bottom: 12px; line-height: 1.3; }
+        .product-desc { font-size: 14px; color: var(--mario-grey); margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
+        .product-desc ul { margin-left: 20px; margin-top: 10px; list-style-type: none; padding: 0; }
+        .product-desc li { margin-bottom: 6px; position: relative; padding-left: 20px; }
+        .product-desc li::before { content: '✓'; position: absolute; left: 0; color: var(--mario-orange); font-weight: 900; font-size: 12px; }
         
-        .modal-content { background: white; width: 90%; max-width: 1000px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); overflow: hidden; display: flex; position: relative; max-height: 90vh; transform: translateY(30px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .product-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--mario-border); padding-top: 20px; }
         
-        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 35px; color: var(--mario-grey); cursor: pointer; z-index: 10; line-height: 1; transition: 0.3s; }
-        .modal-close:hover { color: #E30613; transform: rotate(90deg); }
-
-        .modal-left { flex: 1; background: #f8fafc; padding: 40px; display: flex; justify-content: center; align-items: center; border-right: 1px solid var(--mario-border); }
-        .modal-left img { max-width: 100%; max-height: 400px; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); }
-
-        .modal-right { flex: 1.2; padding: 50px 40px; display: flex; flex-direction: column; overflow-y: auto; }
-        .modal-brand { font-size: 12px; color: white; background: var(--mario-navy); padding: 6px 15px; border-radius: 20px; font-weight: 900; text-transform: uppercase; align-self: flex-start; margin-bottom: 15px; letter-spacing: 1px; }
-        .modal-title { font-size: 32px; font-weight: 900; color: var(--mario-navy); line-height: 1.2; margin-bottom: 15px; }
+        .price-box { display: flex; flex-direction: column; }
+        .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
         
-        .modal-price-box { display: flex; align-items: flex-end; gap: 15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
-        .modal-price { font-size: 38px; font-weight: 900; color: var(--mario-orange); line-height: 1; }
-        .modal-old-price { font-size: 20px; color: #94A3B8; text-decoration: line-through; font-weight: 700; margin-bottom: 5px; }
+        .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; width: 100%; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
+        .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
 
-        .click-collect-badge { background: #dcfce7; color: #16a34a; padding: 10px 15px; border-radius: 12px; font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; border: 1px solid #bbf7d0; }
+        .shopify-button-container { width: 140px; }
+        .shopify-button-full { width: 100%; } /* Speciale class voor knoppen zonder prijsweergave (indien nodig) */
+        
+        .no-results { width: 100%; padding: 40px; text-align: center; color: var(--mario-grey); font-size: 18px; font-weight: 500; display: none; }
 
-        .modal-desc { font-size: 15px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 25px; }
-        .modal-specs { margin-bottom: 30px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--mario-border); }
-        .modal-specs ul { list-style: none; }
-        .modal-specs li { margin-bottom: 8px; font-size: 14px; color: var(--mario-navy); display: flex; align-items: center; gap: 10px; font-weight: 500; }
-        .modal-specs li i { color: var(--mario-orange); font-size: 12px; }
-
-        .modal-buy-btn { background: var(--mario-orange); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; width: 100%; box-shadow: 0 10px 25px rgba(227, 108, 51, 0.4); }
-        .modal-buy-btn:hover { background: var(--mario-navy); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(6, 11, 17, 0.4); }
-
-        /* Premium Footer */
-        .premium-footer { background-color: var(--mario-navy); color: #94A3B8; padding: 60px 5% 20px; border-top: 5px solid var(--mario-orange); }
-        .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-brand h3 { color: white; font-size: 24px; font-weight: 900; margin-bottom: 15px; }
-        .footer-brand span { color: var(--mario-orange); }
-
+        /* --- PREMIUM FOOTER --- */
+        .premium-footer { background-color: var(--mario-navy); color: #94A3B8; padding: 80px 5% 20px; font-size: 15px; border-top: 5px solid var(--mario-orange); }
+        .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
+        .footer-brand h3 { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; }
+        .footer-brand h3 span { color: var(--mario-orange); }
+        .footer-brand p { line-height: 1.8; margin-bottom: 25px; max-width: 350px; }
+        .social-icons { display: flex; gap: 15px; }
+        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { background: var(--mario-orange); transform: translateY(-3px); }
+        .footer-col h4 { color: white; font-size: 18px; text-transform: uppercase; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #94A3B8; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .footer-col ul li a:hover { color: var(--mario-orange); padding-left: 5px; }
+        .footer-contact li { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+        .footer-contact i { color: var(--mario-orange); font-size: 20px; margin-top: 3px; }
+        .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .payment-methods { display: flex; gap: 10px; align-items: center; }
+        .payment-methods i { font-size: 28px; color: #fff; }
+        
         @media (max-width: 900px) {
-            .modal-content { flex-direction: column; overflow-y: auto; max-height: 95vh; width: 95%; }
-            .modal-left { border-right: none; border-bottom: 1px solid var(--mario-border); padding: 20px; height: 250px; }
-            .modal-left img { max-height: 200px; }
-            .modal-right { padding: 30px 20px; }
-            .modal-title { font-size: 24px; }
-            .modal-price { font-size: 32px; }
             .top-bar-hide { display: none; }
+            .top-bar { justify-content: center; }
+            .shop-hero { padding-top: 160px; }
+            .logo-frame { gap: 10px; }
+            .mario-logo-text { font-size: 24px; }
+            .promo-banner { flex-direction: column; text-align: center; gap: 20px; padding: 25px; }
+            .promo-logo-container { flex-direction: column-reverse; gap: 15px; }
+            .products-view-header { flex-direction: column; align-items: flex-start; }
+            .product-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .shopify-button-container { width: 100%; }
+            .footer-container { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
         }
     </style>
 </head>
@@ -166,127 +198,455 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="winkel.html" class="active"><i class="fas fa-shopping-cart"></i> De Winkel</a>
+            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
         </div>
     </header>
 
     <section class="shop-hero">
-        <h1>Premium <span>Catalogus</span></h1>
-        <p>De beste merken voor particulieren en vakmannen. Klik op een product voor alle details en de voorraad in Berchem.</p>
+        <div class="shop-hero-bg"></div>
+        <div class="shop-hero-content">
+            <h1>Premium <span>Catalogus</span></h1>
+            <p>De beste merken voor particulieren en vakmannen. Bestel direct online.</p>
+        </div>
+    </section>
+
+    <div class="partner-wrapper">
+        <div class="partner-track">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
+            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
+            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
+            <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bobrush';" alt="Bobrush">
+            <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=HG';" alt="HG">
+            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
+            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
+            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
+            <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Twilight';" alt="Twilight">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+        </div>
+    </div>
+
+    <section class="ai-fix-section">
+        <h2><i class="fas fa-band-aid"></i> Iets gebroken? Hoe Fix Ik Het?</h2>
+        <p>Upload een foto van wat er stuk is. Onze AI analyseert het probleem grondig en geeft je een professioneel stappenplan inclusief de juiste bestellink!</p>
+        
+        <input type="file" id="fixItInput" accept="image/*" style="display:none;">
+        <button class="btn-ai-upload" id="fixItBtn">
+            <i class="fas fa-camera"></i> Foto Uploaden & Fixen
+        </button>
+
+        <div id="fixItLoading">
+            <i class="fas fa-tools fa-spin"></i> AI analyseert materiaal en zoekt in het magazijn...
+        </div>
+
+        <div id="fixItResult">
+            <img id="fixItPreview" src="" alt="Jouw Probleem">
+            <div id="fixItText" class="ai-report-text"></div>
+        </div>
     </section>
 
     <section class="shop-container">
         
         <div id="brands-section">
+            
             <div class="promo-banner">
                 <div class="promo-content-left">
-                    <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" class="promo-logo">
+                    <img src="final/levis.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis" class="promo-logo">
                     <div class="promo-text">
-                        <h2>🔥 Promo: Levis 8+2L</h2>
-                        <p>Tijdelijk in prijs verlaagd naar €59,99!</p>
+                        <h2>🔥 Week Promo: Levis 8+2L Gratis!</h2>
+                        <p>Tijdelijk Scherp Geprijsd. De ultieme dekkracht voor jouw grote schilderklus.</p>
                     </div>
                 </div>
-                <button class="promo-btn" onclick="showBrand('levis')">Bekijk de Deal</button>
+                <button class="promo-btn" onclick="showPromoProduct()">Bekijk de Deal</button>
             </div>
 
             <div class="brands-grid">
-                <div class="brand-card" onclick="showBrand('levis')"><img src="final/levis.jpg" alt="Levis"><h3>Levis</h3></div>
-                <div class="brand-card" onclick="showBrand('polyfilla')"><img src="final/polyfilla.jpg" alt="Polyfilla"><h3>Polyfilla</h3></div>
-                <div class="brand-card" onclick="showBrand('versa')"><img src="final/versa.jpg" alt="Versa"><h3>Versa Sanitair</h3></div>
-                <div class="brand-card" onclick="showBrand('loctite')"><img src="final/loctite.jpg" alt="Loctite"><h3>Loctite</h3></div>
+                <div class="brand-card" onclick="showBrand('levis')">
+                    <img src="final/levis.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Levis">
+                    <h3>Levis</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('polyfilla')">
+                    <img src="final/polyfilla.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="Polyfilla">
+                    <h3>Polyfilla</h3>
+                </div>
+                
+                <div class="brand-card" onclick="showBrand('niko')">
+                    <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
+                    <h3>Niko</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('bobrush')">
+                    <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Bobrush&font=Montserrat';" alt="Bobrush">
+                    <h3>Bobrush</h3>
+                </div>
+                
+                <div class="brand-card" onclick="showBrand('hg')">
+                    <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=HG&font=Montserrat';" alt="HG">
+                    <h3>HG</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('versa')">
+                    <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa&font=Montserrat';" alt="Versa">
+                    <h3>Versa</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('loctite')">
+                    <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Loctite&font=Montserrat';" alt="Loctite">
+                    <h3>Loctite</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('pattex')">
+                    <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Pattex&font=Montserrat';" alt="Pattex">
+                    <h3>Pattex</h3>
+                </div>
+
+                <div class="brand-card" onclick="showBrand('twilight')">
+                    <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Twilight&font=Montserrat';" alt="Twilight">
+                    <h3>Twilight</h3>
+                </div>
             </div>
         </div>
 
         <div id="products-section" style="display: none;">
+            
             <div class="products-view-header">
                 <h2 id="brand-title"><i class="fas fa-box-open"></i> Producten</h2>
-                <input type="text" id="searchInput" class="search-input" placeholder="Zoek op product of maat..." onkeyup="filterProducts()">
+                
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Zoek op product, maat of kleur..." onkeyup="filterProducts()">
+                </div>
+
                 <button class="btn-back" onclick="showAllBrands()"><i class="fas fa-arrow-left"></i> Terug</button>
+            </div>
+
+            <div id="noResults" class="no-results">
+                Geen producten gevonden voor deze zoekopdracht... <i class="fas fa-frown" style="color: var(--mario-orange);"></i>
             </div>
 
             <div class="product-grid" id="product-list">
                 
-                <div class="product-card" data-brand="levis" onclick="openProductModal(this)" data-buy-url="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button">
-                    <div class="product-img-box"><img src="final/murplafond10lpromo.jpg" alt="Levis Promo"></div>
+                <div class="product-card" data-brand="polyfilla">
+                    <div class="product-img-box"><img src="final/instantvuller.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Snelplamuur"></div>
                     <div class="product-info">
-                        <span class="product-brand-tag" style="background:#E36C33; color:white;">🔥 WEEK PROMO</span>
-                        <h3 class="product-title">Levis Muur & Plafond Wit Mat (8+2L)</h3>
-                        <span class="product-price">€59.99</span>
-                    </div>
-                    <div class="hidden-specs">
-                        <div class="m-desc">Profiteer van deze tijdelijke weekpromo! Levis Muur & Plafond is een hoogwaardige, matte watergedragen verf voor binnen. De perfecte, betrouwbare dekkracht voor muren en plafonds. Deckers-killer prijs!</div>
-                        <div class="m-brand">LEVIS</div>
-                        <div class="m-oldprice">€79.95</div>
-                        <div class="m-spec1">Inhoud: 10 Liter (8L + 2L Gratis)</div>
-                        <div class="m-spec2">Toepassing: Binnenmuren & Plafonds</div>
-                        <div class="m-spec3">Prijs per liter: €6,00</div>
+                        <span class="product-brand-tag tag-poly">POLYFILLA</span>
+                        <h3 class="product-title">Polyfilla Snelplamuur - 330g</h3>
+                        <p class="product-desc">Sneldrogende vuller voor een spiegelgladde afwerking van deuren en hout.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€8.49</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884924023161:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="polyfilla" onclick="openProductModal(this)" data-buy-url="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button">
-                    <div class="product-img-box"><img src="final/pollyfillainstant.jpeg" alt="Polyfilla Instant"></div>
+                <div class="product-card" data-brand="polyfilla">
+                    <div class="product-img-box"><img src="final/pollyfillaallesvuller.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Grote Gaten"></div>
                     <div class="product-info">
-                        <span class="product-brand-tag" style="color:#E30613;">POLYFILLA</span>
-                        <h3 class="product-title">Polyfilla Instant Vuller (Wit)</h3>
-                        <span class="product-price">€8.95</span>
-                    </div>
-                    <div class="hidden-specs">
-                        <div class="m-desc">Ideale kant-en-klare vuller voor het direct dichten van kleine gaten en scheuren. Vrijwel direct overschilderbaar en krimpt niet.</div>
-                        <div class="m-brand">POLYFILLA</div>
-                        <div class="m-oldprice"></div>
-                        <div class="m-spec1">Inhoud: 330 gram</div>
-                        <div class="m-spec2">Kleur: Helder Wit</div>
-                        <div class="m-spec3">Droogtijd: Zeer Snel</div>
+                        <span class="product-brand-tag tag-poly">POLYFILLA</span>
+                        <h3 class="product-title">Polyfilla Grote Gatenvuller - 1KG</h3>
+                        <p class="product-desc">Vult diepe gaten en scheuren tot wel 5 cm in één keer. Zakt niet in.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€18.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884923564409:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="versa" onclick="openProductModal(this)" data-buy-url="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button">
-                    <div class="product-img-box"><img src="final/versadoucheglijstangsetzwart.jpg" alt="Zwarte Douche"></div>
+                <div class="product-card" data-brand="polyfilla">
+                    <div class="product-img-box"><img src="final/pollyfillaallesvuller.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Allesvuller"></div>
                     <div class="product-info">
-                        <span class="product-brand-tag">VERSA SANITAIR</span>
-                        <h3 class="product-title">Aloni Glijstangset Compleet (Mat Zwart)</h3>
-                        <span class="product-price">€29.99</span>
-                    </div>
-                    <div class="hidden-specs">
-                        <div class="m-desc">Haal de 'hotel chique' look in huis! Deze complete set bevat een stijlvolle glijstang, luxe handdouche, flexibele slang én zeephouder. De mat zwarte coating is krasbestendig.</div>
-                        <div class="m-brand">ALONI BY VERSA</div>
-                        <div class="m-oldprice">€49.95</div>
-                        <div class="m-spec1">Kleur: Mat Zwart (Krasvast)</div>
-                        <div class="m-spec2">Inclusief: Glijstang, Douchekop, Slang (150cm)</div>
-                        <div class="m-spec3">Montage: Universele aansluiting</div>
+                        <span class="product-brand-tag tag-poly">POLYFILLA</span>
+                        <h3 class="product-title">Polyfilla Allesvuller Pasta - 330g</h3>
+                        <p class="product-desc">De ideale kant-en-klare vuller voor standaard gaten en scheuren.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€7.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884916486521:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="versa" onclick="openProductModal(this)" data-buy-url="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button">
-                    <div class="product-img-box"><img src="final/versazyrowc.jpg" alt="Zyro Meubel"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/leviseasyclean.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis EasyClean 1L"></div>
                     <div class="product-info">
-                        <span class="product-brand-tag">VERSA SANITAIR</span>
-                        <h3 class="product-title">Aloni Zyro Toiletmeubel (Licht Eiken)</h3>
-                        <span class="product-price">€114.99</span>
-                    </div>
-                    <div class="hidden-specs">
-                        <div class="m-desc">Maak je toiletruimte in één klap compleet met de Zyro set. Een stijlvolle onderkast, een hoogglans witte wasbak en een strakke bijpassende spiegel. Greepvrij en met soft-close deur.</div>
-                        <div class="m-brand">ALONI BY VERSA</div>
-                        <div class="m-oldprice">€169.00</div>
-                        <div class="m-spec1">Set: Onderkast + Wasbak + Spiegel</div>
-                        <div class="m-spec2">Materiaal: Licht Eiken & Keramiek</div>
-                        <div class="m-spec3">Eigenschap: Soft-close scharnieren</div>
+                        <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
+                        <h3 class="product-title">Levis EasyClean Keuken Badkamer 1L</h3>
+                        <p class="product-desc">Extreem vlekwerend voor zwaar belaste ruimtes. Was je eenvoudig af.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€32.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899479929:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-brand="loctite" onclick="openProductModal(this)" data-buy-url="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button">
-                    <div class="product-img-box"><img src="loctite20g.jpg" onerror="this.src='final/loctite20g.jpg'" alt="Loctite"></div>
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/levisexpert25l.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Hout Primer"></div>
                     <div class="product-info">
-                        <span class="product-brand-tag" style="color:var(--mario-orange);">LOCTITE</span>
+                        <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
+                        <h3 class="product-title">Levis Expert Hout Primer Binnen 2,5L</h3>
+                        <p class="product-desc">De professionele grondverf voor al je houtwerk binnen.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€89.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884899086713:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/MURPRIMER5L.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Primer Muur 5L"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-levis">LEVIS</span>
+                        <h3 class="product-title">Levis Primer Muur & Plafond Mat Wit 5L</h3>
+                        <p class="product-desc">De perfecte grondlaag voor een strak en duurzaam eindresultaat.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€64.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884898431353:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card promo-card" data-brand="levis" id="prod-levis-promo">
+                    <div class="product-img-box"><img src="final/murplafond10lpromo.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur Wit Promo"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-levis" style="background: var(--mario-orange); color: white;">🔥 WEEK PROMO</span>
+                        <h3 class="product-title">Levis Muur & Plafond 8+2L Wit Mat</h3>
+                        <p class="product-desc">Klassieke, betrouwbare dekkracht in een extra grote voordeelpot.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€79.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/levis2in110l.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Essentials 10L"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-levis">LEVIS ESSENTIALS</span>
+                        <h3 class="product-title">Levis Essentials 2-in-1 Wit 10L</h3>
+                        <p class="product-desc">De slimme keuze voor grote renovaties! Geïntegreerde primer.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€139.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/expertwithout2.5lsatin.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur 2.5L"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-levis">LEVIS</span>
+                        <h3 class="product-title">Levis Muur & Plafond Wit Mat 2,5L</h3>
+                        <p class="product-desc">Hoogwaardige watergedragen muurverf voor perfect strakke binnenmuren.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€39.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889846137:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/experthoutlak.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Houtlak"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
+                        <h3 class="product-title">Levis Expert Houtlak Zijdeglans 2,5L</h3>
+                        <p class="product-desc">Absolute topkwaliteit voor de vakman. Scratch en slijtvast.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€114.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884889354617:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="levis">
+                    <div class="product-img-box"><img src="final/leviseasyclean.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis EasyClean"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-levis">LEVIS EXPERT</span>
+                        <h3 class="product-title">Levis EasyClean Keuken Badkamer 2,5L</h3>
+                        <p class="product-desc">De ultieme afwasbare verf voor ruimtes waar intensief geleefd wordt!</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€66.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56884887650681:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="pattex">
+                    <div class="product-img-box"><img src="final/IMG-20260107-WA0067.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Pattex Power Tape"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: #E30613; color: white;">PATTEX</span>
+                        <h3 class="product-title">Pattex Power Tape Zilver (50m)</h3>
+                        <p class="product-desc">Extra sterke, waterbestendige reparatietape.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€6.49</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56872423031161:1?channel=buy_button" target="_blank" class="btn-buy"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="loctite">
+                    <div class="product-img-box"><img src="loctite5g.jpg" onerror="this.onerror=null; this.src='final/loctite5g.jpg';" alt="Loctite Superlijm 5g"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
+                        <h3 class="product-title">Superlijm Universal (5g)</h3>
+                        <p class="product-desc">De klassieke vloeibare secondelijm. Extreem sterk, droogt transparant op. Perfect voor precisiewerk en kleine reparaties.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€6.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button" class="btn-buy" target="_blank"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="loctite">
+                    <div class="product-img-box"><img src="loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite 60sec Superglue"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
                         <h3 class="product-title">60 Sec. Superglue Universeel</h3>
-                        <span class="product-price">€9.95</span>
+                        <p class="product-desc">Extra sterke, flexibele secondelijm. Geeft je 60 seconden de tijd om te corrigeren voordat hij muurvast zit.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€9.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" class="btn-buy" target="_blank"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="hidden-specs">
-                        <div class="m-desc">Extra sterke, flexibele secondelijm. Geeft je 60 seconden de tijd om je materiaal nog iets te corrigeren voordat de lijm keihard uithardt.</div>
-                        <div class="m-brand">LOCTITE</div>
-                        <div class="m-oldprice"></div>
-                        <div class="m-spec1">Inhoud: 20 gram</div>
-                        <div class="m-spec2">Droogtijd: Corrigeerbaar tot 60 sec</div>
-                        <div class="m-spec3">Geschikt voor: Hout, metaal, plastic, steen</div>
+                </div>
+
+                <div class="product-card" data-brand="polyfilla">
+                    <div class="product-img-box"><img src="final/pollyfillainstant.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Instant Vuller"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-poly">POLYFILLA</span>
+                        <h3 class="product-title">Polyfilla Instant Vuller (Wit, 330g)</h3>
+                        <p class="product-desc">Vult kleine gaten en scheuren in één keer. Direct overschilderbaar!</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€8.95</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versasetchroom.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Aloni Regendouche Tondo"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Regendouche Tondo (Chroom)</h3>
+                        <p class="product-desc">Luxe regendouche voor de ultieme spa-ervaring thuis. Hoogwaardige kwaliteit.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€49.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902141739385:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versamengkraanchroom.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Aloni Douche Mengkraan"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Douche Mengkraan (Chroom)</h3>
+                        <p class="product-desc">Robuuste en soepele mengkraan van topkwaliteit met glanzende afwerking.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€34.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902239551865:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa" style="border: 2px solid #000;">
+                    <div class="product-img-box">
+                        <img src="final/versadoucheglijstangsetzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Doucheglijstangset Mat Zwart">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Glijstangset Compleet (Mat Zwart)</h3>
+                        <p class="product-desc">Dé trend van nu. Complete set inclusief slang, handdouche en zeephouder.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€29.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versauniformahanddouche.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Uniforma Handdouche"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Uniforma Handdouche 3-Standen</h3>
+                        <p class="product-desc">Inclusief krachtige massagestraal en geïntegreerd anti-kalk systeem.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€29.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902261703033:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versaaquaflexzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Uniforma Doucheslang Zwart"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Uniforma Doucheslang Anti-Twist (Zwart)</h3>
+                        <p class="product-desc">Knikt nooit. Ultra-zacht PVC voorkomt krassen op je dure tegels.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€24.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902268158329:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa" style="border: 2px solid #d4af37;">
+                    <div class="product-img-box">
+                        <img src="final/versazyrowc.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Zyro Toiletmeubel Licht Eiken">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Zyro Toiletmeubel (Licht Eiken)</h3>
+                        <p class="product-desc">Complete 3-in-1 set: Onderkast (soft-close), luxe wasbak en bijpassende spiegel.</p>
+                        <div class="product-bottom">
+                            <div class="price-box"><span class="product-price">€114.99</span></div>
+                            <div class="shopify-button-container">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -294,132 +654,199 @@
         </div>
     </section>
 
-    <div class="modal-overlay" id="productModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeProductModal()">&times;</span>
-            
-            <div class="modal-left">
-                <img id="modalImage" src="" alt="Product Image">
-            </div>
-            
-            <div class="modal-right">
-                <span id="modalBrand" class="modal-brand">MERK</span>
-                <h2 id="modalTitle" class="modal-title">Product Titel</h2>
-                
-                <div class="modal-price-box">
-                    <div class="modal-price" id="modalPrice">€0.00</div>
-                    <div class="modal-old-price" id="modalOldPrice"></div>
-                </div>
-
-                <div class="click-collect-badge">
-                    <i class="fas fa-truck-pickup"></i> Op voorraad in Berchem (Direct afhalen)
-                </div>
-
-                <p id="modalDesc" class="modal-desc">Product beschrijving komt hier.</p>
-                
-                <div class="modal-specs">
-                    <ul id="modalSpecList">
-                        </ul>
-                </div>
-
-                <a href="#" id="modalBuyBtn" target="_blank" class="modal-buy-btn">
-                    <i class="fas fa-shopping-cart"></i> Bestel Nu
-                </a>
-            </div>
-        </div>
-    </div>
-
     <footer class="premium-footer">
         <div class="footer-container">
             <div class="footer-brand">
                 <h3>MARIO <span>DHZ</span></h3>
-                <p>Jouw betrouwbare partner in Berchem.</p>
+                <p>Jouw betrouwbare partner in Berchem voor alle doe-het-zelf projecten. Van professioneel advies door onze AI tot premium materialen direct uit voorraad.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
-            <div><p>&copy; 2026 Mario Doe-Het-Zelf Berchem.</p></div>
+            <div class="footer-col">
+                <h4>Navigatie</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepagina</a></li>
+                    <li><a href="winkel.html"><i class="fas fa-chevron-right"></i> De Winkel</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Klus-Scanner</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Verfmengmachine</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Klantenservice</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Retourneren</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Verzending & Levering</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Algemene Voorwaarden</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacybeleid</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Winkel Berchem</strong><br>Driekoningenstraat 73<br>2600 Berchem, België</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <div><strong>Bel of Whatsapp</strong><br>0479 / 93.58.48</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door MS Global Creative Studios.</p>
+            <div class="payment-methods">
+                <span style="margin-right: 10px; font-size: 12px; font-weight: bold; text-transform: uppercase;">Veilig betalen via Shopify:</span>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Bestaande Merken Logica
+        // JOUW ORIGINELE MERKEN-FILTER LOGICA
         let currentBrandFilter = 'all';
+
         function showBrand(brandName) {
             currentBrandFilter = brandName;
             document.getElementById('brands-section').style.display = 'none';
             document.getElementById('products-section').style.display = 'block';
-            document.getElementById('brand-title').innerHTML = `<i class="fas fa-box-open"></i> Collectie`;
-            filterProducts();
-            window.scrollTo({ top: 100, behavior: 'smooth' });
-        }
-        function showAllBrands() {
-            currentBrandFilter = 'all';
-            document.getElementById('products-section').style.display = 'none';
-            document.getElementById('brands-section').style.display = 'block';
-        }
-        function filterProducts() {
-            let input = document.getElementById('searchInput') ? document.getElementById('searchInput').value.toLowerCase() : '';
-            let products = document.querySelectorAll('.product-card');
+            document.getElementById('searchInput').value = ''; 
+            
+            let titleName = brandName.charAt(0).toUpperCase() + brandName.slice(1);
+            if (brandName === 'bobrush') titleName = 'Bobrush';
+            if (brandName === 'hg') titleName = 'HG';
+            if (brandName === 'versa') titleName = 'Versa';
+            if (brandName === 'loctite') titleName = 'Loctite';
+            if (brandName === 'pattex') titleName = 'Pattex';
+            if (brandName === 'twilight') titleName = 'Twilight';
+            
+            document.getElementById('brand-title').innerHTML = `<i class="fas fa-box-open"></i> Producten: ${titleName}`;
+
+            const products = document.querySelectorAll('.product-grid .product-card');
+            let hasVisibleProducts = false;
+            
             products.forEach(product => {
-                let matchesBrand = (currentBrandFilter === 'all') || (product.getAttribute('data-brand') === currentBrandFilter);
-                let title = product.querySelector('.product-title').innerText.toLowerCase();
-                if (matchesBrand && title.includes(input)) {
+                if (product.getAttribute('data-brand') === brandName) {
                     product.style.display = 'flex';
+                    hasVisibleProducts = true;
                 } else {
                     product.style.display = 'none';
                 }
             });
-        }
-
-        // --- NIEUWE MODAL LOGICA ---
-        const modal = document.getElementById('productModal');
-        
-        function openProductModal(cardElement) {
-            // Haal data uit het aangeklikte kaartje
-            const imgSrc = cardElement.querySelector('.product-img-box img').src;
-            const title = cardElement.querySelector('.product-title').innerText;
-            const price = cardElement.querySelector('.product-price').innerText;
-            const buyUrl = cardElement.getAttribute('data-buy-url');
             
-            // Haal de verborgen data op
-            const specsDiv = cardElement.querySelector('.hidden-specs');
-            const desc = specsDiv.querySelector('.m-desc').innerText;
-            const brand = specsDiv.querySelector('.m-brand').innerText;
-            const oldPrice = specsDiv.querySelector('.m-oldprice').innerText;
-            const spec1 = specsDiv.querySelector('.m-spec1').innerText;
-            const spec2 = specsDiv.querySelector('.m-spec2').innerText;
-            const spec3 = specsDiv.querySelector('.m-spec3').innerText;
-
-            // Vul de Pop-up (Modal) met deze data
-            document.getElementById('modalImage').src = imgSrc;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('modalBrand').innerText = brand;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalOldPrice').innerText = oldPrice;
-            document.getElementById('modalBuyBtn').href = buyUrl;
-
-            // Maak de lijst met specificaties (Gewicht, Liters, Kleur)
-            const specList = document.getElementById('modalSpecList');
-            specList.innerHTML = ''; // Maak lijst leeg
-            if(spec1) specList.innerHTML += `<li><i class="fas fa-check"></i> ${spec1}</li>`;
-            if(spec2) specList.innerHTML += `<li><i class="fas fa-check"></i> ${spec2}</li>`;
-            if(spec3) specList.innerHTML += `<li><i class="fas fa-check"></i> ${spec3}</li>`;
-
-            // Toon de Modal met een animatie
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Voorkom scrollen op de achtergrond
+            document.getElementById('noResults').style.display = hasVisibleProducts ? 'none' : 'block';
+            window.scrollTo({ top: document.getElementById('products-section').offsetTop - 100, behavior: 'smooth' });
         }
 
-        function closeProductModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Achtergrond mag weer scrollen
+        function showAllBrands() {
+            currentBrandFilter = 'all';
+            document.getElementById('products-section').style.display = 'none';
+            document.getElementById('brands-section').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('brands-section').offsetTop - 100, behavior: 'smooth' });
         }
 
-        // Sluit de pop-up als je naast het witte vak (in het donker) klikt
-        modal.addEventListener('click', function(e) {
-            if(e.target === modal) {
-                closeProductModal();
-            }
-        });
+        function showPromoProduct() {
+            showBrand('levis');
+            setTimeout(() => {
+                const promoElement = document.querySelector('.promo-card');
+                if(promoElement) {
+                    promoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    promoElement.style.boxShadow = "0 0 30px rgba(227, 108, 51, 0.8)";
+                    setTimeout(() => { promoElement.style.boxShadow = "var(--card-shadow)"; }, 2000);
+                }
+            }, 300);
+        }
+
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let products = document.querySelectorAll('.product-grid .product-card');
+            let hasVisibleProducts = false;
+
+            products.forEach(product => {
+                let matchesBrand = (currentBrandFilter === 'all') || (product.getAttribute('data-brand') === currentBrandFilter);
+                
+                if (matchesBrand) {
+                    let title = product.querySelector('.product-title').innerText.toLowerCase();
+                    let desc = product.querySelector('.product-desc').innerText.toLowerCase();
+                    
+                    if (title.includes(input) || desc.includes(input)) {
+                        product.style.display = 'flex';
+                        hasVisibleProducts = true;
+                    } else {
+                        product.style.display = 'none';
+                    }
+                }
+            });
+
+            document.getElementById('noResults').style.display = hasVisibleProducts ? 'none' : 'block';
+        }
+
+        // DE NIEUWE AI "HOE FIX IK HET?" LOGICA
+        const deel1 = 'AIzaSyCVleWYp9pka-';
+        const deel2 = 'FFhVdMTUCZMaq12xqyEho';
+        const API_KEY = deel1 + deel2;
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+
+        const fixItBtn = document.getElementById('fixItBtn');
+        const fixItInput = document.getElementById('fixItInput');
+        const fixItLoading = document.getElementById('fixItLoading');
+        const fixItResult = document.getElementById('fixItResult');
+        const fixItPreview = document.getElementById('fixItPreview');
+        const fixItText = document.getElementById('fixItText');
+
+        if(fixItBtn) {
+            fixItBtn.addEventListener('click', () => fixItInput.click());
+
+            fixItInput.addEventListener('change', async function(e) {
+                const file = e.target.files[0];
+                if(!file) return;
+                
+                fixItBtn.style.display = 'none';
+                fixItResult.style.display = 'none';
+                fixItLoading.style.display = 'block';
+
+                const mimeType = file.type;
+                const reader = new FileReader();
+                
+                reader.onload = async function(event) {
+                    const base64Image = event.target.result.split(',')[1]; 
+                    fixItPreview.src = event.target.result;
+                    
+                    const systemPrompt = "Je bent de meester 'Hoe Fix Ik Het?' AI van Mario DHZ. Analyseer de foto extreem goed. Geef een uitgebreid, professioneel antwoord in exact dit formaat: <h3><i class='fas fa-search'></i> Probleem Diagnose</h3> <p>[Geef een uitgebreide analyse van wat er kapot is, welk materiaal het is, en waarom het waarschijnlijk kapot is gegaan.]</p> <h3><i class='fas fa-tools'></i> Reparatie Stappenplan</h3> <p>Volg deze stappen als een professional:</p> <ul><li><strong>Stap 1:</strong> [Voorbereiding/Schoonmaken]</li><li><strong>Stap 2:</strong> [Aanbrengen materiaal]</li><li><strong>Stap 3:</strong> [Drogen/Afwerking]</li></ul> <h3><i class='fas fa-check-circle'></i> Aanbevolen Mario DHZ Product</h3> <p>[Kies VERPLICHT 1 product: 'Loctite Superlijm 5g' (voor precisie/klein) of 'Loctite 60sec Superglue' (voor groot/flexibel). Leg in 2 zinnen uit WAAROM dit de beste keuze is voor deze specifieke klus.]</p> <br> [Als je de 5g kiest, plak EXACT deze code:] <a href='https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button' target='_blank' style='display:inline-flex;align-items:center;gap:10px;background:#E36C33;color:white;padding:15px 30px;border-radius:8px;font-weight:900;text-decoration:none;text-transform:uppercase;box-shadow: 0 10px 20px rgba(227,108,51,0.3);'><i class='fas fa-shopping-cart'></i> Bestel Loctite 5g Direct</a> [Als je de 60sec kiest, plak EXACT deze code:] <a href='https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button' target='_blank' style='display:inline-flex;align-items:center;gap:10px;background:#E36C33;color:white;padding:15px 30px;border-radius:8px;font-weight:900;text-decoration:none;text-transform:uppercase;box-shadow: 0 10px 20px rgba(227,108,51,0.3);'><i class='fas fa-shopping-cart'></i> Bestel Loctite 60sec Direct</a>";
+
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ 
+                                contents: [{ parts: [{ text: systemPrompt }, { inlineData: { mimeType: mimeType, data: base64Image } }] }] 
+                            })
+                        });
+                        const data = await response.json();
+                        if(data.candidates) {
+                            fixItText.innerHTML = data.candidates[0].content.parts[0].text;
+                        } else {
+                            fixItText.innerHTML = "Oeps, ik kon het niet goed zien. Probeer een andere foto.";
+                        }
+                    } catch (error) {
+                        fixItText.innerHTML = "Netwerkfout bij het zoeken naar het product.";
+                    }
+                    
+                    fixItLoading.style.display = 'none';
+                    fixItResult.style.display = 'block';
+                    fixItBtn.style.display = 'inline-flex';
+                    fixItBtn.innerHTML = '<i class="fas fa-redo"></i> Nog iets fixen?';
+                };
+                reader.readAsDataURL(file);
+            });
+        }
     </script>
 </body>
 </html>
