@@ -135,10 +135,12 @@
         .price-box { display: flex; flex-direction: column; }
         .product-price { font-size: 26px; font-weight: 900; color: var(--mario-navy); line-height: 1; letter-spacing: -0.5px; }
         
-        .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
+        .btn-buy { background: var(--mario-orange); color: white; border: none; padding: 12px 22px; border-radius: 12px; font-size: 14px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; width: 100%; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); }
         .btn-buy:hover { background: var(--mario-navy); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); }
 
         .shopify-button-container { width: 140px; }
+        .shopify-button-full { width: 100%; } /* Speciale class voor knoppen zonder prijsweergave */
+        
         .no-results { width: 100%; padding: 40px; text-align: center; color: var(--mario-grey); font-size: 18px; font-weight: 500; display: none; }
 
         /* --- PREMIUM FOOTER (NIEUW!) --- */
@@ -343,6 +345,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="polyfilla">
                     <div class="product-img-box"><img src="final/pollyfillaallesvuller.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Grote Gaten"></div>
                     <div class="product-info">
@@ -357,6 +360,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="polyfilla">
                     <div class="product-img-box"><img src="final/pollyfillaallesvuller.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Allesvuller"></div>
                     <div class="product-info">
@@ -386,6 +390,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="levis">
                     <div class="product-img-box"><img src="final/levisexpert25l.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Hout Primer"></div>
                     <div class="product-info">
@@ -400,6 +405,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="levis">
                     <div class="product-img-box"><img src="final/MURPRIMER5L.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Primer Muur 5L"></div>
                     <div class="product-info">
@@ -414,6 +420,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card promo-card" data-brand="levis" id="prod-levis-promo">
                     <div class="product-img-box"><img src="final/murplafond10lpromo.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur Wit Promo"></div>
                     <div class="product-info">
@@ -428,6 +435,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="levis">
                     <div class="product-img-box"><img src="final/levis2in110l.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Essentials 10L"></div>
                     <div class="product-info">
@@ -442,6 +450,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="levis">
                     <div class="product-img-box"><img src="final/expertwithout2.5lsatin.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur 2.5L"></div>
                     <div class="product-info">
@@ -456,6 +465,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="levis">
                     <div class="product-img-box"><img src="final/experthoutlak.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Houtlak"></div>
                     <div class="product-info">
@@ -470,6 +480,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="product-card" data-brand="levis">
                     <div class="product-img-box"><img src="final/leviseasyclean.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis EasyClean"></div>
                     <div class="product-info">
@@ -525,6 +536,108 @@
                             <div class="price-box"><span class="product-price">€9.95</span></div>
                             <div class="shopify-button-container">
                                 <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" class="btn-buy" target="_blank"><i class="fas fa-shopping-cart"></i> Koop Nu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="polyfilla">
+                    <div class="product-img-box"><img src="final/pollyfillainstant.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Instant Vuller"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag tag-poly">POLYFILLA</span>
+                        <h3 class="product-title">Polyfilla Instant Vuller (Wit, 330g)</h3>
+                        <p class="product-desc">Vult kleine gaten en scheuren in één keer. Direct overschilderbaar!</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" target="_blank" class="btn-buy" style="background: #E30613;"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versasetchroom.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Aloni Regendouche Tondo"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Regendouche Tondo (Chroom)</h3>
+                        <p class="product-desc">Luxe regendouche voor de ultieme spa-ervaring thuis. Hoogwaardige kwaliteit.</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902141739385:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versamengkraanchroom.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Aloni Douche Mengkraan"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Douche Mengkraan (Chroom)</h3>
+                        <p class="product-desc">Robuuste en soepele mengkraan van topkwaliteit met glanzende afwerking.</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902239551865:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa" style="border: 2px solid #000;">
+                    <div class="product-img-box">
+                        <img src="final/versadoucheglijstangsetzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Doucheglijstangset Mat Zwart">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Glijstangset Compleet (Mat Zwart)</h3>
+                        <p class="product-desc">Dé trend van nu. Complete set inclusief slang, handdouche en zeephouder.</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versauniformahanddouche.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Uniforma Handdouche"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Uniforma Handdouche 3-Standen</h3>
+                        <p class="product-desc">Inclusief krachtige massagestraal en geïntegreerd anti-kalk systeem.</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902261703033:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa">
+                    <div class="product-img-box"><img src="final/versaaquaflexzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Uniforma Doucheslang Zwart"></div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Uniforma Doucheslang Anti-Twist (Zwart)</h3>
+                        <p class="product-desc">Knikt nooit. Ultra-zacht PVC voorkomt krassen op je dure tegels.</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902268158329:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-brand="versa" style="border: 2px solid #d4af37;">
+                    <div class="product-img-box">
+                        <img src="final/versazyrowc.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Zyro Toiletmeubel Licht Eiken">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand-tag" style="background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); border-color: rgba(6, 11, 17, 0.2);">VERSA</span>
+                        <h3 class="product-title">Aloni Zyro Toiletmeubel (Licht Eiken)</h3>
+                        <p class="product-desc">Complete 3-in-1 set: Onderkast (soft-close), luxe wasbak en bijpassende spiegel.</p>
+                        <div class="product-bottom">
+                            <div class="shopify-button-container shopify-button-full">
+                                <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" target="_blank" class="btn-buy" style="background: var(--mario-navy);"><i class="fas fa-shopping-cart"></i> Bestel Direct</a>
                             </div>
                         </div>
                     </div>
