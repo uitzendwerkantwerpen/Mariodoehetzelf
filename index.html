@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light">
-    <title>Mario DHZ Specialist | Voor Particulier & Vakman</title>
+    <title>Mario DHZ Specialist | Berchem</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,338 +22,168 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; }
         
-        /* --- HEADER --- */
-        .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .top-bar-item { display: flex; align-items: center; gap: 8px; }
-        .top-bar-item i { font-size: 14px; }
-
-        header {
-            position: fixed; width: 100%; top: 36px; left: 0; z-index: 9998;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 5%; background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
-        
-        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 15px; text-decoration: none; }
-        .header-logo-img { height: 60px; width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.2)); transition: 0.3s; }
-        
-        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
-        .mario-logo-text { font-size: 32px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; letter-spacing: 1px; line-height: 1; }
+        /* --- ORIGINELE HEADER & TOPBAR --- */
+        .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 10px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; z-index: 10000; position: fixed; top: 0; width: 100%; }
+        header { position: fixed; width: 100%; top: 36px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 12px 5%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .mario-logo-text { font-size: 32px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; }
         .mario-logo-text span { color: var(--mario-orange); }
-        .logo-subtext { color: var(--mario-grey); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--mario-navy); text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 15px; border-radius: 30px; transition: 0.3s; }
+        .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
 
-        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-        .nav-links a { color: var(--mario-navy); text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 30px; }
-        .nav-links a i { font-size: 16px; color: var(--mario-orange); }
-        .nav-links a:hover, .nav-links a.active { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); }
-
-        /* --- HOME HERO --- */
-        .home-hero { padding: 220px 5% 120px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; overflow: hidden; }
-        .home-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80') center/cover; opacity: 0.1; mix-blend-mode: overlay; }
-        .home-hero-content { position: relative; z-index: 3; }
-        .home-hero h1 { font-size: clamp(40px, 6vw, 70px); font-weight: 900; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 20px; line-height: 1.1; }
-        .home-hero h1 span { color: var(--mario-orange); text-shadow: 0 0 20px rgba(227,108,51,0.4); }
-        .home-hero p { font-size: 20px; color: #CBD5E1; max-width: 700px; margin: 0 auto 40px; font-weight: 400; line-height: 1.6; }
-        
-        .hero-btn { background: var(--mario-orange); color: white; padding: 18px 40px; border-radius: 50px; font-size: 16px; font-weight: 800; text-transform: uppercase; text-decoration: none; display: inline-block; transition: 0.3s; box-shadow: 0 10px 25px rgba(227, 108, 51, 0.4); }
-        .hero-btn:hover { background: white; color: var(--mario-orange); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2); }
-
-        /* --- LOPENDE BAND --- */
-        .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 1px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
-        .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; }
-        @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        /* --- ORIGINELE HERO --- */
+        .home-hero { padding: 220px 5% 120px; background: linear-gradient(135deg, #060B11 0%, #1a2636 100%); text-align: center; color: white; position: relative; }
+        .home-hero h1 { font-size: clamp(40px, 6vw, 70px); font-weight: 900; text-transform: uppercase; }
+        .home-hero h1 span { color: var(--mario-orange); }
+        .home-hero p { font-size: 20px; color: #CBD5E1; max-width: 700px; margin: 20px auto 40px; }
 
         /* --- PRODUCTEN IN DE KIJKER (SLIDER) --- */
-        .featured-section { max-width: 1400px; margin: 80px auto; padding: 0 20px; }
-        .featured-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .featured-header h2 { font-size: 32px; font-weight: 900; color: var(--mario-navy); text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
-        .featured-header h2 i { color: var(--mario-orange); }
-        .view-all-btn { color: var(--mario-grey); font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 14px; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
-        .view-all-btn:hover { color: var(--mario-orange); }
+        .slider-section { max-width: 1400px; margin: 80px auto; padding: 0 20px; }
+        .slider-container { overflow: hidden; position: relative; padding: 20px 0; }
+        .product-slider { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; }
+        .product-slider::-webkit-scrollbar { display: none; }
+        .slide-card { min-width: 300px; background: white; border-radius: 20px; padding: 20px; box-shadow: var(--card-shadow); text-align: center; border: 1px solid var(--mario-border); }
+        .slide-card img { height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .slide-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .slide-price { font-size: 22px; font-weight: 900; color: var(--mario-orange); display: block; margin-bottom: 15px; }
+        .slide-btn { background: var(--mario-navy); color: white; padding: 10px 20px; text-decoration: none; border-radius: 10px; font-weight: 800; text-transform: uppercase; }
 
-        .slider-container { position: relative; width: 100%; overflow: hidden; border-radius: 20px; padding: 10px 0; }
-        .product-slider { display: flex; gap: 25px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 20px; -ms-overflow-style: none; scrollbar-width: none; }
-        .product-slider::-webkit-scrollbar { display: none; } /* Verberg scrollbar */
+        /* --- AI KLUS SCANNER --- */
+        .ai-section { max-width: 1200px; margin: 80px auto; background: white; border-radius: 25px; padding: 50px; text-align: center; border: 2px dashed var(--mario-orange); }
 
-        .slide-card { min-width: 320px; max-width: 320px; background: white; border-radius: 24px; border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--card-shadow); scroll-snap-align: start; display: flex; flex-direction: column; transition: 0.3s; position: relative; flex-shrink: 0; }
-        .slide-card:hover { transform: translateY(-10px); box-shadow: var(--card-hover); border-color: rgba(227, 108, 51, 0.3); }
+        /* --- ORIGINELE REVIEWS SECTIE --- */
+        .google-reviews { background: #fff; padding: 80px 5%; text-align: center; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .review-card { padding: 30px; border-radius: 15px; background: var(--mario-light); box-shadow: var(--card-shadow); }
+        .stars { color: #fbbc05; margin-bottom: 10px; }
 
-        .slide-img-box { width: 100%; height: 220px; background: radial-gradient(circle, #ffffff 0%, #f1f5f9 100%); padding: 30px; display: flex; align-items: center; justify-content: center; border-radius: 24px 24px 0 0; }
-        .slide-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); transition: 0.5s; }
-        .slide-card:hover .slide-img-box img { transform: scale(1.08) rotate(-2deg); }
+        /* --- ORIGINELE PROFESSIONELE FOOTER MET GOOGLE MAPS --- */
+        .footer { background: var(--mario-navy); color: white; padding: 80px 5% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .map-container { width: 100%; height: 200px; border-radius: 15px; overflow: hidden; margin-top: 20px; border: 2px solid var(--mario-orange); }
 
-        .slide-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .slide-brand { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 10px; border-radius: 15px; margin-bottom: 12px; align-self: flex-start; }
-        .brand-levis { background: rgba(0, 164, 228, 0.1); color: #00a4e4; }
-        .brand-versa { background: rgba(6, 11, 17, 0.1); color: var(--mario-navy); }
-        .brand-poly { background: rgba(227, 6, 19, 0.1); color: #E30613; }
-
-        .slide-title { font-size: 18px; font-weight: 900; color: var(--mario-navy); line-height: 1.3; margin-bottom: 10px; }
-        
-        .click-collect-tag { color: #16a34a; font-size: 12px; font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 6px; background: #dcfce7; padding: 5px 10px; border-radius: 8px; align-self: flex-start; }
-        
-        .slide-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: auto; border-top: 1px solid var(--mario-border); padding-top: 15px; }
-        .slide-price { font-size: 22px; font-weight: 900; color: var(--mario-navy); }
-        .slide-btn { background: var(--mario-orange); color: white; padding: 10px 20px; border-radius: 10px; font-weight: 800; text-transform: uppercase; text-decoration: none; font-size: 13px; box-shadow: 0 4px 15px rgba(227, 108, 51, 0.3); transition: 0.3s; }
-        .slide-btn:hover { background: var(--mario-navy); box-shadow: 0 8px 20px rgba(6, 11, 17, 0.3); transform: translateY(-2px); }
-
-        /* Slider Controls */
-        .slider-controls { display: flex; gap: 10px; margin-top: 10px; justify-content: center; }
-        .slider-btn { width: 40px; height: 40px; border-radius: 50%; background: white; border: 2px solid var(--mario-border); display: flex; justify-content: center; align-items: center; cursor: pointer; color: var(--mario-navy); transition: 0.3s; box-shadow: var(--card-shadow); }
-        .slider-btn:hover { background: var(--mario-orange); color: white; border-color: var(--mario-orange); }
-
-        /* --- PREMIUM FOOTER --- */
-        .premium-footer { background-color: var(--mario-navy); color: #94A3B8; padding: 80px 5% 20px; font-size: 15px; border-top: 5px solid var(--mario-orange); margin-top: 50px; }
-        .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
-        .footer-brand h3 { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; }
-        .footer-brand h3 span { color: var(--mario-orange); }
-        .footer-brand p { line-height: 1.8; margin-bottom: 25px; max-width: 350px; }
-        .social-icons { display: flex; gap: 15px; }
-        .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; transition: 0.3s; text-decoration: none; }
-        .social-icons a:hover { background: var(--mario-orange); transform: translateY(-3px); }
-        .footer-col h4 { color: white; font-size: 18px; text-transform: uppercase; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: #94A3B8; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
-        .footer-col ul li a:hover { color: var(--mario-orange); padding-left: 5px; }
-        .footer-contact li { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
-        .footer-contact i { color: var(--mario-orange); font-size: 20px; margin-top: 3px; }
-        .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .payment-methods { display: flex; gap: 10px; align-items: center; }
-        .payment-methods i { font-size: 28px; color: #fff; }
-        
-        @media (max-width: 900px) {
-            .top-bar-hide { display: none; }
-            .top-bar { justify-content: center; }
-            .home-hero { padding-top: 160px; padding-bottom: 80px; }
-            .logo-frame { gap: 10px; }
-            .mario-logo-text { font-size: 24px; }
-            .featured-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .footer-container { grid-template-columns: 1fr; gap: 40px; }
-            .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
-        }
+        @media (max-width: 768px) { .top-bar-hide { display: none; } }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> Gratis afhalen in de winkel (Click & Collect)</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-shield-alt"></i> Veilig Betalen & Ruilen</div>
+        <div class="top-bar-item"><i class="fas fa-check-circle"></i> ECHTE GOOGLE REVIEWS ⭐⭐⭐⭐⭐</div>
+        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> CLICK & COLLECT BERCHEM</div>
     </div>
 
     <header>
-        <a href="index.html" class="logo-frame">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Mario Logo" class="header-logo-img">
-            <div class="logo-text-wrapper">
-                <div class="mario-logo-text">MARIO</div>
-                <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
-            </div>
+        <a href="index.html" class="logo-frame" style="text-decoration:none;">
+            <div class="mario-logo-text">MARIO<span>DHZ</span></div>
         </a>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="winkel.html"><i class="fas fa-shopping-cart"></i> De Winkel</a>
-            <a href="renovatie.html"><i class="fas fa-drafting-compass"></i> Renovaties</a>
-        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="winkel.html">De Winkel</a></li>
+            <li><a href="renovatie.html">Renovatie</a></li>
+        </ul>
     </header>
 
     <section class="home-hero">
-        <div class="home-hero-bg"></div>
         <div class="home-hero-content">
-            <h1>Jouw Project,<br><span>Onze Expertise.</span></h1>
-            <p>Ontdek premium gereedschap, A-merk verf en luxe sanitair. Gebruik onze AI-tool voor klusadvies en bestel direct online voor thuislevering of gratis afhalen in Berchem.</p>
-            <a href="winkel.html" class="hero-btn"><i class="fas fa-box-open" style="margin-right: 8px;"></i> Ga Naar De Winkel</a>
+            <h1>JOUW KLUS-PROJECT,<br><span>ONZE PASSIE.</span></h1>
+            <p>De hoogste kwaliteit verf, sanitair en gereedschap in Berchem.</p>
+            <a href="winkel.html" class="slide-btn" style="background:var(--mario-orange); padding: 15px 40px;">BEKIJK COLLECTIE</a>
         </div>
     </section>
 
-    <div class="partner-wrapper">
-        <div class="partner-track">
-            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
-            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
-            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
-            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
-            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
-            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
-            <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Stanley';" alt="Stanley">
-            <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Versa';" alt="Versa">
-            <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Loctite';" alt="Loctite">
-            <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Pattex';" alt="Pattex">
-            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
-            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
-        </div>
-    </div>
-
-    <section class="featured-section">
-        <div class="featured-header">
-            <h2><i class="fas fa-fire"></i> Producten in de Kijker</h2>
-            <a href="winkel.html" class="view-all-btn">Bekijk Volledige Winkel <i class="fas fa-arrow-right"></i></a>
-        </div>
-
+    <section class="slider-section">
+        <h2 style="text-align:center; margin-bottom: 40px; text-transform:uppercase; font-weight:900;">🔥 Populair in de kijker</h2>
         <div class="slider-container">
             <div class="product-slider" id="homeSlider">
-                
                 <div class="slide-card">
-                    <div class="slide-img-box">
-                        <img src="final/versadoucheglijstangsetzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Glijstangset Zwart">
-                    </div>
-                    <div class="slide-info">
-                        <span class="slide-brand brand-versa">VERSA</span>
-                        <h3 class="slide-title">Aloni Glijstangset Compleet (Mat Zwart)</h3>
-                        <div class="click-collect-tag"><i class="fas fa-check-circle"></i> Direct afhalen in Berchem</div>
-                        <div class="slide-bottom">
-                            <span class="slide-price">€29.99</span>
-                            <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" target="_blank" class="slide-btn">Koop Nu</a>
-                        </div>
-                    </div>
+                    <img src="final/versadoucheglijstangsetzwart.jpg" alt="Zwarte Douche">
+                    <h3>Versa Glijstangset Zwart</h3>
+                    <span class="slide-price">€29.99</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" class="slide-btn">BESTEL</a>
                 </div>
-
-                <div class="slide-card" style="border: 2px solid var(--mario-orange);">
-                    <div class="slide-img-box">
-                        <img src="final/murplafond10lpromo.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Muur Promo">
-                    </div>
-                    <div class="slide-info">
-                        <span class="slide-brand brand-levis" style="background: var(--mario-orange); color: white;">🔥 WEEK PROMO</span>
-                        <h3 class="slide-title">Levis Muur & Plafond 8+2L Wit Mat</h3>
-                        <div class="click-collect-tag"><i class="fas fa-check-circle"></i> Direct afhalen in Berchem</div>
-                        <div class="slide-bottom">
-                            <span class="slide-price">€79.95</span>
-                            <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" target="_blank" class="slide-btn">Koop Nu</a>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="slide-card">
-                    <div class="slide-img-box">
-                        <img src="final/versazyrowc.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Zyro Toiletmeubel">
-                    </div>
-                    <div class="slide-info">
-                        <span class="slide-brand brand-versa">VERSA</span>
-                        <h3 class="slide-title">Aloni Zyro Toiletmeubel (Licht Eiken)</h3>
-                        <div class="click-collect-tag"><i class="fas fa-check-circle"></i> Direct afhalen in Berchem</div>
-                        <div class="slide-bottom">
-                            <span class="slide-price">€114.99</span>
-                            <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" target="_blank" class="slide-btn">Koop Nu</a>
-                        </div>
-                    </div>
+                    <img src="final/murplafond10lpromo.jpg" alt="Levis Promo">
+                    <h3>Levis 8+2L Gratis!</h3>
+                    <span class="slide-price">€79.95</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" class="slide-btn">BESTEL</a>
                 </div>
-
                 <div class="slide-card">
-                    <div class="slide-img-box">
-                        <img src="final/pollyfillainstant.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Instant">
-                    </div>
-                    <div class="slide-info">
-                        <span class="slide-brand brand-poly">POLYFILLA</span>
-                        <h3 class="slide-title">Polyfilla Instant Vuller (Wit, 330g)</h3>
-                        <div class="click-collect-tag"><i class="fas fa-check-circle"></i> Direct afhalen in Berchem</div>
-                        <div class="slide-bottom">
-                            <span class="slide-price">€8.95</span>
-                            <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" target="_blank" class="slide-btn">Koop Nu</a>
-                        </div>
-                    </div>
+                    <img src="final/versazyrowc.jpg" alt="Zyro Meubel">
+                    <h3>Aloni Zyro Meubelset</h3>
+                    <span class="slide-price">€114.99</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" class="slide-btn">BESTEL</a>
                 </div>
-                
                 <div class="slide-card">
-                    <div class="slide-img-box">
-                        <img src="final/levis2in110l.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Essentials 10L">
-                    </div>
-                    <div class="slide-info">
-                        <span class="slide-brand brand-levis">LEVIS ESSENTIALS</span>
-                        <h3 class="slide-title">Levis Essentials 2-in-1 Wit 10L</h3>
-                        <div class="click-collect-tag"><i class="fas fa-check-circle"></i> Direct afhalen in Berchem</div>
-                        <div class="slide-bottom">
-                            <span class="slide-price">€139.95</span>
-                            <a href="https://tvbrqm-yf.myshopify.com/cart/56884893286777:1?channel=buy_button" target="_blank" class="slide-btn">Koop Nu</a>
-                        </div>
-                    </div>
+                    <img src="final/pollyfillainstant.jpeg" alt="Polyfilla">
+                    <h3>Polyfilla Instant Vuller</h3>
+                    <span class="slide-price">€8.95</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" class="slide-btn">BESTEL</a>
                 </div>
-
-            </div>
-            
-            <div class="slider-controls">
-                <button class="slider-btn" onclick="slideLeft()"><i class="fas fa-chevron-left"></i></button>
-                <button class="slider-btn" onclick="slideRight()"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
 
-    <footer class="premium-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>MARIO <span>DHZ</span></h3>
-                <p>Jouw betrouwbare partner in Berchem voor alle doe-het-zelf projecten. Van professioneel advies door onze AI tot premium materialen direct uit voorraad.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                </div>
+    <section class="ai-section">
+        <h2><i class="fas fa-robot"></i> AI KLUS-SCANNER 🤖</h2>
+        <p>Scan je probleem, wij geven je de oplossing en de juiste producten!</p>
+        <button class="slide-btn" style="background:var(--mario-orange); margin-top:20px;">START SCAN</button>
+    </section>
+
+    <section class="google-reviews">
+        <h2>WAT ONZE KLANTEN ZEGGEN ⭐</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Geweldige service en eerlijk advies in Berchem!"</p>
+                <strong style="display:block; margin-top:15px;">- Jan de Man</strong>
             </div>
-            <div class="footer-col">
-                <h4>Navigatie</h4>
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepagina</a></li>
-                    <li><a href="winkel.html"><i class="fas fa-chevron-right"></i> De Winkel</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI Klus-Scanner</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Verfmengmachine</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Klantenservice</h4>
-                <ul>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Retourneren</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Verzending & Levering</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Algemene Voorwaarden</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacybeleid</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <ul class="footer-contact">
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div><strong>Winkel Berchem</strong><br>Driekoningenstraat 73<br>2600 Berchem, België</div>
-                    </li>
-                    <li>
-                        <i class="fas fa-phone-alt"></i>
-                        <div><strong>Bel of Whatsapp</strong><br>0479 / 93.58.48</div>
-                    </li>
-                </ul>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Beste prijs voor Levis verf die ik kon vinden. Top shop."</p>
+                <strong style="display:block; margin-top:15px;">- Sarah B.</strong>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door MS Global Creative Studios.</p>
-            <div class="payment-methods">
-                <span style="margin-right: 10px; font-size: 12px; font-weight: bold; text-transform: uppercase;">Veilig betalen via Shopify:</span>
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-paypal"></i>
-                <i class="fab fa-cc-apple-pay"></i>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>MARIO DHZ</h3>
+                <p>Driekoningenstraat 73, 2600 Berchem</p>
+                <p>Tel: 0479 / 93.58.48</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2501.123!2d4.42!3d51.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f7!2sDriekoningenstraat%2073%2C%202600%20Antwerpen!5e0!3m2!1snl!2sbe!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
+            <div>
+                <h3>OPENINGSUREN</h3>
+                <p>Ma - Za: 09:00 - 18:00</p>
+                <p>Zondag: Gesloten</p>
+            </div>
+            <div>
+                <h3>NAVIGATIE</h3>
+                <p><a href="winkel.html" style="color:white;">Webshop</a></p>
+                <p><a href="renovatie.html" style="color:white;">Renovaties</a></p>
+                <p><a href="#" style="color:white;">Contact</a></p>
+            </div>
+        </div>
+        <div style="text-align:center; padding-top:40px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2026 Mario DHZ Berchem - Powered by Shopify & MS Global Creative</p>
         </div>
     </footer>
 
     <script>
+        // Automatisch swipen van de slider
         const slider = document.getElementById('homeSlider');
-        
-        function slideLeft() {
-            slider.scrollBy({ left: -345, behavior: 'smooth' });
-        }
-        
-        function slideRight() {
-            slider.scrollBy({ left: 345, behavior: 'smooth' });
-        }
-
-        // Optioneel: Automatisch swipen elke 4 seconden
         setInterval(() => {
             if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
-                slider.scrollTo({ left: 0, behavior: 'smooth' }); // Terug naar begin
+                slider.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-                slideRight();
+                slider.scrollBy({ left: 325, behavior: 'smooth' });
             }
-        }, 4000);
+        }, 3000);
     </script>
 </body>
 </html>
