@@ -4,266 +4,665 @@
     <meta name="google-site-verification" content="rcAcy9e7aYCKK_rahyvOgGxQBwG-cyjtGwJ0hqm6lZ4" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mario DHZ Specialist | Totaalrenovaties</title>
+    <meta name="color-scheme" content="light">
+    <title>Mario | Premium Totaalrenovaties & Doe-Het-Zelf Berchem</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --mario-orange: #E36C33;
-            --mario-navy: #060B11; 
-            --mario-light: #F4F7F6;
-            --mario-border: #E2E8F0;
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
+        :root { --mario-orange: #E36C33; --mario-navy: #060B11; --mario-light: #F1F5F9; --mario-border: #E2E8F0; --mario-grey: #4A5568; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; }
+        body { background-color: var(--mario-light); color: var(--mario-navy); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        /* --- HEADER & TOP BAR --- */
+        .top-bar { background: var(--mario-orange); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; z-index: 10000; position: fixed; top: 0; width: 100%; }
+        .top-bar-item { display: flex; align-items: center; gap: 8px; }
         
-        /* --- TOP BAR & HEADER --- */
-        .top-bar { background: linear-gradient(90deg, #E36C33, #d15a22); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 10px; font-weight: 800; text-transform: uppercase; z-index: 10000; position: fixed; top: 0; width: 100%; }
-        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
         
-        header { position: fixed; width: 100%; top: 30px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: var(--mario-navy); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo-frame { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-frame img { height: 40px; }
-        .mario-logo-text { font-size: 24px; font-weight: 900; color: white; text-transform: uppercase; line-height: 1; }
-        .mario-logo-text span { color: var(--mario-orange); }
-        .logo-sub { font-size: 8px; color: #aaa; letter-spacing: 1px; }
+        /* LOGO FIX 1: Groter linksboven */
+        .header-logo-img { height: clamp(70px, 12vw, 100px); width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transition: 0.3s; }
+        
+        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
+        .mario-logo-text { font-size: clamp(20px, 4.5vw, 38px); font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); white-space: nowrap; }
+        .logo-subtext { color: rgba(255,255,255,0.85); font-size: clamp(8px, 1.8vw, 11px); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; white-space: nowrap; }
+        
+        .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+        .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .nav-links a i { font-size: 16px; color: var(--mario-orange); }
+        .nav-links a:hover, .nav-links a.active { color: var(--mario-orange); }
 
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; }
-        .nav-links a i { color: var(--mario-orange); margin-right: 5px; }
+        /* --- HERO SECTION --- */
+        .hero { position: relative; padding: 200px 5% 60px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; justify-content: center; }
+        .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); flex: 1.2; min-width: 320px; overflow: hidden; }
+        .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
+        
+        /* LOGO FIX 2: Groter in de Hero banner */
+        .card-logo { width: clamp(100px, 20vw, 160px); height: auto; max-height: 140px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
+        
+        .hero-card-title { font-size: clamp(22px, 6vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
+        .hero-card-title span { color: var(--mario-orange); }
+        .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; margin-top: 15px; }
+        .btn-primary { display: inline-block; padding: 18px 45px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); cursor: pointer; border: none; text-align: center; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); background: #d15a22; }
+        
+        .hero-slider-card { flex: 1; min-width: 320px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.08); height: 350px; position: relative; }
+        .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
+        .slide { width: 100%; height: 100%; flex-shrink: 0; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- MAIN CONTAINER --- */
-        .main-container { max-width: 1200px; margin: 100px auto 0; padding: 20px; display: flex; flex-direction: column; gap: 30px; }
+        /* --- MARIO BANNER SECTIE --- */
+        .mario-banner-section { width: 100%; max-width: 1400px; margin: 40px auto 0; padding: 0 5%; position: relative; z-index: 10; display: flex; justify-content: center; }
+        .mario-banner-section img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); border: 3px solid var(--mario-border); transition: 0.3s; }
+        .mario-banner-section img:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 25px 60px rgba(227, 108, 51, 0.3); }
 
-        /* --- CARTOON BANNER --- */
-        .cartoon-banner { width: 100%; border-radius: 15px; box-shadow: var(--card-shadow); overflow: hidden; border: 3px solid var(--mario-navy); }
-        .cartoon-banner img { width: 100%; height: auto; display: block; }
+        /* --- PRODUCTEN IN DE KIJKER (SWIPE SLIDER) --- */
+        .featured-slider-section { max-width: 1300px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 10; }
+        .featured-slider-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid var(--mario-border); padding-bottom: 10px; }
+        .featured-slider-header h2 { color: var(--mario-navy); font-size: 22px; font-weight: 900; text-transform: uppercase; }
+        .featured-slider-header a { color: var(--mario-grey); font-size: 14px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+        .featured-slider-container { overflow: hidden; position: relative; }
+        .featured-slider-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 15px; }
+        .featured-slider-track::-webkit-scrollbar { display: none; }
+        
+        .product-slide-card { min-width: 250px; background: white; border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); text-align: center; display: flex; flex-direction: column; transition: 0.3s; }
+        .product-slide-card:hover { transform: translateY(-5px); border-color: var(--mario-orange); }
+        .product-slide-card img { height: 140px; object-fit: contain; margin-bottom: 15px; mix-blend-mode: multiply; }
+        .product-slide-card h3 { font-size: 14px; font-weight: 800; color: var(--mario-navy); margin-bottom: auto; line-height: 1.3; }
+        .product-slide-price { font-size: 18px; font-weight: 900; color: var(--mario-orange); margin: 10px 0; }
+        .product-slide-btn { background: var(--mario-navy); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; font-size: 12px; text-transform: uppercase; text-decoration: none; transition: 0.3s; }
+        .product-slide-btn:hover { background: var(--mario-orange); }
 
-        /* --- VERSA VIP BANNER --- */
-        .versa-banner { background: var(--mario-navy); border-radius: 15px; padding: 30px; display: flex; justify-content: space-between; align-items: center; position: relative; box-shadow: var(--card-shadow); overflow: hidden; }
-        .korting-tag { position: absolute; top: 15px; left: -30px; background: #E30613; color: white; font-weight: 900; font-size: 12px; padding: 5px 40px; transform: rotate(-45deg); text-transform: uppercase; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .versa-text { color: white; z-index: 2; max-width: 60%; }
-        .versa-text h2 { font-size: 26px; font-weight: 900; margin-bottom: 10px; color: var(--mario-orange); text-transform: uppercase; }
-        .versa-text p { font-size: 13px; color: #CBD5E1; margin-bottom: 15px; line-height: 1.5; }
-        .versa-btn { background: var(--mario-orange); color: white; padding: 10px 20px; border-radius: 8px; font-weight: 800; font-size: 12px; text-decoration: none; display: inline-block; }
-        .versa-logo-box { background: white; padding: 15px; border-radius: 12px; width: 120px; display: flex; justify-content: center; align-items: center; }
-        .versa-logo-box img { width: 100%; }
+        /* --- VERSA GROUP PROMO --- */
+        .versa-promo-section { max-width: 1300px; margin: 40px auto 20px; padding: 0 20px; position: relative; z-index: 10; }
+        .versa-promo-card { background: linear-gradient(135deg, #0f172a 0%, #060b11 100%); border-radius: 24px; padding: 50px; display: flex; align-items: center; justify-content: space-between; gap: 40px; box-shadow: 0 25px 50px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); overflow: hidden; position: relative; }
+        .versa-badge { position: absolute; top: 30px; left: -35px; background: #EF4444; color: white; font-weight: 900; font-size: 16px; padding: 10px 40px; transform: rotate(-45deg); box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4); letter-spacing: 1px; }
+        .versa-content { flex: 1; z-index: 2; padding-left: 30px; }
+        .versa-content h2 { color: white; font-size: clamp(28px, 5vw, 42px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
+        .versa-content h2 span { color: var(--mario-orange); }
+        .versa-content p { color: #CBD5E1; font-size: 16px; line-height: 1.7; margin-bottom: 30px; max-width: 550px; }
+        .versa-logo-box { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.5); z-index: 2; width: clamp(150px, 25vw, 250px); flex-shrink: 0; }
+        .versa-logo-box img { width: 100%; height: auto; display: block; object-fit: contain; }
 
-        /* --- DE NIEUWE SWIPE SLIDER --- */
-        .slider-wrapper { background: white; padding: 25px; border-radius: 15px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); }
-        .slider-wrapper h2 { font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; justify-content: space-between; }
-        .product-slider { display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 10px; }
-        .product-slider::-webkit-scrollbar { display: none; }
-        .slide-card { min-width: 200px; background: var(--mario-light); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--mario-border); }
-        .slide-card img { height: 100px; object-fit: contain; margin-bottom: 10px; mix-blend-mode: multiply; }
-        .slide-card h3 { font-size: 13px; font-weight: 800; height: 32px; overflow: hidden; margin-bottom: 5px; }
-        .slide-price { font-size: 16px; font-weight: 900; color: var(--mario-orange); display: block; margin-bottom: 10px; }
-        .slide-btn { background: var(--mario-navy); color: white; padding: 8px 15px; border-radius: 6px; font-weight: 800; font-size: 11px; text-decoration: none; display: inline-block; width: 100%; }
+        /* --- AI KLUS-SCANNER --- */
+        .mario-scanner-section { background: white; padding: 60px 5%; position: relative; z-index: 10; border-bottom: 2px solid var(--mario-border); margin-top: 40px; }
+        .scanner-container { max-width: 1000px; margin: 0 auto; background: var(--mario-light); border-radius: 24px; border: 2px dashed var(--mario-orange); padding: 50px 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.05); transition: 0.3s; }
+        .scanner-container:hover { border-style: solid; box-shadow: 0 25px 50px rgba(227, 108, 51, 0.15); }
+        .scanner-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; }
+        .scanner-header img { width: 160px; height: auto; max-height: 120px; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(227, 108, 51, 0.3)); margin-bottom: 15px; }
+        .scanner-header h2 { color: var(--mario-navy); font-size: clamp(24px, 5vw, 32px); font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+        .scanner-header h2 span { color: var(--mario-orange); }
+        .scanner-header p { color: var(--mario-grey); font-size: 16px; max-width: 600px; line-height: 1.6; }
+        .upload-btn-large { display: inline-flex; align-items: center; justify-content: center; gap: 15px; padding: 20px 50px; font-size: clamp(14px, 4vw, 18px); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: white; background: var(--mario-navy); border-radius: 50px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 30px rgba(6, 11, 17, 0.3); border: none; width: auto; }
+        .upload-btn-large i { font-size: 24px; color: var(--mario-orange); }
+        .upload-btn-large:hover { transform: translateY(-5px); background: #1a2533; box-shadow: 0 15px 40px rgba(227, 108, 51, 0.4); }
+        #scannerLoading { display: none; margin-top: 30px; color: var(--mario-orange); font-size: 18px; font-weight: 800; text-transform: uppercase; }
+        #scannerLoading i { font-size: 30px; margin-bottom: 10px; display: block; }
+        #scannerResults { display: none; margin-top: 40px; background: white; border-radius: 16px; padding: 30px; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid var(--mario-border); }
+        #scannerResultsImage { max-width: 200px; width: 100%; border-radius: 12px; border: 3px solid var(--mario-orange); margin-bottom: 25px; display: block; }
+        .ai-report h3 { color: var(--mario-navy); font-size: 18px; font-weight: 900; text-transform: uppercase; margin-top: 25px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--mario-light); padding-bottom: 5px; }
+        .ai-report p, .ai-report li { color: #4A5568; font-size: 15px; line-height: 1.7; margin-bottom: 10px; }
 
-        /* --- AI KLUS SCANNER --- */
-        .ai-scanner { background: #FFF9F5; border: 2px solid var(--mario-orange); border-radius: 15px; padding: 30px 20px; text-align: center; box-shadow: var(--card-shadow); }
-        .ai-scanner img.ai-logo { height: 30px; margin-bottom: 15px; }
-        .ai-scanner h2 { font-size: 22px; font-weight: 900; color: var(--mario-navy); margin-bottom: 10px; text-transform: uppercase; }
-        .ai-scanner p { font-size: 13px; color: var(--mario-grey); margin-bottom: 20px; line-height: 1.5; }
-        .btn-ai { background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; font-weight: 800; font-size: 13px; text-transform: uppercase; cursor: pointer; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        #fixItResult { display: none; margin-top: 20px; background: white; padding: 20px; border-radius: 12px; text-align: left; border: 1px solid var(--mario-border); }
-        #fixItPreview { max-width: 150px; border-radius: 8px; margin-bottom: 15px; border: 2px solid var(--mario-orange); }
-        .ai-report-text h3 { font-size: 14px; margin: 15px 0 5px; font-weight: 900; text-transform: uppercase; color: var(--mario-navy); }
-        .ai-report-text p, .ai-report-text li { font-size: 12px; line-height: 1.6; color: var(--mario-grey); }
+        /* --- ERKEND VERKOOPPUNT --- */
+        .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
+        .dealer-container { max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+        .dealer-header { text-align: center; max-width: 800px; margin: 0 auto; }
+        .dealer-header h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .dealer-header h2 i { color: #F59E0B; font-size: 32px; }
+        .dealer-logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; width: 100%; }
+        .dealer-box { display: flex; align-items: center; gap: 15px; background: var(--mario-light); padding: 20px; border-radius: 16px; border: 1px solid var(--mario-border); text-decoration: none; transition: 0.3s; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+        .dealer-box:hover { transform: translateY(-5px); border-color: var(--mario-orange); background: white; }
+        .dealer-box img { width: 70px; height: 70px; object-fit: contain; mix-blend-mode: multiply; }
+        .dealer-info strong { color: var(--mario-navy); font-size: 14px; font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px; }
+        .dealer-info span { color: var(--mario-orange); font-size: 12px; font-weight: 700; }
 
-        /* --- ERKEND PREMIUM VERKOOPPUNT --- */
-        .premium-dealer { text-align: center; margin-top: 10px; }
-        .premium-dealer h3 { font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; }
-        .premium-dealer p { font-size: 12px; color: var(--mario-grey); margin-bottom: 20px; }
-        .dealer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .dealer-card { background: white; padding: 15px; border-radius: 12px; border: 1px solid var(--mario-border); display: flex; align-items: center; gap: 15px; box-shadow: var(--card-shadow); text-align: left; }
-        .dealer-card img { width: 50px; object-fit: contain; }
-        .dealer-info h4 { font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 3px; }
-        .dealer-info p { font-size: 10px; color: var(--mario-orange); font-weight: 700; margin: 0; }
+        /* --- CATEGORIE DETAILS --- */
+        .services-section { position: relative; z-index: 5; max-width: 1300px; margin: 60px auto 80px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .glass-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; transition: 0.4s; display: flex; flex-direction: column; }
+        .glass-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 25px 50px rgba(227, 108, 51, 0.15); }
+        .card-img-top { width: 100%; height: 220px; background-size: cover; background-position: center; border-bottom: 4px solid var(--mario-orange); }
+        .card-content { padding: 35px; flex: 1; display: flex; flex-direction: column; }
+        .card-content i { font-size: 35px; color: var(--mario-orange); margin-bottom: 15px; }
+        .card-content h3 { font-size: 22px; font-weight: 900; margin-bottom: 12px; text-transform: uppercase; color: var(--mario-navy); }
+        .card-content p { font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 20px; }
+        .btn-card { background: var(--mario-navy); color: white; border-radius: 8px; padding: 14px 20px; font-size: 13px; font-weight: 800; text-transform: uppercase; text-decoration: none; transition: 0.3s; margin-top: auto; display: inline-block; text-align: center; }
+        .glass-card:hover .btn-card { background: var(--mario-orange); }
 
         /* --- VIDEO SECTIE --- */
-        .video-sectie { text-align: center; margin-top: 20px; }
-        .video-sectie h3 { font-size: 18px; font-weight: 900; margin-bottom: 15px; color: var(--mario-orange); text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .video-container { background: white; border-radius: 15px; padding: 10px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); }
-        .video-container img { width: 100%; border-radius: 10px; display: block; }
-        .video-partners { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
-        .video-partners img { height: 25px; filter: grayscale(1); opacity: 0.7; }
+        .video-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: center; position: relative; z-index: 10; }
+        .video-header h2 { color: var(--mario-navy); font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 12px; }
+        .video-header h2 i { color: var(--mario-orange); }
+        .video-frame { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 5px solid white; background: #000; }
+        .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- MAPS & REVIEWS --- */
-        .map-review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
-        .map-box { background: white; border-radius: 15px; padding: 10px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); height: 250px; }
-        .map-box iframe { width: 100%; height: 100%; border-radius: 10px; border: none; }
-        
-        .review-box { background: white; border-radius: 15px; padding: 20px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); height: 250px; display: flex; flex-direction: column; justify-content: center; }
-        .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .review-header img { height: 25px; }
-        .review-header h4 { font-size: 16px; font-weight: 900; margin: 0; }
-        .review-stars { color: #fbbc05; font-size: 16px; margin-bottom: 5px; }
-        .review-text { font-size: 12px; color: var(--mario-grey); font-weight: 700; margin-bottom: 15px; }
-        .review-badge { background: #e8f5e9; color: #16a34a; font-size: 10px; padding: 4px 8px; border-radius: 4px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
-        .single-review { display: flex; gap: 10px; align-items: flex-start; }
-        .single-review .avatar { width: 35px; height: 35px; background: #e91e63; color: white; display: flex; justify-content: center; align-items: center; border-radius: 50%; font-weight: 900; }
+        /* --- LOPENDE BAND --- */
+        .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
+        .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
+        @keyframes scrollBanner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- MAP & REVIEWS --- */
+        .info-section { max-width: 1300px; margin: 40px auto 80px; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
+        .map-frame { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); border: 5px solid white; height: 100%; min-height: 450px; }
+        .google-map { width: 100%; height: 100%; border: 0; }
+        .reviews-container { display: flex; flex-direction: column; gap: 20px; }
 
         /* --- FOOTER --- */
-        footer { background: var(--mario-navy); color: white; padding: 40px 20px 20px; margin-top: 40px; }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .footer-col h4 { color: var(--mario-orange); font-size: 12px; text-transform: uppercase; margin-bottom: 15px; }
-        .footer-col p, .footer-col a { font-size: 11px; color: #CBD5E1; margin-bottom: 8px; text-decoration: none; display: block; }
-        .footer-bottom { text-align: center; font-size: 9px; color: #666; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+        footer { background-color: var(--mario-navy); color: white; padding: 60px 5% 0; }
+        .footer-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; }
+        .footer-col h4 { color: var(--mario-orange); font-size: 18px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .footer-col p { color: #CBD5E1; font-size: 15px; line-height: 1.8; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .payment-icons { display: flex; gap: 15px; margin-top: 15px; font-size: 35px; color: white; align-items: center; }
+        .developer-credit-frame { background: #000000; padding: 25px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+        .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* Chat Button */
-        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: var(--mario-navy); color: white; border: 2px solid var(--mario-orange); padding: 10px 20px; border-radius: 30px; font-size: 12px; font-weight: 800; z-index: 10000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        /* --- CHATBOT --- */
+        .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
+        .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
+        .ai-chat-btn img { width: 24px; height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
+        .chat-window { position: fixed; bottom: 90px; right: 30px; width: 400px; background: white; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid var(--mario-border); z-index: 10000; display: none; flex-direction: column; overflow: hidden; transform: translateY(20px); opacity: 0; transition: all 0.3s; }
+        .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
+        .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
+        .chat-header img { width: 35px; height: 35px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5)); }
+        .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
+        .chat-header-text strong { font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .chat-header-text small { font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px; }
+        .tts-toggle { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #A0AEC0; cursor: pointer; }
+        .close-chat { color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: 10px; line-height: 1; }
+        .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
+        .expert-btn { flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
+        .chat-body { padding: 20px; height: 360px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; word-wrap: break-word; }
+        .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
+        .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
+        .chat-buy-btn { display: inline-block; background: var(--mario-orange); color: white !important; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: 800; text-transform: uppercase; margin-top: 10px; box-shadow: 0 4px 10px rgba(227,108,51,0.3); border: 1px solid #c25522; transition: 0.3s; }
+        .chat-buy-btn:hover { background: var(--mario-navy); border-color: var(--mario-navy); }
+        .chat-input-area { padding: 12px 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 8px; align-items: center; }
+        .chat-icon-btn { background: #F1F5F9; color: var(--mario-grey); border: 1px solid var(--mario-border); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .chat-icon-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: var(--mario-orange); }
+        .chat-icon-btn.recording { background: #EF4444; color: white; animation: pulse 1s infinite; border-color: #EF4444; }
+        .chat-input-area input[type="text"] { flex: 1; padding: 12px 15px; border-radius: 20px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 13px; }
+        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .typing-indicator { font-size: 11px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
+        #imagePreviewContainer { display: none; padding: 10px 15px; background: #F8FAFC; border-top: 1px solid var(--mario-border); position: relative; }
+        #chatImagePreview { height: 60px; border-radius: 8px; border: 2px solid var(--mario-orange); object-fit: cover; }
+        #clearImageBtn { position: absolute; top: 5px; left: 65px; background: #EF4444; color: white; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; font-weight: bold; font-size: 12px; display: flex; align-items: center; justify-content: center; }
 
-        @media (max-width: 768px) {
-            .top-bar-hide { display: none; }
-            .versa-banner { flex-direction: column; text-align: center; }
-            .versa-text { max-width: 100%; margin-bottom: 20px; }
-            .dealer-grid { grid-template-columns: 1fr; }
-            .map-review-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
+        /* --- MOBILE FIRST OPTIMALISATIES --- */
+        @media (max-width: 900px) {
+            header { padding: 12px 15px; flex-direction: column; gap: 15px; text-align: center; }
+            .logo-frame { justify-content: center; width: 100%; margin-bottom: 5px; }
+            .nav-links { width: 100%; justify-content: center; gap: 15px; }
+            .hero { padding-top: 220px; padding-bottom: 40px; } 
+            .hero-card, .hero-slider-card { flex: none; width: 100%; }
+            .hero-slider-card { height: 250px; }
+            
+            /* LOGO FIX 3: Zet het logo Boven de tekst in het zwarte hero blok op mobiel voor maximale grootte */
+            .card-inner { flex-direction: column; text-align: center; gap: 15px; }
+            .hero-card-title { text-align: center; }
+            
+            .versa-promo-card { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .versa-content { padding-left: 0; }
+            .versa-badge { left: -45px; top: 20px; font-size: 14px; padding: 8px 40px; }
+            .upload-btn-large { width: 100%; padding: 15px; font-size: 14px; }
+            .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
+            .top-bar-item:not(:first-child) { display: none; }
+            .info-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-item"><i class="fas fa-clock"></i> VOOR 22:00 BESTELD, MORGEN KLUSSEN!</div>
-        <div class="top-bar-item top-bar-hide"><i class="fas fa-store"></i> GRATIS AFHALEN IN DE WINKEL</div>
-        <div class="top-bar-item"><i class="fas fa-shield-alt"></i> VEILIG BETALEN & RUILEN</div>
+        <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
+        <div class="top-bar-item"><i class="fas fa-store"></i> Gratis afhalen in Berchem</div>
     </div>
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" alt="Logo">
-            <div>
+            <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo" class="header-logo-img">
+            <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
-                <div class="logo-sub">DHZ SPECIALIST & TOTAALRENOVATIES</div>
+                <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
             </div>
         </a>
-        <nav class="nav-links">
-            <a href="index.html" class="active">HOME</a>
-            <a href="winkel.html"><i class="fas fa-shopping-cart"></i> DE WINKEL</a>
-        </nav>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="winkel.html"><i class="fas fa-shopping-cart"></i> De Winkel</a>
+        </div>
     </header>
 
-    <div class="main-container">
-        
-        <div class="cartoon-banner">
-            <img src="final/mario-cartoon.jpg" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/E36C33/ffffff?text=MARIO+-+ALLES+VOOR+UW+HUIS+ONDER+EEN+DAK';" alt="Mario Alles Voor Uw Huis">
-        </div>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-card">
+                <div class="card-inner">
+                    <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario" class="card-logo">
+                    <h1 class="hero-card-title">Dé Premium<br><span>Doe-Het-Zelf Zaak</span></h1>
+                </div>
+                <p>Alles wat je nodig hebt voor elke klus. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service, direct uit voorraad.</p>
+                <a href="#marioScanner" class="btn-primary" style="width:100%;">Fix Mijn Project</a>
+            </div>
 
-        <div class="versa-banner">
-            <div class="korting-tag">-65% KORTING</div>
-            <div class="versa-text">
-                <h2>PREMIUM BADKAMERS</h2>
-                <p>Ontdek het complete sanitair assortiment van de Versa Group. Van luxe badkamermeubels tot inloopdouches en kranen. Top design voor de vakman en particulier, nu tijdelijk tot 65% afgeprijsd!</p>
-                <a href="winkel.html" class="versa-btn">SHOP DE VERSA COLLECTIE</a>
+            <div class="hero-slider-card">
+                <div class="slider-wrapper" id="slider">
+                    <div class="slide"><img src="final/winkel20.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/060b11/e36c33?text=Winkel';" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel21.jpg" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel22.jpg" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel23.jpg" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel24.jpg" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel25.jpg" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel26.jpg" alt="Winkel"></div>
+                    <div class="slide"><img src="final/winkel27.jpg" alt="Winkel"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mario-banner-section">
+        <img src="final/banner.jpg" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/060b11/e36c33?text=Mario+Banner';" alt="Mario - Alles voor uw huis onder één dak">
+    </section>
+
+    <section class="featured-slider-section">
+        <div class="featured-slider-header">
+            <h2>Producten in de Kijker</h2>
+            <a href="winkel.html">Bekijk Alles <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="featured-slider-container">
+            <div class="featured-slider-track" id="marioProductSlider">
+                
+                <div class="product-slide-card">
+                    <img src="final/versadoucheglijstangsetzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Glijstangset Zwart">
+                    <h3>Versa Glijstangset Zwart</h3>
+                    <span class="product-slide-price">€29.99</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" target="_blank" class="product-slide-btn">Koop Nu</a>
+                </div>
+                
+                <div class="product-slide-card" style="border: 2px solid var(--mario-orange);">
+                    <img src="final/murplafond10lpromo.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Promo">
+                    <h3>Levis 8+2L Gratis!</h3>
+                    <span class="product-slide-price">€79.95</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" target="_blank" class="product-slide-btn">Koop Nu</a>
+                </div>
+                
+                <div class="product-slide-card">
+                    <img src="final/versazyrowc.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Zyro Meubel">
+                    <h3>Aloni Zyro Meubelset</h3>
+                    <span class="product-slide-price">€114.99</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" target="_blank" class="product-slide-btn">Koop Nu</a>
+                </div>
+                
+                <div class="product-slide-card">
+                    <img src="final/pollyfillainstant.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Instant">
+                    <h3>Polyfilla Instant Vuller</h3>
+                    <span class="product-slide-price">€8.95</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" target="_blank" class="product-slide-btn">Koop Nu</a>
+                </div>
+
+                <div class="product-slide-card">
+                    <img src="loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite 60sec">
+                    <h3>Loctite 60sec Universeel</h3>
+                    <span class="product-slide-price">€9.95</span>
+                    <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" target="_blank" class="product-slide-btn">Koop Nu</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="versa-promo-section">
+        <div class="versa-promo-card">
+            <div class="versa-badge">-65% KORTING</div>
+            <div class="versa-content">
+                <h2><span>Premium</span> Badkamers</h2>
+                <p>Ontdek het complete sanitair assortiment van de <strong>Versa Group</strong>. Van luxe badkamermeubels tot inloopdouches en kranen. Top design voor de vakman en particulier, nu tijdelijk tot 65% afgeprijsd!</p>
+                <a href="winkel.html" class="btn-primary">Shop de Versa Collectie</a>
             </div>
             <div class="versa-logo-box">
-                <img src="final/versa.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/060B11?text=Versa';" alt="Versa Group">
+                <img src="final/versa.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/ffffff/e36c33?text=Versa';" alt="Versa Group">
             </div>
         </div>
+    </section>
 
-        <div class="slider-wrapper">
-            <h2>Producten in de Kijker <a href="winkel.html" style="font-size:11px; color:var(--mario-grey); text-decoration:none; font-weight:700;">Bekijk Alles <i class="fas fa-chevron-right"></i></a></h2>
-            <div class="product-slider" id="marioSlider">
-                <div class="slide-card">
-                    <img src="final/versadoucheglijstangsetzwart.jpg" alt="Zwarte Douche">
-                    <h3>Aloni Glijstangset Zwart</h3>
-                    <span class="slide-price">€29.99</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" class="slide-btn">Koop Nu</a>
-                </div>
-                <div class="slide-card">
-                    <img src="final/murplafond10lpromo.jpg" alt="Levis Promo">
-                    <h3>Levis 8+2L Gratis!</h3>
-                    <span class="slide-price">€79.95</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" class="slide-btn">Koop Nu</a>
-                </div>
-                <div class="slide-card">
-                    <img src="final/versazyrowc.jpg" alt="Zyro Meubel">
-                    <h3>Aloni Zyro Meubelset</h3>
-                    <span class="slide-price">€114.99</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" class="slide-btn">Koop Nu</a>
-                </div>
-                <div class="slide-card">
-                    <img src="final/pollyfillainstant.jpeg" alt="Polyfilla">
-                    <h3>Polyfilla Instant Vuller</h3>
-                    <span class="slide-price">€8.95</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" class="slide-btn">Koop Nu</a>
-                </div>
-                <div class="slide-card">
-                    <img src="loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite">
-                    <h3>Loctite 60sec Universeel</h3>
-                    <span class="slide-price">€9.95</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" class="slide-btn">Koop Nu</a>
-                </div>
+    <section class="mario-scanner-section" id="marioScanner">
+        <div class="scanner-container">
+            <div class="scanner-header">
+                <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
+                <h2>Mario's <span>AI Klus-Scanner</span></h2>
+                <p>Klus mislukt? Lekkage? Kapotte muur? Upload een foto van je probleem en onze slimme AI geeft je direct een professionele diagnose en het juiste boodschappenlijstje.</p>
+            </div>
+            <input type="file" id="bigScannerInput" accept="image/*" style="display:none;">
+            <button class="upload-btn-large" id="bigScannerBtn">
+                <i class="fas fa-camera"></i> Upload Foto van je probleem
+            </button>
+            <div id="scannerLoading"><i class="fas fa-circle-notch fa-spin"></i> Analyseren...</div>
+            <div id="scannerResults" class="ai-report">
+                <img id="scannerResultsImage" src="" alt="Jouw Klus">
+                <div id="scannerReportText"></div>
             </div>
         </div>
+    </section>
 
-        <div class="ai-scanner">
-            <img src="final/logo10.png" onerror="this.onerror=null; this.src='logo10.png';" class="ai-logo" alt="Logo">
-            <h2>MARIO'S AI KLUS-SCANNER</h2>
-            <p>Klus mislukt? Lekkage? Kapotte muur? Upload een foto van je probleem en onze slimme AI geeft je direct een professionele diagnose en het juiste boodschappenlijstje.</p>
+    <section class="official-dealers">
+        <div class="dealer-container">
+            <div class="dealer-header">
+                <h2><i class="fas fa-medal"></i> Erkend Premium Verkooppunt</h2>
+                <p><strong>Mario DHZ Specialist</strong>: Een ervaring voor elke klusser. Bezoek ons in Berchem.</p>
+            </div>
+            <div class="dealer-logos">
+                <a href="https://www.akzonobel.com/nl" target="_blank" class="dealer-box">
+                    <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel">
+                    <div class="dealer-info"><strong>AkzoNobel Partner</strong><span>Levis & Verfmengmachine</span></div>
+                </a>
+                <a href="https://www.niko.eu/nl-be" target="_blank" class="dealer-box">
+                    <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
+                    <div class="dealer-info"><strong>Officieel Niko Dealer</strong><span>Premium schakelmateriaal</span></div>
+                </a>
+                <a href="https://www.groupversa.com" target="_blank" class="dealer-box">
+                    <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa';" alt="Versa">
+                    <div class="dealer-info"><strong>Group Versa Dealer</strong><span>Badkamer- en sanitair</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="services-section">
+        <div class="glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-content">
+                <i class="fas fa-bolt"></i>
+                <h3>Elektriciteit</h3>
+                <p>Als officieel Niko-verdeler bieden wij absolute topkwaliteit voor de vakman.</p>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
+            </div>
+        </div>
+        <div class="glass-card">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-content">
+                <i class="fas fa-bath"></i>
+                <h3>Sanitair</h3>
+                <p>Creëer uw droombadkamer met onze premium selectie meubels en kranen.</p>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
+            </div>
+        </div>
+        <div class="glass-card card-paint">
+            <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-content">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Verf & Decoratie</h3>
+                <p>Officieel AkzoNobel & Levis verdeler. Professionele verfmengmachine aanwezig.</p>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
+            </div>
+        </div>
+        <div class="glass-card">
+            <div class="card-img-top" style="background-color: #e6ffed; background-image: url('final/hovenier-betekenis.jpg');"></div>
+            <div class="card-content">
+                <i class="fas fa-leaf" style="color: #48BB78;"></i>
+                <h3 style="color: var(--mario-navy);">Tuinartikelen</h3>
+                <p>Geef uw buitenruimte leven. Compleet assortiment professioneel tuingereedschap.</p>
+                <a href="winkel.html" class="btn-card">Bekijk Assortiment</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="video-section">
+        <div class="video-header">
+            <h2><i class="fas fa-play-circle"></i> Achter de Schermen</h2>
+        </div>
+        <div class="video-frame">
+            <iframe src="https://www.youtube.com/embed/wQEUcgkWVJw?rel=0&modestbranding=1" title="Mario DHZ x AkzoNobel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <div class="partner-wrapper">
+        <div class="partner-track">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
+            <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
+            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
+            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
+            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="map-frame">
+            <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073%2C%202600%20Antwerpen&t=&z=15&ie=UTF8&iwloc=&output=embed" class="google-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="reviews-container">
+            <script defer async src='https://cdn.trustindex.io/loader.js?6bf115467312902b9a866190c74'></script>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Over Mario</h4>
+                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Winkel</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
+                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
+            </div>
+        </div>
+        <div class="developer-credit-frame">
+            <p>© 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+        </div>
+    </footer>
+
+    <div class="ai-chat-btn" id="openChatBtn">
+        <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
+        <span class="ai-chat-text">Chat & Fix</span>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo">
+            <div class="chat-header-text">
+                <strong>Mario DHZ AI</strong>
+                <small>Klaar om te helpen</small>
+            </div>
+            <button class="close-chat" id="closeChatBtn">×</button>
+        </div>
+        
+        <div class="expert-selector">
+            <button class="expert-btn active" data-expert="algemeen"><i class="fas fa-info-circle"></i> Advies</button>
+            <button class="expert-btn" data-expert="verf"><i class="fas fa-paint-roller"></i> Verf</button>
+            <button class="expert-btn" data-expert="techniek"><i class="fas fa-tools"></i> Techniek</button>
+        </div>
+        
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg msg-bot">Welkom bij Mario DHZ! Hoe kan ik u vandaag helpen met uw klus? Of upload een foto van uw probleem!</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator"><i class="fas fa-circle-notch fa-spin"></i> Bezig met AI analyse...</div>
+        
+        <div id="imagePreviewContainer">
+            <img id="chatImagePreview" src="">
+            <button id="clearImageBtn" title="Verwijder foto">×</button>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="file" id="chatImageInput" accept="image/*" style="display:none;">
+            <button class="chat-icon-btn" id="camBtn" title="Upload een foto"><i class="fas fa-camera"></i></button>
+            <button class="chat-icon-btn" id="micBtn" title="Spreek je vraag in"><i class="fas fa-microphone"></i></button>
+            <input type="text" id="chatInput" placeholder="Stel je vraag of upload foto..." autocomplete="off">
+            <button class="chat-send-btn" id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        const deel1 = 'AIzaSyCVleWYp9pka-';
+        const deel2 = 'FFhVdMTUCZMaq12xqyEho';
+        const API_KEY = deel1 + deel2;
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+
+        // Hero Image Slider
+        const slider = document.getElementById('slider');
+        let index = 0; const totalSlides = 8;
+        function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
+        setInterval(nextSlide, 3500); 
+
+        // Producten in de kijker (Nieuwe swipe slider)
+        const productSlider = document.getElementById('marioProductSlider');
+        setInterval(() => {
+            if (productSlider.scrollLeft + productSlider.clientWidth >= productSlider.scrollWidth) {
+                productSlider.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                productSlider.scrollBy({ left: 270, behavior: 'smooth' });
+            }
+        }, 4000);
+
+        // AI Scanner Code
+        const bigScannerBtn = document.getElementById('bigScannerBtn');
+        const bigScannerInput = document.getElementById('bigScannerInput');
+        const scannerLoading = document.getElementById('scannerLoading');
+        const scannerResults = document.getElementById('scannerResults');
+        const scannerResultsImage = document.getElementById('scannerResultsImage');
+        const scannerReportText = document.getElementById('scannerReportText');
+
+        bigScannerBtn.addEventListener('click', () => bigScannerInput.click());
+
+        bigScannerInput.addEventListener('change', async function(e) {
+            const file = e.target.files[0];
+            if(!file) return;
             
-            <input type="file" id="fixItInput" accept="image/*" style="display:none;">
-            <button class="btn-ai" id="fixItBtn"><i class="fas fa-redo" style="color:var(--mario-orange); margin-right:8px;"></i> SCAN EEN (NIEUW) PROBLEEM</button>
+            bigScannerBtn.style.display = 'none';
+            scannerResults.style.display = 'none';
+            scannerLoading.style.display = 'block';
 
-            <div id="fixItLoading" style="display:none; margin-top:15px; color:var(--mario-orange); font-weight:800;">
-                <i class="fas fa-spinner fa-spin"></i> Analyseren...
-            </div>
+            const mimeType = file.type;
+            const reader = new FileReader();
+            reader.onload = async function(event) {
+                const base64Image = event.target.result.split(',')[1]; 
+                scannerResultsImage.src = event.target.result;
+                
+                const systemPrompt = "Je bent de AI Klus-Expert van Mario DHZ Berchem. Analyseer de geüploade foto. Geef je antwoord exact zo terug: <h3><i class='fas fa-search'></i> Diagnose</h3> <p>[diagnose]</p> <h3><i class='fas fa-list-ol'></i> Stappenplan</h3> <ul><li>[stap 1]</li><li>[stap 2]</li></ul> <h3><i class='fas fa-shopping-basket'></i> Nodig uit de winkel</h3> <p>[Aanbevolen merken zoals Loctite, Pattex, Knauf, Levis, Versa] <br><a href='winkel.html' style='display:inline-block;background:#E36C33;color:white;padding:10px 20px;border-radius:8px;font-weight:bold;text-decoration:none;margin-top:10px;'>Bestel Materiaal</a></p>";
 
-            <div id="fixItResult">
-                <img id="fixItPreview" src="" alt="Jouw Probleem">
-                <div id="fixItText" class="ai-report-text"></div>
-            </div>
-        </div>
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: systemPrompt }, { inlineData: { mimeType: mimeType, data: base64Image } }] }] })
+                    });
+                    const data = await response.json();
+                    if(data.candidates) scannerReportText.innerHTML = data.candidates[0].content.parts[0].text;
+                    else scannerReportText.innerHTML = "<p>Oeps, er ging iets mis.</p>";
+                } catch (error) { scannerReportText.innerHTML = "<p>Netwerkfout.</p>"; }
+                
+                scannerLoading.style.display = 'none';
+                scannerResults.style.display = 'block';
+                bigScannerBtn.style.display = 'inline-flex';
+                bigScannerBtn.innerHTML = '<i class="fas fa-redo"></i> Scan een nieuw probleem';
+            };
+            reader.readAsDataURL(file);
+        });
 
-        <div class="premium-dealer">
-            <h3><i class="fas fa-medal" style="color:var(--mario-orange);"></i> ERKEND PREMIUM VERKOOPPUNT</h3>
-            <p><strong>Mario DHZ Specialist:</strong> Een ervaring voor elke klusser. Bezoek ons in Berchem.</p>
-            <div class="dealer-grid">
-                <div class="dealer-card">
-                    <img src="final/aksonobel.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/a/a2/AkzoNobel_logo.svg';" alt="AkzoNobel">
-                    <div class="dealer-info">
-                        <h4>AKZONOBEL PARTNER</h4>
-                        <p>Levis & Verfmengmachine</p>
-                    </div>
-                </div>
-                <div class="dealer-card">
-                    <img src="final/niko.jpg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/75/Niko_logo.svg';" alt="Niko">
-                    <div class="dealer-info">
-                        <h4>OFFICIEEL NIKO DEALER</h4>
-                        <p>Premium schakelmateriaal</p>
-                    </div>
-                </div>
-                <div class="dealer-card">
-                    <img src="final/versa.jpg" onerror="this.onerror=null; this.src='https://placehold.co/100x50/ffffff/060B11?text=Versa';" alt="Versa">
-                    <div class="dealer-info">
-                        <h4>GROUP VERSA DEALER</h4>
-                        <p>Badkamer- en sanitair</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        // Chatbot Code
+        const chatWindow = document.getElementById('chatWindow');
+        document.getElementById('openChatBtn').addEventListener('click', () => chatWindow.classList.add('active'));
+        document.getElementById('closeChatBtn').addEventListener('click', () => chatWindow.classList.remove('active'));
+        
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const expertBtns = document.querySelectorAll('.expert-btn');
 
-        <div class="video-sectie">
-            <h3><i class="fas fa-play-circle"></i> ACHTER DE SCHERMEN</h3>
-            <div class="video-container">
-                <img src="final/video-thumbnail.jpg" onerror="this.onerror=null; this.src='https://placehold.co/1000x500/060B11/E36C33?text=MARIO+X+AKZONOBEL+VIDEO';" alt="Mario Video">
-            </div>
-            <div class="video-partners">
-                <img src="final/sikkens.jpg" alt="Sikkens">
-                <img src="final/abus.jpg" alt="Abus">
-                <img src="final/aksonobel.jpg" alt="AkzoNobel">
-                <img src="final/bticino.jpg" alt="Bticino">
-                <img src="final/knauf.jpg" alt="Knauf">
-            </div>
-        </div>
+        let currentExpert = 'algemeen';
+        const expertProfiles = {
+            algemeen: { greeting: "Hulp nodig? Stuur een bericht of foto.", prompt: "Je bent de AI verkoper van Mario DHZ Berchem. Geef kort, vriendelijk advies. Voeg indien relevant deze HTML toe: <br><br><a href='winkel.html' class='chat-buy-btn'>Bekijk in Winkel</a>" },
+            verf: { greeting: "Verf probleem? Upload een foto.", prompt: "Je bent verf-specialist bij Mario DHZ. Raad producten aan en eindig met: <br><br><a href='winkel.html' class='chat-buy-btn'>Bestel Levis Verf</a>." },
+            techniek: { greeting: "Storing? Ik kijk graag mee via een foto.", prompt: "Je bent technisch expert bij Mario DHZ. Eindig advies met: <br><br><a href='winkel.html' class='chat-buy-btn'>Bestel Materiaal</a>." }
+        };
 
-        <div class="map-review-grid">
-            <div class="map-box">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!1m3!1m2!
+        expertBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                expertBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentExpert = btn.getAttribute('data-expert');
+                appendMessage(expertProfiles[currentExpert].greeting, 'msg-bot');
+            });
+        });
+
+        let chatBase64Image = null; let chatMimeType = null;
+        const camBtn = document.getElementById('camBtn');
+        const fileInputChat = document.getElementById('chatImageInput');
+        const previewContainer = document.getElementById('imagePreviewContainer');
+        const previewImg = document.getElementById('chatImagePreview');
+
+        camBtn.addEventListener('click', () => fileInputChat.click());
+
+        fileInputChat.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            chatMimeType = file.type;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                chatBase64Image = event.target.result.split(',')[1]; 
+                previewImg.src = event.target.result;
+                previewContainer.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('clearImageBtn').addEventListener('click', () => {
+            chatBase64Image = null; chatMimeType = null; fileInputChat.value = ""; previewContainer.style.display = 'none';
+        });
+
+        const micBtn = document.getElementById('micBtn');
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if(SpeechRecognition) {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'nl-BE'; recognition.interimResults = false;
+            micBtn.addEventListener('click', () => { recognition.start(); micBtn.classList.add('recording'); chatInput.placeholder = "Luisteren..."; });
+            recognition.onresult = (event) => { chatInput.value = event.results[0][0].transcript; micBtn.classList.remove('recording'); chatInput.placeholder = "Stel je vraag of upload foto..."; setTimeout(handleUserMessage, 500); };
+            recognition.onerror = () => { micBtn.classList.remove('recording'); chatInput.placeholder = "Stel je vraag of upload foto..."; };
+        } else { micBtn.style.display = 'none'; }
+
+        function appendMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-msg ${className}`;
+            msgDiv.innerHTML = text; 
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        async function handleUserMessage() {
+            const userText = chatInput.value.trim();
+            if (userText === '' && !chatBase64Image) return;
+            
+            appendMessage(chatBase64Image ? "📷 [Foto Geüpload] <br>" + userText : userText, 'msg-user');
+            const promptToSend = userText || "Analyseer deze foto.";
+            chatInput.value = ''; typingIndicator.style.display = 'block'; chatBody.scrollTop = chatBody.scrollHeight;
+
+            const systemContent = expertProfiles[currentExpert].prompt;
+            const partsArray = [{ text: systemContent + " Vraag: " + promptToSend }];
+            if (chatBase64Image) partsArray.push({ inlineData: { mimeType: chatMimeType, data: chatBase64Image } });
+
+            try {
+                const response = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ parts: partsArray }] }) });
+                const data = await response.json();
+                if(data.error) appendMessage("❌ Fout: " + data.error.message, 'msg-bot');
+                else if(data.candidates) appendMessage(data.candidates[0].content.parts[0].text, 'msg-bot');
+            } catch (error) { appendMessage("❌ Netwerkfout.", 'msg-bot'); }
+            
+            document.getElementById('clearImageBtn').click();
+            typingIndicator.style.display = 'none';
+        }
+        sendChatBtn.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleUserMessage(); });
+    </script>
+</body>
+</html>
