@@ -23,7 +23,6 @@
         header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
         
-        /* LOGO FIX 1: Groter linksboven */
         .header-logo-img { height: clamp(70px, 12vw, 100px); width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transition: 0.3s; }
         
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
@@ -42,7 +41,6 @@
         .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); flex: 1.2; min-width: 320px; overflow: hidden; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
         
-        /* LOGO FIX 2: Groter in de Hero banner */
         .card-logo { width: clamp(100px, 20vw, 160px); height: auto; max-height: 140px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
         
         .hero-card-title { font-size: clamp(22px, 6vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
@@ -56,10 +54,35 @@
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* --- NIEUW: ANTWERPEN ZUID BANNER --- */
+        .antwerpen-banner-section { max-width: 1400px; margin: 20px auto 40px; padding: 0 5%; text-align: center; position: relative; z-index: 10; }
+        .antwerpen-banner-card { background: linear-gradient(135deg, var(--mario-navy) 0%, #1a2533 100%); border-radius: 24px; padding: 30px 40px; border: 2px solid var(--mario-orange); box-shadow: 0 15px 30px rgba(0,0,0,0.15); position: relative; overflow: hidden; transition: 0.3s; }
+        .antwerpen-banner-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.3); }
+        .antwerpen-bg-icon { position: absolute; top: -20px; right: -10px; font-size: 110px; opacity: 0.05; }
+        .antwerpen-banner-card h2 { color: white; font-size: clamp(24px, 4vw, 32px); font-weight: 900; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+        .antwerpen-banner-card p { color: var(--mario-orange); font-size: clamp(14px, 2.5vw, 20px); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+
         /* --- MARIO BANNER SECTIE --- */
-        .mario-banner-section { width: 100%; max-width: 1400px; margin: 40px auto 0; padding: 0 5%; position: relative; z-index: 10; display: flex; justify-content: center; }
+        .mario-banner-section { width: 100%; max-width: 1400px; margin: 0 auto 40px; padding: 0 5%; position: relative; z-index: 10; display: flex; justify-content: center; }
         .mario-banner-section img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); border: 3px solid var(--mario-border); transition: 0.3s; }
         .mario-banner-section img:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 25px 60px rgba(227, 108, 51, 0.3); }
+
+        /* --- NIEUW: BINNENKORT BESCHIKBAAR (TEASER) --- */
+        .teaser-section { max-width: 1300px; margin: 0 auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+        .teaser-header { text-align: center; margin-bottom: 35px; }
+        .teaser-badge { background: #EF4444; color: white; font-weight: 900; font-size: 13px; padding: 6px 15px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3); }
+        .teaser-header h2 { color: var(--mario-navy); font-size: clamp(24px, 4vw, 32px); font-weight: 900; text-transform: uppercase; }
+        .teaser-header p { color: var(--mario-grey); font-size: 16px; font-weight: 600; margin-top: 5px; }
+        
+        .teaser-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .teaser-card { background: white; border-radius: 20px; border: 1px solid var(--mario-border); padding: 30px 25px; width: 320px; text-align: center; cursor: pointer; transition: 0.4s; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; }
+        .teaser-card:hover { transform: translateY(-8px); border-color: var(--mario-orange); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.15); }
+        .teaser-card img { height: 180px; width: 100%; object-fit: contain; margin-bottom: 20px; mix-blend-mode: multiply; transition: 0.4s; }
+        .teaser-card:hover img { transform: scale(1.08); }
+        .teaser-card h3 { color: var(--mario-navy); font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; line-height: 1.2; }
+        .teaser-card p { color: var(--mario-orange); font-size: 24px; font-weight: 900; margin-bottom: 15px; }
+        .teaser-btn { font-size: 13px; color: var(--mario-navy); font-weight: 800; background: var(--mario-light); padding: 10px; border-radius: 8px; text-transform: uppercase; transition: 0.3s; }
+        .teaser-card:hover .teaser-btn { background: var(--mario-navy); color: white; }
 
         /* --- PRODUCTEN IN DE KIJKER (SWIPE SLIDER) --- */
         .featured-slider-section { max-width: 1300px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 10; }
@@ -173,7 +196,6 @@
         .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
         .chat-header-text strong { font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
         .chat-header-text small { font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px; }
-        .tts-toggle { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #A0AEC0; cursor: pointer; }
         .close-chat { color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: 10px; line-height: 1; }
         .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
         .expert-btn { flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 6px; }
@@ -204,7 +226,6 @@
             .hero-card, .hero-slider-card { flex: none; width: 100%; }
             .hero-slider-card { height: 250px; }
             
-            /* LOGO FIX 3: Zet het logo Boven de tekst in het zwarte hero blok op mobiel voor maximale grootte */
             .card-inner { flex-direction: column; text-align: center; gap: 15px; }
             .hero-card-title { text-align: center; }
             
@@ -215,6 +236,10 @@
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
             .top-bar-item:not(:first-child) { display: none; }
             .info-section { grid-template-columns: 1fr; }
+            
+            .teaser-modal-content { flex-direction: column; max-height: 95vh; }
+            .teaser-modal-left { border-right: none; border-bottom: 1px solid var(--mario-border); padding: 20px; height: 250px; }
+            .teaser-modal-left img { max-height: 200px; }
         }
     </style>
 </head>
@@ -266,8 +291,40 @@
         </div>
     </section>
 
+    <section class="antwerpen-banner-section">
+        <div class="antwerpen-banner-card">
+            <div class="antwerpen-bg-icon">🏗️</div>
+            <h2>🚧 Mario DHZ Breidt Uit! 🚧</h2>
+            <p>Tweede Vestiging: Antwerpen Zuid - Binnenkort Open</p>
+        </div>
+    </section>
+
     <section class="mario-banner-section">
         <img src="final/banner.jpg" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/060b11/e36c33?text=Mario+Banner';" alt="Mario - Alles voor uw huis onder één dak">
+    </section>
+
+    <section class="teaser-section">
+        <div class="teaser-header">
+            <span class="teaser-badge">🔥 Exclusieve Preview</span>
+            <h2>Binnenkort in onze webshop</h2>
+            <p>Zomer & Schoonmaak – Beschikbaar vanaf 02/04/2026</p>
+        </div>
+        
+        <div class="teaser-grid">
+            <div class="teaser-card" onclick="openTeaserModal('bbq')">
+                <img src="final/67029.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Houtskool';" alt="BBQ Houtskool">
+                <h3>Prof Outdoor BBQ Houtskool (4KG)</h3>
+                <p>€6.99</p>
+                <div class="teaser-btn"><i class="fas fa-search"></i> Bekijk Sneak Peek</div>
+            </div>
+
+            <div class="teaser-card" onclick="openTeaserModal('dreft')">
+                <img src="final/Dreft_Dark_&_Black_Vloeibaar_Wasmiddel___945_ml__21_wasbeurten_80009711_m1_big.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Dreft';" alt="Dreft Dark & Black">
+                <h3>Dreft Dark & Black Wasmiddel</h3>
+                <p>€4.99</p>
+                <div class="teaser-btn"><i class="fas fa-search"></i> Bekijk Sneak Peek</div>
+            </div>
+        </div>
     </section>
 
     <section class="featured-slider-section">
@@ -467,6 +524,36 @@
         <span class="ai-chat-text">Chat & Fix</span>
     </div>
 
+    <div class="modal-overlay" id="teaserModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 11, 17, 0.85); z-index: 100000; backdrop-filter: blur(8px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+        <div class="modal-content teaser-modal-content" style="background: white; width: 90%; max-width: 900px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); display: flex; position: relative; overflow: hidden; transform: translateY(30px); transition: transform 0.4s;">
+            <span class="modal-close" onclick="closeTeaserModal()" style="position: absolute; top: 20px; right: 25px; font-size: 35px; color: var(--mario-grey); cursor: pointer; z-index: 10; line-height: 1; transition: 0.3s;">&times;</span>
+            
+            <div class="teaser-modal-left" style="flex: 1; background: #f8fafc; padding: 40px; display: flex; justify-content: center; align-items: center; border-right: 1px solid var(--mario-border);">
+                <img id="teaserModalImage" src="" style="max-width: 100%; max-height: 350px; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));">
+            </div>
+            
+            <div style="flex: 1.2; padding: 50px 40px; display: flex; flex-direction: column; overflow-y: auto;">
+                <span style="font-size: 12px; color: white; background: #EF4444; padding: 6px 15px; border-radius: 20px; font-weight: 900; text-transform: uppercase; align-self: flex-start; margin-bottom: 15px; letter-spacing: 1px;">PRE-ORDER SNEAK PEEK</span>
+                <h2 id="teaserModalTitle" style="font-size: 28px; font-weight: 900; color: var(--mario-navy); line-height: 1.2; margin-bottom: 15px;"></h2>
+                
+                <div style="display: flex; align-items: flex-end; gap: 15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border);">
+                    <div id="teaserModalPrice" style="font-size: 38px; font-weight: 900; color: var(--mario-orange); line-height: 1;"></div>
+                </div>
+
+                <p id="teaserModalDesc" style="font-size: 15px; color: var(--mario-grey); line-height: 1.6; margin-bottom: 25px;"></p>
+                
+                <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid var(--mario-border); margin-bottom: 30px;">
+                    <h4 style="color: var(--mario-navy); margin-bottom: 10px; font-weight: 900; text-transform: uppercase;">Details</h4>
+                    <ul id="teaserModalSpecs" style="list-style: none; color: var(--mario-navy); font-size: 14px; font-weight: 500;"></ul>
+                </div>
+
+                <button style="background: var(--mario-grey); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 15px; font-weight: 900; text-transform: uppercase; cursor: not-allowed; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0.9;">
+                    <i class="fas fa-calendar-alt"></i> Beschikbaar vanaf 02/04/2026
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
             <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo">
@@ -514,7 +601,7 @@
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 3500); 
 
-        // Producten in de kijker (Nieuwe swipe slider)
+        // Producten in de kijker (Swipe slider)
         const productSlider = document.getElementById('marioProductSlider');
         setInterval(() => {
             if (productSlider.scrollLeft + productSlider.clientWidth >= productSlider.scrollWidth) {
@@ -523,6 +610,57 @@
                 productSlider.scrollBy({ left: 270, behavior: 'smooth' });
             }
         }, 4000);
+
+        // --- NIEUWE TEASER MODAL LOGICA ---
+        const teaserData = {
+            'bbq': {
+                img: 'final/67029.jpg',
+                title: 'Prof Outdoor BBQ Houtskool (4KG)',
+                price: '€6.99',
+                desc: 'Bereid je voor op het warme weer! Deze premium kwaliteit houtskool zorgt voor een snelle ontbranding en een langdurige, constante hitte. Perfect voor de ultieme grill-ervaring in de tuin.',
+                specs: '<li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> 100% Natuurlijk Houtskool</li><li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Inhoud: 4KG Premium Kwaliteit</li><li><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Langdurige en constante hitte</li>'
+            },
+            'dreft': {
+                img: 'final/Dreft_Dark_&_Black_Vloeibaar_Wasmiddel___945_ml__21_wasbeurten_80009711_m1_big.jpg',
+                title: 'Dreft Dark & Black Wasmiddel',
+                price: '€4.99',
+                desc: 'De grote voorjaarsschoonmaak begint goed! Bescherm je donkere kleding tegen vervagen met Dreft Dark & Black. Verwijdert hardnekkige vlekken en houdt je zwarte kleding écht zwart.',
+                specs: '<li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Inhoud: 945 ml (21 Wasbeurten)</li><li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Kleurbescherming voor zwarte was</li><li><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Zelfs effectief op lage temperaturen</li>'
+            }
+        };
+
+        const teaserModal = document.getElementById('teaserModal');
+        const teaserModalContent = teaserModal.querySelector('.modal-content');
+        
+        function openTeaserModal(id) {
+            const data = teaserData[id];
+            document.getElementById('teaserModalImage').src = data.img;
+            document.getElementById('teaserModalTitle').innerText = data.title;
+            document.getElementById('teaserModalPrice').innerText = data.price;
+            document.getElementById('teaserModalDesc').innerText = data.desc;
+            document.getElementById('teaserModalSpecs').innerHTML = data.specs;
+            
+            teaserModal.style.display = 'flex';
+            setTimeout(() => {
+                teaserModal.style.opacity = '1';
+                teaserModalContent.style.transform = 'translateY(0)';
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTeaserModal() {
+            teaserModal.style.opacity = '0';
+            teaserModalContent.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                teaserModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        teaserModal.addEventListener('click', function(e) {
+            if(e.target === teaserModal) closeTeaserModal();
+        });
+
 
         // AI Scanner Code
         const bigScannerBtn = document.getElementById('bigScannerBtn');
