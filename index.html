@@ -163,7 +163,15 @@
         .video-frame { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 5px solid white; background: #000; }
         .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- LOPENDE BAND --- */
+        /* --- NIEUW: PAKKETJES LOPENDE BAND (BOVENAAN) --- */
+        .parcel-wrapper { position: relative; z-index: 10; background: var(--mario-navy); border-bottom: 2px solid var(--mario-orange); padding: 15px 0; overflow: hidden; color: white; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        .parcel-track { display: inline-flex; animation: scrollBanner 30s linear infinite; gap: 50px; padding: 0 40px; align-items: center; }
+        .parcel-track img { height: 45px; max-width: 150px; object-fit: contain; cursor: pointer; transition: 0.3s; background: white; padding: 5px 15px; border-radius: 8px; }
+        .parcel-track img:hover { transform: scale(1.1); }
+        .parcel-text { font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--mario-orange); display: flex; align-items: center; gap: 15px; white-space: nowrap; }
+        .parcel-text i { font-size: 20px; }
+
+        /* --- ORIGINELE LOPENDE BAND --- */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
@@ -319,7 +327,7 @@
             </div>
 
             <div class="teaser-card" onclick="openTeaserModal('dreft')">
-                <img src="final/Dreft_Dark_&_Black_Vloeibaar_Wasmiddel___945_ml__21_wasbeurten_80009711_m1_big.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Dreft';" alt="Dreft Dark & Black">
+                <img src="final/dreftblack.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Dreft';" alt="Dreft Dark & Black">
                 <h3>Dreft Dark & Black Wasmiddel</h3>
                 <p>€4.99</p>
                 <div class="teaser-btn"><i class="fas fa-search"></i> Bekijk Sneak Peek</div>
@@ -426,6 +434,12 @@
                     <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/e36c33?text=Versa';" alt="Versa">
                     <div class="dealer-info"><strong>Group Versa Dealer</strong><span>Badkamer- en sanitair</span></div>
                 </a>
+                
+                <a href="https://www.compaktuna.be/" target="_blank" class="dealer-box" style="border: 2px solid var(--mario-orange);">
+                    <img src="final/compaktuna.png" onerror="this.onerror=null; this.src='final/compaktuna.jpg';" alt="Compaktuna">
+                    <div class="dealer-info"><strong>Compaktuna Dealer</strong><span>Bouwspecialiteiten & Lijmen</span></div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -478,6 +492,22 @@
         </div>
     </section>
 
+    <div class="parcel-wrapper">
+        <div class="parcel-track">
+            <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
+            <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
+            <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+            
+            <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
+            <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
+            <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+            
+            <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
+            <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
+            <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+        </div>
+    </div>
+
     <div class="partner-wrapper">
         <div class="partner-track">
             <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
@@ -486,10 +516,17 @@
             <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
             <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Niko';" alt="Niko">
             <img src="final/sikkens.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Sikkens';" alt="Sikkens">
-            <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
-            <img src="final/aksonobel.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=AkzoNobel';" alt="AkzoNobel">
-            <img src="final/bticino.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Bticino';" alt="Bticino">
-            <img src="final/knauf.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Knauf';" alt="Knauf">
+            
+            <img src="final/compaktuna.jpg" onerror="this.src='final/compaktuna.png';" alt="Compaktuna">
+            <img src="final/geko.jpg" onerror="this.src='https://placehold.co/200x100/ffffff/e36c33?text=Geko';" alt="Geko">
+            <img src="final/belrad.jpg" onerror="this.src='https://placehold.co/200x100/ffffff/e36c33?text=Belrad';" alt="Belrad">
+            <img src="final/abb.jpg" onerror="this.src='https://placehold.co/200x100/ffffff/e36c33?text=ABB';" alt="ABB">
+            <img src="final/aloni.jpg" onerror="this.src='https://placehold.co/200x100/ffffff/e36c33?text=Aloni';" alt="Aloni">
+            <img src="final/assaabloy.jpg" onerror="this.src='https://placehold.co/200x100/ffffff/e36c33?text=Assa+Abloy';" alt="Assa Abloy">
+            <img src="final/coeck.jpg" onerror="this.src='final/coeck.png';" alt="Coeck">
+            
+            <img src="final/abus.jpg?v=1" alt="Abus">
+            <img src="final/aksonobel.jpg?v=1" alt="AkzoNobel">
         </div>
     </div>
 
@@ -526,7 +563,7 @@
 
     <div class="modal-overlay" id="teaserModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(6, 11, 17, 0.85); z-index: 100000; backdrop-filter: blur(8px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
         <div class="modal-content teaser-modal-content" style="background: white; width: 90%; max-width: 900px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); display: flex; position: relative; overflow: hidden; transform: translateY(30px); transition: transform 0.4s;">
-            <span class="modal-close" onclick="closeTeaserModal()" style="position: absolute; top: 20px; right: 25px; font-size: 35px; color: var(--mario-grey); cursor: pointer; z-index: 10; line-height: 1; transition: 0.3s;">&times;</span>
+            <span class="modal-close" onclick="closeTeaserModal()" style="position: absolute; top: 20px; right: 25px; font-size: 35px; color: var(--mario-grey); cursor: pointer; z-index: 10; line-height: 1; transition: 0.3s;">×</span>
             
             <div class="teaser-modal-left" style="flex: 1; background: #f8fafc; padding: 40px; display: flex; justify-content: center; align-items: center; border-right: 1px solid var(--mario-border);">
                 <img id="teaserModalImage" src="" style="max-width: 100%; max-height: 350px; object-fit: contain; mix-blend-mode: multiply; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));">
@@ -611,7 +648,7 @@
             }
         }, 4000);
 
-        // --- NIEUWE TEASER MODAL LOGICA ---
+        // Teaser Modal Logica
         const teaserData = {
             'bbq': {
                 img: 'final/67029.jpg',
@@ -621,7 +658,7 @@
                 specs: '<li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> 100% Natuurlijk Houtskool</li><li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Inhoud: 4KG Premium Kwaliteit</li><li><i class="fas fa-check" style="color:var(--mario-orange); margin-right:10px;"></i> Langdurige en constante hitte</li>'
             },
             'dreft': {
-                img: 'final/Dreft_Dark_&_Black_Vloeibaar_Wasmiddel___945_ml__21_wasbeurten_80009711_m1_big.jpg',
+                img: 'final/dreftblack.jpg',
                 title: 'Dreft Dark & Black Wasmiddel',
                 price: '€4.99',
                 desc: 'De grote voorjaarsschoonmaak begint goed! Bescherm je donkere kleding tegen vervagen met Dreft Dark & Black. Verwijdert hardnekkige vlekken en houdt je zwarte kleding écht zwart.',
