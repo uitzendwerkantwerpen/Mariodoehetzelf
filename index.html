@@ -17,14 +17,19 @@
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
         /* --- HEADER & TOP BAR --- */
-        .top-bar { background: var(--mario-orange); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; z-index: 10000; position: fixed; top: 0; width: 100%; }
+        .top-bar { background: var(--mario-orange); color: white; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; z-index: 10000; position: fixed; top: 0; width: 100%; }
+        .top-bar-left { display: flex; gap: 20px; align-items: center; }
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
+        .top-bar-item i { font-size: 14px; }
         
+        /* --- TALEN SWITCHER --- */
+        .lang-selector { display: flex; gap: 10px; align-items: center; background: rgba(0,0,0,0.15); padding: 4px 12px; border-radius: 20px; }
+        .lang-selector a { text-decoration: none; font-size: 14px; opacity: 0.5; transition: 0.3s; filter: grayscale(100%); }
+        .lang-selector a:hover, .lang-selector a.active { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+
         header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-        
         .header-logo-img { height: clamp(70px, 12vw, 100px); width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transition: 0.3s; }
-        
         .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
         .mario-logo-text { font-size: clamp(20px, 4.5vw, 38px); font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); white-space: nowrap; }
         .logo-subtext { color: rgba(255,255,255,0.85); font-size: clamp(8px, 1.8vw, 11px); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; white-space: nowrap; }
@@ -35,14 +40,21 @@
         .nav-links a:hover, .nav-links a.active { color: var(--mario-orange); }
 
         /* --- HERO SECTION --- */
-        .hero { position: relative; padding: 200px 5% 60px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        .hero { position: relative; padding: 180px 5% 60px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; justify-content: center; }
+        .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
+        
+        /* --- PAKKETJES LOPENDE BAND (VERPLAATST NAAR HERO) --- */
+        .parcel-wrapper { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(227, 108, 51, 0.3); border-radius: 16px; padding: 12px 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 10px; backdrop-filter: blur(10px); }
+        .parcel-track { display: inline-flex; animation: scrollBanner 30s linear infinite; gap: 50px; padding: 0 40px; align-items: center; }
+        .parcel-track img { height: 40px; max-width: 140px; object-fit: contain; cursor: pointer; transition: 0.3s; background: white; padding: 5px 15px; border-radius: 8px; }
+        .parcel-track img:hover { transform: scale(1.1); }
+        .parcel-text { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--mario-orange); display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+        .parcel-text i { font-size: 18px; color: white; }
+
         .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); flex: 1.2; min-width: 320px; overflow: hidden; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
-        
         .card-logo { width: clamp(100px, 20vw, 160px); height: auto; max-height: 140px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
-        
         .hero-card-title { font-size: clamp(22px, 6vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
         .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; margin-top: 15px; }
@@ -54,7 +66,7 @@
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- NIEUW: ANTWERPEN ZUID BANNER --- */
+        /* --- ANTWERPEN ZUID BANNER --- */
         .antwerpen-banner-section { max-width: 1400px; margin: 20px auto 40px; padding: 0 5%; text-align: center; position: relative; z-index: 10; }
         .antwerpen-banner-card { background: linear-gradient(135deg, var(--mario-navy) 0%, #1a2533 100%); border-radius: 24px; padding: 30px 40px; border: 2px solid var(--mario-orange); box-shadow: 0 15px 30px rgba(0,0,0,0.15); position: relative; overflow: hidden; transition: 0.3s; }
         .antwerpen-banner-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(227, 108, 51, 0.3); }
@@ -67,7 +79,7 @@
         .mario-banner-section img { width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); border: 3px solid var(--mario-border); transition: 0.3s; }
         .mario-banner-section img:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 25px 60px rgba(227, 108, 51, 0.3); }
 
-        /* --- NIEUW: BINNENKORT BESCHIKBAAR (TEASER) --- */
+        /* --- BINNENKORT BESCHIKBAAR (TEASER) --- */
         .teaser-section { max-width: 1300px; margin: 0 auto 60px; padding: 0 20px; position: relative; z-index: 10; }
         .teaser-header { text-align: center; margin-bottom: 35px; }
         .teaser-badge { background: #EF4444; color: white; font-weight: 900; font-size: 13px; padding: 6px 15px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3); }
@@ -163,15 +175,7 @@
         .video-frame { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); border: 5px solid white; background: #000; }
         .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- NIEUW: PAKKETJES LOPENDE BAND (BOVENAAN) --- */
-        .parcel-wrapper { position: relative; z-index: 10; background: var(--mario-navy); border-bottom: 2px solid var(--mario-orange); padding: 15px 0; overflow: hidden; color: white; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
-        .parcel-track { display: inline-flex; animation: scrollBanner 30s linear infinite; gap: 50px; padding: 0 40px; align-items: center; }
-        .parcel-track img { height: 45px; max-width: 150px; object-fit: contain; cursor: pointer; transition: 0.3s; background: white; padding: 5px 15px; border-radius: 8px; }
-        .parcel-track img:hover { transform: scale(1.1); }
-        .parcel-text { font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--mario-orange); display: flex; align-items: center; gap: 15px; white-space: nowrap; }
-        .parcel-text i { font-size: 20px; }
-
-        /* --- ORIGINELE LOPENDE BAND --- */
+        /* --- ORIGINELE MERKEN LOPENDE BAND (ONDER) --- */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 35px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .partner-track { display: inline-flex; animation: scrollBanner 40s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 65px; max-width: 170px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; }
@@ -193,7 +197,10 @@
         .developer-credit-frame p { font-size: 13px; color: #A0AEC0; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
         .developer-credit-frame strong { color: var(--mario-orange); font-weight: 900; }
 
-        /* --- CHATBOT --- */
+        /* --- CHATBOT & WHATSAPP --- */
+        .whatsapp-btn { position: fixed; bottom: 30px; left: 30px; background-color: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 10000; text-decoration: none; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.1); background-color: #128C7E; }
+        
         .ai-chat-btn { position: fixed; bottom: 30px; right: 30px; background: var(--mario-navy); color: white; padding: 12px 25px; border-radius: 30px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); border: 2px solid var(--mario-orange); z-index: 10000; cursor: pointer; transition: 0.3s; }
         .ai-chat-btn:hover { transform: translateY(-5px); background: #111; }
         .ai-chat-btn img { width: 24px; height: 24px; object-fit: contain; filter: drop-shadow(0 0 3px rgba(255,255,255,0.5)); animation: pulse 2s infinite; }
@@ -233,6 +240,7 @@
             .hero { padding-top: 220px; padding-bottom: 40px; } 
             .hero-card, .hero-slider-card { flex: none; width: 100%; }
             .hero-slider-card { height: 250px; }
+            .parcel-text { font-size: 12px; }
             
             .card-inner { flex-direction: column; text-align: center; gap: 15px; }
             .hero-card-title { text-align: center; }
@@ -242,20 +250,29 @@
             .versa-badge { left: -45px; top: 20px; font-size: 14px; padding: 8px 40px; }
             .upload-btn-large { width: 100%; padding: 15px; font-size: 14px; }
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
-            .top-bar-item:not(:first-child) { display: none; }
+            .top-bar-left .top-bar-item:not(:first-child) { display: none; }
             .info-section { grid-template-columns: 1fr; }
             
             .teaser-modal-content { flex-direction: column; max-height: 95vh; }
             .teaser-modal-left { border-right: none; border-bottom: 1px solid var(--mario-border); padding: 20px; height: 250px; }
             .teaser-modal-left img { max-height: 200px; }
+            .whatsapp-btn { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 26px; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
-        <div class="top-bar-item"><i class="fas fa-store"></i> Gratis afhalen in Berchem</div>
+        <div class="top-bar-left">
+            <div class="top-bar-item"><i class="fas fa-clock"></i> Voor 22:00 besteld, morgen klussen!</div>
+            <div class="top-bar-item"><i class="fas fa-store"></i> Gratis afhalen in Berchem</div>
+        </div>
+        <div class="lang-selector">
+            <a href="#" class="active" title="Nederlands">🇧🇪</a>
+            <a href="#" title="English">🇬🇧</a>
+            <a href="#" title="Français">🇫🇷</a>
+            <a href="#" title="Türkçe">🇹🇷</a>
+        </div>
     </div>
 
     <header>
@@ -275,6 +292,23 @@
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
+            
+            <div class="parcel-wrapper">
+                <div class="parcel-track">
+                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
+                    <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
+                    <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+                    
+                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
+                    <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
+                    <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+                    
+                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
+                    <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
+                    <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+                </div>
+            </div>
+
             <div class="hero-card">
                 <div class="card-inner">
                     <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario" class="card-logo">
@@ -439,7 +473,6 @@
                     <img src="final/compaktuna.png" onerror="this.onerror=null; this.src='final/compaktuna.jpg';" alt="Compaktuna">
                     <div class="dealer-info"><strong>Compaktuna Dealer</strong><span>Bouwspecialiteiten & Lijmen</span></div>
                 </a>
-
             </div>
         </div>
     </section>
@@ -492,22 +525,6 @@
         </div>
     </section>
 
-    <div class="parcel-wrapper">
-        <div class="parcel-track">
-            <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
-            <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
-            <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
-            
-            <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
-            <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
-            <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
-            
-            <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Afhaal- & Afleverpunt voor uw pakketten - 7/7 Open!</span>
-            <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
-            <img src="final/colisprivelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
-        </div>
-    </div>
-
     <div class="partner-wrapper">
         <div class="partner-track">
             <img src="final/abus.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/200x100/ffffff/e36c33?text=Abus';" alt="Abus">
@@ -555,6 +572,10 @@
             <p>© 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door: <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/32479935848" class="whatsapp-btn" target="_blank" title="Chat met ons op WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <div class="ai-chat-btn" id="openChatBtn">
         <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
@@ -632,13 +653,11 @@
         const API_KEY = deel1 + deel2;
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-        // Hero Image Slider
         const slider = document.getElementById('slider');
         let index = 0; const totalSlides = 8;
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 3500); 
 
-        // Producten in de kijker (Swipe slider)
         const productSlider = document.getElementById('marioProductSlider');
         setInterval(() => {
             if (productSlider.scrollLeft + productSlider.clientWidth >= productSlider.scrollWidth) {
@@ -648,7 +667,6 @@
             }
         }, 4000);
 
-        // Teaser Modal Logica
         const teaserData = {
             'bbq': {
                 img: 'final/67029.jpg',
@@ -699,7 +717,6 @@
         });
 
 
-        // AI Scanner Code
         const bigScannerBtn = document.getElementById('bigScannerBtn');
         const bigScannerInput = document.getElementById('bigScannerInput');
         const scannerLoading = document.getElementById('scannerLoading');
@@ -744,7 +761,6 @@
             reader.readAsDataURL(file);
         });
 
-        // Chatbot Code
         const chatWindow = document.getElementById('chatWindow');
         document.getElementById('openChatBtn').addEventListener('click', () => chatWindow.classList.add('active'));
         document.getElementById('closeChatBtn').addEventListener('click', () => chatWindow.classList.remove('active'));
