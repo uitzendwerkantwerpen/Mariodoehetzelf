@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -23,10 +22,12 @@
         .top-bar-item { display: flex; align-items: center; gap: 8px; }
         .top-bar-item i { font-size: 14px; }
         
-        /* --- TALEN SWITCHER --- */
-        .lang-selector { display: flex; gap: 10px; align-items: center; background: rgba(0,0,0,0.15); padding: 4px 12px; border-radius: 20px; }
-        .lang-selector a { text-decoration: none; font-size: 14px; opacity: 0.5; transition: 0.3s; filter: grayscale(100%); }
-        .lang-selector a:hover, .lang-selector a.active { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+        /* --- TALEN SWITCHER (VERBETERD) --- */
+        .lang-selector { display: flex; gap: 10px; align-items: center; background: rgba(0,0,0,0.15); padding: 4px 12px; border-radius: 20px; color: white; }
+        .lang-selector span { font-weight: 700; font-size: 11px; margin-right: 2px; }
+        .lang-selector a { text-decoration: none; font-size: 14px; opacity: 0.5; transition: 0.3s; filter: grayscale(100%); display: inline-flex; align-items: center; justify-content: center; }
+        .lang-selector a:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
+        .lang-selector a.active { opacity: 1; filter: grayscale(0%); transform: scale(1.1); pointer-events: none; border: 1px solid white; border-radius: 50%; padding: 2px; }
 
         header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
         .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
@@ -45,11 +46,16 @@
         .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
         
-        /* --- PAKKETJES LOPENDE BAND (VERPLAATST NAAR HERO) --- */
+        /* --- PAKKETJES LOPENDE BAND (VRIENDELIJKER + NIEUW LOGO) --- */
         .parcel-wrapper { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(227, 108, 51, 0.3); border-radius: 16px; padding: 12px 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 10px; backdrop-filter: blur(10px); }
-        .parcel-track { display: inline-flex; animation: scrollBanner 30s linear infinite; gap: 50px; padding: 0 40px; align-items: center; }
-        .parcel-track img { height: 40px; max-width: 140px; object-fit: contain; cursor: pointer; transition: 0.3s; background: white; padding: 5px 15px; border-radius: 8px; }
-        .parcel-track img:hover { transform: scale(1.1); }
+        /* AANGEPASTE SNELHEID: 60s (was 30s) voor een veel tragere loop */
+        .parcel-track { display: inline-flex; animation: scrollBanner 60s linear infinite; gap: 50px; padding: 0 40px; align-items: center; }
+        
+        /* Stijl voor de logo's met witte achtergrond voor betere leesbaarheid */
+        .parcel-logo-box { height: 40px; width: auto; display: flex; align-items: center; justify-content: center; background: white; padding: 5px 15px; border-radius: 8px; transition: 0.3s; cursor: pointer; }
+        .parcel-logo-box:hover { transform: scale(1.1); }
+        .parcel-logo-box img { height: 100%; max-width: 120px; object-fit: contain; }
+        
         .parcel-text { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--mario-orange); display: flex; align-items: center; gap: 12px; white-space: nowrap; }
         .parcel-text i { font-size: 18px; color: white; }
 
@@ -66,6 +72,16 @@
         .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- NIEUW: 5.0/5 TRUST BAR (MASTERMIND TIP) --- */
+        .trust-bar-section { background: white; padding: 15px 5%; border-bottom: 1px solid var(--mario-border); position: relative; z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .trust-bar-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .trust-bar-link { text-decoration: none; display: flex; justify-content: center; }
+        .trust-item { display: flex; align-items: center; gap: 12px; justify-content: center; text-align: center; font-size: 13px; font-weight: 700; color: var(--mario-navy); }
+        .trust-item.google-review { color: #166534; font-weight: 900; background: rgba(22, 101, 52, 0.05); padding: 8px 15px; border-radius: 50px; }
+        .trust-item.google-review i.fa-star { color: #F59E0B; }
+        .trust-item i { font-size: 18px; color: var(--mario-orange); }
+        .trust-item strong { color: var(--mario-orange); }
 
         /* --- ANTWERPEN ZUID BANNER --- */
         .antwerpen-banner-section { max-width: 1400px; margin: 20px auto 40px; padding: 0 5%; text-align: center; position: relative; z-index: 10; }
@@ -106,9 +122,13 @@
         .featured-slider-track { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 15px; }
         .featured-slider-track::-webkit-scrollbar { display: none; }
         
-        .product-slide-card { min-width: 250px; background: white; border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); text-align: center; display: flex; flex-direction: column; transition: 0.3s; }
+        .product-slide-card { min-width: 250px; background: white; border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow); border: 1px solid var(--mario-border); text-align: center; display: flex; flex-direction: column; transition: 0.3s; position: relative; overflow: hidden; }
         .product-slide-card:hover { transform: translateY(-5px); border-color: var(--mario-orange); }
-        .product-slide-card img { height: 140px; object-fit: contain; margin-bottom: 15px; mix-blend-mode: multiply; }
+        
+        /* NIEUW: FOMO-tag voor Levis */
+        .fomo-badge { position: absolute; top: 10px; right: -35px; background: #EF4444; color: white; font-weight: 900; font-size: 11px; padding: 5px 40px; text-transform: uppercase; transform: rotate(45deg); box-shadow: 0 3px 6px rgba(0,0,0,0.2); letter-spacing: 1px; z-index: 2; animation: pulse 2s infinite; }
+        
+        .product-slide-card img { height: 140px; object-fit: contain; margin-bottom: 15px; mix-blend-mode: multiply; z-index: 1; }
         .product-slide-card h3 { font-size: 14px; font-weight: 800; color: var(--mario-navy); margin-bottom: auto; line-height: 1.3; }
         .product-slide-price { font-size: 18px; font-weight: 900; color: var(--mario-orange); margin: 10px 0; }
         .product-slide-btn { background: var(--mario-navy); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; font-size: 12px; text-transform: uppercase; text-decoration: none; transition: 0.3s; }
@@ -143,6 +163,18 @@
         #scannerResultsImage { max-width: 200px; width: 100%; border-radius: 12px; border: 3px solid var(--mario-orange); margin-bottom: 25px; display: block; }
         .ai-report h3 { color: var(--mario-navy); font-size: 18px; font-weight: 900; text-transform: uppercase; margin-top: 25px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--mario-light); padding-bottom: 5px; }
         .ai-report p, .ai-report li { color: #4A5568; font-size: 15px; line-height: 1.7; margin-bottom: 10px; }
+
+        /* --- NIEUW: VIP EXCLUSIEF ADVIES SECTIE (MASTERMIND EXCLUSIVE) --- */
+        .vip-section { max-width: 1300px; margin: 60px auto; padding: 0 20px; position: relative; z-index: 10; }
+        .vip-container { background: white; border-radius: 24px; display: flex; align-items: center; gap: 40px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; padding-right: 40px; }
+        .vip-text { flex: 1; padding: 50px 0 50px 50px; }
+        .vip-badge { font-weight: 900; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px; color: white; background: var(--mario-orange); padding: 8px 16px; border-radius: 50px; display: inline-block; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(227,108,51,0.2); }
+        .vip-text h2 { color: var(--mario-navy); font-size: clamp(26px, 4vw, 36px); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
+        .vip-text h2 span { color: var(--mario-orange); }
+        .vip-text p { color: var(--mario-grey); font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+        .vip-image { flex: 1; height: 100%; min-height: 400px; position: relative; overflow: hidden; }
+        .vip-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .vip-image::after { content: ''; position: absolute; top: 0; left: 0; width: 100px; height: 100%; background: linear-gradient(to right, white, transparent); }
 
         /* --- ERKEND VERKOOPPUNT --- */
         .official-dealers { background: #ffffff; padding: 60px 5%; border-bottom: 2px solid var(--mario-border); position: relative; z-index: 10; }
@@ -246,10 +278,20 @@
             .card-inner { flex-direction: column; text-align: center; gap: 15px; }
             .hero-card-title { text-align: center; }
             
+            .trust-bar-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .trust-item { font-size: 11px; }
+
             .versa-promo-card { flex-direction: column; text-align: center; padding: 40px 20px; }
             .versa-content { padding-left: 0; }
             .versa-badge { left: -45px; top: 20px; font-size: 14px; padding: 8px 40px; }
             .upload-btn-large { width: 100%; padding: 15px; font-size: 14px; }
+            
+            .vip-container { flex-direction: column; padding: 0; }
+            .vip-text { padding: 40px 25px; text-align: center; }
+            .vip-text .btn-primary { width: 100%; }
+            .vip-image { min-height: 250px; width: 100%; }
+            .vip-image::after { display: none; }
+            
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
             .top-bar-left .top-bar-item:not(:first-child) { display: none; }
             .info-section { grid-template-columns: 1fr; }
@@ -269,6 +311,7 @@
             <div class="top-bar-item"><i class="fas fa-store"></i> Gratis afhalen in Berchem</div>
         </div>
         <div class="lang-selector">
+            <span>TAAL:</span>
             <a href="#" class="active" title="Nederlands">🇧🇪</a>
             <a href="#" title="English">🇬🇧</a>
             <a href="#" title="Français">🇫🇷</a>
@@ -297,16 +340,16 @@
             <div class="parcel-wrapper">
                 <div class="parcel-track">
                     <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open voor jouw gemak!</span>
-                    <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
-                    <img src="final/privelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
+                    <div class="parcel-logo-box"><img src="final/39704.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt"></div>
                     
                     <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open voor jouw gemak!</span>
-                    <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
-                    <img src="final/privelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
+                    <div class="parcel-logo-box"><img src="final/39704.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt"></div>
                     
                     <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open voor jouw gemak!</span>
-                    <img src="final/postnllogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt">
-                    <img src="final/privelogo.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt">
+                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
+                    <div class="parcel-logo-box"><img src="final/39704.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=Colis+Prive';" alt="Colis Privé Punt"></div>
                 </div>
             </div>
 
@@ -333,6 +376,17 @@
             </div>
         </div>
     </section>
+
+    <div class="trust-bar-section">
+        <div class="trust-bar-container">
+            <a href="https://g.page/r/CbUStpMkEl_7EBM/review" target="_blank" class="trust-bar-link">
+                <div class="trust-item google-review"><i class="fas fa-star"></i>⭐️⭐️⭐️⭐️⭐️ <strong>5.0/5</strong> Google Reviews</div>
+            </a>
+            <div class="trust-item"><i class="fas fa-truck"></i> Voor <strong>22u</strong> besteld, morgen klussen</div>
+            <div class="trust-item"><i class="fas fa-store"></i> Gratis afhalen in <strong>Berchem</strong></div>
+            <div class="trust-item"><i class="fas fa-comments"></i> <strong>7/7</strong> Persoonlijk WhatsApp Advies</div>
+        </div>
+    </div>
 
     <section class="antwerpen-banner-section">
         <div class="antwerpen-banner-card">
@@ -386,6 +440,7 @@
                 </div>
                 
                 <div class="product-slide-card" style="border: 2px solid var(--mario-orange);">
+                    <div class="fomo-badge">🔥 OP = OP</div>
                     <img src="final/murplafond10lpromo.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Promo">
                     <h3>Levis 8+2L Gratis!</h3>
                     <span class="product-slide-price">€79.95</span>
@@ -407,7 +462,7 @@
                 </div>
 
                 <div class="product-slide-card">
-                    <img src="loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite 60sec">
+                    <img src="final/loctite20g.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Loctite 60sec">
                     <h3>Loctite 60sec Universeel</h3>
                     <span class="product-slide-price">€9.95</span>
                     <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" target="_blank" class="product-slide-btn">Koop Nu</a>
@@ -436,7 +491,7 @@
             <div class="scanner-header">
                 <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
                 <h2>Mario's <span>AI Klus-Scanner</span></h2>
-                <p>Klus mislukt? Lekkage? Kapotte muur? Upload een foto van je probleem en onze slimme AI geeft je direct een professionele diagnose en het juiste boodschappenlijstje.</p>
+                <p>Klus mislukt? Lekkage? Kapotte muur? Upload een foto van je problem en onze slimme AI geeft je direct een professionele diagnose en het juiste boodschappenlijstje.</p>
             </div>
             <input type="file" id="bigScannerInput" accept="image/*" style="display:none;">
             <button class="upload-btn-large" id="bigScannerBtn">
@@ -446,6 +501,20 @@
             <div id="scannerResults" class="ai-report">
                 <img id="scannerResultsImage" src="" alt="Jouw Klus">
                 <div id="scannerReportText"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vip-section">
+        <div class="vip-container">
+            <div class="vip-text">
+                <span class="vip-badge">💎 Mario Exclusive</span>
+                <h2>Groot Project?<br>Boek een <span>VIP-Adviesgesprek</span></h2>
+                <p>Ga je verbouwen of renoveren? Maak een afspraak met onze experts in Berchem. Wij overlopen samen jouw plannen, berekenen de perfecte materialen (van Versa sanitair tot Levis verf) en zorgen voor een vlekkeloze uitvoering. De koffie staat klaar!</p>
+                <a href="https://wa.me/32479935848" class="btn-primary" target="_blank">Plan een Gratis VIP-Gesprek</a>
+            </div>
+            <div class="vip-image">
+                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://placehold.co/800x600/060b11/e36c33?text=Luxe+Renovatie';" alt="Luxe Badkamer Renovatie">
             </div>
         </div>
     </section>
@@ -550,7 +619,7 @@
 
     <div class="info-section">
         <div class="map-frame">
-            <iframe src="https://maps.google.com/maps?q=Driekoningenstraat%2073%2C%202600%20Antwerpen&t=&z=15&ie=UTF8&iwloc=&output=embed" class="google-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m14!1m8!1m3!1d2501.378943481232!2d4.4239891!3d51.1873917!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f71c49626e29%3A0xcf48f4304db916a2!2sMario%20Totaalrenovaties!5e0!3m2!1snl!2sbe!4v1700000000000!5m2!1snl!2sbe" class="google-map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="reviews-container">
             <script defer async src='https://cdn.trustindex.io/loader.js?6bf115467312902b9a866190c74'></script>
