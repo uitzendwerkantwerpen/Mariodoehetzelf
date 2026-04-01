@@ -165,7 +165,7 @@
         .ai-report h3 { color: var(--mario-navy); font-size: 18px; font-weight: 900; text-transform: uppercase; margin-top: 25px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid var(--mario-light); padding-bottom: 5px; }
         .ai-report p, .ai-report li { color: #4A5568; font-size: 15px; line-height: 1.7; margin-bottom: 10px; }
 
-        /* --- VIP EXCLUSIEF ADVIES SECTIE --- */
+        /* --- VIP EXCLUSIEF ADVIES SECTIE MET 2 KEUZE KNOPPEN --- */
         .vip-section { max-width: 1300px; margin: 60px auto; padding: 0 20px; position: relative; z-index: 10; }
         .vip-container { background: white; border-radius: 24px; display: flex; align-items: center; gap: 40px; border: 1px solid var(--mario-border); box-shadow: 0 15px 35px rgba(0,0,0,0.06); overflow: hidden; padding-right: 40px; }
         .vip-text { flex: 1; padding: 50px 0 50px 50px; }
@@ -237,7 +237,30 @@
         .chat-window.active { display: flex; transform: translateY(0); opacity: 1; }
         .chat-header { background: var(--mario-navy); color: white; padding: 15px 20px; display: flex; align-items: center; gap: 15px; border-bottom: 3px solid var(--mario-orange); }
         .chat-header img { width: 35px; height: 35px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(227, 108, 51, 0.5)); }
-        
+        .chat-header-text { display: flex; flex-direction: column; flex-grow: 1; }
+        .chat-header-text strong { font-size: 15px; color: var(--mario-orange); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .chat-header-text small { font-size: 10px; color: #CBD5E1; text-transform: uppercase; letter-spacing: 1px; }
+        .close-chat { color: white; background: none; border: none; font-size: 24px; cursor: pointer; margin-left: 10px; line-height: 1; }
+        .expert-selector { display: flex; background: #F1F5F9; padding: 10px; gap: 8px; border-bottom: 1px solid var(--mario-border); }
+        .expert-btn { flex: 1; padding: 10px 5px; border-radius: 8px; border: 1px solid transparent; background: transparent; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--mario-grey); cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .expert-btn.active { background: var(--mario-orange); color: white; border-color: var(--mario-orange); box-shadow: 0 4px 10px rgba(227, 108, 51, 0.3); }
+        .chat-body { padding: 20px; height: 360px; overflow-y: auto; background: white; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
+        .chat-msg { max-width: 85%; padding: 14px 18px; border-radius: 12px; font-size: 14px; line-height: 1.5; font-weight: 500; word-wrap: break-word; }
+        .msg-bot { background: #F8FAFC; border: 1px solid var(--mario-border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--mario-navy); }
+        .msg-user { background: var(--mario-orange); color: white; align-self: flex-end; border-bottom-right-radius: 4px; box-shadow: 0 2px 5px rgba(227,108,51,0.2); }
+        .chat-buy-btn { display: inline-block; background: var(--mario-orange); color: white !important; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 12px; font-weight: 800; text-transform: uppercase; margin-top: 10px; box-shadow: 0 4px 10px rgba(227,108,51,0.3); border: 1px solid #c25522; transition: 0.3s; }
+        .chat-buy-btn:hover { background: var(--mario-navy); border-color: var(--mario-navy); }
+        .chat-input-area { padding: 12px 15px; background: white; border-top: 1px solid var(--mario-border); display: flex; gap: 8px; align-items: center; }
+        .chat-icon-btn { background: #F1F5F9; color: var(--mario-grey); border: 1px solid var(--mario-border); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .chat-icon-btn:hover { background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: var(--mario-orange); }
+        .chat-icon-btn.recording { background: #EF4444; color: white; animation: pulse 1s infinite; border-color: #EF4444; }
+        .chat-input-area input[type="text"] { flex: 1; padding: 12px 15px; border-radius: 20px; border: 1px solid var(--mario-border); outline: none; font-family: 'Outfit'; font-size: 13px; }
+        .chat-send-btn { background: var(--mario-orange); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.3s; }
+        .typing-indicator { font-size: 11px; color: var(--mario-orange); font-weight: 700; display: none; padding: 0 20px 10px; }
+        #imagePreviewContainer { display: none; padding: 10px 15px; background: #F8FAFC; border-top: 1px solid var(--mario-border); position: relative; }
+        #chatImagePreview { height: 60px; border-radius: 8px; border: 2px solid var(--mario-orange); object-fit: cover; }
+        #clearImageBtn { position: absolute; top: 5px; left: 65px; background: #EF4444; color: white; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; font-weight: bold; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+
         /* Mobile Adjustments */
         @media (max-width: 900px) {
             header { padding: 12px 15px; flex-direction: column; gap: 15px; text-align: center; }
@@ -676,8 +699,8 @@
         const deel1 = 'AIzaSyCVleWYp9pka-';
         const deel2 = 'FFhVdMTUCZMaq12xqyEho';
         const API_KEY = deel1 + deel2;
-        // MODEL VERSIE GEFIXT NAAR 1.5 VOOR STABILITEIT
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+        // CEO FIX: Teruggezet naar EXACT jouw originele en werkende string!
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
         const slider = document.getElementById('slider');
         let index = 0; const totalSlides = 8;
