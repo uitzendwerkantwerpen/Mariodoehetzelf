@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="color-scheme" content="light">
-   <title>Mario Berchem | Dé Doe-Het-Zelf Zaak met AI Klus-Scanner</title>
-<meta name="description" content="Dé premium doe-het-zelf zaak van Berchem én online webshop. Bestel 24/7 je materiaal online, haal gratis af in de winkel, of gebruik onze AI Klus-Scanner voor VIP-advies. Voor 22u besteld, morgen klussen!">
+    <title>Mario Berchem | Dé Doe-Het-Zelf Zaak met AI Klus-Scanner</title>
+    <meta name="description" content="Dé premium doe-het-zelf zaak van Berchem én online webshop. Bestel 24/7 je materiaal online, haal gratis af in de winkel, of gebruik onze AI Klus-Scanner voor VIP-advies. Voor 22u besteld, morgen klussen!">
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,11 +32,21 @@
         .lang-selector a.active { opacity: 1; filter: grayscale(0%); transform: scale(1.1); pointer-events: none; border: 1px solid white; border-radius: 4px; padding: 2px; }
 
         header { position: fixed; width: 100%; top: 34px; left: 0; z-index: 9998; display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(6, 11, 17, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-        .header-logo-img { height: clamp(70px, 12vw, 100px); width: auto; display: block; object-fit: contain; filter: drop-shadow(0 0 8px rgba(227, 108, 51, 0.4)); transition: 0.3s; }
-        .logo-text-wrapper { display: flex; flex-direction: column; align-items: flex-start; }
-        .mario-logo-text { font-size: clamp(20px, 4.5vw, 38px); font-weight: 900; color: var(--mario-orange); text-transform: uppercase; letter-spacing: 1px; line-height: 1; text-shadow: 0 0 10px rgba(227, 108, 51, 0.4); white-space: nowrap; }
-        .logo-subtext { color: rgba(255,255,255,0.85); font-size: clamp(8px, 1.8vw, 11px); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; white-space: nowrap; }
+        .logo-frame { display: flex; flex-direction: row; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; padding-left: 20px; }
+        
+        /* NEXT LEVEL LOGO CSS: Enorm Vergroot met Schaduw! */
+        .header-logo-img { 
+            height: clamp(80px, 12vw, 110px); 
+            width: auto; 
+            display: block; 
+            object-fit: contain; 
+            filter: drop-shadow(0 0 15px rgba(227, 108, 51, 0.8)); 
+            transition: 0.3s; 
+            transform: scale(2.0); /* Vergroot met 100% */
+            transform-origin: left center; 
+        }
+        
+        .logo-text-wrapper { display: none; /* Tekst verborgen omdat het logo dit al heeft */ }
         
         .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
         .nav-links a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
@@ -45,10 +55,19 @@
 
         /* --- HERO SECTION --- */
         .hero { position: relative; padding: 180px 5% 60px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
-        .hero-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(30, 60, 90, 0.4) 0%, var(--mario-navy) 100%); z-index: 1; }
+        
+        /* NEXT LEVEL BACKGROUND CSS: Bakstenen Patroon! */
+        .hero-bg { 
+            position: absolute; 
+            inset: 0; 
+            background-color: var(--mario-navy); 
+            background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23e36c33' fill-opacity='0.08'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1; 
+        }
+        
         .hero-content { position: relative; z-index: 3; max-width: 1300px; width: 100%; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
         
-        /* --- PAKKETJES LOPENDE BAND (ENKEL POSTNL) --- */
+        /* --- PAKKETJES LOPENDE BAND --- */
         .parcel-wrapper { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(227, 108, 51, 0.3); border-radius: 16px; padding: 12px 0; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 10px; backdrop-filter: blur(10px); }
         .parcel-track { display: inline-flex; animation: scrollBanner 60s linear infinite; gap: 50px; padding: 0 40px; align-items: center; }
         .parcel-logo-box { height: 40px; width: auto; display: flex; align-items: center; justify-content: center; background: white; padding: 5px 15px; border-radius: 8px; transition: 0.3s; cursor: pointer; }
@@ -59,19 +78,32 @@
 
         .hero-card { background: rgba(6, 11, 17, 0.9); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.08); flex: 1.2; min-width: 320px; overflow: hidden; }
         .card-inner { display: flex; gap: 30px; align-items: center; margin-bottom: 20px; }
-        .card-logo { width: clamp(100px, 20vw, 160px); height: auto; max-height: 140px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); }
+        .card-logo { width: clamp(80px, 15vw, 120px); height: auto; max-height: 140px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15)); transform: scale(1.5); transform-origin: left center; }
         .hero-card-title { font-size: clamp(22px, 6vw, 38px); font-weight: 900; color: #ffffff; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: -0.5px; }
         .hero-card-title span { color: var(--mario-orange); }
         .hero-card p { font-size: 16px; color: #CBD5E1; line-height: 1.6; margin-bottom: 35px; margin-top: 15px; }
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 30px; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 8px; background: var(--mario-orange); color: white; transition: 0.3s; box-shadow: 0 10px 20px rgba(227, 108, 51, 0.3); cursor: pointer; border: none; text-align: center; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(227, 108, 51, 0.5); background: #d15a22; color: white; }
+        
+        /* NEXT LEVEL CSS BUTTONS: 3D Drukknop Effect! */
+        .btn-primary { 
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px; 
+            padding: 18px 30px; font-weight: 900; font-size: 15px; text-transform: uppercase; 
+            letter-spacing: 1.5px; text-decoration: none; border-radius: 12px; 
+            background: var(--mario-orange); color: white; transition: 0.2s; 
+            box-shadow: 0 6px 0 #b35022, 0 15px 20px rgba(0,0,0,0.4); 
+            cursor: pointer; border: none; text-align: center; 
+        }
+        .btn-primary:hover { 
+            transform: translateY(4px); 
+            box-shadow: 0 2px 0 #b35022, 0 8px 10px rgba(0,0,0,0.4); 
+            background: #d15a22; color: white; 
+        }
         
         .hero-slider-card { flex: 1; min-width: 320px; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 4px solid rgba(255,255,255,0.08); height: 350px; position: relative; }
         .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
         .slide { width: 100%; height: 100%; flex-shrink: 0; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- MERKEN LOPENDE BAND (VERPLAATST NAAR BOVEN) --- */
+        /* --- MERKEN LOPENDE BAND --- */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 2px solid var(--mario-border); padding: 25px 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .partner-track { display: inline-flex; animation: scrollBanner 45s linear infinite; gap: 70px; padding: 0 40px; align-items: center; }
         .partner-track img { height: 55px; max-width: 160px; object-fit: contain; mix-blend-mode: multiply; transition: all 0.3s; cursor: pointer; filter: grayscale(20%); }
@@ -177,10 +209,10 @@
         
         /* Aangepaste knoppen voor VIP */
         .vip-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
-        .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); border: none; }
-        .btn-whatsapp:hover { background: #128C7E; transform: translateY(-3px); color: white; }
-        .btn-email { background: var(--mario-navy); color: white; border: none; }
-        .btn-email:hover { background: var(--mario-orange); transform: translateY(-3px); color: white; }
+        .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 6px 0 #1b9b4a, 0 10px 20px rgba(37, 211, 102, 0.3); border: none; border-radius: 12px; }
+        .btn-whatsapp:hover { background: #128C7E; transform: translateY(4px); box-shadow: 0 2px 0 #1b9b4a, 0 8px 10px rgba(37, 211, 102, 0.3); color: white; }
+        .btn-email { background: var(--mario-navy); color: white; border: none; box-shadow: 0 6px 0 #000, 0 10px 20px rgba(0,0,0,0.3); border-radius: 12px; }
+        .btn-email:hover { background: var(--mario-orange); transform: translateY(4px); box-shadow: 0 2px 0 #b35022, 0 8px 10px rgba(0,0,0,0.3); color: white; }
 
         .vip-image { flex: 1; height: 100%; min-height: 400px; position: relative; overflow: hidden; }
         .vip-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -265,9 +297,10 @@
         /* Mobile Adjustments */
         @media (max-width: 900px) {
             header { padding: 12px 15px; flex-direction: column; gap: 15px; text-align: center; }
-            .logo-frame { justify-content: center; width: 100%; margin-bottom: 5px; }
+            .logo-frame { justify-content: center; width: 100%; margin-bottom: 5px; padding-left: 0; }
+            .header-logo-img { transform: scale(1.5); transform-origin: center; margin-bottom: 5px; } /* Iets kleiner op mobiel maar nog steeds dominant */
             .nav-links { width: 100%; justify-content: center; gap: 15px; }
-            .hero { padding-top: 220px; padding-bottom: 40px; } 
+            .hero { padding-top: 240px; padding-bottom: 40px; } 
             .hero-card, .hero-slider-card { flex: none; width: 100%; }
             .hero-slider-card { height: 250px; }
             .parcel-text { font-size: 12px; }
@@ -307,7 +340,8 @@
 
     <header>
         <a href="index.html" class="logo-frame">
-            <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo" class="header-logo-img">
+            <!-- CEO FIX: Transparante PNG + Gigantisch in CSS gemaakt -->
+            <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo" class="header-logo-img">
             <div class="logo-text-wrapper">
                 <div class="mario-logo-text">MARIO</div>
                 <div class="logo-subtext">DHZ SPECIALIST & TOTAALRENOVATIES</div>
@@ -341,7 +375,7 @@
 
             <div class="hero-card">
                 <div class="card-inner">
-                    <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario" class="card-logo">
+                    <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario" class="card-logo">
                     <h1 class="hero-card-title">Dé Premium<br><span>Doe-Het-Zelf Zaak</span></h1>
                 </div>
                 <p>Alles wat je nodig hebt voor elke klus. Ervaar vakmanschap, topmaterialen en ongeëvenaarde service, direct uit voorraad.</p>
@@ -495,7 +529,7 @@
     <section class="mario-scanner-section" id="marioScanner">
         <div class="scanner-container">
             <div class="scanner-header">
-                <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
+                <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
                 <h2>Mario's <span>AI Klus-Scanner</span></h2>
                 <p>Klus mislukt? Lekkage? Kapotte muur? Upload een foto van je probleem en onze slimme AI geeft je direct een professionele diagnose en het juiste boodschappenlijstje.</p>
             </div>
@@ -627,7 +661,7 @@
     </a>
 
     <div class="ai-chat-btn" id="openChatBtn">
-        <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
+        <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
         <span class="ai-chat-text">Chat & Fix</span>
     </div>
 
@@ -663,7 +697,7 @@
 
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
-            <img src="final/Logostrak.jpg" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo">
+            <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario Logo">
             <div class="chat-header-text">
                 <strong>Mario DHZ AI</strong>
                 <small>Klaar om te helpen</small>
@@ -700,7 +734,6 @@
         const deel1 = 'AIzaSyCVleWYp9pka-';
         const deel2 = 'FFhVdMTUCZMaq12xqyEho';
         const API_KEY = deel1 + deel2;
-        // CEO FIX: Teruggezet naar EXACT jouw originele en werkende string!
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
         const slider = document.getElementById('slider');
@@ -765,7 +798,6 @@
         teaserModal.addEventListener('click', function(e) {
             if(e.target === teaserModal) closeTeaserModal();
         });
-
 
         const bigScannerBtn = document.getElementById('bigScannerBtn');
         const bigScannerInput = document.getElementById('bigScannerInput');
