@@ -258,16 +258,6 @@
         .google-map { width: 100%; height: 100%; border: 0; filter: grayscale(80%) contrast(1.2); }
         .reviews-container { display: flex; flex-direction: column; gap: 20px; background: white; border-radius: 8px; padding: 30px; border: 1px solid var(--mario-border); }
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--mario-navy); color: white; padding: 80px 5% 0; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; padding-bottom: 60px; }
-        .footer-col h4 { color: white; font-size: 15px; text-transform: uppercase; margin-bottom: 25px; font-weight: 600; letter-spacing: 2px; opacity: 0.5; }
-        .footer-col p { color: #9CA3AF; font-size: 14px; font-weight: 300; line-height: 1.8; display: flex; align-items: center; gap: 15px; margin-bottom: 12px; }
-        .payment-icons { display: flex; gap: 20px; margin-top: 25px; font-size: 30px; color: white; align-items: center; opacity: 0.7; }
-        .developer-credit-frame { background: #000000; padding: 30px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .developer-credit-frame p { font-size: 11px; color: #6B7280; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
-        .developer-credit-frame strong { color: white; font-weight: 600; }
-
         /* --- CHATBOT & WHATSAPP --- */
         .whatsapp-btn { position: fixed; bottom: 30px; left: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); z-index: 10000; text-decoration: none; transition: 0.4s; border: 2px solid white; }
         .whatsapp-btn:hover { transform: scale(1.05); background-color: #128C7E; }
@@ -307,6 +297,18 @@
         #chatImagePreview { height: 70px; border-radius: 4px; border: 1px solid var(--mario-border); object-fit: cover; }
         #clearImageBtn { position: absolute; top: 10px; left: 80px; background: var(--mario-navy); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; cursor: pointer; font-weight: 300; font-size: 14px; display: flex; align-items: center; justify-content: center; }
 
+        /* --- COOKIE BANNER (GDPR PROOF) --- */
+        .cookie-banner { position: fixed; bottom: -120px; left: 0; width: 100%; background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(15px); border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 100000; box-shadow: 0 -10px 40px rgba(0,0,0,0.5); transition: bottom 0.6s cubic-bezier(0.25, 1, 0.5, 1); flex-wrap: wrap; gap: 20px; }
+        .cookie-banner.show { bottom: 0; }
+        .cookie-text { color: #9CA3AF; font-size: 13px; font-weight: 300; line-height: 1.6; flex: 1; min-width: 300px; letter-spacing: 0.5px; }
+        .cookie-text strong { color: white; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 12px; display: block; margin-bottom: 5px; }
+        .cookie-buttons { display: flex; gap: 15px; }
+        .cookie-btn { padding: 12px 25px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .cookie-btn-accept { background: white; color: var(--mario-navy); border: 1px solid white; }
+        .cookie-btn-accept:hover { background: transparent; color: white; }
+        .cookie-btn-decline { background: transparent; color: #9CA3AF; border: 1px solid #9CA3AF; }
+        .cookie-btn-decline:hover { color: white; border-color: white; }
+
         /* Mobile Adjustments */
         @media (max-width: 900px) {
             header { padding: 15px 5%; flex-direction: column; gap: 20px; text-align: center; }
@@ -332,6 +334,8 @@
             .info-section { grid-template-columns: 1fr; }
             .whatsapp-btn { bottom: 20px; left: 20px; width: 55px; height: 55px; font-size: 28px; }
             .ai-chat-btn { bottom: 20px; right: 20px; padding: 12px 20px; }
+            .cookie-buttons { width: 100%; justify-content: space-between; }
+            .cookie-btn { flex: 1; text-align: center; }
         }
     </style>
 </head>
@@ -650,20 +654,57 @@
         </div>
     </div>
 
-    <footer>
-        <div class="footer-grid">
+    <footer style="background-color: #050505; color: white; padding: 80px 5% 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 60px; padding-bottom: 60px;">
+            
             <div class="footer-col">
-                <h4>Over Mario</h4>
-                <p>Dé premium speciaalzaak in Berchem. Wij leveren vakmanschap, deskundig advies en topmaterialen voor elk project.</p>
+                <img src="final/mariotrans.png" alt="Mario DHZ" style="height: 50px; width: auto; filter: grayscale(100%) brightness(200%); margin-bottom: 25px;">
+                <p style="color: #9CA3AF; font-size: 14px; font-weight: 300; line-height: 1.8; max-width: 300px;">
+                    Dé premium speciaalzaak in Berchem voor vakmanschap, deskundig advies en exclusieve bouwmaterialen.
+                </p>
             </div>
+
             <div class="footer-col">
-                <h4>Showroom</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Driekoningenstraat 73, 2600 Berchem</p>
-                <p><i class="fas fa-phone-alt"></i> 0479/93.58.48</p>
+                <h4 style="color: white; font-size: 12px; text-transform: uppercase; margin-bottom: 25px; font-weight: 600; letter-spacing: 2px;">Showroom & Contact</h4>
+                <p style="color: #9CA3AF; font-size: 14px; font-weight: 300; display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--mario-orange);"></i> Driekoningenstraat 73, 2600 Berchem
+                </p>
+                <p style="color: #9CA3AF; font-size: 14px; font-weight: 300; display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                    <i class="fas fa-envelope" style="color: var(--mario-orange);"></i> info@tmkdhz.be
+                </p>
+                <p style="color: #9CA3AF; font-size: 14px; font-weight: 300; display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                    <i class="fas fa-phone-alt" style="color: var(--mario-orange);"></i> 0479/93.58.48
+                </p>
+                <p style="color: #9CA3AF; font-size: 12px; font-weight: 300; margin-top: 20px; opacity: 0.7;">
+                    BTW: BE0801.817.836
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 style="color: white; font-size: 12px; text-transform: uppercase; margin-bottom: 25px; font-weight: 600; letter-spacing: 2px;">Informatie</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 12px;"><a href="/pages/refund-policy" style="color: #9CA3AF; text-decoration: none; font-size: 14px; font-weight: 300; transition: 0.3s;">Retourbeleid</a></li>
+                    <li style="margin-bottom: 12px;"><a href="/pages/terms-of-service" style="color: #9CA3AF; text-decoration: none; font-size: 14px; font-weight: 300; transition: 0.3s;">Algemene Voorwaarden</a></li>
+                    <li style="margin-bottom: 12px;"><a href="/pages/privacy-policy" style="color: #9CA3AF; text-decoration: none; font-size: 14px; font-weight: 300; transition: 0.3s;">Privacybeleid</a></li>
+                    <li style="margin-bottom: 12px;"><a href="/pages/shipping-policy" style="color: #9CA3AF; text-decoration: none; font-size: 14px; font-weight: 300; transition: 0.3s;">Verzending & Levering</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 style="color: white; font-size: 12px; text-transform: uppercase; margin-bottom: 25px; font-weight: 600; letter-spacing: 2px;">Veilig Betalen</h4>
+                <div style="display: flex; gap: 15px; font-size: 24px; color: white; opacity: 0.6;">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                    <i class="icon-bancontact" style="font-family: sans-serif; font-weight: 900; font-style: normal; font-size: 14px; border: 1px solid white; padding: 2px 4px; border-radius: 2px;">BC</i>
+                </div>
             </div>
         </div>
-        <div class="developer-credit-frame">
-            <p>© 2026 Mario Doe-Het-Zelf Berchem. Ontwikkeld door <strong>MS Global Creative Studios Builder Saraç</strong>.</p>
+
+        <div style="background: #000000; padding: 30px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+            <p style="font-size: 10px; color: #4B5563; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; margin: 0;">
+                © 2026 MARIO DOE-HET-ZELF BERCHEM. DESIGNED BY <strong>MS GLOBAL CREATIVE STUDIOS</strong>.
+            </p>
         </div>
     </footer>
 
@@ -674,6 +715,17 @@
     <div class="ai-chat-btn" id="openChatBtn">
         <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario AI">
         <span>Chat & Fix</span>
+    </div>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            <strong>Cookies & Privacy</strong>
+            Wij gebruiken cookies om uw ervaring te verbeteren, het verkeer te analyseren en onze service te optimaliseren. Door op 'Accepteren' te klikken, gaat u akkoord met ons <a href="/pages/privacy-policy" style="color: var(--mario-orange); text-decoration: none;">Privacybeleid</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-decline" id="declineCookies">Weigeren</button>
+            <button class="cookie-btn cookie-btn-accept" id="acceptCookies">Accepteren</button>
+        </div>
     </div>
 
     <div class="modal-overlay" id="teaserModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 5, 0.9); z-index: 100000; backdrop-filter: blur(10px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;">
@@ -742,6 +794,20 @@
     </div>
 
     <script>
+        // Cookie Banner Logic
+        const cookieBanner = document.getElementById('cookieBanner');
+        if (!localStorage.getItem('mario_cookies_accepted')) {
+            setTimeout(() => { cookieBanner.classList.add('show'); }, 1500); // Schuift na 1.5s omhoog
+        }
+        document.getElementById('acceptCookies').addEventListener('click', () => {
+            localStorage.setItem('mario_cookies_accepted', 'true');
+            cookieBanner.classList.remove('show');
+        });
+        document.getElementById('declineCookies').addEventListener('click', () => {
+            localStorage.setItem('mario_cookies_accepted', 'false');
+            cookieBanner.classList.remove('show');
+        });
+
         const deel1 = 'AIzaSyCVleWYp9pka-';
         const deel2 = 'FFhVdMTUCZMaq12xqyEho';
         const API_KEY = deel1 + deel2;
