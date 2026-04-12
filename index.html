@@ -156,26 +156,29 @@
         .teaser-btn { font-size: 12px; color: var(--mario-navy); font-weight: 600; background: transparent; border: 1px solid var(--mario-border); padding: 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .teaser-card:hover .teaser-btn { background: var(--mario-navy); color: white; border-color: var(--mario-navy); }
 
-        /* --- PRODUCTEN IN DE KIJKER --- */
-        .featured-slider-section { max-width: 1400px; margin: 60px auto; padding: 0 5%; position: relative; z-index: 10; }
-        .featured-slider-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 1px solid var(--mario-border); padding-bottom: 15px; }
-        .featured-slider-header h2 { color: var(--mario-navy); font-size: 26px; font-weight: 300; text-transform: uppercase; letter-spacing: 1px; }
-        .featured-slider-header a { color: var(--mario-grey); font-size: 13px; font-weight: 600; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 8px; letter-spacing: 1px; transition: 0.3s; }
-        .featured-slider-header a:hover { color: var(--mario-orange); }
+        /* --- NIEUWE PROMO VAN DE WEEK (VERVANGT SLIDER) --- */
+        .promo-section { max-width: 1400px; margin: 60px auto; padding: 0 5%; position: relative; z-index: 10; }
+        .promo-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; text-align: center; border-bottom: 1px solid var(--mario-border); padding-bottom: 20px; }
+        .promo-header h2 { color: var(--mario-navy); font-size: clamp(28px, 4vw, 38px); font-weight: 300; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .promo-header p { color: var(--mario-orange); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
         
-        .featured-slider-container { overflow: hidden; position: relative; }
-        .featured-slider-track { display: flex; gap: 25px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding-bottom: 20px; }
-        .featured-slider-track::-webkit-scrollbar { display: none; }
+        .promo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .promo-card { background: white; border-radius: 8px; border: 1px solid var(--mario-border); padding: 40px 30px; text-align: center; cursor: pointer; transition: 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
+        .promo-card:hover { transform: translateY(-5px); border-color: var(--mario-orange); box-shadow: 0 15px 30px rgba(227,108,51,0.1); }
         
-        .product-slide-card { min-width: 260px; background: white; border-radius: 8px; padding: 30px 20px; border: 1px solid var(--mario-border); text-align: center; display: flex; flex-direction: column; transition: 0.4s; position: relative; overflow: hidden; }
-        .product-slide-card:hover { border-color: var(--mario-navy); box-shadow: 0 15px 30px rgba(0,0,0,0.03); }
-        .fomo-badge { position: absolute; top: 12px; right: -30px; background: var(--mario-navy); color: white; font-weight: 600; font-size: 10px; padding: 6px 35px; text-transform: uppercase; transform: rotate(45deg); letter-spacing: 2px; z-index: 2; }
-        .product-slide-card img { height: 160px; object-fit: contain; margin-bottom: 25px; mix-blend-mode: multiply; z-index: 1; transition: 0.5s; }
-        .product-slide-card:hover img { transform: scale(1.05); }
-        .product-slide-card h3 { font-size: 14px; font-weight: 600; color: var(--mario-navy); margin-bottom: 10px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.5px; }
-        .product-slide-price { font-size: 18px; font-weight: 300; color: var(--mario-orange); margin-bottom: 20px; }
-        .product-slide-btn { background: transparent; color: var(--mario-navy); padding: 12px 15px; border-radius: 4px; border: 1px solid var(--mario-border); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: 0.3s; margin-top: auto; }
-        .product-slide-card:hover .product-slide-btn { background: var(--mario-navy); color: white; border-color: var(--mario-navy); }
+        /* De Side-Badges (Fomo!) */
+        .promo-badge-left { position: absolute; top: 20px; left: -35px; background: #EF4444; color: white; font-weight: 700; font-size: 11px; padding: 6px 40px; text-transform: uppercase; transform: rotate(-45deg); letter-spacing: 2px; z-index: 2; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3); }
+        .promo-badge-right { position: absolute; top: 20px; right: -35px; background: var(--mario-navy); color: white; font-weight: 700; font-size: 11px; padding: 6px 40px; text-transform: uppercase; transform: rotate(45deg); letter-spacing: 2px; z-index: 2; }
+        
+        .promo-card img { height: 220px; width: 100%; object-fit: contain; margin-bottom: 25px; mix-blend-mode: multiply; transition: 0.5s; }
+        .promo-card:hover img { transform: scale(1.05); }
+        .promo-card h3 { color: var(--mario-navy); font-size: 18px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; line-height: 1.4; letter-spacing: 1px; }
+        .promo-card .price-box { display: flex; align-items: baseline; justify-content: center; gap: 12px; margin-bottom: 5px; }
+        .promo-card .old-price { text-decoration: line-through; color: #9CA3AF; font-size: 16px; font-weight: 300; }
+        .promo-card .new-price { color: var(--mario-orange); font-size: 32px; font-weight: 700; }
+        .promo-card .unit-price { display: block; font-size: 12px; color: var(--mario-grey); margin-bottom: 25px; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+        .promo-btn { font-size: 13px; color: var(--mario-navy); font-weight: 600; background: transparent; border: 1px solid var(--mario-border); padding: 14px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; display: block; width: 100%; }
+        .promo-card:hover .promo-btn { background: var(--mario-navy); color: white; border-color: var(--mario-navy); }
 
         /* --- VERSA GROUP PROMO - SPHERE LUXE --- */
         .versa-promo-section { max-width: 1400px; margin: 80px auto; padding: 0 5%; position: relative; z-index: 10; }
@@ -456,74 +459,35 @@
         <img src="final/banner.jpg" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/050505/ffffff?text=Mario+Banner';" alt="Mario - Alles voor uw huis onder één dak">
     </section>
 
-    <section class="teaser-section">
-        <div class="teaser-header">
-            <span class="teaser-badge">Exclusieve Preview</span>
-            <h2>Binnenkort in onze collectie</h2>
-            <p>Zomer & Schoonmaak – Beschikbaar vanaf 02/04/2026</p>
+    <section class="promo-section">
+        <div class="promo-header">
+            <p>🔥 Tijdloze Premium Deals</p>
+            <h2>Promo van de Week</h2>
         </div>
         
-        <div class="teaser-grid">
-            <div class="teaser-card" onclick="openTeaserModal('bbq')">
-                <img src="final/67029.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Houtskool';" alt="BBQ Houtskool">
-                <h3>Prof Outdoor BBQ Houtskool (4KG)</h3>
-                <p>€6.99</p>
-                <div class="teaser-btn">Ontdek Details</div>
-            </div>
-
-            <div class="teaser-card" onclick="openTeaserModal('dreft')">
+        <div class="promo-grid">
+            <div class="promo-card" onclick="openTeaserModal('dreft_promo')">
+                <div class="promo-badge-left">OP = OP</div>
                 <img src="final/dreftblack.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Dreft';" alt="Dreft Dark & Black">
-                <h3>Dreft Dark & Black Wasmiddel</h3>
-                <p>€4.99</p>
-                <div class="teaser-btn">Ontdek Details</div>
+                <h3>Dreft Dark & Black (945ml)</h3>
+                <div class="price-box">
+                    <span class="old-price">€7.99</span>
+                    <span class="new-price">€4.99</span>
+                </div>
+                <span class="unit-price">21 Wasbeurten (€ 5,28 / L)</span>
+                <div class="promo-btn">Ontdek Details & Bestel</div>
             </div>
-        </div>
-    </section>
 
-    <section class="featured-slider-section">
-        <div class="featured-slider-header">
-            <h2>Uitgelichte Producten</h2>
-            <a href="winkel.html">Bekijk de volledige collectie <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="featured-slider-container">
-            <div class="featured-slider-track" id="marioProductSlider">
-                
-                <div class="product-slide-card">
-                    <img src="final/versadoucheglijstangsetzwart.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Glijstangset Zwart">
-                    <h3>Versa Glijstangset Zwart</h3>
-                    <span class="product-slide-price">€29.99</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902244401529:1?channel=buy_button" target="_blank" class="product-slide-btn">Voeg toe aan winkelwagen</a>
+            <div class="promo-card" onclick="openTeaserModal('lenor_promo')">
+                <div class="promo-badge-right">PROMO</div>
+                <img src="final/lenor.jpg" onerror="this.src='https://placehold.co/300x300/f8fafc/e36c33?text=Lenor';" alt="Lenor L'Eclatante">
+                <h3>Lenor L'Éclatante (1.23L)</h3>
+                <div class="price-box">
+                    <span class="old-price">€6.99</span>
+                    <span class="new-price">€3.99</span>
                 </div>
-                
-                <div class="product-slide-card" style="border-color: var(--mario-navy);">
-                    <div class="fomo-badge">PROMO</div>
-                    <img src="final/murplafond10lpromo.jpg?v=1" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Levis Promo">
-                    <h3>Levis 8+2L Gratis!</h3>
-                    <span class="product-slide-price">€79.95</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56884897743225:1?channel=buy_button" target="_blank" class="product-slide-btn">Voeg toe aan winkelwagen</a>
-                </div>
-                
-                <div class="product-slide-card">
-                    <img src="final/versazyrowc.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Zyro Meubel">
-                    <h3>Aloni Zyro Meubelset</h3>
-                    <span class="product-slide-price">€114.99</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902278742393:1?channel=buy_button" target="_blank" class="product-slide-btn">Voeg toe aan winkelwagen</a>
-                </div>
-                
-                <div class="product-slide-card">
-                    <img src="final/pollyfillainstant.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Polyfilla Instant">
-                    <h3>Polyfilla Instant Vuller</h3>
-                    <span class="product-slide-price">€8.95</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56902416859513:1?channel=buy_button" target="_blank" class="product-slide-btn">Voeg toe aan winkelwagen</a>
-                </div>
-
-                <div class="product-slide-card">
-                    <img src="final/loctite20g.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/e36c33?text=Foto+Onderweg';" alt="Loctite 60sec">
-                    <h3>Loctite 60sec Universeel</h3>
-                    <span class="product-slide-price">€9.95</span>
-                    <a href="https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button" target="_blank" class="product-slide-btn">Voeg toe aan winkelwagen</a>
-                </div>
-
+                <span class="unit-price">59 Wasbeurten (€ 3,22 / L)</span>
+                <div class="promo-btn">Ontdek Details & Bestel</div>
             </div>
         </div>
     </section>
@@ -676,7 +640,7 @@
                     <i class="fas fa-phone-alt" style="color: var(--mario-orange);"></i> 0479/93.58.48
                 </p>
                 <p style="color: #9CA3AF; font-size: 12px; font-weight: 300; margin-top: 20px; opacity: 0.7;">
-                    BTW: BE0801.817.836
+                    TMK BV - BTW: BE0801.817.836
                 </p>
             </div>
 
@@ -728,7 +692,7 @@
         </div>
     </div>
 
-    <div class="modal-overlay" id="teaserModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 5, 0.9); z-index: 100000; backdrop-filter: blur(10px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;">
+    <div class="modal-overlay" id="teaserModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 5, 5, 0.95); z-index: 100000; backdrop-filter: blur(10px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;">
         <div class="modal-content teaser-modal-content" style="background: white; width: 90%; max-width: 900px; border-radius: 8px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); display: flex; position: relative; overflow: hidden; transform: translateY(30px); transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);">
             <span class="modal-close" onclick="closeTeaserModal()" style="position: absolute; top: 20px; right: 25px; font-size: 35px; color: var(--mario-grey); cursor: pointer; z-index: 10; line-height: 1; transition: 0.3s;">×</span>
             
@@ -737,23 +701,24 @@
             </div>
             
             <div style="flex: 1.2; padding: 50px 40px; display: flex; flex-direction: column; overflow-y: auto;">
-                <span style="font-size: 11px; color: var(--mario-navy); background: transparent; border: 1px solid var(--mario-border); padding: 8px 15px; border-radius: 4px; font-weight: 700; text-transform: uppercase; align-self: flex-start; margin-bottom: 20px; letter-spacing: 2px;">PRE-ORDER SNEAK PEEK</span>
+                <span style="font-size: 11px; color: white; background: #EF4444; border: 1px solid #EF4444; padding: 8px 15px; border-radius: 4px; font-weight: 700; text-transform: uppercase; align-self: flex-start; margin-bottom: 20px; letter-spacing: 2px;">OP = OP PROMO</span>
                 <h2 id="teaserModalTitle" style="font-size: 26px; font-weight: 300; color: var(--mario-navy); line-height: 1.3; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;"></h2>
                 
                 <div style="display: flex; align-items: flex-end; gap: 15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--mario-border);">
-                    <div id="teaserModalPrice" style="font-size: 32px; font-weight: 300; color: var(--mario-orange); line-height: 1;"></div>
+                    <div id="teaserModalPrice" style="font-size: 32px; font-weight: 700; color: var(--mario-orange); line-height: 1;"></div>
+                    <span id="teaserModalUnit" style="font-size: 14px; color: var(--mario-grey); margin-bottom: 5px;"></span>
                 </div>
 
                 <p id="teaserModalDesc" style="font-size: 15px; color: var(--mario-grey); font-weight: 300; line-height: 1.8; margin-bottom: 30px;"></p>
                 
-                <div style="background: white; padding: 25px; border-radius: 4px; border: 1px solid var(--mario-border); margin-bottom: 30px;">
-                    <h4 style="color: var(--mario-navy); margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 12px;">Product Details</h4>
-                    <ul id="teaserModalSpecs" style="list-style: none; color: var(--mario-grey); font-size: 14px; font-weight: 300;"></ul>
+                <div style="background: var(--mario-light); padding: 25px; border-radius: 4px; border: 1px solid var(--mario-border); margin-bottom: 30px;">
+                    <h4 style="color: var(--mario-navy); margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 12px;">Specificaties</h4>
+                    <ul id="teaserModalSpecs" style="list-style: none; color: var(--mario-navy); font-size: 13px; font-weight: 500;"></ul>
                 </div>
 
-                <button style="background: transparent; color: var(--mario-grey); border: 1px solid var(--mario-border); padding: 18px; border-radius: 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: not-allowed; width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px;">
-                    <i class="fas fa-calendar-alt"></i> Beschikbaar vanaf 02/04/2026
-                </button>
+                <a id="teaserModalCheckout" href="#" style="background: #166534; color: white; text-decoration: none; border: 1px solid #166534; padding: 18px; border-radius: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; transition: 0.3s;">
+                    <i class="fas fa-shopping-cart"></i> Nu Veilig Afrekenen
+                </a>
             </div>
         </div>
     </div>
@@ -797,7 +762,7 @@
         // Cookie Banner Logic
         const cookieBanner = document.getElementById('cookieBanner');
         if (!localStorage.getItem('mario_cookies_accepted')) {
-            setTimeout(() => { cookieBanner.classList.add('show'); }, 1500); // Schuift na 1.5s omhoog
+            setTimeout(() => { cookieBanner.classList.add('show'); }, 1500);
         }
         document.getElementById('acceptCookies').addEventListener('click', () => {
             localStorage.setItem('mario_cookies_accepted', 'true');
@@ -818,29 +783,25 @@
         function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
         setInterval(nextSlide, 3500); 
 
-        const productSlider = document.getElementById('marioProductSlider');
-        setInterval(() => {
-            if (productSlider.scrollLeft + productSlider.clientWidth >= productSlider.scrollWidth) {
-                productSlider.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                productSlider.scrollBy({ left: 270, behavior: 'smooth' });
-            }
-        }, 4000);
-
+        // Promo Modal Logic
         const teaserData = {
-            'bbq': {
-                img: 'final/67029.jpg',
-                title: 'Prof Outdoor BBQ Houtskool (4KG)',
-                price: '€6.99',
-                desc: 'Bereid je voor op het warme weer! Deze premium kwaliteit houtskool zorgt voor een snelle ontbranding en een langdurige, constante hitte. Perfect voor de ultieme grill-ervaring in de tuin.',
-                specs: '<li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-navy); margin-right:12px;"></i> 100% Natuurlijk Houtskool</li><li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-navy); margin-right:12px;"></i> Inhoud: 4KG Premium Kwaliteit</li><li><i class="fas fa-check" style="color:var(--mario-navy); margin-right:12px;"></i> Langdurige en constante hitte</li>'
-            },
-            'dreft': {
+            'dreft_promo': {
                 img: 'final/dreftblack.jpg',
-                title: 'Dreft Dark & Black Wasmiddel',
-                price: '€4.99',
-                desc: 'De grote voorjaarsschoonmaak begint goed! Bescherm je donkere kleding tegen vervagen met Dreft Dark & Black. Verwijdert hardnekkige vlekken en houdt je zwarte kleding écht zwart.',
-                specs: '<li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-navy); margin-right:12px;"></i> Inhoud: 945 ml (21 Wasbeurten)</li><li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--mario-navy); margin-right:12px;"></i> Kleurbescherming voor zwarte was</li><li><i class="fas fa-check" style="color:var(--mario-navy); margin-right:12px;"></i> Zelfs effectief op lage temperaturen</li>'
+                title: 'Dreft Dark & Black (945ml)',
+                price: '€ 4.99',
+                unit: '(€ 5,28 / L)',
+                desc: 'Bescherm je donkere kleding tegen vervagen met Dreft Dark & Black. Verwijdert hardnekkige vlekken en houdt je zwarte kleding écht zwart, zelfs op lage temperaturen. Profiteer nu van onze exclusieve weekpromo!',
+                checkoutLink: 'https://tvbrqm-yf.myshopify.com/cart/57044231192953:1?channel=buy_button',
+                specs: '<li style="margin-bottom:8px; display:flex; justify-content:space-between;"><span><i class="fas fa-box" style="color:var(--mario-grey); margin-right:10px;"></i> Voorraad:</span> <strong>50+ Direct Leverbaar</strong></li><li style="margin-bottom:8px; display:flex; justify-content:space-between;"><span><i class="fas fa-barcode" style="color:var(--mario-grey); margin-right:10px;"></i> EAN:</span> <strong>8006540321234</strong></li><li style="margin-bottom:8px; display:flex; justify-content:space-between;"><span><i class="fas fa-hashtag" style="color:var(--mario-grey); margin-right:10px;"></i> Ref:</span> <strong>DRF-945-BLK</strong></li>'
+            },
+            'lenor_promo': {
+                img: 'final/lenor.jpg',
+                title: "Lenor L'Éclatante Wasverzachter",
+                price: '€ 3.99',
+                unit: '(€ 3,22 / L)',
+                desc: 'Geef uw kleding een luxueuze en langdurige frisheid met Lenor L\'Éclatante. Deze premium wasverzachter beschermt de vezels, voorkomt kleurvervaging en hult uw wasgoed in een exclusieve, stralende geur. Goed voor maar liefst 59 wasbeurten.',
+                checkoutLink: 'https://tvbrqm-yf.myshopify.com/cart/57044211728761:1?channel=buy_button',
+                specs: '<li style="margin-bottom:8px; display:flex; justify-content:space-between;"><span><i class="fas fa-box" style="color:var(--mario-grey); margin-right:10px;"></i> Voorraad:</span> <strong>64 Direct Leverbaar</strong></li><li style="margin-bottom:8px; display:flex; justify-content:space-between;"><span><i class="fas fa-barcode" style="color:var(--mario-grey); margin-right:10px;"></i> EAN:</span> <strong>8700216723749</strong></li><li style="margin-bottom:8px; display:flex; justify-content:space-between;"><span><i class="fas fa-hashtag" style="color:var(--mario-grey); margin-right:10px;"></i> Ref:</span> <strong>349901</strong></li>'
             }
         };
 
@@ -852,8 +813,10 @@
             document.getElementById('teaserModalImage').src = data.img;
             document.getElementById('teaserModalTitle').innerText = data.title;
             document.getElementById('teaserModalPrice').innerText = data.price;
+            document.getElementById('teaserModalUnit').innerText = data.unit;
             document.getElementById('teaserModalDesc').innerText = data.desc;
             document.getElementById('teaserModalSpecs').innerHTML = data.specs;
+            document.getElementById('teaserModalCheckout').href = data.checkoutLink;
             
             teaserModal.style.display = 'flex';
             setTimeout(() => {
@@ -876,6 +839,7 @@
             if(e.target === teaserModal) closeTeaserModal();
         });
 
+        // AI Scanner Logic
         const bigScannerBtn = document.getElementById('bigScannerBtn');
         const bigScannerInput = document.getElementById('bigScannerInput');
         const scannerLoading = document.getElementById('scannerLoading');
@@ -920,6 +884,7 @@
             reader.readAsDataURL(file);
         });
 
+        // Chatbot Logic
         const chatWindow = document.getElementById('chatWindow');
         document.getElementById('openChatBtn').addEventListener('click', () => chatWindow.classList.add('active'));
         document.getElementById('closeChatBtn').addEventListener('click', () => chatWindow.classList.remove('active'));
