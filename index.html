@@ -60,7 +60,7 @@
         .nav-links a:hover, .nav-links a.active { color: var(--mario-orange); }
 
         /* --- HERO SECTION - DEEP BLACK LUXURY --- */
-        .hero { position: relative; padding: 200px 5% 80px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); }
+        .hero { position: relative; padding: 200px 5% 80px; min-height: auto; display: flex; align-items: center; justify-content: center; background-color: var(--mario-navy); overflow: hidden;}
         
         /* BAKSTENEN PATROON - Fluisterzacht */
         .hero-bg { 
@@ -70,26 +70,33 @@
             background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23e36c33' fill-opacity='0.04'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             z-index: 1; 
         }
+
+        /* --- NEXT LEVEL 3D SWIPER STYLES --- */
+        .hero-3d-container { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; justify-content: space-between; max-width: 1400px; width: 100%; margin: 0 auto; position: relative; z-index: 3; }
+        .hero-text-side { flex: 1; min-width: 320px; padding: 20px; }
+        .hero-slider-side { flex: 1.2; min-width: 320px; width: 100%; overflow: hidden; padding-bottom: 40px; }
         
-        .hero-content { position: relative; z-index: 3; max-width: 1400px; width: 100%; display: flex; flex-wrap: wrap; gap: 50px; align-items: center; justify-content: center; }
+        .swiper-container { width: 100%; padding-top: 20px; padding-bottom: 50px; }
+        .swiper-slide { background-position: center; background-size: cover; width: 350px; height: 400px; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+        .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        
+        /* GSAP Start Statussen */
+        .gsap-reveal { opacity: 0; transform: translateY(40px); }
         
         /* PAKKETJES LOPENDE BAND - Strakker */
-        .parcel-wrapper { width: 100%; background: transparent; border-top: 1px solid rgba(227, 108, 51, 0.2); border-bottom: 1px solid rgba(227, 108, 51, 0.2); padding: 15px 0; overflow: hidden; margin-bottom: 20px; }
+        .parcel-wrapper { width: 100%; background: transparent; border-top: 1px solid rgba(227, 108, 51, 0.2); border-bottom: 1px solid rgba(227, 108, 51, 0.2); padding: 15px 0; overflow: hidden; margin-bottom: 20px; position: absolute; top: 120px; left: 0; z-index: 4; }
         .parcel-track { display: inline-flex; animation: scrollBanner 60s linear infinite; gap: 60px; padding: 0 40px; align-items: center; }
         .parcel-logo-box { height: 35px; width: auto; display: flex; align-items: center; justify-content: center; background: white; padding: 5px 15px; border-radius: 4px; transition: 0.3s; cursor: pointer; }
         .parcel-logo-box img { height: 100%; max-width: 120px; object-fit: contain; }
         .parcel-text { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--mario-orange); display: flex; align-items: center; gap: 15px; white-space: nowrap; }
         .parcel-text i { font-size: 16px; color: white; }
 
-        /* HERO KAART - Elegantie */
-        .hero-card { background: transparent; padding: 40px 20px; flex: 1.2; min-width: 320px; }
+        /* TYPOGRAFIE - SPHERE LOOK (Dun + Dik) */
         .card-inner { display: flex; gap: 20px; align-items: center; margin-bottom: 25px; }
         .card-logo { width: clamp(80px, 15vw, 100px); height: auto; object-fit: contain; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)); transform: scale(1.4); transform-origin: left center; }
-        
-        /* TYPOGRAFIE - SPHERE LOOK (Dun + Dik) */
         .hero-card-title { font-size: clamp(32px, 5vw, 56px); font-weight: 300; color: #ffffff; line-height: 1.1; margin: 0; letter-spacing: 1px; }
         .hero-card-title span { color: var(--mario-orange); font-weight: 700; }
-        .hero-card p { font-size: 16px; font-weight: 300; color: #9CA3AF; line-height: 1.8; margin-bottom: 40px; margin-top: 20px; max-width: 500px; letter-spacing: 0.5px; }
+        .hero-text-side p { font-size: 16px; font-weight: 300; color: #9CA3AF; line-height: 1.8; margin-bottom: 40px; margin-top: 20px; max-width: 500px; letter-spacing: 0.5px; }
         
         /* SPHERE BOUTIQUE BUTTONS */
         .btn-primary { 
@@ -103,12 +110,6 @@
             background: transparent; color: var(--mario-orange); 
             box-shadow: 0 0 20px rgba(227, 108, 51, 0.2);
         }
-        
-        /* SLIDER KAART - Sharp Edges */
-        .hero-slider-card { flex: 1; min-width: 320px; border-radius: 8px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); height: 400px; position: relative; }
-        .slider-wrapper { display: flex; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
-        .slide { width: 100%; height: 100%; flex-shrink: 0; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
 
         /* --- MERKEN LOPENDE BAND --- */
         .partner-wrapper { position: relative; z-index: 10; background: #ffffff; border-bottom: 1px solid var(--mario-border); padding: 30px 0; overflow: hidden; }
@@ -139,24 +140,7 @@
         .mario-banner-section { width: 100%; max-width: 1400px; margin: 0 auto 60px; padding: 0 5%; position: relative; z-index: 10; display: flex; justify-content: center; }
         .mario-banner-section img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--mario-border); transition: 0.4s; }
 
-        /* --- BINNENKORT BESCHIKBAAR (TEASER) --- */
-        .teaser-section { max-width: 1400px; margin: 0 auto 80px; padding: 0 5%; position: relative; z-index: 10; }
-        .teaser-header { text-align: center; margin-bottom: 50px; }
-        .teaser-badge { background: #000; color: white; font-weight: 600; font-size: 11px; padding: 8px 16px; border-radius: 2px; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
-        .teaser-header h2 { color: var(--mario-navy); font-size: clamp(28px, 4vw, 38px); font-weight: 300; text-transform: uppercase; letter-spacing: 1px; }
-        .teaser-header p { color: var(--mario-grey); font-size: 15px; font-weight: 400; margin-top: 10px; letter-spacing: 0.5px; }
-        
-        .teaser-grid { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
-        .teaser-card { background: white; border-radius: 8px; border: 1px solid var(--mario-border); padding: 40px 30px; width: 340px; text-align: center; cursor: pointer; transition: 0.4s ease; position: relative; }
-        .teaser-card:hover { transform: translateY(-5px); border-color: var(--mario-navy); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .teaser-card img { height: 200px; width: 100%; object-fit: contain; margin-bottom: 30px; mix-blend-mode: multiply; transition: 0.5s; }
-        .teaser-card:hover img { transform: scale(1.05); }
-        .teaser-card h3 { color: var(--mario-navy); font-size: 16px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; line-height: 1.4; letter-spacing: 1px; }
-        .teaser-card p { color: var(--mario-orange); font-size: 22px; font-weight: 300; margin-bottom: 25px; }
-        .teaser-btn { font-size: 12px; color: var(--mario-navy); font-weight: 600; background: transparent; border: 1px solid var(--mario-border); padding: 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .teaser-card:hover .teaser-btn { background: var(--mario-navy); color: white; border-color: var(--mario-navy); }
-
-        /* --- NIEUWE PROMO VAN DE WEEK (VERVANGT SLIDER) --- */
+        /* --- NIEUWE PROMO VAN DE WEEK --- */
         .promo-section { max-width: 1400px; margin: 60px auto; padding: 0 5%; position: relative; z-index: 10; }
         .promo-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; text-align: center; border-bottom: 1px solid var(--mario-border); padding-bottom: 20px; }
         .promo-header h2 { color: var(--mario-navy); font-size: clamp(28px, 4vw, 38px); font-weight: 300; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
@@ -319,19 +303,22 @@
             .header-logo-img { transform: scale(1.4); transform-origin: center; margin-bottom: 10px; }
             .nav-links { width: 100%; justify-content: center; gap: 20px; flex-wrap: wrap; }
             .hero { padding-top: 260px; padding-bottom: 60px; } 
-            .hero-card, .hero-slider-card { flex: none; width: 100%; padding: 20px 0; }
-            .hero-slider-card { height: 300px; }
+            
+            /* Mobiele Swiper fix */
+            .hero-3d-container { flex-direction: column; }
+            .hero-text-side { text-align: center; padding: 0; }
+            .card-inner { justify-content: center; }
+            .hero-slider-side { padding-bottom: 20px; overflow: hidden; width: 100vw; margin-left: -5%; }
+            .swiper-slide { width: 280px; height: 320px; }
+            
             .parcel-text { font-size: 11px; }
-            
             .trust-bar-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            
             .vip-container { flex-direction: column; padding: 0; border: none; }
             .vip-text { padding: 40px 20px; text-align: center; }
             .vip-buttons { justify-content: center; }
             .vip-text .btn-primary { width: 100%; }
             .vip-image { min-height: 300px; width: 100%; border-radius: 8px; }
             .vip-image::after { display: none; }
-            
             .chat-window { width: calc(100% - 40px); bottom: 85px; right: 20px; }
             .top-bar-left .top-bar-item:not(:first-child) { display: none; }
             .info-section { grid-template-columns: 1fr; }
@@ -374,43 +361,39 @@
 
     <section class="hero">
         <div class="hero-bg"></div>
-        <div class="hero-content">
-            
-            <div class="parcel-wrapper">
-                <div class="parcel-track">
-                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
-                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
-                    
-                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
-                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
-                    
-                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
-                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
-
-                    <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
-                    <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
-                </div>
+        
+        <div class="parcel-wrapper">
+            <div class="parcel-track">
+                <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
+                <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
+                <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
+                <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
+                <span class="parcel-text"><i class="fas fa-box-open"></i> Officieel PostNL Pakketpunt: Haal en breng je pakketjes eenvoudig bij ons. 7 dagen per week open!</span>
+                <div class="parcel-logo-box"><img src="final/postnllogo.jpg" onerror="this.src='https://placehold.co/200x80/ffffff/e36c33?text=PostNL';" alt="PostNL Punt"></div>
             </div>
+        </div>
 
-            <div class="hero-card">
-                <div class="card-inner">
+        <div class="hero-3d-container">
+            <div class="hero-text-side">
+                <div class="card-inner gsap-reveal">
                     <img src="final/mariotrans.png" onerror="this.onerror=null; this.src='final/logo10.png';" alt="Mario" class="card-logo">
                 </div>
-                <h1 class="hero-card-title">Vakmanschap &<br><span>Excellentie.</span></h1>
-                <p>Ontdek onze unieke collectie topmaterialen voor elke renovatie. Ervaar luxe design, deskundig advies en ongeëvenaarde service, direct uit voorraad in Berchem.</p>
-                <a href="#marioScanner" class="btn-primary">Fix Mijn Project</a>
+                <h1 class="hero-card-title gsap-reveal">Vakmanschap &<br><span>Excellentie.</span></h1>
+                <p class="gsap-reveal">Ontdek onze unieke collectie topmaterialen voor elke renovatie. Ervaar luxe design, deskundig advies en ongeëvenaarde service, direct uit voorraad in Berchem.</p>
+                <div class="gsap-reveal">
+                    <a href="#marioScanner" class="btn-primary" style="margin-top: 20px;">Fix Mijn Project</a>
+                </div>
             </div>
 
-            <div class="hero-slider-card">
-                <div class="slider-wrapper" id="slider">
-                    <div class="slide"><img src="final/winkel20.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/050505/ffffff?text=Winkel';" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel21.jpg" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel22.jpg" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel23.jpg" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel24.jpg" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel25.jpg" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel26.jpg" alt="Winkel"></div>
-                    <div class="slide"><img src="final/winkel27.jpg" alt="Winkel"></div>
+            <div class="hero-slider-side gsap-reveal">
+                <div class="swiper-container mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="final/winkel20.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/050505/ffffff?text=Winkel';" alt="Winkel 1"></div>
+                        <div class="swiper-slide"><img src="final/winkel21.jpg" alt="Winkel 2"></div>
+                        <div class="swiper-slide"><img src="final/winkel22.jpg" alt="Winkel 3"></div>
+                        <div class="swiper-slide"><img src="final/winkel23.jpg" alt="Winkel 4"></div>
+                        <div class="swiper-slide"><img src="final/winkel24.jpg" alt="Winkel 5"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -533,7 +516,7 @@
                 <p>Klaar voor de volgende stap? Maak een afspraak met onze experts in de showroom te Berchem. Wij ontwerpen samen uw plannen, berekenen de perfecte materialen en garanderen een feilloze uitvoering. De koffie staat klaar.</p>
                 
                 <div class="vip-buttons">
-                    <a href="https://wa.me/32479935848" class="btn-primary btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Advies via WhatsApp</a>
+                    <a href="https://wa.me/32470935848" class="btn-primary btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Advies via WhatsApp</a>
                     <a href="mailto:info@tmkdhz.be" class="btn-primary btn-email"><i class="fas fa-envelope"></i> Boek via Email</a>
                 </div>
                 
@@ -637,7 +620,7 @@
                     <i class="fas fa-envelope" style="color: var(--mario-orange);"></i> info@tmkdhz.be
                 </p>
                 <p style="color: #9CA3AF; font-size: 14px; font-weight: 300; display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-                    <i class="fas fa-phone-alt" style="color: var(--mario-orange);"></i> 0479/93.58.48
+                    <i class="fas fa-phone-alt" style="color: var(--mario-orange);"></i> 0470/93.58.48
                 </p>
                 <p style="color: #9CA3AF; font-size: 12px; font-weight: 300; margin-top: 20px; opacity: 0.7;">
                     TMK BV - BTW: BE0801.817.836
@@ -672,7 +655,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/32479935848" class="whatsapp-btn" target="_blank" title="Chat met ons op WhatsApp">
+    <a href="https://wa.me/32470935848" class="whatsapp-btn" target="_blank" title="Chat met ons op WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -758,6 +741,10 @@
         </div>
     </div>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <script>
         // Cookie Banner Logic
         const cookieBanner = document.getElementById('cookieBanner');
@@ -777,11 +764,6 @@
         const deel2 = 'FFhVdMTUCZMaq12xqyEho';
         const API_KEY = deel1 + deel2;
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
-
-        const slider = document.getElementById('slider');
-        let index = 0; const totalSlides = 8;
-        function nextSlide() { index = (index + 1) % totalSlides; slider.style.transform = `translateX(-${index * 100}%)`; }
-        setInterval(nextSlide, 3500); 
 
         // Promo Modal Logic
         const teaserData = {
@@ -978,6 +960,43 @@
         }
         sendChatBtn.addEventListener('click', handleUserMessage);
         chatInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleUserMessage(); });
+
+        // === NEXT LEVEL 3D SWIPER EN GSAP INIT ===
+        // window.onload zorgt ervoor dat de pagina EERST laadt, en dan pas de zware 3D start!
+        window.onload = function() {
+            
+            if(typeof Swiper !== 'undefined') {
+                var swiper = new Swiper(".mySwiper", {
+                    effect: "coverflow",
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: "auto",
+                    coverflowEffect: {
+                        rotate: 30,      
+                        stretch: 0,      
+                        depth: 200,      
+                        modifier: 1,     
+                        slideShadows: true, 
+                    },
+                    loop: true,
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }
+                });
+            }
+
+            if(typeof gsap !== 'undefined') {
+                gsap.to(".gsap-reveal", {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.2, 
+                    ease: "power3.out",
+                    delay: 0.2 
+                });
+            }
+        };
     </script>
 </body>
 </html>
