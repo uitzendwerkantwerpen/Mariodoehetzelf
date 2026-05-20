@@ -151,8 +151,8 @@
 
     .modal-right { flex: 1.2; padding: 50px 40px; display: flex; flex-direction: column; overflow-y: auto; }
     .modal-brand { font-size: 12px; color: white; background: var(--mario-navy); padding: 6px 15px; border-radius: 20px; font-weight: 900; text-transform: uppercase; align-self: flex-start; margin-bottom: 15px; letter-spacing: 1px; }
-    .modal-title { font-size: 28px; font-weight: 900; color: var(--mario-navy); line-height: 1.2; margin-bottom: 15px; }
-    
+    .modal-close:hover { color: #E30613; transform: rotate(90deg); }
+
     .modal-price-box { display: flex; align-items: flex-end; gap: 15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
     .modal-price { font-size: 38px; font-weight: 900; color: var(--mario-orange); line-height: 1; }
     .modal-old-price { font-size: 20px; color: #94A3B8; text-decoration: line-through; font-weight: 700; margin-bottom: 5px; }
@@ -245,17 +245,17 @@
         <img src="final/niko.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Niko](https://placehold.co/200x100/ffffff/e36c33?text=Niko)';" alt="Niko">
         <img src="final/stanley.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Stanley](https://placehold.co/200x100/ffffff/e36c33?text=Stanley)';" alt="Stanley">
         <img src="final/bobrush.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Bobrush](https://placehold.co/200x100/ffffff/e36c33?text=Bobrush)';" alt="Bobrush">
-        <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=HG](https://placehold.co/200x100/ffffff/e36c33?text=HG)';" alt="HG">
-        <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Versa](https://placehold.co/200x100/ffffff/e36c33?text=Versa)';" alt="Versa">
-        <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Loctite](https://placehold.co/200x100/ffffff/e36c33?text=Loctite)';" alt="Loctite">
-        <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Pattex](https://placehold.co/200x100/ffffff/e36c33?text=Pattex)';" alt="Pattex">
-        <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/200x100/ffffff/e36c33?text=Twilight](https://placehold.co/200x100/ffffff/e36c33?text=Twilight)';" alt="Twilight">
+        <img src="final/hg.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/400x300/f8fafc/e36c33?text=HG&font=Montserrat](https://placehold.co/400x300/f8fafc/e36c33?text=HG&font=Montserrat)';" alt="HG">
+        <img src="final/versa.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/400x300/f8fafc/e36c33?text=Versa&font=Montserrat](https://placehold.co/400x300/f8fafc/e36c33?text=Versa&font=Montserrat)';" alt="Versa">
+        <img src="final/loctite.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/400x300/f8fafc/e36c33?text=Loctite&font=Montserrat](https://placehold.co/400x300/f8fafc/e36c33?text=Loctite&font=Montserrat)';" alt="Loctite">
+        <img src="final/pattex.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/400x300/f8fafc/e36c33?text=Pattex&font=Montserrat](https://placehold.co/400x300/f8fafc/e36c33?text=Pattex&font=Montserrat)';" alt="Pattex">
+        <img src="final/twilight.jpg?v=1" onerror="this.onerror=null; this.src='[https://placehold.co/400x300/f8fafc/e36c33?text=Twilight&font=Montserrat](https://placehold.co/400x300/f8fafc/e36c33?text=Twilight&font=Montserrat)';" alt="Twilight">
     </div>
 </div>
 
 <section class="ai-fix-section">
     <h2><i class="fas fa-band-aid"></i> Iets gebroken? Hoe Fix Ik Het?</h2>
-    <p>Upload een foto van what er stuk is. Onze AI analyseert het probleem grondig en geeft je een professioneel stappenplan inclusief de juiste bestellink!</p>
+    <p>Upload een foto van wat er stuk is. Onze AI analyseert het probleem grondig en geeft je een professioneel stappenplan inclusief de juiste bestellink!</p>
     
     <input type="file" id="fixItInput" accept="image/*" style="display:none;">
     <button class="btn-ai-upload" id="fixItBtn">
@@ -404,7 +404,7 @@
                 </div>
                 <div class="hidden-data">
                     <span class="mod-brand">ELIZAN</span>
-                    <div class="mod-desc">Waarom elke avond een tablet wisselen als het ook makkelijk kan? Dit vernieuwde vloeibare systeem beschermt je slaapkamer gedurende maar liefst 45 nachten tegen vervelende muggenbeten. Compleet met apparaat and vulflesje.</div>
+                    <div class="mod-desc">Waarom elke avond een tablet wisselen als het ook makkelijk kan? Dit vernieuwde vloeibare systeem beschermt je slaapkamer gedurende maar liefst 45 nachten tegen vervelende muggenbeten. Compleet met apparaat en vulflesje.</div>
                     <span class="mod-oldprice"></span>
                     <ul class="mod-specs">
                         <li>Systeem: Apparaat + Vloeistof (Startset)</li>
@@ -515,7 +515,7 @@
             </div>
 
             <div class="product-card" data-brand="loctite" onclick="openModal(this)" data-buy-url="[https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button](https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button)">
-                <div class="product-img-box"><img src="final/loctite5g.jpg" onerror="this.onerror=null; this.src='final/loctite5g.jpg';" alt="Loctite Superlijm 5g"></div>
+                <div class="product-img-box"><img src="final/loctite5g.jpg" onerror="this.onerror=null; this.src='[https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g](https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g)';" alt="Loctite Superlijm 5g"></div>
                 <div class="product-info">
                     <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
                     <h3 class="product-title">Superlijm Universal (5g)</h3>
@@ -540,7 +540,7 @@
             </div>
 
             <div class="product-card" data-brand="loctite" onclick="openModal(this)" data-buy-url="[https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button](https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button)">
-                <div class="product-img-box"><img src="final/loctite20g.jpg" onerror="this.onerror=null; this.src='final/loctite20g.jpg';" alt="Loctite 60sec Superglue"></div>
+                <div class="product-img-box"><img src="final/loctite20g.jpg" onerror="this.onerror=null; this.src='[https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+20g](https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+20g)';" alt="Loctite 60sec Superglue"></div>
                 <div class="product-info">
                     <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
                     <h3 class="product-title">60 Sec. Superglue Universeel</h3>
@@ -604,7 +604,7 @@
                 </div>
                 <div class="hidden-data">
                     <span class="mod-brand">ALONI BY VERSA</span>
-                    <div class="mod-desc">De perfecte combinatie van modern design en ultiem gebruiksgemak. Dankzij de keramische schijven en soepele hendel stel je moeiteloos de water temperatuur af. Extra bescherming tegen slijtage.</div>
+                    <div class="mod-desc">De perfecte combinatie van modern design en ultiem gebruiksgemak. Dankzij de keramische schijven and soepele hendel stel je moeiteloos de water temperatuur af. Extra bescherming tegen slijtage.</div>
                     <span class="mod-oldprice">€59.00</span>
                     <ul class="mod-specs">
                         <li>Afwerking: Chroom</li>
