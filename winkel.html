@@ -151,8 +151,8 @@
 
     .modal-right { flex: 1.2; padding: 50px 40px; display: flex; flex-direction: column; overflow-y: auto; }
     .modal-brand { font-size: 12px; color: white; background: var(--mario-navy); padding: 6px 15px; border-radius: 20px; font-weight: 900; text-transform: uppercase; align-self: flex-start; margin-bottom: 15px; letter-spacing: 1px; }
-    .modal-close:hover { color: #E30613; transform: rotate(90deg); }
-
+    .modal-title { font-size: 28px; font-weight: 900; color: var(--mario-navy); line-height: 1.2; margin-bottom: 15px; }
+    
     .modal-price-box { display: flex; align-items: flex-end; gap: 15px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 2px solid var(--mario-border); }
     .modal-price { font-size: 38px; font-weight: 900; color: var(--mario-orange); line-height: 1; }
     .modal-old-price { font-size: 20px; color: #94A3B8; text-decoration: line-through; font-weight: 700; margin-bottom: 5px; }
@@ -174,9 +174,7 @@
     .footer-brand h3 { color: white; font-size: 28px; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; }
     .footer-brand h3 span { color: var(--mario-orange); }
     .footer-brand p { line-height: 1.8; margin-bottom: 25px; max-width: 350px; }
-    .social-icons { display: flex; gap: 15px; }
-    .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; transition: 0.3s; text-decoration: none; }
-    .social-icons a:hover { background: var(--mario-orange); transform: translateY(-3px); }
+    
     .footer-col h4 { color: white; font-size: 18px; text-transform: uppercase; font-weight: 800; margin-bottom: 25px; letter-spacing: 1px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 12px; }
@@ -515,7 +513,7 @@
             </div>
 
             <div class="product-card" data-brand="loctite" onclick="openModal(this)" data-buy-url="[https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button](https://tvbrqm-yf.myshopify.com/cart/56897328742777:1?channel=buy_button)">
-                <div class="product-img-box"><img src="final/loctite5g.jpg" onerror="this.onerror=null; this.src='[https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g](https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g)';" alt="Loctite Superlijm 5g"></div>
+                <div class="product-img-box"><img src="loctite5g.jpg" onerror="this.onerror=null; this.src='[https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g](https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+5g)';" alt="Loctite Superlijm 5g"></div>
                 <div class="product-info">
                     <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
                     <h3 class="product-title">Superlijm Universal (5g)</h3>
@@ -540,7 +538,7 @@
             </div>
 
             <div class="product-card" data-brand="loctite" onclick="openModal(this)" data-buy-url="[https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button](https://tvbrqm-yf.myshopify.com/cart/56897314259321:1?channel=buy_button)">
-                <div class="product-img-box"><img src="final/loctite20g.jpg" onerror="this.onerror=null; this.src='[https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+20g](https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+20g)';" alt="Loctite 60sec Superglue"></div>
+                <div class="product-img-box"><img src="loctite20g.jpg" onerror="this.onerror=null; this.src='[https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+20g](https://placehold.co/400x400/f8fafc/e36c33?text=Loctite+20g)';" alt="Loctite 60sec Superglue"></div>
                 <div class="product-info">
                     <span class="product-brand-tag" style="background: rgba(227, 108, 51, 0.1); color: var(--mario-orange); border-color: rgba(227, 108, 51, 0.2);">LOCTITE</span>
                     <h3 class="product-title">60 Sec. Superglue Universeel</h3>
@@ -604,7 +602,7 @@
                 </div>
                 <div class="hidden-data">
                     <span class="mod-brand">ALONI BY VERSA</span>
-                    <div class="mod-desc">De perfecte combinatie van modern design en ultiem gebruiksgemak. Dankzij de keramische schijven and soepele hendel stel je moeiteloos de water temperatuur af. Extra bescherming tegen slijtage.</div>
+                    <div class="mod-desc">De perfecte combinatie van modern design en ultiem gebruiksgemak. Dankzij de keramische schijven en soepele hendel stel je moeiteloos de water temperatuur af. Extra bescherming tegen slijtage.</div>
                     <span class="mod-oldprice">€59.00</span>
                     <ul class="mod-specs">
                         <li>Afwerking: Chroom</li>
@@ -762,11 +760,6 @@
         <div class="footer-brand">
             <h3>MARIO <span>DHZ</span></h3>
             <p>Jouw betrouwbare partner in Berchem voor alle doe-het-zelf projecten. Van professioneel advies door onze AI tot premium materialen direct uit voorraad.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-            </div>
         </div>
         <div class="footer-col">
             <h4>Navigatie</h4>
@@ -774,16 +767,15 @@
                 <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepagina</a></li>
                 <li><a href="winkel.html"><i class="fas fa-chevron-right"></i> De Winkel</a></li>
                 <li><a href="#"><i class="fas fa-chevron-right"></i> AI Klus-Scanner</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Verfmengmachine</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>Klantenservice</h4>
             <ul>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Retourneren</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Verzending & Levering</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Algemene Voorwaarden</a></li>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Privacybeleid</a></li>
+                <li><a href="/policies/refund-policy"><i class="fas fa-chevron-right"></i> Retourneren</a></li>
+                <li><a href="/policies/shipping-policy"><i class="fas fa-chevron-right"></i> Verzending & Levering</a></li>
+                <li><a href="/policies/terms-of-service"><i class="fas fa-chevron-right"></i> Algemene Voorwaarden</a></li>
+                <li><a href="/policies/privacy-policy"><i class="fas fa-chevron-right"></i> Privacybeleid</a></li>
             </ul>
         </div>
         <div class="footer-col">
